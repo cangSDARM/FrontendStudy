@@ -1,7 +1,7 @@
 import React from 'react' //必须要用. JSX需要
 
-// import { Componet } from 'react'
-//     表示加载Component包. 只需Compnoet即可, 而不是使用React.Compnoet
+// import { Component } from 'react'
+//     表示加载Component包. 只需Component即可, 而不是使用React.Component
 
 //GraphQL： 查询语言; 将数据提取到网站
 import { StaticQuery, graphql } from 'gatsby'
@@ -54,7 +54,7 @@ const Layout = ({ children }) => (
 */
 
 //标准写法
-class App extends Componet{
+class App extends Component{
   //构造函数
   constructor(props){
     //调用父类构造函数
@@ -70,6 +70,12 @@ class App extends Componet{
     //axios.get('xxx')
     //      .then((resources)=>{})  //接收成功
     //      .catch(()=>{})  //接收失败
+    //在thunk后：
+    //    const action = Ajax()
+    //    store.dispatch(action)  Ajax()被执行
+    //在saga后:
+    //    const action = Ajax()
+    //    store.dispatch(action)
     console.log("ajax数据通常在这里接收");
   }
   render(){
@@ -85,7 +91,7 @@ class App extends Componet{
           {/* {{ 表示里面是js或css的原生对象 }} */}
           className = 'input'   {/*React中, class使用className代替*/}
           value = {this.state.inputValue}   {/*使用存储的字段, 方法甚至注释: 需要加{}*/}
-          onChange = {this.fun.bind(this)}   {/*React的按键事件等和原生类似, 但命名封装为驼峰规则*/}
+          onChange = {this.fun}   {/*React的按键事件等和原生类似, 但命名封装为驼峰规则*/}
           dangerouslySetInnerHTML={{__html: this.state.inputValue}}   {/*不对html标签转义. 也不用在InnerHTML中填值*/}
           ref={(input)=>{ this.input = input }}   {/*ref引用.(尽量不用) 对该DOM结点标记一个引用. 参数为该结点*/}
         />
@@ -109,8 +115,9 @@ class App extends Componet{
   fun(e){  //e: 事件对象. 有ref时可用 this.xxx 替换 e.target
     //事件绑定时需要bind(this)才能在方法中调用this
     //通过bind(this, ...)来传递参数
-    //方法中无法直接对this.state赋值, 需要使用this.setState
 
+    //有Redux后, 使用action. 不要使用该内容(除非影响范围只有这个组件)
+    //方法中无法直接对this.state赋值, 需要使用this.setState
     //闭包
     const value = e.target.value;
     const list = [...this.state.list, this.state.inputValue]  //... 展开运算符. 相当于py的unzip()
@@ -128,12 +135,34 @@ class App extends Componet{
       const list = [...prevState.list]
       return {list}
     })
-
     /*this.setState((prevState)=>{})    可以接收前一次state状态*/
+
     console.log(e);
   }
 }
+export default Layout
+
+//React-redux写法. 推荐
+//不用 import Store 了
+import { connect } from 'react-redux'
 //扩展写法. lambda
 const App () => <div>Hello World</div>
-
-export default Layout
+const MapState2AppProps = (state)=>{
+  return{
+    inputValue: state.inputValue    //将自己的inputValue映射为state的inputValue
+    //使用 this.props.inputValue调用
+  }
+}
+const MapDispatch2AppProps = (dispatch)=>{
+  return{
+    fun(e){
+      //和上面的fun()一样效果
+      //调用: this.props.fun
+      //不需要bind(this)
+      const action = {type:"", value:1}
+      dispatch(action)
+    }
+  }
+}
+//连接映射方法和组件
+export default connect(MapState2App, MapDispatch2AppProps)(App)

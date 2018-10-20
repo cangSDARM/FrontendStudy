@@ -7,6 +7,11 @@ import Layout from "../componets/layout"
 //属性强校验
 import PropTypes from 'prop-types'
 
+//更好的redux
+import { Provider } from 'react-redux'
+//<Provider store={ Store }><Provider>
+//  使得子组件可以获取store
+
 // PWA progressvie web application
 //	   - 只要服务器支持https, 用户可以在不联网时访问以前的缓存
 //	   - 将原有data放在浏览器中
