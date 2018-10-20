@@ -1,0 +1,16 @@
+//PWA使用
+{
+	"name":"gatsby-starter-default",
+	"short_name":"starter",
+	"start_url":"/",
+	"background_color":"#663399",
+	"theme_color":"#663399",
+	"display":"minimal-ui",
+	"icons":[
+		{
+			"src":"icons/icon-384x384.png",
+			"sizes":"384x384",
+			"type":"image/png"
+		}
+	]
+}
