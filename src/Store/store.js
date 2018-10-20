@@ -1,7 +1,11 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import Reducer from './reducer'
+import Thunk from 'redux-thunk'		//自己下
 
-const store = createStore(Reducer);   //创建存储空间
+const store = createStore(
+	Reducer,
+	applyMiddleware([Thunk])		//使用中间件
+);   //创建存储空间
 export default store;
 
 /************在组件里
