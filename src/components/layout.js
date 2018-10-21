@@ -83,6 +83,7 @@ class App extends Component{
     //可以将render函数和其它函数拆分为父子两个组件
     //    父控制逻辑, 子显示UI
     //    此时子组件就是无状态组件: const child = (props) => {}
+    //    调用父组件传递的东西不用 this.props, 用 props
     //所有元素必须包括在一个标签里.
     //    或者使用 import { Fragment } form 'react', <Fragment></Fragment>来占位
     return (
