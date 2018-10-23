@@ -149,10 +149,10 @@ import { connect } from 'react-redux'
 //扩展写法. lambda
 const App () => <div>Hello World</div>
 const MapState2AppProps = (state)=>{
-  return{
+  return(
     inputValue: state.inputValue    //将自己的inputValue映射为state的inputValue
     //使用 this.props.inputValue调用
-  }
+  )
 }
 const MapDispatch2AppProps = (dispatch)=>{
   return{
@@ -162,7 +162,8 @@ const MapDispatch2AppProps = (dispatch)=>{
       //不需要bind(this)
       const action = {type:"", value:1}
       dispatch(action)
-    }
+    },
+    fun2(e){}
   }
 }
 //连接映射方法和组件
