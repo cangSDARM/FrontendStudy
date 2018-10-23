@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 //<Provider store={ Store }><Provider>
 //  使得子组件可以获取store
+//  里面必须只能用一个子元素包裹所有其它元素
 
 // PWA progressvie web application
 //	   - 只要服务器支持https, 用户可以在不联网时访问以前的缓存
@@ -19,7 +20,7 @@ import { Provider } from 'react-redux'
 //import registerServiceWorker from './registerServiceWorker'
 
 //父
-class In extends React.Componet{
+class In extends React.Component{
   render(){
     return (
       <Index
@@ -33,7 +34,7 @@ class In extends React.Componet{
 }
 
 //子
-class Index extends React.Componet{
+class Index extends React.Component{
 	render(){
     const { content } = this.props;   /*和下面等价*/
     return (
