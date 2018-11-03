@@ -6,6 +6,7 @@
 + 简化JS脚本的相互引用, 简化管理
 + 常用脚手架: webpack/grunt/gulp
 ### **Gatsby**(需要node.js)
++ 推荐不用(这玩意天天更新. 小心哪天给你重构了)
 + 用于快速搭建网页
 + 内置webpack开箱即用
 >#### Gatsby初始化
@@ -33,7 +34,7 @@
 + 在React遍历节点时需要key, 便可以特定比较      
 + （类似于GC的逻辑)
 ### All in js
-+ 可以在js中导入css: `import "/css.css"`
++ 可以在js中导入css: `import "/css.css"`, 但不推荐
 + JSX语法
 + 只要数据变化, 相应的页面也会变化
 ### Ajax

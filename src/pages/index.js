@@ -4,6 +4,9 @@ import React from "react"
 */
 import Layout from "../componets/layout"
 
+// improt 用default导出的组件时，
+// 应为import 类名 from “./…js”
+
 //属性强校验
 import PropTypes from 'prop-types'
 

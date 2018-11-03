@@ -29,3 +29,13 @@ export default (prestate = defaultState, action) => {
       return prestate;
   }
 }
+
+//整合reducers
+import { combineReducers } from 'redux'
+
+const Reducer = combineReducers({
+  reducerA: A,
+  reducerB: B
+})
+export default Reducer;
+//整合后调用需要增加: state.reducerA.数据
