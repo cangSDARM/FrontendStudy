@@ -23,5 +23,40 @@
 > str: 被模板字符串内${}切割的字符串<br/>
 > ...values: 所有的${}
 + 变长参数
-> ...args<br/>
-> args是一个数组, 里面就是所有的参数
+> ECS6: function(...args){}<br/>
+> ECS5: function(){ arguments }<br/>
+> args是一个数组, arguments是一个Object
++ 对象结构
+> const { age, name } = Tom<br/>
+> let age, name; ({ age, name } = Tom )<br/>
+> 这相当于: age = Tom.age; name = Tom.name<br/>
+> 需要变量和属性名字相同<br/>
+> 可以重命名: { name: Name } = Tom. 重命名为Name<br/>
+> 未定义时默认值: { name = 'Tom' } = Tom
++ 数组结构
+> const [zero, , two] = Array<br/>
+> 支持: ...other. 但只能是最后一个<br/>
+> 未定义时默认值: [zero=1] = Array
++ 简化赋值
+> ECS6: 已知: name. Person = { name, age(){}, [name++]: name }<br/>
+> ECS5: 已知: name, names. Person = { name: name, age:function(){}, name1: name }
++ Promise
+> const p = new Promise((reslove, reject)=>{ })<br/>
+> p.then(data=>{}).catch(err=>{})<br/>
+> reslove: 成功时调用, then捕获. reject: 失败时调用, catch捕获<br/>
+> 异步
++ Symbol
+> const p = Symbol('p')<br/>
+> 不可遍历, 唯一不重复
++ 模块
+> export default Code<br/>
+> 默认导出. 一个模块只有一个<br/>
+> 使用 import XX from XXX 导入. XX自定义<br/>
+> export const(let) Value<br/>
+> 使用 import { Value } from XXX 导入. Value不可变<br/>
+> 可以导出 function, 变量等<br/>
+> 多变量导出: export { value1, value2, ...}
++ 类
+> 静态函数: static func(){}<br/>
+> set函数: set func(){}. 同C#的set<br/>
+> get函数: get func(){}. 同C#的get
