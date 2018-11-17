@@ -18,6 +18,7 @@
 > 快捷拼接字符串, 可以是变量, 对象或函数<br/>
 > 可以嵌套
 + 标签模板字符串
+> 使用指定函数来处理模板字符串<br/>
 > func\`temp\`<br/>
 > func需定义为: function func(str, ...valus)<br/>
 > str: 被模板字符串内${}切割的字符串<br/>
@@ -34,6 +35,7 @@
 > 可以重命名: { name: Name } = Tom. 重命名为Name<br/>
 > 未定义时默认值: { name = 'Tom' } = Tom
 + 数组结构
+> 快速拆解数组<br/>
 > const [zero, , two] = Array<br/>
 > 支持: ...other. 但只能是最后一个<br/>
 > 未定义时默认值: [zero=1] = Array
@@ -44,6 +46,7 @@
 > const p = new Promise((reslove, reject)=>{ })<br/>
 > p.then(data=>{}).catch(err=>{})<br/>
 > reslove: 成功时调用, then捕获. reject: 失败时调用, catch捕获<br/>
+> then可以返回一个Promise, 来链式调用<br/>
 > 异步
 + Symbol
 > const p = Symbol('p')<br/>
@@ -57,6 +60,15 @@
 > 可以导出 function, 变量等<br/>
 > 多变量导出: export { value1, value2, ...}
 + 类
+> 继承: class A extends B { constructor(a,b){ super(a); }}<br/>
+> 重写父类方法不需要任何关键字<br/>
 > 静态函数: static func(){}<br/>
 > set函数: set func(){}. 同C#的set<br/>
 > get函数: get func(){}. 同C#的get
++ 生成器(协程)
+> function* func(){ const a = yield ""; }<br/>
+> const gene = func()<br/>
+> gene.next(A)  调用. 之后a=A
++ Proxy代理
+> const proxy = new Proxy(target, hander)<br/>
+> 使用hander对象重写target的元方法.
