@@ -1,10 +1,23 @@
 # ECS6
 
-+ 变量
++ 变量修饰符
 > var 可以重新声明(最小: function)<br/>
 > let 局部(最小: block)<br/>
 > const 对象属性可变, 对象不可变(最小: block)<br/>
 > const A = Object.freeze(obj). 彻底不可变
++ 集合Set
+> 同 python的Set<br/>
+> const set = new Set();<br/>
+> set.add(); set.has(); set.delate(); set.clear()
++ 弱引用WeakSet
+> 类似集合, 但有其它要求<br/>
+> 集合内容只能是对象<br/>
+> 不能使用for迭代(of, each)<br/>
+> 对象删除后, 自动删除其引用
++ Map
+> 键值对. js的字典<br/>
+> key在一个Map中可以不同<br/>
+> map.set(); map.get(key); map.size(); map.has(); map.delate(); map.clear()
 + lambda函数
 > () => { }<br/>
 > 隐式返回 ()=> 2; //返回2<br/>
@@ -71,4 +84,5 @@
 > gene.next(A)  调用. 之后a=A
 + Proxy代理
 > const proxy = new Proxy(target, hander)<br/>
-> 使用hander对象重写target的元方法.
+> 使用hander对象限定target的访问和重写其元方法.<br/>
+> 通常: const hander = { set(target, key, value){ const target[key]=value; } get{ return target[key] } }
