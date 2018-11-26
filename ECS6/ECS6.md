@@ -15,9 +15,13 @@
 > 不能使用for迭代(of, each)<br/>
 > 对象删除后, 自动删除其引用
 + Map
-> 键值对. js的字典<br/>
 > key在一个Map中可以不同<br/>
-> map.set(); map.get(key); map.size(); map.has(); map.delate(); map.clear()
+> map.set(key, value);  //更新添加都用它<br/> 
+> map.get(key); map.size(); map.has(); map.delate(); map.clear()
++ WakeMap
+> key只能是对象<br/>
+> 无size, 不能循环迭代<br/>
+> 对象删除后, 自动删除其引用
 + lambda函数
 > () => { }<br/>
 > 隐式返回 ()=> 2; //返回2<br/>
