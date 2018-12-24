@@ -64,6 +64,7 @@ class App extends Component{
     this.state = Store.getState();  //通过Store获取数据. 其它一样
     Store.subscribe();    //订阅Store的变化
     this.fun = this.fun.bind(this)  //推荐通过在构造函数中绑定对象
+
   }
   componentDidMount(){
     //ajax模块: import 'axios'. (得自己下)
@@ -111,6 +112,11 @@ class App extends Component{
         return <li key={item}>{item}</li>
       })
     )
+  }
+  //自定义方法
+  fun1 = ()=>{
+    //这种可以不用 bind(this), 直接调用
+    //推荐
   }
   //自定义方法
   fun(e){  //e: 事件对象. 有ref时可用 this.xxx 替换 e.target
