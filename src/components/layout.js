@@ -11,48 +11,6 @@ import { CSSTransition } from 'react-transition-group'
 
 import Store from './store/store.js'
 
-/*
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
-          {children}
-        </div>
-      </>
-    )}
-  />
-)
-*/
-
 //标准写法
 class App extends Component{
   //构造函数
@@ -90,10 +48,11 @@ class App extends Component{
     return (
       <div>
         <input
-          {/* {{ 表示里面是js或css的原生对象 }} */}
+          {/* { 表示里面是js或css的原生对象 } */}
           className = 'input'   {/*React中, class使用className代替*/}
           value = {this.state.inputValue}   {/*使用存储的字段, 方法甚至注释: 需要加{}*/}
           onChange = {this.fun}   {/*React的按键事件等和原生类似, 但命名封装为驼峰规则*/}
+          {/*绑定事件需要传参时: onChange={()=>this.fun(参数)} */}
           dangerouslySetInnerHTML={{__html: this.state.inputValue}}   {/*不对html标签转义. 也不用在InnerHTML中填值*/}
           ref={(input)=>{ this.input = input }}   {/*ref引用.(尽量不用) 对该DOM结点标记一个引用. 参数为该结点*/}
         />
@@ -113,10 +72,17 @@ class App extends Component{
       })
     )
   }
-  //自定义方法
-  fun1 = ()=>{
+  //自定义方法 //推荐写法
+  fun1 = (value)=>{
     //这种可以不用 bind(this), 直接调用
-    //推荐
+
+    //[value]: 动态属性设置.
+    //setState: 不需要Callback的写法
+    this.setState({
+      [value]: true,
+    })
+
+    //obj.fun 等价于 obj['fun']
   }
   //自定义方法
   fun(e){  //e: 事件对象. 有ref时可用 this.xxx 替换 e.target
@@ -127,7 +93,7 @@ class App extends Component{
     //方法中无法直接对this.state赋值, 需要使用this.setState
     //闭包
     const value = e.target.value;
-    const list = [...this.state.list, this.state.inputValue]  //... 展开运算符. 相当于py的unzip()
+    const list = [...this.state.list, this.state.inputValue]
     this.setState(()=>({    //异步函数. 有可能造成无法访问e.target的状况, 使用闭包解决
       inputValue: value,
       list: list
@@ -143,8 +109,6 @@ class App extends Component{
       return {list}
     })
     /*this.setState((prevState)=>{})    可以接收前一次state状态*/
-
-    console.log(e);
   }
 }
 export default Layout

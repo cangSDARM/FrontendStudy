@@ -67,9 +67,3 @@ Index.defaultProps = {
 }
 
 export default () => <div>Hello world!</div>
-/*
-使用gatsby 直接export即可.
-而其它或许需要:
-	import ReactDOM
-	ReactDOM.render(<Layout />, doucment.getElementById('root'))
-*/

@@ -36,6 +36,11 @@ export const ComWrapper = styled.a.attrs({
 	.clildrenClass{		/*对所有子标签的相应class生效*/
 		float: left;
 	}
+
+	${props => props.primary && css`		/*<ComWrapper primary>标签的CSS*/
+	    background: palevioletred;
+	    color: white;
+	`}
 `;
 
 //使用: import { ComWrapper } from 'style.js'
