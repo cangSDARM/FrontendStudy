@@ -40,15 +40,19 @@ const Reducer = combineReducers({
 export default Reducer;
 //整合后调用需要增加: state.reducerA.数据
 
+import { combineReducers } from 'redux-immutable'
+// 可以将内部的reducer变为immutable的
 
 //immutable.js风格
 import { fromJS } from 'immutable'
-
 //只有store是immutable的.
 //内部的最好不要用!!!
 /**扩展内容
  *如果非要用：
- *    将fromJS换成: import { fromJS } from 'redux-immutable'
+ *    Set很麻烦: action(value){
+ *      type: xxx,
+ *      fromJS(value)
+ *    }
  *    Get也很麻烦: list[i]不行. 用: Nlist = list.toJS(); Nlist[i]
 */
 const sotre = fromJS({
