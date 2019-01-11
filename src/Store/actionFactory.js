@@ -1,16 +1,18 @@
 const ACTION_TYPE = "Action"	//定义action的各种type
 
 
-export const Action1 = (value) => ({
+export const Action1 = (value, key) => ({
 	type: ACTION_TYPE,		//Action的key. 区分不同的Action
-	value
+	value,
+	key	//可以有多个值. 不是一个Action只能变动一个value
 })
 
 //在thunk后才能有
 export const Ajax = () => {
 	return (dispatch)=>{				//异步操作
 		//ajax模块: import 'axios'. (得自己下)
-    //axios.get('xxx')
+	//	前端模拟时: 用 Mock 或者 public/api/list.json
+    //axios.get('/api/list.json')
     //      .then((resources)=>{
     //      	//依然得走action来操作store
     //      	const data = resources.data

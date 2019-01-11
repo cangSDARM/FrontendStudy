@@ -65,5 +65,3 @@ Index.defaultProps = {
   //设定默认值(没传给子组件时)
   text: 'Hello World'
 }
-
-export default () => <div>Hello world!</div>

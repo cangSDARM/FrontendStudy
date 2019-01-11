@@ -13,10 +13,6 @@
     + 在component中:
         + `const Header = () => <h1>This is a header.</h1>`
         + `export default Header`
-+ Gatsby内置组件
-    + Link(用于链接站点内的页面. 其它界面用a标签)
-        + `import { Link } from "gatsby"`
-        + `<LInk to="/page-2/">Go to page-2</Link>`
 ## 生命周期
 + `constructor`: 构造函数
 + `componentWillMount()`: 组件激活时调用
@@ -31,5 +27,4 @@
 + `componentWillUnmount()`: 组件失效时调用
 ## 注意
 + pages中也需要`export default xxx`
-+ 在gatsby中, `/src/pages/*.js` 文件将自动新建页面
 ## 入口文件: /pages/index.js

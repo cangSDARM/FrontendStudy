@@ -39,3 +39,40 @@ const Reducer = combineReducers({
 })
 export default Reducer;
 //整合后调用需要增加: state.reducerA.数据
+
+
+//immutable.js风格
+import { fromJS } from 'immutable'
+
+//只有store是immutable的.
+//内部的最好不要用!!!
+/**扩展内容
+ *如果非要用：
+ *    将fromJS换成: import { fromJS } from 'redux-immutable'
+ *    Get也很麻烦: list[i]不行. 用: Nlist = list.toJS(); Nlist[i]
+*/
+const sotre = fromJS({
+  list:
+  action: false
+})
+
+export default (state=store, action){
+  switch(action.type){
+    case 1:
+      return state.set('list', action.list)
+    case 2:
+      return state.merge({
+        list: action.list,
+        action: action.action
+      })
+  }
+}
+//Get
+import { connect } form 'react-redux' //支持状态组件和无状态组件
+const MapState = (state)=>{
+  return {
+    action: state.get('action')
+    list1: state.getIn(['list', 'a']) //Get the list.a
+  }
+}
+connect(MapState)(#Component);

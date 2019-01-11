@@ -26,5 +26,6 @@ import {Action1} 'actionFactory'
 store.getState();   获取数据
     action = Action1();	 绑定事件
 store.dispatch(action);   触发事件, 自动发送给store->reducer处理
-store.subscribe(func);  订阅Store的变化, 然后 this.setState(store.getState()) 触发render
+通常不用: store.subscribe(func);  订阅Store的变化, 然后 this.setState(store.getState()) 触发render
+用这个代替: improt { connect } from 'react-redux'
 */

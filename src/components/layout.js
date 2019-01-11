@@ -25,8 +25,10 @@ class App extends Component{
 
   }
   componentDidMount(){
-    //ajax模块: import 'axios'. (得自己下)
-    //axios.get('xxx')
+    //ajax模块: import axios from 'axios'. (得自己下)
+    //前端模拟时: 用 Mock 或者 public/api/list.json
+
+    //axios.get('/api/list.json')
     //      .then((resources)=>{})  //接收成功
     //      .catch(()=>{})  //接收失败
     //在thunk后：
