@@ -9,8 +9,8 @@
 + 推荐不用(这玩意天天更新. 小心哪天给你重构了)
 + 用于快速搭建网页
 >#### 初始化例子(React-create-app)
-> 1. npm install react-create-app
-> 2. react-create-app new app01 //新project
+> 1. npm install -g create-react-app
+> 2. create-react-app app01 //新project
 > 3. cd app01
 > 4. npm run //热更新后台服务. 地址: localhost:3000
 > 5. npm build //在`public`目录下构建生产环境用的一切静态资源、静态页面与js代码
@@ -28,7 +28,7 @@
 + 在React遍历节点时需要key, 便可以特定比较      
 + （类似于GC的逻辑)
 ### All in js
-+ 可以在js中导入css: `import "/css.css"`, 但不推荐
++ 可以在js中导入css: `import "/css.css"`, 但不推荐(这样导入的css是全局的, 需要在webpack中改)
 + JSX语法
 + 只要数据变化, 相应的页面也会变化
 ### Ajax
@@ -41,3 +41,8 @@
 + 用以优化和存储组件数据
 + 开辟公共空间来存储数据, 组件受其数据影响并更新
 + Redux的中间件是影响dispatch方法
+### React-Router
++ hash路由: url中, 以 #/ 开头的字串
++ 不会触发浏览器刷新操作, 但会给history中push一个url
++ 添加hash路由时, 不需要加 #, 但要加 /
++ 相关操作: window.onhashchange; window.location.hash

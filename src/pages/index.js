@@ -3,9 +3,11 @@ import React from "react"
 	- 组件名(Layout)必须以大写字母开头
 */
 import Layout from "../componets/layout"
-
 // improt 用default导出的组件时，
 // 应为import 类名 from “./…js”
+
+// @从src开始寻找路径
+import Layout from "@/componets/layout"
 
 //属性强校验
 import PropTypes from 'prop-types'
@@ -34,6 +36,27 @@ class In extends React.Component{
     )
   }
   fun(){}
+
+  /*
+    共享给所有子孙组件
+   */
+  //1. 父组件中定义 getChildContext, 返回一个共享数据
+  getChildContext(){
+    return{
+      color: 'red'
+    }
+  }
+  //2. 父组件启用属性校验，定义 static childContextTypes
+  static childContextTypes = {
+    color: PropTypes.string
+  }
+  //3. 在子组件中依然定义 static contextTypes 进行属性校验（必须）
+  static contextTypes = {
+    color: PropTypes.string
+  }
+  //4. 在子组件中调用
+  <div>{this.context.color}</div>
+  /******************************************************/
 }
 
 //子

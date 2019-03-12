@@ -21,8 +21,10 @@ class App extends Component{
     //只要数据变化, 相应的页面也会变化
     this.state = Store.getState();  //通过Store获取数据. 其它一样
     Store.subscribe();    //订阅Store的变化
-    this.fun = this.fun.bind(this)  //推荐通过在构造函数中绑定对象
 
+    //推荐通过在构造函数中绑定对象.
+    //bind除this以外，其它参数是调用时传参
+    this.fun = this.fun.bind(this, arg1, arg2)
   }
   componentDidMount(){
     //ajax模块: import axios from 'axios'. (得自己下)
@@ -52,6 +54,9 @@ class App extends Component{
         <input
           {/* { 表示里面是js或css的原生对象 } */}
           className = 'input'   {/*React中, class使用className代替*/}
+          {/*多class：
+            1.className={['1','2'].join(' ')]}
+            2.className={'1'+' 2'} */}
           value = {this.state.inputValue}   {/*使用存储的字段, 方法甚至注释: 需要加{}*/}
           onChange = {this.fun}   {/*React的按键事件等和原生类似, 但命名封装为驼峰规则*/}
           {/*绑定事件需要传参时: onChange={()=>this.fun(参数)} */}
