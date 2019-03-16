@@ -122,6 +122,7 @@ export default Layout
 
 //React-redux写法. 推荐
 //不用 import Store 了
+//支持状态组件和无状态组件
 import { connect } from 'react-redux'
 //扩展写法. lambda
 const App () => <div>Hello World</div>
@@ -139,8 +140,12 @@ const MapDispatch2AppProps = (dispatch)=>{
       //不需要bind(this)
       const action = {type:"", value:1}
       dispatch(action)
+
+      //在组件里传入指定的value：
+      const action = Action1(e.target)
+      dispatch(action)
     },
-    fun2(e){}
+    func2: (data)=> dispatch(Action1(data))
   }
 }
 //连接映射方法和组件

@@ -1,8 +1,10 @@
-import update from 'react/lib/update'
-//https://reactjs.org/docs/update.html
+import update from 'immutability-helper'
+//https://github.com/kolodny/immutability-helper
 //npm install immutability-helper --save
-//  const initialArray = [1, 2, 3];
-//  const newArray = update(initialArray, {$push: [4]}); // => [1, 2, 3, 4]
+
+import produce from 'immer'
+//https://www.npmjs.com/package/immer
+//npm install immer
 
 //默认数据
 const defaultState = {
@@ -19,19 +21,40 @@ const defaultState = {
 export default (prestate = defaultState, action) => {
   switch(action.type){
     case "x":
+      //使用update工具更新
+      //推荐
       return update(state, {
-        inputValue: {$set: action.inputValue}  //使用update工具更新(推荐)
+        inputValue: {$set: action.inputValue}
       });
+    case "xx":
+      return prodduce(state, draftState=>{
+        draftState.list = [1, 2, 3]
+      })
     case "xxx":
-      const state = JSON.parse(JSON.stringify(prestate)); //对state进行深拷贝
-      return state;
+      //assign(原数据, 新数据1, 新数据2 ...)
+      //不推荐
+      //https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+      return Object.assign({}, state, { list:
+        [1, 2]
+      })
+    case "xxxx":
+      //ES6, 解构赋值. 如果有list,就更改为下面的新list, 其它的不变
+      //不推荐
+      return {
+        ...state,
+        list: [1, 2, 3]
+      }
     default:
       return prestate;
   }
 }
+//***************************************************************
 
-//整合reducers
+//****************************************整合reducers
 import { combineReducers } from 'redux'
+
+// 可以将内部的reducer变为immutable的
+import { combineReducers } from 'redux-immutable'
 
 const Reducer = combineReducers({
   reducerA: A,
@@ -39,11 +62,26 @@ const Reducer = combineReducers({
 })
 export default Reducer;
 //整合后调用需要增加: state.reducerA.数据
+//***************************************************************
 
-import { combineReducers } from 'redux-immutable'
-// 可以将内部的reducer变为immutable的
+//*****************************************非immutable.js风格
+/connect 写在layout.js中, 从123行开始/
 
-//immutable.js风格
+//使用 bindActionCreators的
+//  只改变了Dispach
+import { bindActionCreators } from 'react-redux';
+const MapDispatch => (dispatch)=>{
+  return {
+    actions: bindActionCreators({
+      Action1,
+      Action2
+    }, dispatch),
+    //调用: this.props.actions.Action1(e.target)
+  }
+}
+//***************************************************************
+
+//*****************************************immutable.js风格
 import { fromJS } from 'immutable'
 //只有store是immutable的.
 //内部的最好不要用!!!
@@ -71,12 +109,11 @@ export default (state=store, action){
       })
   }
 }
-//Get
-import { connect } form 'react-redux' //支持状态组件和无状态组件
+//只改变了 State
 const MapState = (state)=>{
   return {
     action: state.get('action')
     list1: state.getIn(['list', 'a']) //Get the list.a
   }
 }
-connect(MapState)(#Component);
+//****************************************************************
