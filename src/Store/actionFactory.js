@@ -20,12 +20,15 @@ export const Ajax = (value, key) => {
 	}
 }
 //举例:
-//调用: store.dispatch(Axios).then(xx).catch(xx)
+//调用: Axios().then(xx).catch(xx)
 //	实际上store只能接受一个对象，
 // 	但这时store会自动执行下这个action函数，
 export const Axios = () =>{
-	return async (dispatch)=>{
-		const promise = new Promise((resolve, reject)=>{
+	return (dispatch)=>{
+		dispatch({
+			type: ACTION_TYPE
+		});
+		const promise = new Promise(async (resolve, reject)=>{
 			const doRequest = axios.get();
 			doRequest.then(
 				res => {

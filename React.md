@@ -42,7 +42,20 @@
 + 开辟公共空间来存储数据, 组件受其数据影响并更新
 + Redux的中间件是影响dispatch方法
 ### React-Router
-+ hash路由: url中, 以 #/ 开头的字串
+**Route可以写在任何位置**
+
++ hash路由(HashRouter): url中, 以 #/ 开头的字串
+    - 添加hash路由时, 不需要加 #, 但要加 /
++ 内存路由(MemoryRouter): 不会反映在url中, 状态在内存中
 + 不会触发浏览器刷新操作, 但会给history中push一个url
-+ 添加hash路由时, 不需要加 #, 但要加 /
 + 相关操作: window.onhashchange; window.location.hash
++ 核心组件:
+    - `<Route [exact] path="" component={}>`未加exact是非排他的
+    - `<Redirect to="">`重定向到
+    - `<Switch>`只显示第一个匹配到的路由
+    - `<Link to="">`链接
+    - `<NavLink activeClassName="xx" >`会添加当前选中状态
+    - `<Prompt when={} message="">`满足条件时提示用户是否离开当前页面
++ url参数:
+    - `<Route path="/:id&:top">`定义
+    - `this.props.match.params`获取
