@@ -43,6 +43,12 @@ class App extends Component{
   }
   render(){
     //return里是JSX
+    //    如果>16.x则:
+    //      return [
+    //        <li></li>
+    //        <li></li>
+    //      ]
+    //      是被允许的
     //可以将render函数和其它函数拆分为父子两个组件
     //    父控制逻辑, 子显示UI
     //    此时子组件就是无状态组件: const child = (props) => {}

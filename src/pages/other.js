@@ -70,6 +70,16 @@ const Button = (props)=>(
 )
 //****************************************************************
 
+//*************************************按需加载
+//
+import loadable from 'react-loadable';
+
+const PageLoad = loadable({
+	loader: ()=> import('./Index'),		//需要加载的组件
+	loading: ()=> <div>loading</div>,	//加载时显示的信息
+});
+//****************************************************************
+
 //*************************************React Portals
 // >=16.3
 // 将虚拟DOM映射到任何真实DOM节点
@@ -93,3 +103,29 @@ componentDidCatch(error, info){
 	console.error({error: info})
 }
 //****************************************************************
+
+//*************************************性能优化
+// 只有数据变化时, 才调用函数
+import { createSelector } from 'reselect';
+const item = data => data.items;	//所有需要监听的数据
+const dataSelector = createSelector(
+	item,
+	(item)=>{
+		//item 不变时, 返回缓存的数据
+		return data * 5;
+	}
+)
+//****************************************************************
+
+Time Slicing和Subspense
+	https://segmentfault.com/a/1190000013524698
+React16 Fiber架构
+	http://zxc0328.github.io/2017/09/28/react-16-source/
+React16 生命周期改动
+	https://juejin.im/post/5abf4a09f265da237719899d
+React 后期版本特性
+	https://www.reactjscn.com/blog/2018/10/23/react-v-16-6.html
+Suspense 和 Hooks
+	https://www.colabug.com/5397403.html
+React 各种Demo
+	https://codesandbox.io/search?query=React
