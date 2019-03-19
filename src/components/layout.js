@@ -132,13 +132,14 @@ export default Layout
 import { connect } from 'react-redux'
 //扩展写法. lambda
 const App () => <div>Hello World</div>
-const MapState2AppProps = (state)=>{
+const MapState2AppProps = (state, ownProps)=>{
+  //ownProps: 原有的props
   return{
     inputValue: state.inputValue    //将自己的inputValue映射为state的inputValue
     //使用 this.props.inputValue调用
   }
 }
-const MapDispatch2AppProps = (dispatch)=>{
+const MapDispatch2AppProps = (dispatch, ownProps)=>{
   return{
     fun(e){
       //和上面的fun()一样效果
@@ -156,3 +157,28 @@ const MapDispatch2AppProps = (dispatch)=>{
 }
 //连接映射方法和组件
 export default connect(MapState2App, MapDispatch2AppProps)(App)
+
+//简写
+export default connect(state=>({
+  inuptValue,
+}), {
+  ...action1,
+  /*
+  这样可以因为connect会自动dispatch类型为数据的参数.
+  这样最好使用同步组件, 而不是异步中间件(因为还没试)
+  action1 = {
+    begin(data={}){   //调用: this.props.begin(data)
+      return{
+        type: ACTION,
+        ...data
+      }
+    },
+    end(){            //调用: this.props.end(data)
+      return{
+        type: ACTION
+      }
+    }
+  }
+  */
+  ...action2,   //类似于action1的结构
+})(App)
