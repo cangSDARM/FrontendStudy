@@ -35,3 +35,23 @@ module.exports = {
 		}
 	}
 }
+
+添加jq支持:
+plguins:[
+	//ProvidePlugin可以自动加载模块, 无需import或require
+	new webpack.ProvidePlugin({
+		$:"jquery",
+		jQuery: "jquery",
+		"window.jQuery": "jquery",
+	})
+]
+resolve:{
+	alias:{
+		jquery: "jquery"
+	}
+}
+entry:{
+	vendor:[
+		"jquery"
+	]
+}
