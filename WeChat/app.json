@@ -1,0 +1,29 @@
+/*可以配置包括:
+	小程序所有页面路径,
+	界面表现,
+	网络,
+	底部tab
+*/
+{
+	"pages": [
+		/*启动时, 加载第一项*/
+		"pages/index/index",
+		"pages/logs/logs"
+	],
+	/*用于设置 状态栏, 导航条, 标题, 窗口背景色*/
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "wechat",
+		"navigationBarTextStyle": "black"
+	},
+	/*若客户端窗口的底部或顶部有 tab 栏可以切换页面,
+	可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面*/
+	"tabBar": {
+		"color": "#fff"
+	},
+	/*各类网络请求的超时时间，单位均为毫秒*/
+	"networkTimeout": {
+		"request": 6000
+	}
+}
