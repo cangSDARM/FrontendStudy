@@ -26,6 +26,10 @@ htmls://h5.ele.me/restapi/shopping/rest?latitude=31&longtitue=121
 + 使用#注释query
 + [参考](http://graphql.cn/code/)
 
+## Express实现
++ 使用中间件来拦截非法请求
++ 使用ConstrucingType来解构Schema, 便于维护
+
 ## Init
 + npm i express graphql express-graphql
 + nodemon main.js
