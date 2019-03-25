@@ -91,7 +91,7 @@ react.createProtal(
 )
 //****************************************************************
 
-//*************************************React Portals
+//*************************************React Error Boundaries
 // >=16.x
 // 通过一个生命周期方法捕获子组件的所有异常
 // 只能捕获子组件的异常，而不能捕获自身出现的异常
@@ -102,6 +102,8 @@ componentDidCatch(error, info){
 	*@param info: 包含异常堆栈列表的对象
 	console.error({error: info})
 }
+详细参考:
+	https://blog.csdn.net/liwusen/article/details/78521006
 //****************************************************************
 
 //*************************************性能优化
@@ -129,3 +131,5 @@ Suspense 和 Hooks
 	https://www.colabug.com/5397403.html
 React 各种Demo
 	https://codesandbox.io/search?query=React
+JS 响应媒体查询
+	window.matchMedia('(min-width: 500px)').addListener(Callback)
