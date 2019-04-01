@@ -1,0 +1,32 @@
+/*
+	WXSS中:
+		不需要引入, 就可以直接在wxml中用
+		rpx:
+			规定所有屏幕宽度都为 750rpx
+			可以根据屏幕宽度自适应
+		目前支持的选择器:
+			.class	.intro	选择所有拥有 class="intro" 的组件
+			#id
+			view
+			view, checkbox
+			::after
+			::before
+ */
+
+/*导入时, 用相对路径*/
+@import "./xx.wxss";
+
+
+/*
+	内联样式:
+
+ 		<view style="color:{{color}};" />
+		<view class="normal_view" />
+ */
+
+@media (min-width: 480px) {
+  /* 仅在 480px 或更宽的屏幕上生效的样式规则 */
+  .my-class {
+    width: 200px;
+  }
+}

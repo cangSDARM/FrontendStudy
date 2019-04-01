@@ -1,0 +1,27 @@
+//微信的标签和事件对于原生HTML稍有不同, 使用时需要参考官网
+<!--pages/index/index.wxml-->
+
+<text id="" style="" class="" hidden="{{false}}"></text>
+
+<!--
+WXML中, wx:for和 map一个作用(可以map字典)
+	默认遍历变量为 item, 默认遍历下标为 index
+	改名: wx:for-item="", wx:for-index=""
+-->
+<view wx:for="{{array}}" wx:key="{{index}}">
+	{{item}}:{{index}}
+</view>
+
+<!--
+WXML中, wx:if和 if一个作用
+	来判断是否需要渲染该标签
+	还有 wx:elif 和 wx:else
+-->
+<checkbox wx:if="{{false}}"></checkbox>
+<checkbox wx:elif="{{false}}"></checkbox>
+<checkbox wx:else="{{true}}"></checkbox>
+
+<!--
+BLOCK: 和React.Fragment一个作用
+-->
+<block></block>

@@ -25,6 +25,6 @@
         util.js                     相关工具文件
     app.js                          全局的js, 类似于app.js
     app.json                        全局配置文件
-    app.wxss                        全局的样式文件
+    app.wxss                        全局的样式文件 | 会被具体页面的配置覆盖
     project.config.json             类似于package.json
 

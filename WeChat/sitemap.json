@@ -1,0 +1,17 @@
+//Wx 的路由配置
+
+{
+	"rules": [
+		{
+			"action": "allow",	//命中该规则的页面是否能被索引: "allow" || "disallow"
+			"page": "path/to/page",	//to
+			"params": ["a", "b"],	//参数: path/to/page?a=1&b=2
+			"matching": "exact",
+				//exact		页面的参数等于 params
+				//inclusive	页面参数包含 params
+				//exclusive	页面参数和 params 取反
+				//partial	页面参数是 params 一部分
+			"priority": 0,	//值越大则规则越早被匹配. 默认从上到下匹配
+		}
+	]
+}
