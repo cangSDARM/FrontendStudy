@@ -11,11 +11,17 @@
 			view, checkbox
 			::after
 			::before
+		支持flex模型
+		page==body
  */
 
 /*导入时, 用相对路径*/
 @import "./xx.wxss";
 
+/*
+	WXSS中不存在Background,
+	使用 <image></image> 替代
+ */
 
 /*
 	内联样式:
@@ -29,4 +35,17 @@
   .my-class {
     width: 200px;
   }
+}
+
+/*CSS 实现 字词超出(两排)界限显示...*/
+.title{
+	font-size: 28rpx;
+
+	display: -webkit-box;
+	overflow: hidden;
+	white-space: normal;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }

@@ -15,10 +15,17 @@ Page{
 //页面生命周期函数
 	//监听页面加载
 	onLoad: function(options){
-
+		let _thisPage = this;
+		//内置的发送请求
+		wx.request({
+			url: "",
+			success(res){
+				console.log("success callback", res);
+				this.setData({ msg });
+			}
+		})
 	},
 
-	//生命周期函数
 	//监听页面初次渲染完成
 	onReady: function(){
 
@@ -73,10 +80,15 @@ Page{
 	},
 
 //标签事件处理函数
-	//绑定: <view bindtap="viewTap">click me</view>
-	viewTap() {
+	//绑定点击事件: <view bindtap="viewTap">click me</view>
+	viewTap(e) {
 		//该页route
 		console.log(this.route)
+
+		//自定义参数:
+		//	data- 开头, 后面的便是索引
+		//	传入:<view bindtap="viewTap" data-index="{{index}}"></view>
+		console.log(e.target.dataset.index);
 
 		//和React的setState一个用处
 		this.setData({

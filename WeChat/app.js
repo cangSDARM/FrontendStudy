@@ -34,3 +34,7 @@ App({
 //导入:
 //	const common = require('common.js')
 //	common.sayHello
+
+
+//小程序 API 全局对象，用于承载小程序能力相关 API
+wx.canIUse()

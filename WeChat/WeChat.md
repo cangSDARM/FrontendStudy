@@ -28,3 +28,5 @@
     app.wxss                        全局的样式文件 | 会被具体页面的配置覆盖
     project.config.json             类似于package.json
 
+### 自定义组件
+> 一个组件类似于页面, 由 JSON/WXML/WXSS/JS四个文件组成

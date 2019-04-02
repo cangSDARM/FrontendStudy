@@ -13,6 +13,20 @@ WXML中, wx:for和 map一个作用(可以map字典)
 </view>
 
 <!--
+WXML的轮播图
+-->
+<swiper>
+	<swiper-item></swiper-item>
+	<swiper-item></swiper-item>
+	<swiper-item></swiper-item>
+</swiper>
+
+<!--
+WXML的Link
+-->
+<navigator></navigator>
+
+<!--
 WXML中, wx:if和 if一个作用
 	来判断是否需要渲染该标签
 	还有 wx:elif 和 wx:else

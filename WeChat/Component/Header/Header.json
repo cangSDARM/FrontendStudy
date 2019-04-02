@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents":{},
+
+  ///父组件向子组件传递另一组件(selectable)
+  ///使用:
+  ///	<selectable-group generic:selectable="custom-checkbox"/>
+  ///	则selectable变为custom-checkbox组件
+  "componentGenerics": {
+    "selectable": true
+  }
+}

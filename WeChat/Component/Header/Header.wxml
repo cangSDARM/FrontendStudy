@@ -1,0 +1,18 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view class="inner">
+  {{innerText}}
+</view>
+
+<!--
+插槽:
+	WXML的 child 组件引用
+-->
+<slot></slot>
+<!-- 多插槽 -->
+<slot name="before"></slot>
+<slot name="after"></slot>
+<!-- 使用 -->
+<Header>
+	<view slot="before"></view>
+	<view slot="after"></view>
+</Header>
