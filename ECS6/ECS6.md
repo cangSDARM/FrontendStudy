@@ -60,10 +60,11 @@
 > ECS6: 已知: name. Person = { name, age(){}, [name++]: name }<br/>
 > ECS5: 已知: name, names. Person = { name: name, age:function(){}, name1: name }
 + Promise
-> const p = new Promise((reslove, reject)=>{ })<br/>
+> const p = new Promise((reslove, reject)=>{ xx?resolve(data):reject(err) })<br/>
 > p.then(data=>{}).catch(err=>{})<br/>
 > reslove: 成功时调用, then捕获. reject: 失败时调用, catch捕获<br/>
 > then可以返回一个Promise, 来链式调用<br/>
+> 多个结束: let p = Promise.all([pa, pb]);<br/>
 > 异步
 + Symbol
 > const p = Symbol('p')<br/>
@@ -80,6 +81,7 @@
 > 继承: class A extends B { constructor(a,b){ super(a); }}<br/>
 > 重写父类方法不需要任何关键字<br/>
 > 静态函数: static func(){}<br/>
+> super对象在普通方法指向父类原型prototype, static方法中指向父类
 > set函数: set func(){}. 同C#的set<br/>
 > get函数: get func(){}. 同C#的get
 + 生成器(协程)
