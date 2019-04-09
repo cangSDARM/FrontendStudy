@@ -61,3 +61,5 @@
     - `this.props.match.params`获取
 + 和Redux一起使用url变化的时候, 如果要重新render, 必须要让组件绑定到router的store上
     - `router: state.router`
+
+[参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
