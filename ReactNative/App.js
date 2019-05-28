@@ -7,15 +7,48 @@ import {
 	Image
 } from 'react-native';
 
+//平台内容通过Platform获取
+//Platform.OS === "ios" ? "android"
 const instructions = Platform.select({
 	ios: 'Press Cmd+R to reload, \n'+
 		'Cmd+D or shake for dev menu',
 	android: 'Double tap R on your keyboard to reload, \n'+
 		'Shake or press menu button for dev menu',
 });
+//在style中:
+...Platform.select({
+  ios: {
+    backgroundColor: "red"
+  },
+  android: {
+    backgroundColor: "blue"
+  }
+})
+//在组件中:
+const Component = Platform.select({
+  ios: () => require("ComponentIOS"),
+  android: () => require("ComponentAndroid")
+})();
+//版本:
+//在 Android 上，Version属性是一个数字, 表示 Android 的 api level
+Platform.Version === 25
+//在 iOS 上，Version属性是-[UIDevice systemVersion]的返回值, 一个字符串
+parseInt(Platform.Version, 10);
+
+//特定平台代码:
+//定义:
+// BigButton.ios.js
+// BigButton.android.js
+// 然后去掉平台扩展名直接引用:
+import BigButton from './BigButton';
+// 将会自动根据平台导入
+
+//获取屏幕参数
+let screen = Dimensions.get('window');
 
 export default class App extends Component<{}>{
 	constructor(){
+		//生命周期都一样
 		super();
 
 		//依然使用state和setState来控制状态
@@ -43,6 +76,7 @@ export default class App extends Component<{}>{
 
 const styles = StyleSheet.create({
 	container: {
+		//撑满外层容器.(这里是整个屏幕)
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -53,6 +87,7 @@ const styles = StyleSheet.create({
 		color: '#333333'
 	},
 	add: {
+		//的尺寸都是无单位的, 表示的是与设备像素密度无关的逻辑像素点
 		fontSize: 2,
 	}
 })
