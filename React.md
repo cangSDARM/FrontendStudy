@@ -62,13 +62,11 @@
 + 和Redux一起使用url变化的时候, 如果要重新render, 必须要让组件绑定到router的store上
     - `router: state.router`
 
-<<<<<<< HEAD
 ## 各种存储方式
 |Cookie|localStorage|sessionStorage|redux|
 |:-:|:-:|:-:|:-:|
 |一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效|除非被清除，否则永久保存|仅在当前会话下有效，关闭页面后被清除|浏览网页过程中开辟的一块内存，刷新网页或者关闭网页，内存就会清除掉，用于整合散乱的组件数据|
 |4K左右|一般为5MB|一般为5MB|任意大小|
 |每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|
-=======
+
 [参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
->>>>>>> 4229da1567599e4250af264a9bd95bb7c9859f8b
