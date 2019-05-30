@@ -63,7 +63,11 @@
 > const p = new Promise((reslove, reject)=>{ xx?resolve(data):reject(err) })<br/>
 > p.then(data=>{}).catch(err=>{})<br/>
 > reslove: 成功时调用, then捕获. reject: 失败时调用, catch捕获<br/>
-> then可以返回一个Promise, 来链式调用<br/>
+> then接收一个回调函数，若传入非函数，则会忽略当前的then方法<br/>
+> then回调函数中会把上一个then中返回的值当做参数值供当前then方法调用<br/>
+> then方法执行完毕后需要返回一个新的值给下一个then调用(返回值默认undefined)<br/>
+> 每个then只可能使用前一个then的返回值<br/>
+> **因此一个Promise也能链式调用**<br/>
 > 多个结束: let p = Promise.all([pa, pb]);<br/>
 > 异步
 + Symbol
