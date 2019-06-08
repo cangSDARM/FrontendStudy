@@ -77,10 +77,19 @@
 > super对象在普通方法指向父类原型prototype, static方法中指向父类
 > set函数: set func(){}. 同C#的set<br/>
 > get函数: get func(){}. 同C#的get
-+ 生成器(协程)
-> function* func(){ const a = yield ""; }<br/>
-> const gene = func()<br/>
-> gene.next(A)  调用. 之后a=A
+
+#### Older type
+```js
+function Person(name, age){
+    Human.call(this, name);
+    this.age = age;
+}
+function Person.prototype = new Human();
+function Person.prototype.constructor = Person;
+Person.prototype.consoleName = function(){}
+
+var p = new Person("name", 1);
+```
 + Proxy代理
 > const proxy = new Proxy(target, hander)<br/>
 > 使用hander对象限定target的访问和重写其元方法.<br/>

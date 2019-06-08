@@ -1,4 +1,4 @@
-# Promise Async
+# Promise Async Generator
 
 ## Promise
 ### 两个内容：
@@ -68,7 +68,7 @@ async function getColumn(url) {
 > await 返回Promise的resolve的值<br/>
 > Async/Await 的错误需要自己增加判断逻辑，没有错误统一判断的API<br/>
 
-##### async 函数可以返回一个Promise，然后像Promise一样使用
+##### async 函数返回永远是一个Promise，然后像Promise一样使用
 ```js
 //版本2
 const getColumn = async (url) => {
@@ -111,4 +111,44 @@ async function show(){
     console.log(`zhihu column detail: ${zhihuColumn.detail}`)
     console.log(`baidu column detail: ${baiduColumn.detail}`)
 }
+```
+## 生成器(协程)
+```js
+function* func(){
+    const a = yield ""; 
+}
+const gene = func()
+let b = gene.next(A)  //调用
+let d = gene.next(B)    //调用. 之后a=A
+/* b = {value: "", done: false}
+ * d = {value: undefined, done: ture}
+ */
+```
+> next()函数总会返回一个带有value和done属性的对象<br/>
+> value为返回值，done则是一个Boolean，用来标识Generator是否还能继续提供返回值
+
+##### yield* 用来展开Generator迭代器
+```js
+function * gen1 () {
+  yield 1
+  yield* gen2()
+  yield 5
+}
+
+function * gen2 () {
+  yield 2
+  yield 3
+  yield 4
+  return 'won\'t be iterate'
+}
+
+for (let value of gen1()) {     //for-of循环Generator不会循环return语句
+  console.log(value)
+}
+/* > 1
+ * > 2
+ * > 3
+ * > 4
+ * > 5
+ */
 ```
