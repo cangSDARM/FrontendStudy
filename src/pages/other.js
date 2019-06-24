@@ -55,6 +55,18 @@ const Index = <Func>		{/*使用*/}
 </Func>
 //****************************************************************
 
+//*************************************Text Only Component
+//允许只返回纯字符串的组件
+//减少组件的层级嵌套
+const Compon = ({text}) => text.replace(".", ":");
+
+class App extends React.Component{
+	render(){
+		return <Compon text={"1. 2. 3."}/>
+	}
+}
+//****************************************************************
+
 //*************************************Context
 // 另一Context实现参考index.js
 // 这一种是组件包裹
@@ -85,7 +97,7 @@ const PageLoad = loadable({
 // 将虚拟DOM映射到任何真实DOM节点
 // 解决了漂浮层问题
 // 除了渲染位置不同外, 和其它组件相同
-react.createProtal(
+ReactDOM.createProtal(
 	this.Dialog(),		//虚拟节点
 	document.getElementById("Dialog-Wapper"),	//真实存在的DOM节点. 不能是React渲染出来的虚拟节点
 )
