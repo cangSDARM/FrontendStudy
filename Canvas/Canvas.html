@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+</head>
+<body>
+	<a href="http://www.hiwebgl.com/?p=42" target="_blank">WebGL</a>
+	<canvas id="canva" width="600px" height="400px">Here is canvas</canvas>
+</body>
+<script type="text/javascript">
+	// 生成Canvas的快照
+	function Flash(canva){
+		let imgURI = canva.toDataURL("image/png");
+
+		let ima = document.createElement("img");
+		ima.src = imgURI;
+		document.body.appendChild(ima);
+	}
+
+	//获取局部图像数据并修改
+	function ImgData(context){
+		let img = context.getImageData(0, 0, 100, 100);	//Location(x,y)+Size(x,y)
+		let data = img.data;
+		data[0] = data[1];	//将data[0]通道(red通道)改为data[1]通道(green通道)的值
+		img.data = data;
+		context.putImageData(img, 0, 0);	//放回去
+	}
+</script>
+<script type="text/javascript">
+	(function(){
+		var canva = document.querySelector("#canva");
+
+		//检测是否支持canvas
+		if(canva.getContext){
+			let context = canva.getContext("2d");	//2d坐标原点基于Canvas的左上角
+			//2d可以直接画: 矩形, 路径, 文本, 图像, 阴影, 渐变, Bool合成
+
+			context.strokeStyle = "#0444";	//描边颜色
+			context.fillStyle = "rgba(0, 0, 200, 0.5)";	//填充颜色
+			context.fillRect(30, 30, 50 , 50);	//Location(x,y)+Size(x,y)
+			context.strokeRect(10, 10, 40, 40);
+			context.clearRect(55, 55, 5, 5);
+
+			context.rotate(Math.PI);	//支持变换旋转等
+
+			context.save();	//将现在状态压入栈中
+			context.restore();	//从栈中弹出状态
+
+			window.context = context;
+		}
+	})()
+</script>
+</html>
