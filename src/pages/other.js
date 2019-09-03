@@ -83,7 +83,6 @@ const Button = (props)=>(
 //****************************************************************
 
 //*************************************按需加载
-//
 import loadable from 'react-loadable';
 
 const PageLoad = loadable({
@@ -120,6 +119,7 @@ componentDidCatch(error, info){
 
 //*************************************性能优化
 // 只有数据变化时, 才调用函数
+// 可以使用momorized函数代替(参考hooks)
 import { createSelector } from 'reselect';
 const item = data => data.items;	//所有需要监听的数据
 const dataSelector = createSelector(
@@ -129,6 +129,15 @@ const dataSelector = createSelector(
 		return data * 5;
 	}
 )
+
+//**************************************React.memo
+//^16.6.0
+// 类似于class形式的PureComponent, 内部实现了浅比较来优化function组件
+// 一个高阶组件
+const Comp = React.memo(function MyMemoComp(props){
+	/*only rerenders if props change*/
+})
+
 //****************************************************************
 
 Time Slicing和Subspense
@@ -139,8 +148,10 @@ React16 生命周期改动
 	https://juejin.im/post/5abf4a09f265da237719899d
 React 后期版本特性
 	https://www.reactjscn.com/blog/2018/10/23/react-v-16-6.html
-Suspense 和 Hooks
+Suspense
 	https://www.colabug.com/5397403.html
+React.lazy
+	https://www.reactjs.org/blog/2018/10/23/react-v-16-6.html
 React 各种Demo
 	https://codesandbox.io/search?query=React
 JS 响应媒体查询
