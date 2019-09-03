@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="rec/css.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>插画</title>
+<script>
+    window.onload = function(){
+     
+        var images = document.getElementsByTagName('img');
+        var pos = 0;
+        var len = images.length;
+         
+        setInterval(function(){
+         
+            images[pos].style.display = 'none';
+            pos = ++pos == len ? 0 : pos;
+            images[pos].style.display = 'inline';
+         
+        },1000);
+         
+    };
+</script>
+</head>
+<body background="rec/img/IwEe3zL.jpg" >
+	<div id="head">
+    	<div id="top">
+        	<ul class="nav">
+            	<li><a href="index.html">
+           	    恐惧开始</a></li>
+				<li>
+                	<a href="#">知识体系</a>
+                    <ul>
+						<li><a href="zs01.html">“书中书”</a></li>
+					</ul>
+                </li>
+                <li>
+                	<a href="#">众支配者</a>
+                   	<ul>
+						<li><a href="asts.html">阿撒托斯</a></li>
+						<li><a href="nylttp.html">奈亚拉托提普</a></li>
+                        <li><a href="sbngls.html">莎布·尼古拉丝</a></li>
+                        <li><a href="ygsts.html">犹格·索托斯</a></li>
+					</ul>
+                </li>
+                <li>
+                	<a href="#">衍生作品</a>
+                    <ul>
+						<li><a href="yx.html">游戏</a></li>
+						<li><a href="ch.html">插画</a></li>
+					</ul>
+                </li>
+                <li><a href="gy.html">关于作者</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="all">
+		<div id="body">
+        	<div style="width:968px;height:70px;float:left;background-color:#C9C"></div>
+        	<div style="width:968px;height:25px;float:left"></div>
+        	<div style="width:84px;height:600px;float:left;"></div>
+            <div id="tab">
+            	    <img src="rec/ch-img/4b166edc1ccf9016f16058dc00e81d85.jpg"/>
+    				<img src="rec/ch-img/63974530.jpg"/>
+   					<img src="rec/ch-img/1215505374fullres.jpg"/>
+                    <img src="rec/ch-img/b_1_q_0_p_0.jpg"/>
+                    <img src="rec/ch-img/cthulhu.jpg"/>
+                    <img src="rec/ch-img/Cthulhu-800.jpg"/>
+                    <img src="rec/ch-img/CTHULU.jpg"/>
+                    <img src="rec/ch-img/deep_one_stowaway___cthulhu_by_jubjubjedi-d3brvtw.jpg"/>
+                    <img src="rec/ch-img/f4dcc73891e43fc852dc1c48f1bb6b46.jpg"/>
+                    <img src="rec/ch-img/tumblr_inline_nww4ijMA8v1tdvuv6_1280.jpg"/>
+                    <img src="rec/ch-img/cthulhu_rises_op_here_keep_posting_desktop_1440x1080_hd-wallpaper-490462.jpg"/>
+                    <img src="rec/ch-img/983bd6219b42359682c8c3f9a490d24f.jpg"/>
+            </div>
+        	<div style="width:84px;height:600px;float:left;"></div>
+            <div style="width:968px;height:25px;float:left;"></div>
+        </div>
+        <div id="button">
+        	<img src="rec/img/coc_logo2.jpg">
+        </div>
+    </div>
+</body>
+</html>

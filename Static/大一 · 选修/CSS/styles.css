@@ -1,0 +1,298 @@
+*{
+	margin:0;
+	padding:0;
+}
+#hede{
+	top:0px;
+	position:fixed;
+	width:100%;
+	margin-left:auto;
+	background:#333;
+	height:60px;
+	z-index: 100000;
+}
+#hede h2{
+	font-size:24px;
+	left:50%;
+	margin-left:-500px;
+	padding:19px;
+	position:absolute;
+	color:#CCC;
+}
+#hede h1{
+	font-size:36px;
+	left:60%;
+	margin-left:-340px;
+	padding:8px;
+	position:absolute;
+	color:#CCC;
+}
+body{
+	color:#fff;
+	background: url('../img/bg.png') no-repeat center top #081219;
+	background-size:1600px 1000px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+ol,ul {
+	list-style:none;
+}
+#foot{
+	position:fixed;
+	width:100%;
+	margin-left:auto;
+	background:#333;
+	height:60px;
+	bottom:0;
+	z-index: 100000;
+	z-index:-1;
+}
+
+#foot h2{
+	font-size:20px;
+	font-weight:normal;
+	left:50%;
+	margin-left:-500px;
+	padding:20px;
+	position:absolute;
+	width:400px;
+	color:#0FF;
+}
+
+#foot h3{
+	font-size:22px;
+	font-weight:bold;
+	left:70%;
+	margin-left:-200px;
+	padding:19px;
+	position:absolute;
+	width:400px;
+	color:#B0B0B0;
+}
+
+.slideOutTip{
+	position:absolute;
+	padding:3px;
+	top:0;
+	left:0;
+	background-color:#111;
+	font-size:13px;
+	color:white;
+	overflow:hidden;
+	height:22px;
+}
+
+.slideOutTip:hover{
+	-moz-box-shadow:0 0 1px #999;
+	-webkit-box-shadow:0 0 1px #999;
+	box-shadow:0 0 1px #999;
+}
+
+.tipVisible{ cursor:pointer; height:22px; }
+
+.tipTitle{
+	float:left;
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	white-space:nowrap;
+	line-height:22px;
+	padding-right:5px;
+}
+
+.tipIcon{
+	width:20px;
+	height:20px;
+	float:left;
+	background-color:#61b035;
+	border:1px solid #70c244;
+	margin-right:8px;
+	
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px;
+}
+
+.green .tipIcon{ background-color:#61b035; border:1px solid #70c244; }
+.blue .tipIcon{ background-color:#1078C7; border:1px solid #1e82cd; }
+.red .tipIcon{ background-color:#CD3A12; border:1px solid #da421a; }
+.yellow .tipIcon{ background-color:#FF0; border:1px solid #FF1;}
+.other .tipIcon{ background-color:#004080; border:1px solid #0000C4}
+
+.plusIcon{
+	width:13px;
+	height:13px;
+	background:url('../img/plus.gif') no-repeat center center;
+	margin:4px;
+	
+	-webkit-transition: -webkit-transform 0.2s linear;
+	-moz-transition: -moz-transform 0.2s linear;
+	transition: transform 0.2s linear;
+}
+
+.slideOutTip.isOpened{ z-index:10000; }
+
+.slideOutTip.isOpened .plusIcon{
+	-moz-transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+
+
+.openLeft .tipIcon{
+	margin:0 0 0 8px;
+	float:right;
+}
+.openLeft .tipTitle{ float:right; padding:0 0 0 5px; }
+.openLeft .slideOutContent{ margin-top:22px; }
+.openLeft.openTop .slideOutContent{	margin-top:0; }
+
+.openRight .tipIcon{
+	margin:0 8px 0 0;
+	float:left;
+}
+.openRight .tipTitle{float:left; padding:0 5px 0 0; }
+.openRight .slideOutContent{ margin-top:22px; }
+.openRight.openButton .slideOutContent{ margin-bottom:0;}
+
+.slideOutContent{
+	display:none;
+	padding:10px;
+	font-size:11px;
+}
+
+.main > p{ display:none; }
+
+
+.main{
+	height:700px;
+	margin:20px auto;
+	position:relative;
+	width:960px;
+}
+
+.spaceBottom{
+	margin:0 0 10px;
+}
+
+.spaceTop{
+	margin:10px 0 0;
+}
+
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+a img{
+	border:none;
+}
+
+.clear{
+	clear:both;
+}
+
+
+#hede section, section div {
+  /* See it in slo-mo, you can change this */
+  transition-duration: .6s;
+}
+
+* { box-sizing: border-box; }
+
+#hede section, .button { transition-timing-function: ease; }
+
+#hede section {
+  font-size:18px;
+  left:80%;
+  margin-left:-200px;
+  margin-top:20px;
+  padding:0px;
+  position:absolute;
+  display: inline-block;
+  position: relative;
+  padding: .375rem .375rem 0;
+  height: 2.5rem;
+  background: #A9ADB6;
+  border-radius: .25rem;
+  perspective: 300;
+  box-shadow: 0 -1px 2px #fff, inset 0 1px 2px rgba(0,0,0,.2), inset 0 .25rem 1rem rgba(0,0,0,.1);
+}
+
+
+#hede .button { opacity: 0; }
+
+.cover {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform-origin: center bottom;
+  transform-style: preserve-3d;
+  font: 1.25em/2 "icon";
+  color: white;
+  text-align: center;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.innie, .outie, .spine, .shadow { position: absolute; width: 100%; }
+
+.innie, .outie {
+  height: 100%;
+  background-image: -webkit-linear-gradient(top, transparent 0%, rgba(0,0,0,.1) 100%);
+  border-radius: .25rem;
+}
+.innie:after, .outie:after { content:"To"; }
+
+.innie {
+  background-color: #67E2FE;
+  text-shadow: 0 -2px 4px rgba(0,0,0,.2);
+}
+
+.spine {
+  top: .25rem;
+  background: #20C7F3;
+  height: .25rem;
+  transform: rotateX(90deg);
+  transform-origin: center top;
+}
+
+.shadow {
+  top: 100%;
+  left: 0;
+  height: 3.5rem;
+  transform-origin: center top;
+  transform: rotateX(90deg);
+  opacity: 0;
+  z-index: 0;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,.6) 0%, transparent 100%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, transparent 100%);
+  border-radius: .4rem;
+
+}
+
+.outie {
+  background-color: #2EC8FA;
+  transform: translateZ(.25rem);
+  text-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+#hede section:hover { background: #EBEFF2; }
+#hede section:hover .button { opacity: 1; }
+
+#hede section:hover .cover, section:hover .innie, section:hover .spine, section:hover .outie, section:hover .spine { transition-timing-function: cubic-bezier(.2,.7,.1,1.1); }
+
+#hede section:hover .cover { transform: rotateX(-120deg);  }
+
+#hede section:hover .innie { background-color: #3ADAFC; }
+#hede section:hover .spine { background-color: #52B1E0; }
+#hede section:hover .outie { background-color: #2174A0; color: rgba(255,255,255,0); }
+
+#hede section:hover .shadow { 
+  opacity: 1;
+  transform: rotateX(45deg) scale(.95);
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>旅游札记</title>
+<link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+<link rel="stylesheet" type="text/css" href="CSS/rebe.css"/>
+<script src="JQM/jquery.js" type="text/javascript"></script>
+<script src="JS/Main02.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.list_lh li:even').addClass('lieven');
+})
+$(function(){
+	$("div.list_lh").myScroll({
+		speed:50, //数值越大，速度越慢
+		rowHeight:64 //li的高度
+	});
+});
+</script>
+</head>
+<body>
+<div data-role="page2">
+	<div id="hede">
+		<h2>旅游札记：2</h2>
+		<h1>旅游记事</h1>
+		<section>
+			<div class="button"> 
+				<a href="Indix.html" title="Back part01">转到：旅游地图</a>
+			</div>
+			<div class="cover">
+				<div class="innie"></div>
+				<div class="spine"></div>
+				<div class="outie"></div>
+			</div>
+			<div class="shadow"></div>
+		</section>
+	</div>
+	<div id="page2">
+		<div id="box">
+			<div id="di1">
+				<h1><b><a href="#" onClick="change_div('di1')">旅游日记</a></b><b><a href="#" onClick="change_div('bcon')">游者个人</a></b></h1>
+				<div class="list_lh">
+					<ul>
+						<li><a href="https://www.douban.com/people/driving555" class="new"><span>豆瓣： 流云似水的小站</span></a></li>
+						<li><a href="https://www.zhihu.com/people/li-ye-40-22" class="new"><span>知乎： 李夜的主页</span></a></li>
+						<li><a href="http://steamcommunity.com/profiles/76561198253202191" class="new"><span>Steam： Maxwell</span></a></li>
+						<li><img src="img/name.png" width="750px" height="223px" /></li>
+					</ul>
+				</div>
+			</div>
+			<div id="bcon">
+				<h1><b><a href="#" onClick="change_div('di1')">旅游日记</a></b><b><a href="#" onClick="change_div('bcon')">游者个人</a></b></h1>
+				<div class="list_lh">
+					<ul>
+						<li>
+							<h2>5.21</h2>
+							<p><span>到了拉萨，我才问自己，为什么要来这里呢？起初我并不是想来拉萨，觉得拉萨这座圣城总是离我们太远……</span></p>
+						</li>
+						<li>
+							<h2>6.27</h2>
+							<p><span>我来到江南水乡乌镇的时候，正下着蒙蒙的细雨</span></p>
+						</li>
+						<li>
+							<h2>7.03</h2>
+							<p><span>初识周庄已经是四年前的事了。至今，我也没有弄明白“是初识江南，还是初识周庄，还是初识了梦里的江南。”</span></p>
+						</li>
+						<li>
+							<h2>7.28</h2>
+							<p><span>张家界新年第一缕阳光宛如一幅水墨画，就挂在车窗右手的山岬上。</span></p>
+						</li>
+						<li>
+							<h2>10.09</h2>
+							<p><span>几天前，从瑞士出发前往荷兰。期间去了阿姆斯特丹和乌特勒之。</span></p>
+						</li>
+						<li>
+							<h2>1.09</h2>
+							<p><span>墨尔本最多的就是花园，好像人们的生活和工作就在花园里，简直就是人间天堂。</span></p>
+						</li>
+						<li>
+							<h2>3.30</h2>
+							<p><span>西雅图没有纽约的高效、迈阿密的激情和加州的灿烂，但西雅图有各种独特口味的咖啡。</span></p>
+						</li>
+						<li>
+							<h2>6.28</h2>
+							<p><span>君到姑苏见，人家尽枕河。每次我到我喜忧参半，喜的是久别重逢，忧的是不知这么短时间又会错过什么。</span></p>
+						</li>
+						<li>
+							<h2>10.30</h2>
+							<p><span>埃塞俄比亚也算是历史悠久，据说，《旧约》中和所罗门生有一子的希巴女王，其国度就是今天的埃塞俄比亚。</span></p>
+						</li>
+						<li>
+							<h2>2.14</h2>
+							<p><span>毛里求斯，印度洋上遗落的珍珠，马克吐温笔下的天堂原乡。</span></p>
+						</li>
+						<li>
+							<h2>3.31</h2>
+							<p><span>传说中是英国最美乡村风景，科兹沃尔德地区总是那个被拍得最多的景点。</span></p>
+						</li>
+						<li>
+							<h2>7.30</h2>
+							<p><span>印度尼西亚大部分的国土都位于南半球，想想从北半球踏入南半球也是兴奋。</span></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="foot">
+		<h2>旅游札记&nbsp;&nbsp;&nbsp; 数学1601 李文杰</h2>
+		<h3>2017年度&nbsp;&nbsp;&nbsp;&nbsp;HTML网页制作</h3>
+	</div>
+</div>
+</body>
+</html>
