@@ -1,0 +1,53 @@
+/* CSS Document */
+input,button,select,textarea{outline:none;}
+#box ul,li,dl,ol{list-style:none;}
+#box{ width:820px; margin:80px auto;}
+#bcon{ width:820px; border:1px solid #eee; margin:30px auto;display:block;}
+#bcon h1{ border-bottom:1px solid #0FF; padding:0 10px; background-color:#334;}
+#bcon h1 b{ font:bold 14px/40px '宋体'; border-top:2px solid #3492D1; padding:0 8px; margin-top:-1px; display:inline-block;}
+#di1{ width:820px; border:1px solid #eee; margin:30px auto;display:none;}
+#di1 h1{ border-bottom:1px solid #0FF; padding:0 10px; background-color:#334;}
+#di1 h1 b{ font:bold 14px/40px '宋体'; border-top:2px solid #3492D1; padding:0 8px; margin-top:-1px; display:inline-block;}
+
+
+.list_lh{ height:400px; overflow:hidden;}
+.list_lh li{ padding:10px;}
+.list_lh li:nth-of-type(odd){ background:#787878;}
+.list_lh li:nth-of-type(even){ background:#9B9B9B;}
+.list_lh li p{ height:24px; line-height:24px;}
+.list_lh li h2{ color:#000; font-size:-2px;}
+.list_lh li p span{ color:#303;}
+.btn_lh:hover{ color:#fff; text-decoration:none;}
+
+.new{
+	font-size:24px;
+	font-family: "Arial", sans-serif;
+	text-align: center;
+	font-weight: bold;
+	color: #3d3d3d;
+	position:relative;
+}
+.new:after {
+    position:absolute;
+    display:block;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#272727', endColorstr='#00272727',GradientType=0 );
+}
+
+.new span {
+    text-shadow: 
+    0 -1px 0 #858585,
+              
+               
+    0 1px 10px rgba(0,0,0,.6),
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.2),
+   	0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 7px 10px rgba(0,0,0,.25),
+    0 15px 10px rgba(0,0,0,.2),
+    0 25px 15px rgba(0,0,0,.15);
+}
