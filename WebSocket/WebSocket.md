@@ -19,6 +19,7 @@
 2. websocket协议内置消息边界，所以发送和接收没有所谓的“碎片”
 3. 开放系统互联（OSI）七层模型设计时没有考虑互联网，互联网的TCP/IP模型只有：链路层、互联网层、传输层和应用层
 4. IP(互联网层)-> TCP(传输层) -> Websocket、http(传输层)
+5. 使用WebSocket时不需要完全忽略HTTP，静态资源需要通过HTTP加载
 
 ### 初始握手
 1. 使用普通http请求(GET)，携带`Upgrade; Sec-WebSocket-Version; Sec-WebSocket-Key`头进行初始握手(opening handshake)
@@ -202,3 +203,13 @@ if(ws.bufferedAmout < THRESHOLD){
     ws.send("Data");
 }
 ```
+
+## 相关技术或文档
++ XMPP(eXtensible Messaging and Presence Protocol) 可扩展消息与现场处理协议
+    + strophe.js an XMPP library for JavaScript
+    + converse.js Web-based XMPP/Jabber chat client
++ STOMP(Simple (or Streaming) Text Orientated Messaging Protocol) 简单(流)文本定向消息协议
+    + stomp-websocket STOMP client for Web browsers
++ VNC(Virtual NetWork Computing) 虚拟网络计算
+    + noVNC VNC client using H5
+    + RFB(Remote Framebuffer) 远程帧缓冲
