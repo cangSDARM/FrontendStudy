@@ -9,9 +9,6 @@ import Layout from "../componets/layout"
 // @从src开始寻找路径
 import Layout from "@/componets/layout"
 
-//属性强校验
-import PropTypes from 'prop-types'
-
 //更好的redux
 import { Provider } from 'react-redux'
 //<Provider store={ Store }><Provider>
@@ -74,17 +71,4 @@ class Index extends React.Component{
   handle(){
     this.props.fun()   //子组件都是通过this.props来访问父组件的属性
   }
-}
-
-Index.propTypes = {
-  //对相关类型进行强制校验, 防止父组件传递无效信息
-  text: PropTypes.string.isRequired,    //isRequired: 必须传
-  content: PropTypes.string,    //支持类型: array, func, number, bool, object, symbol, string, node, element,
-  func: PropTypes.instanceOf(CLS) //支持实例检测
-  option: PropTypes.oneOf(['1','2'])  //支持选择
-  //更多: htmls://reactjs.org/docs/typechecking-with-proptypes.html
-}
-Index.defaultProps = {
-  //设定默认值(没传给子组件时)
-  text: 'Hello World'
 }

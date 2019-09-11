@@ -8,6 +8,47 @@ Pubsub.subscribe('delate', function(data){})	//订阅
 Pubsub.publish('delate', data)	//发布
 //****************************************************************
 
+//************************************ES7 property initializers
+// 同ES6的PropTypes, State 初始化，但更为直观
+//		ES6版:
+//属性强校验
+import PropTypes from 'prop-types'
+class Index extends Component{
+	constructor(props){
+		this.state = {
+			def: true,
+		}
+	}
+}
+Index.propTypes = {
+  //对相关类型进行强制校验, 防止父组件传递无效信息
+  text: PropTypes.string.isRequired,    //isRequired: 必须传
+  content: PropTypes.string,    //支持类型: array, func, number, bool, object, symbol, string, node, element,
+  func: PropTypes.instanceOf(CLS) //支持实例检测
+  option: PropTypes.oneOf(['1','2'])  //支持选择
+  //更多: htmls://reactjs.org/docs/typechecking-with-proptypes.html
+}
+Index.defaultProps = {
+  //设定默认值(没传给子组件时)
+  text: 'Hello World'
+}
+//****************************************************************
+//		ES7版:
+import PropTypes from 'prop-types'
+class Index extends Component{
+	static propTypes = {
+		text: PropTypes.string.isRequired,
+	};	//分号是必要的
+	static defaultProps = {
+		text: "hello World"
+	};
+	state = {
+		dep: true,
+	}
+	constructor(props){ super(props); }
+}
+//****************************************************************
+
 //************************************高阶组件
 // 高阶组件接受组件作为参数, 返回一个新的组件
 // 		类似于python的装饰器, 由内部包装决定
