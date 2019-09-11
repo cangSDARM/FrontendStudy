@@ -22,7 +22,8 @@ class App extends Component{
     this.state = Store.getState();  //通过Store获取数据. 其它一样
     Store.subscribe();    //订阅Store的变化
 
-    //推荐通过在构造函数中绑定对象.
+    //[推荐]通过在构造函数中绑定对象.
+    //[不推荐]使用箭头函数，因为箭头函数会导致每次组件渲染时都会创建一个新的回调
     //bind除this以外，其它参数是调用时传参
     this.fun = this.fun.bind(this, arg1, arg2)
   }

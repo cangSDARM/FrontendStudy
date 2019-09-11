@@ -55,6 +55,26 @@
 + 和Redux一起使用url变化的时候, 如果要重新render, 必须要让组件绑定到router的store上
     - `router: state.router`
 
+### Web Worker
+> 现代浏览器的JavaScript**多线程环境**<br/>
+> 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**
+
+```js
+// 创建 worker
+const worker = new Worker('work.js');
+// 向主进程推送消息
+worker.postMessage('Hello World');
+// 监听主进程来的消息
+worker.onmessage = function (event) {
+  console.log('Received message ' + event.data);
+}
+```
+限制:<br/>
+
++ 同源限制
++ 无法使用 document / window / alert / confirm
++ 无法加载本地资源
+
 ## 各种存储方式
 **已被废弃的:** *Web SQL Database*<br/>
 **尚未完善的:** *CacheStorage*
@@ -113,33 +133,6 @@ sessionStorage.clear();
 + 开辟公共空间来存储数据, 组件受其数据影响并更新
 + Redux的中间件是影响dispatch方法
 
-## Web协议
-#### http, https 不用多说
-#### WebSocket
->是一种在单个 TCP 连接上进行全双工通讯的协议<br/>
->使得服务器可以向Web客户端发送信息<br/>
->使用 ws 或 wss 的统一资源标志符,  wss 表示在 TLS 之上的 Websocket<br/>
-
-```js
-var Socket = new WebSocket("ws://example.com/wsapi", [protocol] );   //创建 WebSocket 对象
-```
-属性:
-
-1. `Socket.readyState` 只读
-    + 0 - 表示连接尚未建立
-    + 1 - 表示连接已建立，可以进行通信
-    + 2 - 表示连接正在进行关闭
-    + 3 - 表示连接已经关闭或者连接不能打开
-2. `Socket.bufferedAmount` 只读
-    + 已被 send() 放入队列中等待传输，还没有发送出去的 UTF-8 文本字节数
-
-方法:
-
-1. `Socket.onopen = ()={}` 当连接成功时调用 
-2. `Socket.send(String)` 使用连接发送数据
-3. `Socket.onmessage = (e)=>{}` 当接收数据时调用
-4. `Socket.close()` 关闭连接
-5. `Socket.onclose = ()=>{}` 当连接关闭时调用
 #### Socket.io
 >Socket.io将数据传输部分独立出来形成engine.io，engine.io对WebSocket和AJAX轮询进行了封装，形成了一套API，屏蔽了细节差异和兼容性问题，实现了跨浏览器/跨设备进行双向数据通信
 
