@@ -205,6 +205,8 @@ if(ws.bufferedAmout < THRESHOLD){
 ```
 
 ## 相关技术或文档
+[Html WebSocket 权威指南©2014 源码](https://github.com/vjwang/WebSocketBook)<br/>
+
 + XMPP(eXtensible Messaging and Presence Protocol) 可扩展消息与现场处理协议
     + strophe.js an XMPP library for JavaScript
     + converse.js Web-based XMPP/Jabber chat client
