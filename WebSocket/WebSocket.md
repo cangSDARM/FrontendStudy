@@ -3,6 +3,11 @@
 ## 协议简介
 - 定义：是由**客户端主动发起链接**，**服务器响应链接**的**全双工**通信
 
+##### tips:
+1. 若要使用wss, 和https类似, 需要证书
+2. 使用WebSocket时不需要完全忽略HTTP，静态资源需要通过HTTP加载
+3. WebSocket API不支持客户端手动`ping/pong`(但支持浏览器发起), 因此`ping`和`pong`通常由服务器发起; 通常30s发起一次`ping/pong`检查
+
 ## 深入理解
 
 ### 和HTTP/TCP协议比较
@@ -18,11 +23,10 @@
 1. TCP只能传输字节流，所以消息边界由高层协议来表现。所谓粘包，并不是TCP所需要定义的
 2. websocket协议内置消息边界，所以发送和接收没有所谓的“碎片”
 3. 开放系统互联（OSI）七层模型设计时没有考虑互联网，互联网的TCP/IP模型只有：链路层、互联网层、传输层和应用层
-4. IP(互联网层)-> TCP(传输层) -> Websocket、http(传输层)
-5. 使用WebSocket时不需要完全忽略HTTP，静态资源需要通过HTTP加载
+4. IP(互联网层)-> TCP(传输层) -> Websocket、http(应用层)
 
 ### 初始握手
-1. 使用普通http请求(GET)，携带`Upgrade; Sec-WebSocket-Version; Sec-WebSocket-Key`头进行初始握手(opening handshake)
+1. 使用普通http请求(GET)，携带`Upgrade; Sec-WebSocket-Version; Sec-WebSocket-Key`等必须的头进行初始握手(opening handshake)
 2. 服务器响应`Sec-WebSocket-Accept; 101 Switching Portocals; Upgrade`头
 
 ### 对应头信息
@@ -87,7 +91,7 @@
     - 掩码、反掩码操作都采用相同算法: 
     
 ```py
-    j = i MOD 4     #i 是对应数据的第 i 位
+    j = i % 4     #i 是对应数据的第 i 位
     transformed[i] = original[i] xor maskingKey[j] #original_i为原始数据; transformed_i为转换后的数据; maskingKey为masking-key
 ```
 
@@ -98,6 +102,28 @@
 ### 关闭握手
 WebSocket关闭时，终止连接的端点发送一个数字代码，用于表示错误信息<br/>
 [错误号大全](https://github.com/Luka967/websocket-close-codes)
+
+### WebSocket安全
+|攻击类型|解决办法|
+|:-:|:-:|
+|拒绝服务(DoS)|[Origin头](http://www.ietf.org/rfc/rfc6454.txt)|
+|连接洪范拒绝服务(DDoS)|用Origin首标限制新连接|
+|代理服务器攻击|掩码(Mask帧)|
+|中间人, 窃听|WebSocket安全(wss://)|
+
+### WebSocket的部署
+##### 代理服务器问题
+|代理服务器类型|WebSocket|连接结果|考虑因素|
+|:-:|:-:|:-:|:-:|
+|无代理|ws/wss|成功|WebSocket在C/S间无中介可以成功|
+|显式|ws|失败或成功|需要显示代理服务器允许CONNECT方法, 连接不安全|
+|显式|wss|成功|需要显示代理服务器允许CONNECT方法, 由于是TLS握手, 因此连接安全|
+|透明|ws|失败|透明代理服务器不理解101响应码|
+|透明|wss|成功|由于TLS是加密的, 因此透明代理只会转发|
+
+### 非兼容时备用手段
+1. 浏览器插件: Adobe Flash技术
+2. Polyfill库: Kaazing's Websoket, Modernizr's Polyfill
 
 ## 生命周期
 ### WebSocket API
@@ -215,3 +241,4 @@ if(ws.bufferedAmout < THRESHOLD){
 + VNC(Virtual NetWork Computing) 虚拟网络计算
     + noVNC VNC client using H5
     + RFB(Remote Framebuffer) 远程帧缓冲
++ AMQP(Advanced Message Queueing Protocal) 高级消息队列协议
