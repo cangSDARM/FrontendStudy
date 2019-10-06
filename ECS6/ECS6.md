@@ -54,6 +54,7 @@ ECS5: function(a){ a=a|1 }
 > ECS6: function(...args){}<br/>
 > ECS5: function(){ arguments }<br/>
 > args是一个数组, arguments是一个Object
+
 #### 解构
 **常用于:**
 

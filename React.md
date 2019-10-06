@@ -56,27 +56,44 @@
     - `router: state.router`
 
 ### Web Worker
-> 现代浏览器的JavaScript**多线程环境**<br/>
-> 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**
+> 现代浏览器的JavaScript**多线程环境**<br>
+> 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**<br>
+> 数据的交互方式为**传递副本**，而不是直接共享数据<br>
+> workers 运行在另一个全局上下文(self)中, 不同于当前的window<br>
+> [参考文档](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers)
 
 ```js
 // 创建 worker
-const worker = new Worker('work.js');
-// 向主进程推送消息
+const worker = new Worker('work.js');   //构造函数采用 Worker 脚本的名称
+// 启动 worker
+worker.postMessage();
+// 进程间交互
+// 1. 向其他进程推送消息
 worker.postMessage('Hello World');
-// 监听主进程来的消息
+// 2. 监听其他进程来的消息
 worker.onmessage = function (event) {
   console.log('Received message ' + event.data);
 }
+// 错误处理(主进程中处理)
+worker.onerror = function(event){
+  console.log('该事件不会冒泡并且可以被取消；为了防止触发默认动作，worker 可以调用错误事件的 preventDefault()方法');
+  console.log(event.message, event.filename, event.lineno);   
+}
+// 停止 worker
+// 1. 在主进程中调用
+worker.terminate();
+// 2. 在 Worker 本身内部调用
+self.close();
 ```
-限制:<br/>
+限制:<br>
 
 + 同源限制
-+ 无法使用 document / window / alert / confirm
++ 无法使用 document / window / DOM / parent
 + 无法加载本地资源
++ 更多参见: [Functions and classes available to workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
 
 ## 各种存储方式
-**已被废弃的:** *Web SQL Database*<br/>
+**已被废弃的:** *Web SQL Database*<br>
 **尚未完善的:** *CacheStorage*
 
 |Cookie|localStorage|sessionStorage|IndexedDB|redux|
@@ -133,11 +150,6 @@ sessionStorage.clear();
 + 开辟公共空间来存储数据, 组件受其数据影响并更新
 + Redux的中间件是影响dispatch方法
 
-#### Socket.io
->Socket.io将数据传输部分独立出来形成engine.io，engine.io对WebSocket和AJAX轮询进行了封装，形成了一套API，屏蔽了细节差异和兼容性问题，实现了跨浏览器/跨设备进行双向数据通信
-
-<strong style="color: #afdc01">TODO</strong>
-
 ## 跨域问题
 > 在另一个vscache.git(Django)中已经简要说明了CORS问题以及JSONP<br/>
 > 这里是另一种解决方法: iframe + postMessage<br/>
@@ -154,3 +166,7 @@ window.addEventListener('message', function(e){     //iframe接收
 }, false);
 ```
 [参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
+
+#### 函数式编程
+[高阶函数](https://segmentfault.com/a/1190000017569569)<br>
+[柯里化](https://segmentfault.com/a/1190000006096034#articleHeader1)

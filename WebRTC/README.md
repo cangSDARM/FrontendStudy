@@ -1,18 +1,34 @@
 # WebRTC
-Web实时通信技术(Web Real-Time Communication)
+Web实时通信技术(Web Real-Time Communication)<br>
+> 允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输
+
+1. WebRTC使用UDP协议传输信息, 但TURN服务器可以使用TCP来传输WebRTC信息
+2. 使用[Adapter.js](https://github.com/webrtcHacks/adapter)，确保Web应用程序的兼容性
+
+参考资料<br>
+> [博客|WebRTC介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)
 
 ## 重要名词
 **信令信息(Signaling information)**
-> 是指通信系统中的控制指令。用于指导终端、交换系统及传输系统协同运行，在指定的终端之间建立临时的通信信道，并维护网络本身正常运行。信令系统是通信网的重要组成部分，是通信网的神经系统。 除了通信时的用户信息（包括话音信息和非话业务信息）以外的控制交换机动作的信号，就是信令信息
+> 是指通信系统中的控制指令。用于指导终端、交换系统及传输系统协同运行，在指定的终端之间建立临时的通信信道，并维护网络本身正常运行。除了通信时的用户信息（包括话音信息和非话业务信息）以外的控制交换机动作的信号，就是信令信息
+
+**STUN(Session Traversal Utilities for NAT)**
+> NAT会话传输应用程序协议<br>
+> 允许位于 NAT (或多重 NAT)后的客户端找出自己的公网地址，查出自己位于哪种类型的 NAT 之后以及NAT为某一个本地端口所绑定的 Internet 端端口。这些信息被用来在两个同时处于 NAT 路由器之后的主机之间建立 UDP 通信
+
+**TURN服务器(Traversal Using Relays around NAT 服务器)**
+> a protocol that allows for an element behind a NAT or firewall to receive incoming data over TCP or UDP connections<br>
+> TURN服务器用于中间人转播消息，对双方透明
 
 **ICE(Interactive Connectivity Establishment)**
-> 交互式链接技术
+> 交互式链接技术。允许实时对等端发现对方并且彼此连接的框架<br>
+> [参考](https://webrtc.org.cn/three-things-about-ice/)
 
 **NAT(Network Address Translation)**
-> 网络地址转换
+> 网络地址转换，用于代理服务
 
 **SDP(Session Description Protocol)**
-> 会话描述协议
+> 会话描述协议，用于描述不同内容的会话并向系统提供标准API
 
 ## 建立媒体会话
 ### 建立WebRTC会话
@@ -20,13 +36,40 @@ Web实时通信技术(Web Real-Time Communication)
     + `MediaStream()`
 2. *(可选)*建立信令通道，及对等链接
 2. 在浏览器和对等终端建立链接
-    + 意指不通过服务器，而是直接在两个终端之间建立链接。每一对浏览器都需要一个对等链接才能加入会议。
-    + 建立此链接需要一个新的`RTCPeerConnection`对象。该对象使用一个包含ICE和通过NAT的配置对象进行构建
-3. 关联媒体和数据通道至该链接
+    + **意指不通过服务器，而是直接在两个终端之间建立链接。每一对浏览器都需要一个对等链接才能加入会议**
+    + 建立此链接需要一个新的`RTCPeerConnection`对象
+    + 在建立RTCPeerConnection实例之后，想要建立点对点的信道，需要做两件事: 
+        * 确定本机上的媒体流的特性，如分辨率、编解码能力等（SDP描述符）[通过Offer/Answer交换](#changeSDP)
+        * 连接两端的主机的网络地址（ICE Candidate）[使用ICE处理连接](#iceHandle)
+3. 关联新媒体和数据通道至该链接
     + 每次更改媒体时，都需要在两个终端之间协商如何在链接通道中表示媒体
-    + 使用相应的`RTCSessionDescription`对象存放会话描述和媒体表示，这样浏览器就可处理编解码器和编写SDP等复杂工作
+    + 使用`RTCSessionDescription`对象表示提议和应答
+    + 相应的`RTCSessionDescription`对象存放会话描述和媒体表示，这样浏览器就可处理编解码器和编写SDP等复杂工作
 4. 交换会话描述
-    + 当终端交换完毕`RECSessionDescription`对象后，就可建立媒体会话。交换之后的所有活动由JavaScript代码完成
-5. 关闭链接
+    + 当终端交换完毕`RECSessionDescription`对象后，就可建立媒体会话
+5. 交换媒体流
+    + 加入流非常容易，API会负责流的建立和发送。
+    + 当另一方在对等连接中加入流时，会发送提醒，通知第一个用户有变更。
+    + 浏览器使用`onaddstream`来通知用户流已加入
+6. 关闭链接
     + 任何一端都可以关闭链接。
     + 通过对`RTCPeerConnection`对象调用close()来关闭，用来停止ICE处理和媒体流传输
+
+### <span id="changeSDP">通过offer和answer交换SDP描述符</span>
+| 对象发起方（甲） | 对象接收方（乙）|
+|:-:|:-:|
+| **1**. 建立一个 PC (PeerConnection) 实例 | **1**. 建立一个 PC (PeerConnection) 实例 |
+| **2**. 通过PC所提供的createOffer()方法建立一个包含SDP描述符的offer信令| **5**. 将甲的offer信令中所包含的的SDP描述符提取出来，通过PC所提供的setRemoteDescription()方法交给PC实例|
+| **3**. 通过PC所提供的setLocalDescription()方法，将SDP描述符交给PC实例| **6**. 通过PC所提供的createAnswer()方法建立一个包含应答的SDP描述符answer信令|
+| **4**. 将offer信令通过服务器发送给乙| **7**. 通过PC所提供的setLocalDescription()方法，将SDP描述符交给PC实例|
+| | **8**. 将answer信令通过服务器发送给甲|
+| **9**. 接收到乙的answer信令后，将其中乙的SDP描述符提取出来，调用setRemoteDescripttion()方法交给自己的PC实例| |
+| **10**. 完成连接 | **10**. 完成连接 |
+
+### <span id="iceHandle">通过ICE框架建立NAT/防火墙穿越的连接</span>
+> WebRTC使用ICE框架来获得这个外界可以直接访问的地址，在创立PC的时候可以将ICE服务器的地址传递进去
+
+1. 甲、乙各创建配置了ICE服务器的PC实例，并为其添加`onicecandidate`事件回调
+2. 当网络候选可用时，将会调用`onicecandidate`函数
+3. 在回调函数内部，甲或乙将网络候选的消息封装在ICE Candidate信令中，通过服务器中转，传递给对方
+4. 甲或乙接收到对方通过服务器中转所发送过来ICE Candidate信令时，将其解析并获得网络候选，将其通过PC实例的`addIceCandidate()`方法加入到PC实例中
