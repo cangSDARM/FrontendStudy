@@ -4,6 +4,7 @@ Web实时通信技术(Web Real-Time Communication)<br>
 
 1. WebRTC使用UDP协议传输信息, 但TURN服务器可以使用TCP来传输WebRTC信息
 2. 使用[Adapter.js](https://github.com/webrtcHacks/adapter)，确保Web应用程序的兼容性
+3. WebRTC创建连接时，顺序十分重要。如果没按照正确步骤会导致连接失败
 
 参考资料<br>
 > [博客|WebRTC介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)
