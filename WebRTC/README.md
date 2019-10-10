@@ -35,6 +35,11 @@ Web实时通信技术(Web Real-Time Communication)<br>
 **SCTP(Stream Control Translation Protocol)**
 > 流传输控制协议。位于传输层安全协议（DTLS）上。设计用于解决TCP问题，同时利用UDP的传输能力，即提供基于不可靠传输业务的协议之上的可靠的数据报传输协议
 
+**MCU(Multi Control Unit)**
+> 多点控制单元。为了实现多点会议电视系统，必须设置MCU。MCU实质上是一台多媒体信息交换机，进行多点呼叫和连接，实现视频广播、视频选择、音频混合、数据广播等功能，完成各终端信号的汇接与切换<br>
+> 参考：[三款基于WebRTC的MCU框架](#https://blog.csdn.net/xiaoluer/article/details/79088416)<br>
+> [licode](#https://github.com/lynckia/licode) / [Kurento](#https://github.com/Kurento) / [jitsi](#https://github.com/jitsi)
+
 ## 建立媒体会话
 ### 建立WebRTC会话
 1. 获取本地媒体
