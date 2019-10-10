@@ -5,6 +5,7 @@ Web实时通信技术(Web Real-Time Communication)<br>
 1. WebRTC使用UDP协议传输信息, 但TURN服务器可以使用TCP来传输WebRTC信息
 2. 使用[Adapter.js](https://github.com/webrtcHacks/adapter)，确保Web应用程序的兼容性
 3. WebRTC创建连接时，顺序十分重要。如果没按照正确步骤会导致连接失败
+4. WebRTC运行时，对于所有协议的实现都会强制执行加密功能，因此WebRTC处于DTLS上
 
 参考资料<br>
 > [博客|WebRTC介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)
@@ -31,6 +32,9 @@ Web实时通信技术(Web Real-Time Communication)<br>
 **SDP(Session Description Protocol)**
 > 会话描述协议，用于描述不同内容的会话并向系统提供标准API
 
+**SCTP(Stream Control Translation Protocol)**
+> 流传输控制协议。位于传输层安全协议（DTLS）上。设计用于解决TCP问题，同时利用UDP的传输能力，即提供基于不可靠传输业务的协议之上的可靠的数据报传输协议
+
 ## 建立媒体会话
 ### 建立WebRTC会话
 1. 获取本地媒体
@@ -48,10 +52,11 @@ Web实时通信技术(Web Real-Time Communication)<br>
     + 相应的`RTCSessionDescription`对象存放会话描述和媒体表示，这样浏览器就可处理编解码器和编写SDP等复杂工作
 4. 交换会话描述
     + 当终端交换完毕`RECSessionDescription`对象后，就可建立媒体会话
-5. 交换媒体流
+5. 交换多媒体流
     + 加入流非常容易，API会负责流的建立和发送。
     + 当另一方在对等连接中加入流时，会发送提醒，通知第一个用户有变更。
     + 浏览器使用`onaddstream`来通知用户流已加入
+    + 使用`RTCDataChannel`来在两者之间建立一个双向数据通道的连接，[传输任意数据，而非仅仅是媒体流](#dataChannel)
 6. 关闭链接
     + 任何一端都可以关闭链接。
     + 通过对`RTCPeerConnection`对象调用close()来关闭，用来停止ICE处理和媒体流传输
@@ -74,3 +79,22 @@ Web实时通信技术(Web Real-Time Communication)<br>
 2. 当网络候选可用时，将会调用`onicecandidate`函数
 3. 在回调函数内部，甲或乙将网络候选的消息封装在ICE Candidate信令中，通过服务器中转，传递给对方
 4. 甲或乙接收到对方通过服务器中转所发送过来ICE Candidate信令时，将其解析并获得网络候选，将其通过PC实例的`addIceCandidate()`方法加入到PC实例中
+
+## <span id="dataChannel">通过RTCDataChannel来传输任意数据</span>
+WebRTC会处理所有连接问题. 一旦信令完成连接建立, 则自动处理
+
+> 为方便处理, dataChannel和多API和WebSocket近似, 但发送协议和路径完全不同
+
+```js
+var peerConn = new RTCPeerConnection();
+var dataChannel = peerConn.createDataChannel("channelName", options);
+dataChannel.onopen = (e)=>{}
+dataChannel.onmessage = (e)=>{
+    if(e.data instanceof Blob){};   //dataChannel 可以处理: String, Blob, ArrayBuffer, ArrayBufferView
+
+    dataChannel.send(data); //发送数据
+    dataChannel.close();    //关闭通道
+};
+dataChannel.onerror = (e)=>{};
+dataChannel.onclose = (e)=>{};
+```
