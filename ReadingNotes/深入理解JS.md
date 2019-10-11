@@ -148,3 +148,41 @@ function F(){
     return B(2);
 }
 ```
+
+## 加载初始脚本
+#### 延迟加载: defer/async
+```html
+<script defer src="https://github.com">
+    //defer 告诉浏览器该文档不会修改DOM内容(document.writer etc.)
+    //使得:
+    //  1. 浏览器下载且不阻塞页面加载
+    //  2. 完成页面加载后, 按顺序执行这部分脚本
+</script>
+<script async src="https://github.com">
+    //async 告诉浏览器该文档不会修改DOM内容(document.writer etc.)
+    //使得:
+    //  1. 浏览器下载且不阻塞页面加载
+    //  2. 脚本下载完毕后, 按顺序执行这部分脚本
+</script>
+```
+#### 延迟加载: 动态脚本插入
+```html
+<script>
+function(callback){
+    var script = document.createElement('script');
+    script.src = "https://github.com";
+    script.async = true;
+    var entry = document.getElementByTagName('script')[0];
+    entry.parentNode.instertBefore(script, entry);
+
+    script.onload = script.onreadystatechange = function(){
+        var readyState = script.readyState; //onreadystatechange和readyState是IE特有的属性
+        if (!readyState || /complete|loaded/.test(script.readyState)){
+            callback();
+            script.onload = null;
+            script.onreadystatechange = null; //IE需要解除事件绑定防止内存泄漏
+        }
+    }
+}
+</script>
+```
