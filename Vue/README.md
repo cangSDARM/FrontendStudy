@@ -1,0 +1,195 @@
+# Vue
+
+- Vue是第一次HTML树渲染后，再执行Vue替换模板字符串达到渲染
+- [生命周期](https://cn.vuejs.org/images/lifecycle.png)
+- Vue会尽量复用已存在元素，而不是重新创建新的元素
+- Vue数据不是完全响应式的。（例如数组只有添加、排序、删除是）需要使用Vue.set(val, index, nV)来修改<!--什么傻逼设定-->
+- Vue的Template需要一个确切的根元素 <!--莫名其妙。讲道理，这样不如用jsx-->
+
+## 入门Tips
+```js
+import Vue from 'vue';
+new Vue({
+  el: "#app",
+  render: (h)=>h(Component),
+});
+// 等价于
+new Vue({
+  render: (h)=>h(Component),
+}).$mount('#app');
+```
+
+## 组件
+### Mustache
+> 支持简易运算
+```vue
+<div>{{name + " " + "sel"}}</div>
+<div>{{counter * 2}} {{cast}}</div>
+```
+
+> 使用
+```vue
+<div v-once>固定内容。msg不会发生改变 {{msg}}</div>
+
+<div v-html="url">显示插入的HTML文档</div>
+
+<div v-pre>显示纯文本，不解析模板字符串</div>
+
+<div v-cloak>在Vue解析之前有v-cloak属性，解析完后就会没有。(通常配合CSS用</div>
+
+<div :src="url">v-bind:动态绑定Attribute。语法糖：省略v-bind字样</div>
+
+<div v-bind:class="{active: true, disable: false}">动态绑定Class</div>
+
+<div v-if="false==undefined">false不渲染子组件。还有v-else-if，v-else</div>
+
+<div v-show="true">v-show会保留在DOM中，只是toggle CSS的display</div>
+
+<div key="url">加个key提示别乱复用</div>
+
+<div>{{用于过滤器的item | fitter}}</div>
+
+<div v-model.lazy="msg">双向绑定。多用于表单组件。修饰符lazy表示失去焦点调用，其它参看文档</div>
+
+<div>{{msg}}</div>
+<!--等价于React的 <div>{this.state.msg}</div>-->
+
+<div v-for="(item, key, index) in de" :key="item.id">{{item}}</div>
+<!--等价于React的 { item.map((item,index)=><div key={item.id}>item</div>) }-->
+
+<div v-on:click="click">语法糖：把v-on:换成@字样</div>
+<!--等价于React的 <div onClick={this.click}></div>-->
+<div @click="click">def click(e): 自动传event</div>
+<div @click="click('as', $event)">def click(d, e): 需要绑定参数, as是个变量</div>
+<div @click.stop="click">def click: stopPropagation()。提供修饰符(.stop, .prevent)阻止浏览器默认行为</div>
+```
+
+> 声明
+```js
+export default{
+  data: ()=>{   //等价于 React 的 this.state
+		return {
+			msg: "data",
+			de: [1, 2, 3]
+		};
+  },
+  components:{
+  	Component1,
+  },
+  computed:{ //就是把需要计算的东西扔到这里来计算。之后再替换。和普通模板字符串一样，不用加括号（有缓存）
+  	computedValue: {	//getter+setter
+  		get(){
+  			return this.msg+2+3;
+  		},
+  		set(nV){}
+  	},
+  	computedVal: ()=>2+3,	//getter
+  },
+  beforeMount: ()=>{ /*生命周期函数*/ },
+  methods:{  //for v-on，也可以放innerText中。无缓存
+    click: (...e)=>{
+      this.msg = "clicked"
+    }
+  },
+  filters: {	//过滤器
+  	filter: (item)=>item*2,
+  },
+  watch: {	//监听data改变
+  	msg(nV, oV){
+  		this.msg = nV;
+  	}
+  }
+}
+
+```
+### 多组件通信
+> 父 -> 子
+```vue
+<!--父组件-->
+import Child from './child.vue';
+export default{
+	components: {
+		Child,
+	}
+}
+<!--使用。不能使用驼峰-->
+<Child :need-val="val"/>
+
+<!--子组件-->
+export default {
+	props: {
+		needVal: Array,	//prop-types
+		mess: {
+			type: String,
+			default: ()=>'msg',
+			validator: ()=>true,
+			required: true,
+		}
+	}
+}
+<!--调用-->
+<div>{{needVal}}</div>
+```
+> 子 -> 父
+```vue
+<!--子-->
+export default{
+	methods: {
+		toParent: (...args)=>{
+			this.$emit('funcTon', ...args);
+		}
+	}
+}
+
+<!--父-->
+<Child @funcTon="click"></Child>
+export default{
+	methods:{
+		click: (args)=>{
+			console.log(args);
+		}
+	}
+}
+```
+> 直接访问
+```vue
+<!--父-->
+this.$children.XX
+
+<!--子-->
+this.$parent.XX
+
+<!--Vue实例-->
+this.$root.XX
+
+<!--ref-->
+<div ref="div"></div>
+this.$refs.div
+```
+### 插槽
+> 匿名
+```vue
+<!--在template中声明。内容为默认值-->
+<slot><div>default</div></slot>
+
+<!--使用，则slot的地方被span替代-->
+<Child><span>1</span></Child>
+```
+> 具名
+```vue
+<slot name="slot"></slot>
+
+<!--非具名的需要非具名的来替换，具名的需要具名的来替换-->
+<Child><span slot="slot"></span></Child>
+```
+> 向上传数据 <!--不知到vue怎么想的。这么难到不混乱么？你TM都有子传父的方法了-->
+```vue
+<slot :data="toPopData"></slot>
+
+<!--使用。template字样是必须的。之前版本报错请看官方文档-->
+<Child>
+	<template v-slot:default="slot">
+		{{slot.toPopData}}
+	</template>
+</Child>
+```
