@@ -193,3 +193,81 @@ this.$refs.div
 	</template>
 </Child>
 ```
+## 必装
+### Route
+> install
+```
+1. npm install vue-router
+2. src/router/index.js
+  import Router from "vue-router";
+  import Vue from "vue";
+  Vue.use(Router);
+  const router = new Router({
+  	routes: [],
+  	mode: "history"
+  });
+  export default router;
+3. src/main.js
+  import router from './router';
+  import router from "./router";
+  Vue.config.productionTip = false;
+  new Vue({
+  	router,
+  }).$mount("#app");
+```
+> register
+```
+import Home from ...;
+const router = new Router({
+	routes: [
+		{ 
+		  path: "/",
+		  component: Home,
+		  children: [	//deeper route. be used in parent component
+		    {
+		      path: "",
+		      redirect: "child"
+		    },
+		    {
+		      path: "child",
+		      component: Child,
+		    }
+		  ]
+		},
+		{
+		  path: "/about/:usrid",
+		  redirect: "/",
+		},
+		{
+		  //lazy load
+		  path: "/usr"
+		  component: ()=>improt("./home"),
+		}
+	],
+});
+```
+> use
+```vue
+<router-link
+  to="/home"
+  tag="div"
+  replace
+  active-class="active"
+>Home</router-link>
+<router-link
+  :to="{
+    path: '/user',
+    query: {
+      name: 12,
+      age: '13'
+    }
+  }"
+>Object</router-link>
+<router-view>组件的展示位置</router-view>
+
+this.$router.push('/codeJump');
+this.$router.params.usrid;
+```
+
+## Also can used to React
++ Uglifyjs
