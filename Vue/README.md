@@ -20,6 +20,7 @@ new Vue({
 ```
 
 ## 组件
+- component.\_\_proto\_\_ === Vue.prototype;
 ### Mustache
 > 支持简易运算
 ```vue
@@ -29,6 +30,8 @@ new Vue({
 
 > 使用
 ```vue
+<keep-alive include="ComponentName" exclude="ComponentName,C">保证内容不会被销毁。通常配合route使用</keep-alive>
+
 <div v-once>固定内容。msg不会发生改变 {{msg}}</div>
 
 <div v-html="url">显示插入的HTML文档</div>
@@ -208,7 +211,6 @@ this.$refs.div
   });
   export default router;
 3. src/main.js
-  import router from './router';
   import router from "./router";
   Vue.config.productionTip = false;
   new Vue({
@@ -265,9 +267,95 @@ const router = new Router({
 >Object</router-link>
 <router-view>组件的展示位置</router-view>
 
-this.$router.push('/codeJump');
-this.$router.params.usrid;
+this.$router.push('/codeJump');	//router controller object
+this.$route.params.usrid;	//active route object
 ```
+> guard
+```js
+//in src/router/index
+//each jump to new navigator call
+router.beforeEach((to, from, next)=>{
+	next();
+});
+router.afterEach((to, from)=>{
+	
+});
+```
+### Vuex
+**`Component` -Dispatch-> `Actions` -Commit-> `Mutation` -Mutate-> `State` -Render-> `Component`**<br>
+- 和Vue一样，有“响应式缺陷”。使用`Vue.set, Vue.delate`解决 <!--挺傻逼的。不如React直接装个api来得好-->
+> install
+```
+1. npm install vuex
+2. src/store/index.js
+  import Vuex from "vuex";
+  import Vue from "vue";
+  Vue.use(Vuex);
+  const store = new Vuex.Store({
+  
+  });
+  export default store;
+3. src/main.js
+  import store from './store';
+  new Vue({
+  	store,
+  }).$mount("#app");
+```
+> store
+```
+const store = new Vuex.Store({
+	state: {}, //default state
+	mutations: {  //reduce, synchronous
+	  changeState: (state, payload)=>{
+	    //payload === Redux.action
+	    state.xx = xx;
+	  }
+	},
+	actions: {  //reduce, asynchronous
+	  update: (context, payload)=>{
+	    //context == store
+	    //axios in there.
+	    context.commit('update');  //do mutate
+	    
+	    return new Promise.resolve('callback');
+	  }
+	},
+	getters: {  //computed
+	  get: state=>{
+	    return state.xx.filter(s=>s.id>1);
+	  },
+	  getinget: (state, getters)=>{
+	    return getters.get.length;
+	  }
+	},
+	modules: {}
+});
+```
+> use
+```vue
+<div>{{$store.state.xx}}</div>
+<div>{{$store.getters.get}}</div>
 
+export default{
+  methods: {
+    dispatched: ()=>{
+      //can but not recommended
+      //this.$store.commit('changeState', {args});
+    
+      //action
+      this.$store.dispatch({
+        type: 'changeActions',
+        data: args,
+      }).then(r=>console.log(r));
+    
+      //mutate
+      this.$store.commit({
+        type: 'changeState',
+        data: args
+      })
+    }
+  }
+}
+```
 ## Also can used to React
 + Uglifyjs
