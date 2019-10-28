@@ -168,6 +168,7 @@ this.$root.XX
 <!--ref-->
 <div ref="div"></div>
 this.$refs.div
+this.$refs.div.$el  //原生元素
 ```
 ### 插槽
 > 匿名
@@ -324,11 +325,20 @@ const store = new Vuex.Store({
 	  get: state=>{
 	    return state.xx.filter(s=>s.id>1);
 	  },
-	  getinget: (state, getters)=>{
+	  getinget: (state, getters, rootState)=>{
+	    //rootState, for modules
 	    return getters.get.length;
 	  }
 	},
-	modules: {}
+	modules: {  //combineReducers
+	  mod: {
+	    state:{},  //this.$store.mod.xx
+	    mutations:{},  //this.$store.commit('')
+	    actions:{},  //private for each module
+	    getters:{},  //this.$store.getter.xx
+	    moudules:{},
+	  }
+	}
 });
 ```
 > use
@@ -337,6 +347,16 @@ const store = new Vuex.Store({
 <div>{{$store.getters.get}}</div>
 
 export default{
+  computed: {
+     //other self computed,
+     ...mapState({
+       count: state=>state.count,
+       count: 'count',  //same as last line
+       withSelfData(state){  //使用 `this` 获取局部状态，必须使用常规函数
+         return state.count + this.localCount
+       }
+     })
+  },
   methods: {
     dispatched: ()=>{
       //can but not recommended
@@ -356,6 +376,10 @@ export default{
     }
   }
 }
-```
+`````
+## 其它
+- 事件总线[实现](https://www.cnblogs.com/fanlinqiang/p/7756566.html)
 ## Also can used to React
 + Uglifyjs
++ iScroll
++ Better-Scroll
