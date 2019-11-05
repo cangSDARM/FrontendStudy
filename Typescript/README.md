@@ -27,9 +27,6 @@ let arr:number[] = [1, 2, 3];  let arr:Array<number> = [1, 2, 3];   //array
 let arr:(number | string | object)[] = [];   //联合数组, 数组值可以包涵联合的类型
 let ro:ReadonlyArray<number> = arr;    //只读数组, ro不能被修改
 let a:number[] = ro; //Error! 只读数组也不能赋值给普通数组, 除非用强制转换(类型断言)
-
-//复杂声明，(一个变量可以有多种类型)
-let i :number | undefined | null;
 ```
 > 几种赋值
 
@@ -398,11 +395,34 @@ class A{}
 ```
 
 > 参数装饰器 - 只能用来监视一个方法的参数是否被传入, 其返回值会被忽略
+
 ```ts
 //target, argName和普通装饰器效果一样, 只有第三个参数变为: 参数在函数参数列表中的索引
 function dec(target:any, argName:string, agrIndex:int){}
 
 function fuc(@dec arg:any){}
+```
+## 其它
+### 类型别名
+> 不能被 extends和 implements(也不能 extends和 implements其它类型)
+
+```ts
+type Warpper = int; //起别名
+type Warpper = Array<string>;   //这是赋值. Error
+```
+
+### 字符串字面量
+> 指定字符串必须的固定值, 而非其它值<br>
+> 可以用于[类型保护](./类型系统.md)
+
+```ts
+type Easing = "ease-in" | "ease-out" | "ease-in-out";
+if(Easing === "ease-in"){}else if(Easing === "ease-out"){}    //类型保护
+```
+
+### 数字字面量
+```ts
+function rollDie(): 1 | 2 | 3 | 4 | 5 | 6 {}    //没什么卵用. 但可以更好的测试
 ```
 
 ## 命名空间
