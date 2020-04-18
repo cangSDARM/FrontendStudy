@@ -1,4 +1,35 @@
 # WebSocket Learning
+<!-- TOC -->
+
+- [WebSocket Learning](#websocket-learning)
+  - [协议简介](#协议简介)
+        - [tips:](#tips)
+  - [深入理解](#深入理解)
+    - [和HTTP/TCP协议比较](#和httptcp协议比较)
+        - [tips:](#tips-1)
+    - [初始握手](#初始握手)
+    - [对应头信息](#对应头信息)
+    - [消息帧](#消息帧)
+    - [关闭握手](#关闭握手)
+    - [WebSocket安全](#websocket安全)
+    - [WebSocket的部署](#websocket的部署)
+        - [代理服务器问题](#代理服务器问题)
+    - [非兼容时备用手段](#非兼容时备用手段)
+  - [生命周期](#生命周期)
+    - [WebSocket API](#websocket-api)
+      - [<span id="check">支持检查</span>](#span-idcheck支持检查span)
+      - [构造链接](#构造链接)
+      - [<span id="onopen">事件：Open</span>](#span-idonopen事件openspan)
+      - [<span id="onmessage">事件：Message</span>](#span-idonmessage事件messagespan)
+      - [<span id="send">方法：send</span>](#span-idsend方法sendspan)
+      - [<span id="onerror">事件：Error</span>](#span-idonerror事件errorspan)
+      - [<span id="close">方法：close</span>](#span-idclose方法closespan)
+      - [<span id="onclose">事件：Close</span>](#span-idonclose事件closespan)
+      - [<span id="readyState">对象特性：readyState</span>](#span-idreadystate对象特性readystatespan)
+      - [<span id="bufferedAmout">对象特性：bufferedAmout</span>](#span-idbufferedamout对象特性bufferedamoutspan)
+  - [相关技术或文档](#相关技术或文档)
+
+<!-- /TOC -->
 
 ## 协议简介
 - 定义：是由**客户端主动发起链接**，**服务器响应链接**的**全双工**通信

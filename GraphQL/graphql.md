@@ -1,4 +1,13 @@
 # GraphQL
+<!-- TOC -->
+
+- [GraphQL](#graphql)
+  - [RESTful](#restful)
+  - [GraphQL](#graphql-1)
+  - [Express实现](#express实现)
+  - [Init](#init)
+
+<!-- /TOC -->
 
 > 这玩意儿自定义了一门语言, 有时间再浪费吧     
 > **老老实实用RESTful**

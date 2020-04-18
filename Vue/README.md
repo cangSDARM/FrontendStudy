@@ -1,4 +1,19 @@
 # Vue
+<!-- TOC -->
+
+- [Vue](#vue)
+  - [入门Tips](#入门tips)
+  - [组件](#组件)
+    - [Mustache](#mustache)
+    - [多组件通信](#多组件通信)
+    - [插槽](#插槽)
+  - [必装](#必装)
+    - [Route](#route)
+    - [Vuex](#vuex)
+  - [其它](#其它)
+  - [Also can used to React](#also-can-used-to-react)
+
+<!-- /TOC -->
 
 - Vue是第一次HTML树渲染后，再执行Vue替换模板字符串达到渲染
 - [生命周期](https://cn.vuejs.org/images/lifecycle.png)

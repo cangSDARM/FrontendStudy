@@ -1,5 +1,23 @@
 # 深入理解Javascript
+<!-- TOC -->
 
+- [深入理解Javascript](#深入理解javascript)
+  - [基础部分](#基础部分)
+    - [严格模式](#严格模式)
+    - [变量提升](#变量提升)
+    - [常见方法](#常见方法)
+    - [类型转换](#类型转换)
+    - [void运算符](#void运算符)
+    - [toString](#tostring-function toString() { [native code] }1)
+    - [泛型方法](#泛型方法)
+  - [Tip](#tip)
+      - [Object.preventExtensions](#objectpreventextensions)
+      - [Object.seal](#objectseal)
+      - [ToArray](#toarray)
+      - [RegExp的/g死循环](#regexp的g死循环)
+      - [尾调用优化](#尾调用优化)
+
+<!-- /TOC -->
 ## 基础部分
 ### 严格模式
 **开启激活更多的警告，使得代码更严谨**

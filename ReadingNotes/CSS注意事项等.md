@@ -1,5 +1,14 @@
-# 其他
+<!-- TOC -->
 
+- [标签嵌套层数](#标签嵌套层数)
+  - [使用<br>](#使用br)
+  - [CSS3中的新规则](#css3中的新规则)
+    - [自定义变量](#自定义变量)
+    - [新的伪类](#新的伪类)
+    - [访问节点属性](#访问节点属性)
+  - [其他注意事项](#其他注意事项)
+
+<!-- /TOC -->
 ## 标签嵌套层数
 ```c++
 // Chrome只允许最多20层同类型标记的嵌套，如果嵌套更多，就会全部忽略
@@ -23,7 +32,7 @@ if(t->isCloseTag(brTag) && m_document->inCompatMode()){
 ### CSS3中的新规则
 [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)
 
-> 自定义变量
+#### 自定义变量
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)
 
 1. 一个元素上没有定义自定义属性，该自定义属性的值会继承其父元素
@@ -37,7 +46,7 @@ span{   /*使用*/
 }
 ```
 
-> 新的伪类
+#### 新的伪类
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Selectors)
 
 ```css
@@ -51,7 +60,7 @@ span{   /*使用*/
 ...
 ```
 
-> 访问节点属性
+#### 访问节点属性
 > [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr)
 
 ```css

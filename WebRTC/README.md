@@ -1,4 +1,16 @@
 # WebRTC
+<!-- TOC -->
+
+- [WebRTC](#webrtc)
+  - [重要名词](#重要名词)
+  - [建立媒体会话](#建立媒体会话)
+    - [建立WebRTC会话](#建立webrtc会话)
+    - [<span id="changeSDP">通过offer和answer交换SDP描述符</span>](#span-idchangesdp通过offer和answer交换sdp描述符span)
+    - [<span id="iceHandle">通过ICE框架建立NAT/防火墙穿越的连接</span>](#span-idicehandle通过ice框架建立nat防火墙穿越的连接span)
+  - [<span id="dataChannel">通过RTCDataChannel来传输任意数据</span>](#span-iddatachannel通过rtcdatachannel来传输任意数据span)
+
+<!-- /TOC -->
+
 Web实时通信技术(Web Real-Time Communication)<br>
 > 允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输
 
