@@ -70,7 +70,7 @@ new String('aa') == new String('aa')    //false
 ### void运算符
 ```js
 //执行但返回undefined
-void (function(){ return 1;})() //undefined
+void (function(){ return 1; })() //undefined
 void 1+4    //undefined
 ```
 ### toString
@@ -83,19 +83,14 @@ void 1+4    //undefined
 ```
 ### 泛型方法
 ```js
-var Wine = Object.create(Object, {AddAge: function(years){ return this.age += years; }})
-var john = {age:51}
+var Wine = Object.create(Object, {
+    AddAge: function(years){
+        return this.age += years;
+    }
+});
+var john = {age:51};
 Wine.prototype.AddAge.call(john, 3) //借助call, apply, bind等实现泛型
 john.age    //54
-```
-## 懒加载
-**img的src设置时才会向服务器发起请求加载图片**<br/>
-**因此懒加载目的就在于让img在可视区域时才获得src属性**
-```jsx
-//首先在DOM节点保存将要加载的属性：
-<img data-img="img/base64:pngxxxx" />   //data-*属性来存储数据
-//之后在可视区域时
-<img src="img/base64:pngxxxx" />    //将data-*换成src属性
 ```
 ## Tip
 #### Object.preventExtensions
@@ -124,15 +119,6 @@ while(/a/g.exec('abasbs')) count--;     //dead loop
 let reg = /a/g; //将reg提取出来
 while(reg.test() || reg.exec())
 ```
-#### lookup表
-```js
-function validate(x){   //一种switch-case的替代方案
-    var lookup = {x: 'doc', y:'root'}, doz = function (){
-        // body...
-    };
-    lookup[x] ? lookup[x]() : doz();
-}
-```
 #### 尾调用优化
 ```js
 //未优化
@@ -147,42 +133,4 @@ function F(){
 function F(){
     return B(2);
 }
-```
-
-## 加载初始脚本
-#### 延迟加载: defer/async
-```html
-<script defer src="https://github.com">
-    //defer 告诉浏览器该文档不会修改DOM内容(document.writer etc.)
-    //使得:
-    //  1. 浏览器下载且不阻塞页面加载
-    //  2. 完成页面加载后, 按顺序执行这部分脚本
-</script>
-<script async src="https://github.com">
-    //async 告诉浏览器该文档不会修改DOM内容(document.writer etc.)
-    //使得:
-    //  1. 浏览器下载且不阻塞页面加载
-    //  2. 脚本下载完毕后, 按顺序执行这部分脚本
-</script>
-```
-#### 延迟加载: 动态脚本插入
-```html
-<script>
-function(callback){
-    var script = document.createElement('script');
-    script.src = "https://github.com";
-    script.async = true;
-    var entry = document.getElementByTagName('script')[0];
-    entry.parentNode.instertBefore(script, entry);
-
-    script.onload = script.onreadystatechange = function(){
-        var readyState = script.readyState; //onreadystatechange和readyState是IE特有的属性
-        if (!readyState || /complete|loaded/.test(script.readyState)){
-            callback();
-            script.onload = null;
-            script.onreadystatechange = null; //IE需要解除事件绑定防止内存泄漏
-        }
-    }
-}
-</script>
 ```
