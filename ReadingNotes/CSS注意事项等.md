@@ -1,11 +1,13 @@
 <!-- TOC -->
 
 - [标签嵌套层数](#标签嵌套层数)
-  - [使用<br>](#使用br)
+  - [使用<br/>](#使用br)
   - [CSS3中的新规则](#css3中的新规则)
     - [自定义变量](#自定义变量)
     - [新的伪类](#新的伪类)
+    - [圆角](#圆角)
     - [访问节点属性](#访问节点属性)
+    - [文字排版](#文字排版)
   - [其他注意事项](#其他注意事项)
 
 <!-- /TOC -->
@@ -21,7 +23,7 @@ bool HTMLParser::allowNestedRedundantTag(const AtomicString& tagName){
 }
 ```
 
-### 使用<br>
+### 使用<br/>
 ```c++
 //虽然为了与IE和FireFox兼容, 支持</br>, 但不推荐使用
 if(t->isCloseTag(brTag) && m_document->inCompatMode()){
@@ -60,12 +62,33 @@ span{   /*使用*/
 ...
 ```
 
+#### 圆角
+> [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
+
+```css
+div {
+    border-radius: 0px 100px / 120px;
+    /* 定义顺序(从top-left开始)：top-left的horizontal vertical -> top-right的vertical horizontal vertical以此类推
+    /* / 前面的是以顺时针角度椭圆的第一个被定义的值，后面的是第二个被定义的值, */
+}
+```
+
 #### 访问节点属性
 > [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr)
 
 ```css
 p:before {
     content:attr(data-foo) " "; /*暂时只有 伪类 的content可用*/
+}
+```
+
+#### 文字排版
+> [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode)
+```css
+div {
+    direction: rtl; /*从右往左*/
+    unicode-bidi: bidi-override;
+    writing-mode: horizontal-tb;
 }
 ```
 
