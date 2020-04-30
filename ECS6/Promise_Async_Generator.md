@@ -17,9 +17,13 @@ const p = new Promise((reslove, reject)=>
 const p = Promise.resolve();
 const p = Promise.reject();
 //调用
-p.then(data=>{}).catch(err=>{}).then(data=>{})
+p.then(data=>{}).catch(err=>{}).then(data=>{}).finally()
 //多个结束
-let p = Promise.all([pa, pb]);
+let p = Promise.all([pa, pb]);  //只要有一个失败, 及返回reject
+//竞赛
+let p = Promise.race([pa, pb]); //只解析第一个的resolve/reject
+//多个决议
+let p = Promise.allSettled([pa, pb]);   //返回的Promise决议的结果, 允许resolve/reject混杂
 ```
 |reslove|reject|
 |:-:|:-:|
@@ -37,6 +41,7 @@ let p = Promise.all([pa, pb]);
 * 如果状态变成了`rejected`，它会自动向后寻找：
     + 发现下一个`then`方法，执行其中`第二个参数的回调函数`；
     + 发现下一个`catch`方法，直接执行；
+* 无论如何，finally都会被调用
 
 ## Async/Await
 ##### 基于Promise的更高层封装，可以将Promise链扁平化
