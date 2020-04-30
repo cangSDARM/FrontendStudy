@@ -1,5 +1,7 @@
 <!-- TOC -->
 
+[HTML Living Standard: WHATWG, not W3C](https://whatwg-cn.github.io/html/#introduction)
+
 - [标签嵌套层数](#标签嵌套层数)
   - [使用<br/>](#使用br)
   - [CSS3中的新规则](#css3中的新规则)
@@ -92,7 +94,10 @@ div {
 }
 ```
 
+### 在线和离线事件
+[Online/Offline](https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
+
 ### 其他注意事项
 1. `inline`元素只能包括`block`或`inline`中的一种. 如果有混合内容, 则应该创建匿名的`block`呈现器以包裹`inline`元素
-2. 不使用遮盖等技术，CSS无法创建内凹的图形
+2. 使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
 3. [图片版注意事项](./其他注意事项图片版.md)
