@@ -19,7 +19,8 @@ TODO:
 - [二维倾斜Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
 - [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
 - [Grid布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-auto-flow)
-- [mix-blend](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
+- [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
+- [片段模板，box-decoration-break]
 
 ## 标签嵌套层数
 ```c++
