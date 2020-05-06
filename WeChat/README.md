@@ -30,3 +30,6 @@
 
 ### 自定义组件
 > 一个组件类似于页面, 由 JSON/WXML/WXSS/JS四个文件组成
+
+## Third-Part Wrapper to React/Vue
+weapp, wevue, uni-app, taro

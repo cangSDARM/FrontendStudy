@@ -67,3 +67,8 @@
 7. DOM操作: https://reactnative.cn/docs/direct-manipulation/
 8. 集成到现有app: https://reactnative.cn/docs/integration-with-existing-apps/
 9. 其它平台支持: https://reactnative.cn/docs/out-of-tree-platforms/
+
+# Rust and RN
+
+1. https://medium.com/@marekkotewicz/building-a-mobile-app-in-rust-and-react-native-part-1-project-setup-b8dbcf3f539f
+2.https://github.com/paritytech/parity-signer

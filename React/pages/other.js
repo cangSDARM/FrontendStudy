@@ -130,6 +130,10 @@ const PageLoad = loadable({
 	loader: ()=> import('./Index'),		//需要加载的组件
 	loading: ()=> <div>loading</div>,	//加载时显示的信息
 });
+
+React.lazy
+  https://reactjs.bootcss.com/docs/code-splitting.html
+
 //****************************************************************
 
 //*************************************React Portals
@@ -191,9 +195,7 @@ React 后期版本特性
 	https://www.reactjscn.com/blog/2018/10/23/react-v-16-6.html
 Suspense
 	https://www.colabug.com/5397403.html
-React.lazy
-	https://www.reactjs.org/blog/2018/10/23/react-v-16-6.html
 React 各种Demo
 	https://codesandbox.io/search?query=React
-JS 响应媒体查询
-	window.matchMedia('(min-width: 500px)').addListener(Callback)
+Rust in React
+  https://www.newline.co/fullstack-react/articles/rust-react-and-web-assembly/
