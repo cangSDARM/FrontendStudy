@@ -40,15 +40,15 @@
     function Foo(must=throw(), other){ }   //must是必要参数了
 ECS5: function(a){ a=a|1 }
 ```
-+ 模板字符串
++ 模板字面量
 > \`${person} is ${2} old\`<br/>
 > 快捷拼接字符串, 可以是变量, 对象或函数<br/>
 > 可以嵌套
-+ 标签模板字符串
-> 使用指定函数来处理模板字符串<br/>
++ 标签模板字面量
+> 使用指定函数来处理模板字面量<br/>
 > func\`temp\`<br/>
-> func需定义为: function func(str, ...valus)<br/>
-> str: 被模板字符串内${}切割的字符串<br/>
+> func需定义为: function func(str: string[], ...values) -> any<br/>
+> str: 被模板字面量内${}切割的字面量 (包含一个 row 属性，可以获取未转义的原始字符串，也可以直接使用String.row``)<br/>
 > ...values: 所有的${}
 + 变长参数
 > ECS6: function(...args){}<br/>

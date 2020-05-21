@@ -18,6 +18,8 @@
       - [尾调用优化](#尾调用优化)
 
 <!-- /TOC -->
+[JS比较表](https://dorey.github.io/JavaScript-Equality-Table/)
+
 ## 基础部分
 ### 严格模式
 **开启激活更多的警告，使得代码更严谨**
@@ -68,9 +70,7 @@ new RegExp('abc')   //运行时编译
 '的'.codePointAt(0)  //返回字符串对应位置的Unicode编号, 能正确处理四字节或两字节
 String.fromCodePrint(134071)    //返回Unicode编号对应的字符串
 //Other------------------------------------------------------------------------
-typeof x === 'undefined'    //test x exists and is undefined
-Object.observe(); Object.unobserve()    //监听对象变化(共6种变化)
-Array.observe(); Array.observe()    //监听数组变化(共4种, CURD)
+typeof x === 'undefined'    //test x exists and is undefined, Draft: x ?? DefaultValue, also can check x is null or not
 ```
 ### 类型转换
 ```js
