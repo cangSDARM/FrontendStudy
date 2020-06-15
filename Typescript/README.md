@@ -380,7 +380,10 @@ function create<T>(c: ()=>T ): T {
 }
 ```
 ## 装饰器
+- 只能用在类里
 - 注意: 不能用在声明文件(.d.ts)，其它外部上下文(比如`declare`的类)或重载里
+
+[参考](./Example.ts)
 
 > 应用顺序:<br>
 > 1. 参数装饰器 -> 方法装饰器 -> get/set装饰器 -> 字段属性装饰器(应用到每个实例成员)<br>
@@ -390,38 +393,6 @@ function create<T>(c: ()=>T ): T {
 > 调用顺序:<br>
 > 字段属性->方法->参数(从右往左)->类
 
-```ts
-//简单装饰器
-//target: 对于静态成员和类来说是类的构造函数, 对于实例成员是类的原型(prototype)对象
-//propertyKey: 成员的名字
-//descriptor: 成员的属性描述符(字段属性没有, 且编译版本ES5以下也没有)
-function log(target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor){}
-
-@log @dec  //当复合log和dec时，复合的结果(log ∘ dec)(A)等同于log(dec(A))
-class A{}
-```
-> 装饰器工厂(传参)
-
-```ts
-function logF(params: any){ //装饰器需要的参数
-    //返回装饰器
-    return function(target: any, propertyKey: string, descriptor: PropertyDescriptor){
-        console.log("f(): called");
-    }
-}
-
-@logF(params)
-class A{}
-```
-
-> 参数装饰器 - 只能用来监视一个方法的参数是否被传入, 其返回值会被忽略
-
-```ts
-//target, argName和普通装饰器效果一样, 只有第三个参数变为: 参数在函数参数列表中的索引
-function dec(target:any, argName:string, agrIndex:int){}
-
-function fuc(@dec arg:any){}
-```
 ## 其它
 ### 类型别名
 > 不能被 extends和 implements(也不能 extends和 implements其它类型)
