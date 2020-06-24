@@ -15,7 +15,6 @@
 <!-- /TOC -->
 TODO:
 
-- [CSS 单位](https://www.w3cplus.com/css/7-css-units-you-might-not-know-about.html)
 - [二维倾斜Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
 - [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
 - [Grid布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-auto-flow)
@@ -60,6 +59,55 @@ div{    /*定义*/
 }
 span{   /*使用*/
     color: var(--div-color);
+}
+```
+
+#### 单位
+[更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/length)
+
+```scss
+html{
+    font-size: 14px;
+}
+#REM_EM{
+    font-size: 1.2rem;  /* 1.2 * rem(14px) = 16.8px */
+    #EM{
+        width: 1em; /* 1em = nearest defined font-size, 这里是 16.8px */
+    }
+}
+#VH_VM{
+    height: 100vh;  /* 1vh = viewport高度的1/100 */
+    width: 100vw;   /* 1vw = viewport宽度的1/100 */
+}
+#VMIN_VMAX{
+    height: 100vmin;    /* 1vmin = Min(viewport宽度, viewport高度)/100 */
+    height: 100vmax;    /* 1vmax = Max(viewport宽度, viewport高度)/100 */
+}
+#EX{
+    font-size: 1ex; /* 1ex = x-height 或者 一个em的一半 */
+    x-height: "当前字体中, 小写字母x的高度";
+}
+#CH{
+    font-size: 1ch; /* 1ch = 0-width/0-height 或者 0.5em/1em */
+    0-width: "当前字体中, 数字0的宽度";
+    0-height: "当前字体中, 数字0的高度";
+}
+#CM_MM_IN_PC_PT{
+    #CM{
+        width: 1cm; /* 1cm = 96px/2.54 */
+    }
+    #MM{
+        width: 1mm; /* 1mm = 1/10cm */
+    }
+    #IN{
+        width: 1in; /* 1in = 2.54cm = 96px */
+    }
+    #PC{
+        width: 1pc; /* 1pc = 12pt = 1/6in */
+    }
+    #PT{
+        width: 1pt; /* 1pt = 1/12pc = 1/72in */
+    }
 }
 ```
 
