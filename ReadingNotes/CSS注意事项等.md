@@ -3,20 +3,22 @@
 [HTML Living Standard: WHATWG, not W3C](https://whatwg-cn.github.io/html/#introduction)
 
 - [标签嵌套层数](#标签嵌套层数)
-  - [使用<br/>](#使用br)
-  - [CSS3中的新规则](#css3中的新规则)
-    - [自定义变量](#自定义变量)
-    - [单位](#单位)
-    - [新的伪类](#新的伪类)
-    - [圆角](#圆角)
-    - [访问节点属性](#访问节点属性)
-    - [文字排版](#文字排版)
-  - [在线和离线事件](#在线和离线事件)
-  - [其他注意事项](#其他注意事项)
+- [使用\<br/>](#使用br)
+- [CSS3中的新规则](#css3中的新规则)
+  - [自定义变量](#自定义变量)
+  - [访问节点属性](#访问节点属性)
+  - [单位](#单位)
+  - [新的伪类](#新的伪类)
+  - [圆角和多边形](#圆角和多边形)
+      - [圆角](#圆角)
+      - [半圆、多边形](#半圆多边形)
+  - [文字排版](#文字排版)
+- [在线和离线事件](#在线和离线事件)
+- [其他注意事项](#其他注意事项)
 
 <!-- /TOC -->
 
-## 标签嵌套层数
+### 标签嵌套层数
 ```c++
 // Chrome只允许最多20层同类型标记的嵌套，如果嵌套更多，就会全部忽略
 bool HTMLParser::allowNestedRedundantTag(const AtomicString& tagName){
@@ -28,7 +30,7 @@ bool HTMLParser::allowNestedRedundantTag(const AtomicString& tagName){
 }
 ```
 
-### 使用<br/>
+### 使用\<br/>
 ```c++
 //虽然为了与IE和FireFox兼容, 支持</br>, 但不推荐使用
 if(t->isCloseTag(brTag) && m_document->inCompatMode()){
@@ -50,6 +52,15 @@ div{    /*定义*/
 }
 span{   /*使用*/
     color: var(--div-color);
+}
+```
+
+#### 访问节点属性
+> [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr)
+
+```css
+p:before {
+    content: attr(data-foo) " "; /*暂时只有 伪类 的content可用*/
 }
 ```
 
@@ -116,10 +127,12 @@ html{
 ...
 ```
 
-#### 圆角
+#### 圆角和多边形
+###### 圆角
 > [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
 
 ```css
+/*芒果形状*/
 div {
     border-radius: 0px 100px / 120px;
     /* 定义顺序(从top-left开始)：top-left的horizontal vertical -> top-right的vertical horizontal vertical以此类推
@@ -127,12 +140,15 @@ div {
 }
 ```
 
-#### 访问节点属性
-> [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr)
+###### 半圆、多边形
+> [使用裁剪方式创建元素的可显示区域](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)
 
 ```css
-p:before {
-    content:attr(data-foo) " "; /*暂时只有 伪类 的content可用*/
+div {
+    clip-path: circle(50% at 50% 0);
+}
+div {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 }
 ```
 

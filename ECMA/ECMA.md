@@ -132,6 +132,3 @@ var p = new Person("name", 1);
 > const proxy = new Proxy(target, hander)<br/>
 > 使用hander对象限定target的访问和重写其元方法.<br/>
 > 通常: const hander = { set(target, key, value){ const target[key]=value; } get{ return target[key] } }
-
-+ Reflect反射
-[TODO write, mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
