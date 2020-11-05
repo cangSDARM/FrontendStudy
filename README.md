@@ -1,16 +1,23 @@
 <!-- TOC -->
 
+- [废弃或提案](#废弃或提案)
+  - [提案](#提案)
 - [Web Worker](#web-worker)
-- [各种存储方式](#各种存储方式)
-    - [Cookie](#cookie)
-    - [localStorage](#localstorage)
-    - [sessionStorage](#sessionstorage)
-    - [IndexedDB](#indexeddb)
-    - [Redux](#redux)
 - [跨域问题](#跨域问题)
-    - [函数式编程](#函数式编程)
+- [黑魔法](#黑魔法)
+- [函数式编程](#函数式编程)
 
 <!-- /TOC -->
+
+- [各种存储方案](./storages.md)
+
+## 废弃或提案
+> 这里放的是未归类的废弃或提案。有分类的应于对应条目查看
+### 提案
+- **WebTransport** 提案将允许在浏览器和服务器之间发送和接收数据，并在顶部使用常见 API 来实现其下的可插拔协议（尤其是基于QUIC）。该 API 与 WebSocket 相似，也是客户端和服务器的双向连接，但允许进一步减少客户端和服务器之间的网络通信延迟，并且还支持多个流、单向流、乱序和不可靠传输。使用场景包括使用不可靠且乱序的消息向服务器重复发送低延迟的游戏状态、从服务器到客户端的媒体片段的低延迟传输以及大多数逻辑在服务器上运行的云场景。
+- **WebCodecs** Web的编解码方案
+- **WebML** Web Machine-Learning
+
 ## Web Worker
 > 现代浏览器的JavaScript**多线程环境**<br>
 > 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**<br>
@@ -48,64 +55,6 @@ self.close();
 + 无法加载本地资源
 + 更多参见: [Functions and classes available to workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
 
-## 各种存储方式
-**已被废弃的:** *Web SQL Database*<br>
-**尚未完善的:** *CacheStorage*
-
-|Cookie|localStorage|sessionStorage|IndexedDB|redux|
-|:-:|:-:|:-:|:-:|:-:|
-|一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效|除非被清除，否则永久保存|仅在当前会话下有效，关闭页面后被清除|适合存储大量数据，其 API 是异步调用的。IndexedDB 使用索引存储数据，各种数据库操作放在事务中执行，且支持简单的数据类型。对于简单的数据，应该使用 localstorage。IndexedDB 能提供更为复杂的查询数据的方式|浏览网页过程中开辟的一块内存，刷新网页或者关闭网页，内存就会清除掉，用于整合散乱的组件数据|
-|4K左右|一般为5MB|一般为5MB|任意大小|任意大小|
-|每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|
-
-#### Cookie
-更人性化的Cookie操作: [js-cookie包](https://www.npmjs.com/package/js-cookie)
-```js
-/*
-使用 document.cookie 属性来创建, 读取, 及删除 cookie
-*/
-document.cookie = "name=Json; age=10";
-document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT"; //expires设置过期时间
-document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"; //path指定cookie路径
-document.cookie="username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";   //修改即覆盖
-document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT";   //设置 expires 参数为以前的时间即可删除cookie
-```
-#### localStorage
-```js
-/*
-以键值对形式存储
-操作只需要关心window.localStorage
-可以使用JSON.stringify()和JSON.parse()来操作
-*/
-window.localStorage['a'] = 1
-window.localStorage.getItem("key")      //增
-window.localStorage.removeItem("key")   //删
-window.localStorage.setItem("key", "value")     //改
-window.localStorage.key(i)      //查
-```
-#### sessionStorage
-```js
-/*
-类似于localStorage, 但操作的对象是sessionStorage
-*/
-sessionStorage.setItem('key', 'value');
-let data = sessionStorage.getItem('key');
-sessionStorage.removeItem('key');
-sessionStorage.clear();
-```
-#### IndexedDB
-<strong style="color: #afdc01">TODO</strong>
-
-[对应的API](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)<br/>
-[简明教程](https://www.jianshu.com/p/ca838ff7e4d8)<br/>
-#### Redux
-+ Redux = Reducer + Flux
-+ Store是唯一的, Store对外是封闭的(因此reducer是生成新对象)
-+ React只是一个UI框架, Redux是数据层框架
-+ 用以优化和存储组件数据
-+ 开辟公共空间来存储数据, 组件受其数据影响并更新
-+ Redux的中间件是影响dispatch方法
-
 ## 跨域问题
 > 在另一个vscache.git(Django)中已经简要说明了CORS问题以及JSONP<br/>
 > 这里是另一种解决方法: iframe + postMessage<br/>
@@ -123,6 +72,11 @@ window.addEventListener('message', function(e){     //iframe接收
 ```
 [参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
 
-#### 函数式编程
+## 黑魔法
+- [异步构造函数](https://www.blackglory.me/async-constructor/)
+- [自定义URL打开本地程序](https://www.lefer.cn/posts/12763/)
+- [检测Devtools是否被打开](https://nocilol.me/archives/lab/check-browser-devtools-open/)
+
+## 函数式编程
 [高阶函数](https://segmentfault.com/a/1190000017569569)<br>
 [柯里化](https://segmentfault.com/a/1190000006096034#articleHeader1)
