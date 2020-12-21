@@ -1,20 +1,20 @@
-<!-- TOC -->
+# React
 
-- [React](#react)
-    - [使用脚手架搭建JS环境](#使用脚手架搭建js环境)
-    - [虚拟DOM(Virtual Document Object Model)](#虚拟domvirtual-document-object-model)
-    - [All in js](#all-in-js)
-    - [Ajax](#ajax)
-    - [React-Router](#react-router)
-  - [组件化编程](#组件化编程)
-  - [生命周期(outdate, based on 15.x)](#生命周期outdate-based-on-15x)
-    - [Gatsby](#gatsby)
+<!-- TOC -->
+- [使用脚手架搭建JS环境](#使用脚手架搭建js环境)
+  - [虚拟DOM(Virtual Document Object Model)](#虚拟domvirtual-document-object-model)
+  - [All in js](#all-in-js)
+  - [Ajax](#ajax)
+  - [React-Router](#react-router)
+- [组件化编程](#组件化编程)
+- [生命周期(outdate, based on 15.x)](#生命周期outdate-based-on-15x)
+  - [Gatsby](#gatsby)
 
 <!-- /TOC -->
-# React
+
 ****
 **“响应式JS框架”**
-### 使用脚手架搭建JS环境
+## 使用脚手架搭建JS环境
 + 若使用`<script>`标签引入, 后期细化流程会减慢加载速度
 + 简化JS脚本的相互引用, 简化管理
 + 内置webpack, 不用自己麻烦打包压缩

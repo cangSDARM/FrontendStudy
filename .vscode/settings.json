@@ -1,3 +1,6 @@
 {
+  "markdown.extension.toc.updateOnSave": true,
+  "markdown.extension.toc.levels": "2..6",
+  "editor.fontSize": 16,
   "editor.fontFamily": "'Fira Mono for Powerline', 'SourceCode Pro' , Consolas, monospace"
 }

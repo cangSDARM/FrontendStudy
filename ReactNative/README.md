@@ -1,13 +1,10 @@
 # ReactNative
 <!-- TOC -->
 
-- [ReactNative](#reactnative)
-  - [初始化](#初始化)
-  - [结构](#结构)
-  - [Dev Menu](#dev-menu)
-  - [规范](#规范)
-- [参考文档](#参考文档)
-- [Rust and RN](#rust-and-rn)
+- [初始化](#初始化)
+- [结构](#结构)
+- [Dev Menu](#dev-menu)
+- [规范](#规范)
 
 <!-- /TOC -->
 

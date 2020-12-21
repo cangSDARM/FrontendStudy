@@ -1,11 +1,10 @@
 # GraphQL
 <!-- TOC -->
 
+- [RESTful](#restful)
 - [GraphQL](#graphql)
-  - [RESTful](#restful)
-  - [GraphQL](#graphql-1)
-  - [Express实现](#express实现)
-  - [Init](#init)
+- [Express实现](#express实现)
+- [Init](#init)
 
 <!-- /TOC -->
 

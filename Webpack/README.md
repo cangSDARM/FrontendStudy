@@ -1,12 +1,11 @@
 <!-- TOC -->
 
-- [Webpack](#webpack)
-  - [从Webpack构建](#从webpack构建)
-  - [Webpack热更新](#webpack热更新)
-  - [Webpack使用ES6语法](#webpack使用es6语法)
-  - [Webpack省略文件扩展名](#webpack省略文件扩展名)
-  - [Webpack设置根目录](#webpack设置根目录)
-  - [Webpack样式表配置](#webpack样式表配置)
+- [从Webpack构建](#从webpack构建)
+- [Webpack热更新](#webpack热更新)
+- [Webpack使用ES6语法](#webpack使用es6语法)
+- [Webpack省略文件扩展名](#webpack省略文件扩展名)
+- [Webpack设置根目录](#webpack设置根目录)
+- [Webpack样式表配置](#webpack样式表配置)
 
 <!-- /TOC -->
 # Webpack

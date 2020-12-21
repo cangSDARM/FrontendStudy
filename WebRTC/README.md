@@ -1,13 +1,12 @@
 # WebRTC
 <!-- TOC -->
 
-- [WebRTC](#webrtc)
-  - [重要名词](#重要名词)
-  - [建立媒体会话](#建立媒体会话)
-    - [建立WebRTC会话](#建立webrtc会话)
-    - [<span id="changeSDP">通过offer和answer交换SDP描述符</span>](#span-idchangesdp通过offer和answer交换sdp描述符span)
-    - [<span id="iceHandle">通过ICE框架建立NAT/防火墙穿越的连接</span>](#span-idicehandle通过ice框架建立nat防火墙穿越的连接span)
-  - [<span id="dataChannel">通过RTCDataChannel来传输任意数据</span>](#span-iddatachannel通过rtcdatachannel来传输任意数据span)
+- [重要名词](#重要名词)
+- [建立媒体会话](#建立媒体会话)
+  - [建立WebRTC会话](#建立webrtc会话)
+  - [<span id="changeSDP">通过offer和answer交换SDP描述符</span>](#通过offer和answer交换sdp描述符)
+  - [<span id="iceHandle">通过ICE框架建立NAT/防火墙穿越的连接</span>](#通过ice框架建立nat防火墙穿越的连接)
+- [<span id="dataChannel">通过RTCDataChannel来传输任意数据</span>](#通过rtcdatachannel来传输任意数据)
 
 <!-- /TOC -->
 
