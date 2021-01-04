@@ -1,0 +1,125 @@
+/*
+ * 文档流
+ * 正常文档流: 将元素布局从上到下,从左到右的顺序排布
+ * 脱离文档流: 将元素从文档流取出进行覆盖(position:fixed,absolute;float)
+*/
+/* 匹配所有元素 */
+@charset 'utf-8';   /*指定该文档的编码方式*/
+
+* {
+    margin: 0px 1px 0px 2px;
+}
+
+/* 标签 */
+div,p {
+    /* color */
+    color: red;
+    background-color: #0033f2;
+    border-color: rgba(169, 45, 223, 0.5);
+    outline-color: rgb(155, 221, 32);
+}
+
+/* #id */
+#de1 {
+    /* font */
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    font-weight: lighter;
+    font-style: italic;
+}
+
+/* .class */
+.s2 {
+    /* text */
+    text-align: center;
+    line-height: 20px;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    text-transform: capitalize;
+    direction: rtl;
+}
+
+/* ancestor progeny */
+div p{
+    /* box model */
+    margin: 2px;    /* 标签与标签 */
+    border: 2px #3322ff solid;  /* margin与padding */
+    padding: 4px #decc22;   /* border与内容 */
+    background-color: #eeffcc;  /* 内容 */
+}
+
+/* parent > child*/
+div > .dvs{
+    /* 更改为block标签或inline标签或直接不可见none */
+    display: inline-block;
+}
+
+/* back-contigeous */
+div + span{
+    /* float */
+    /* 元素浮动时需要前一个也是浮动, 后面的需要(clear: left|right|both)不允许浮动 */
+    float: left;
+}
+
+/* lable[attribute='value'] */
+div[id='id']{
+    /* position */
+    /* fixed屏幕上绝对定位, absolute相对非static的父标签原位置移动脱离文档流, ralative类似absolute但仍在正常文档流, static默认*/
+    position: fixed;
+    /* bottom top left right设置position*/
+    bottom: 20px;
+    right: 30px;
+}
+
+/* [attribute~='value'] */
+[class~='text']{
+    /*class="value another else"*/
+    list-style: armenian;
+}
+
+/* [attribute$='lue'] */
+[id$='lue']{
+    /*id="vlaue"*/
+    border-color: sienna;
+}
+
+/* [attribute^='va' */
+[id^='va']{
+    /*id='value'*/
+    size: 2px;
+}
+
+/* [attribute*='al' */
+[id*='al']{
+    /*id='value'*/
+    float: left;
+}
+
+/* :active */
+p::before, p::after{
+    content: "insert to the before(after) of p";
+}
+
+/* :link(没有访问), :hover(鼠标覆盖), :active(按下鼠标), :visited(已访问) */
+a:link{
+    position: fixed;
+}
+
+/* (only|not) 对不同的屏幕类型 and (在满足指定屏幕尺寸信息时) {修改样式} */
+@media only screen and (max_width: 800px){
+    .s2{
+        background-color: red;
+    }
+}
+
+/* 定义myFont字体和其对应路径(相对或绝对) */
+@font-face{
+    font-family: myFont;
+    src: url('Sansation_Light.ttf'),
+        url('Sansation_Light.eot'); /* IE9 */
+}
+
+/* 检测css语法支持情况, 判断的css语法有效则执行内部css */
+@supports (transform-origin: 5%) {
+    /* specific rules */
+}

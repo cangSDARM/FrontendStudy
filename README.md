@@ -3,13 +3,13 @@
 - [废弃或提案](#废弃或提案)
   - [提案](#提案)
 - [Web Worker](#web-worker)
-- [跨域问题](#跨域问题)
 - [黑魔法](#黑魔法)
 - [函数式编程](#函数式编程)
 
 <!-- /TOC -->
 
 - [各种存储方案](./storages.md)
+- [跨域解决方案](./cors.md)
 
 ## 废弃或提案
 > 这里放的是未归类的废弃或提案。有分类的应于对应条目查看
@@ -54,23 +54,6 @@ self.close();
 + 无法使用 document / window / DOM / parent
 + 无法加载本地资源
 + 更多参见: [Functions and classes available to workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
-
-## 跨域问题
-> 在另一个vscache.git(Django)中已经简要说明了CORS问题以及JSONP<br/>
-> 这里是另一种解决方法: iframe + postMessage<br/>
-> 参考: [CORS](https://developer.mozilla.org/zh-CN/docs/tag/CORS)
-
-```js
-window.onload=function(){   //主窗口发送
-    window.frames[0].postMessage('message','http://lslib.com');
-}
-window.addEventListener('message', function(e){     //iframe接收
-    if(e.source != window.parent) return;
-    var color = container.style.backgroundColor;
-    window.parent.postMessage( color, '*' );
-}, false);
-```
-[参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
 
 ## 黑魔法
 - [异步构造函数](https://www.blackglory.me/async-constructor/)
