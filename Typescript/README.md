@@ -103,7 +103,7 @@ const enum Enum {
 
 > 字面量枚举(枚举本身变成了联合)
 
-```
+```ts
 enum ENUM{  //不含有计算成员量 || (全部成员量类型相同 && 成员量是string/整数类型)
     ENUM1,
     ENUM2,
