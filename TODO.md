@@ -11,3 +11,6 @@
 - [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 - [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 - [Reflect反射](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
+- [WebHID通用输入设备逻辑接口(手柄等)](https://wicg.github.io/webhid/)
+- [WebNFC](https://web.dev/nfc/)
+- [WebSerial_api串行设备api(打印机/微控制器等)](https://wicg.github.io/serial/)
