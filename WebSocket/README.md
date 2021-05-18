@@ -40,17 +40,17 @@
 ## 深入理解
 
 ### 和HTTP/TCP协议比较
-| 特性 | TCP | HTTP | WebSocket |
-| :--: | :--: | :--: | :--: |
-| 寻址 | IP地址和端口 | URL | URL |
-| 并发传输 | 全双工 | 半双工 | 全双工 |
-| 内容 | 字节流 | MIME消息 | 文本和二进制消息 |
-| 消息定界 | 否 | 是 | 是 |
-| 链接定向 | 是 | 否 | 是 |
+|   特性   |     TCP      |   HTTP   |    WebSocket     |
+| :------: | :----------: | :------: | :--------------: |
+|   寻址   | IP地址和端口 |   URL    |       URL        |
+| 并发传输 |    全双工    |  半双工  |      全双工      |
+|   内容   |    字节流    | MIME消息 | 文本和二进制消息 |
+| 消息定界 |      否      |    是    |        是        |
+| 链接定向 |      是      |    否    |        是        |
 
 #####tips: 
 1. TCP只能传输字节流，所以消息边界由高层协议来表现。所谓粘包，并不是TCP所需要定义的
-2. websocket协议内置消息边界，所以发送和接收没有所谓的“碎片”
+2. websocket协议内置消息边界，所以发送和接收没有所谓的"碎片"
 3. 开放系统互联（OSI）七层模型设计时没有考虑互联网，互联网的TCP/IP模型只有：链路层、互联网层、传输层和应用层
 4. IP(互联网层)-> TCP(传输层) -> Websocket、http(应用层)
 
@@ -59,16 +59,16 @@
 2. 服务器响应`Sec-WebSocket-Accept; 101 Switching Portocals; Upgrade`头
 
 ### 对应头信息
-| 首标 | 响应/请求 | 描述 |
-| :--: | :--: | :--: |
-| Sec-WebSocket-Key | 请求 | 避免无意义的http连接(浏览器添加, 用户禁止手动添加该头信息) |
-| Upgrade | 请求/响应 | 表示要升级到的协议, 值固定为`websocket` |
-| Connection | 请求/响应 | 表示需要升级协议(必须), 值固定为`Upgrade` |
-| Sec-WebSocket-Version | 请求/响应 | 表示版本兼容性, 正常可行版本总是13. 如果不支持, 服务器需要返回对应的支持版本 |
-| Sec-WebSocket-Extensions | 请求/响应 | 协商WebSocket的协议级拓展。扩展允许添加自定义的帧头，需要浏览器标准化 |
-| Sec-WebSocket-Protocal | 请求/响应 | 协商更高级协议, 如XMPP、STOMP、自定义协议等 |
-| HTTP/1.1 101 Switching Protocals | 响应 | 表示服务器接受WebSocket连接 |
-| Sec-WebSocket-Accept | 响应 | 根据请求首部的Sec-WebSocket-Key计算出来. <br/> 用于表示服务器理解WebSocket<br/> 固定公式: 将Sec-WebSocket-Key跟`258EAFA5-E914-47DA-95CA-C5AB0DC85B11`拼接; <br/>通过SHA1计算出摘要，并转成base64字符串返回 |
+|               首标               | 响应/请求 |                                                                                                    描述                                                                                                    |
+| :------------------------------: | :-------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|        Sec-WebSocket-Key         |   请求    |                                                                         避免无意义的http连接(浏览器添加, 用户禁止手动添加该头信息)                                                                         |
+|             Upgrade              | 请求/响应 |                                                                                  表示要升级到的协议, 值固定为`websocket`                                                                                   |
+|            Connection            | 请求/响应 |                                                                                 表示需要升级协议(必须), 值固定为`Upgrade`                                                                                  |
+|      Sec-WebSocket-Version       | 请求/响应 |                                                                表示版本兼容性, 正常可行版本总是13. 如果不支持, 服务器需要返回对应的支持版本                                                                |
+|     Sec-WebSocket-Extensions     | 请求/响应 |                                                                   协商WebSocket的协议级拓展。扩展允许添加自定义的帧头，需要浏览器标准化                                                                    |
+|      Sec-WebSocket-Protocal      | 请求/响应 |                                                                                协商更高级协议, 如XMPP、STOMP、自定义协议等                                                                                 |
+| HTTP/1.1 101 Switching Protocals |   响应    |                                                                                        表示服务器接受WebSocket连接                                                                                         |
+|       Sec-WebSocket-Accept       |   响应    | 根据请求首部的Sec-WebSocket-Key计算出来. <br/> 用于表示服务器理解WebSocket<br/> 固定公式: 将Sec-WebSocket-Key跟`258EAFA5-E914-47DA-95CA-C5AB0DC85B11`拼接; <br/>通过SHA1计算出摘要，并转成base64字符串返回 |
 
 ### 消息帧
 > 每消息帧(frame)组成: 帧头 + 数据内容; 每内容(message)组成: 一帧或多帧(组帧, framing)<br/>
@@ -133,22 +133,22 @@ WebSocket关闭时，终止连接的端点发送一个数字代码，用于表�
 [错误号大全](https://github.com/Luka967/websocket-close-codes)
 
 ### WebSocket安全
-|攻击类型|解决办法|
-|:-:|:-:|
-|拒绝服务(DoS)|[Origin头](http://www.ietf.org/rfc/rfc6454.txt)|
-|连接洪范拒绝服务(DDoS)|用Origin首标限制新连接|
-|代理服务器攻击|掩码(Mask帧)|
-|中间人, 窃听|WebSocket安全(wss://)|
+|        攻击类型        |                    解决办法                     |
+| :--------------------: | :---------------------------------------------: |
+|     拒绝服务(DoS)      | [Origin头](http://www.ietf.org/rfc/rfc6454.txt) |
+| 连接洪范拒绝服务(DDoS) |             用Origin首标限制新连接              |
+|     代理服务器攻击     |                  掩码(Mask帧)                   |
+|      中间人, 窃听      |              WebSocket安全(wss://)              |
 
 ### WebSocket的部署
 ##### 代理服务器问题
-|代理服务器类型|WebSocket|连接结果|考虑因素|
-|:-:|:-:|:-:|:-:|
-|无代理|ws/wss|成功|WebSocket在C/S间无中介可以成功|
-|显式|ws|失败或成功|需要显示代理服务器允许CONNECT方法, 连接不安全|
-|显式|wss|成功|需要显示代理服务器允许CONNECT方法, 由于是TLS握手, 因此连接安全|
-|透明|ws|失败|透明代理服务器不理解101响应码|
-|透明|wss|成功|由于TLS是加密的, 因此透明代理只会转发|
+| 代理服务器类型 | WebSocket |  连接结果  |                            考虑因素                            |
+| :------------: | :-------: | :--------: | :------------------------------------------------------------: |
+|     无代理     |  ws/wss   |    成功    |                 WebSocket在C/S间无中介可以成功                 |
+|      显式      |    ws     | 失败或成功 |         需要显示代理服务器允许CONNECT方法, 连接不安全          |
+|      显式      |    wss    |    成功    | 需要显示代理服务器允许CONNECT方法, 由于是TLS握手, 因此连接安全 |
+|      透明      |    ws     |    失败    |                 透明代理服务器不理解101响应码                  |
+|      透明      |    wss    |    成功    |             由于TLS是加密的, 因此透明代理只会转发              |
 
 ### 非兼容时备用手段
 1. 浏览器插件: Adobe Flash技术
@@ -156,12 +156,12 @@ WebSocket关闭时，终止连接的端点发送一个数字代码，用于表�
 
 ## 生命周期
 ### WebSocket API
-| 事件 | 方法 | 其他 |
-| ------ | ------ | ------ |
-| [onopen](#onopen) | [send](#send) | [readyState](#readyState) |
+| 事件                    | 方法            | 其他                            |
+| ----------------------- | --------------- | ------------------------------- |
+| [onopen](#onopen)       | [send](#send)   | [readyState](#readyState)       |
 | [onmessage](#onmeesage) | [close](#close) | [bufferedAmout](#bufferedAmout) |
-| [onerror](#onerror) ||[支持检查](#check)|
-| [onclose](#onclose) |||
+| [onerror](#onerror)     |                 | [支持检查](#check)              |
+| [onclose](#onclose)     |                 |                                 |
 
 #### <span id="check">支持检查</span>
 ```js
@@ -241,12 +241,12 @@ ws.onclose = function(e){
 }
 ```
 #### <span id="readyState">对象特性：readyState</span>
-|常量表示|取值|状态|
-|:--:|:--:|:--:|
-|WebSocket.CONNECTING|0|链接正在建立中|
-|WebSocket.OPEN|1|链接已建立，可以发送消息|
-|WebSocket.CLOSING|2|链接正在关闭握手|
-|WebSocket.CLOSED|3|链接已经关闭，不能打开|
+|       常量表示       | 取值  |           状态           |
+| :------------------: | :---: | :----------------------: |
+| WebSocket.CONNECTING |   0   |      链接正在建立中      |
+|    WebSocket.OPEN    |   1   | 链接已建立，可以发送消息 |
+|  WebSocket.CLOSING   |   2   |     链接正在关闭握手     |
+|   WebSocket.CLOSED   |   3   |  链接已经关闭，不能打开  |
 
 #### <span id="bufferedAmout">对象特性：bufferedAmout</span>
 用于检查已经进入发送队列，但尚未发送到服务器的字节数（不包括协议组帧开销或其它缓冲）
@@ -271,3 +271,4 @@ if(ws.bufferedAmout < THRESHOLD){
     + noVNC VNC client using H5
     + RFB(Remote Framebuffer) 远程帧缓冲
 + AMQP(Advanced Message Queueing Protocal) 高级消息队列协议
++ [SSE(Server-Sent Events) 服务器推送事件](./SSE.md)
