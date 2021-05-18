@@ -1,5 +1,7 @@
 # Promise Async Generator
 
+[不错的说明](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
+
 ## Promise
 ### 两个内容：
 1. PromiseStatus：Promise的状态
@@ -25,9 +27,9 @@ let p = Promise.race([pa, pb]); //只解析第一个的resolve/reject
 //多个决议
 let p = Promise.allSettled([pa, pb]);   //返回的Promise决议的结果, 允许resolve/reject混杂
 ```
-|reslove|reject|
-|:-:|:-:|
-|成功时调用, then捕获|失败时调用, catch捕获|
+|       reslove        |        reject         |
+| :------------------: | :-------------------: |
+| 成功时调用, then捕获 | 失败时调用, catch捕获 |
 
 > `then`和`catch`都接收一个回调函数，若传入非函数，则会忽略当前的then方法<br/>
 > `then`回调函数中会把上一个then中返回的`PrmoiseValue`当做参数值供当前then方法调用<br/>

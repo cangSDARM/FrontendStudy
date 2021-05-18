@@ -108,13 +108,6 @@ ECS5: function(a){ a=a|1 }
 > super对象在普通方法指向父类原型prototype, static方法中指向父类
 > set函数: set func(){}. 同C#的set<br/>
 > get函数: get func(){}. 同C#的get
-+ 数组推导
-> 类似于python的数组赋值<br/>
-> var a1 = [1, 2, 3, 4]<br/>
-> var a2 = [for (i of a1) i*2], a2=[2,4,6,8]<br/>
-> 可以加if判断: a2 = [for (i of a1) if (i%2==0) i*2], a2=[4,8]<br/>
-> 可以多重循环: [for (i of a1) for (j of a1) console.log(i*j)]<br/>
-> ES5: [1,2,3,4].map(function(i){ if(i%2==0){ return i*2 } })
 
 #### Older type
 ```js

@@ -6,7 +6,6 @@
   - [常见方法](#常见方法)
   - [类型转换](#类型转换)
   - [void运算符](#void运算符)
-  - [toString](#tostring)
   - [泛型方法](#泛型方法)
 - [Tip](#tip)
     - [Object.preventExtensions](#objectpreventextensions)
@@ -14,6 +13,7 @@
     - [ToArray](#toarray)
     - [RegExp的/g死循环](#regexp的g死循环)
     - [尾调用优化](#尾调用优化)
+    - [自定义JSON格式](#自定义json格式)
 
 <!-- /TOC -->
 [JS比较表](https://dorey.github.io/JavaScript-Equality-Table/)
@@ -54,8 +54,6 @@ function foo(){
 ### 常见方法
 ```js
 //Array------------------------------------------------------------------------
-arr.shift() //remove first element
-arr.unshift()   //prepend an element(push an element to be first)
 arr.splice(1, 2)    //remove 2 elements begin at index 1, (safely and anyIndexing)
 //Reg------------------------------------------------------------------------
 /^abc$/.test('att') //try test Reg
@@ -67,8 +65,6 @@ new RegExp('abc')   //运行时编译
 'abc'.slice(-2, -2)   //写负数会 加上字符串的长度 再slice
 '的'.codePointAt(0)  //返回字符串对应位置的Unicode编号, 能正确处理四字节或两字节
 String.fromCodePrint(134071)    //返回Unicode编号对应的字符串
-//Other------------------------------------------------------------------------
-typeof x === 'undefined'    //test x exists and is undefined, Draft: x ?? DefaultValue, also can check x is null or not
 ```
 ### 类型转换
 ```js
@@ -88,14 +84,6 @@ new String('aa') == new String('aa')    //false
 //执行但返回undefined
 void (function(){ return 1; })() //undefined
 void 1+4    //undefined
-```
-### toString
-```js
-//没有 1.toString() 这种写法
-1..toString()
-1 .toString()
-(1).toString()
-1.0.toString()
 ```
 ### 泛型方法
 ```js
@@ -149,4 +137,25 @@ function F(){
 function F(){
     return B(2);
 }
+```
+#### 自定义JSON格式
+简而言之需要实现`toJSON`方法。该方法会在`JSON.stringify`时尝试调用
+```js
+const json = JSON.stringify({
+  answer: { toJSON: () => 42 }
+});
+console.log(json); // {"answer":42}
+
+class HTTPErr extends Error {
+  constructor(message, status) {
+    super(message);
+    this.status = status;
+  }
+
+  toJSON() {
+    return { message: this.message, status: this.status };
+  }
+}
+const e = new HTTPError('Fail', 404);
+console.log(JSON.stringify(e)); // {"message":"Fail","status":404}
 ```

@@ -2,8 +2,6 @@
 
 [HTML Living Standard: WHATWG, not W3C](https://whatwg-cn.github.io/html/#introduction)
 
-- [标签嵌套层数](#标签嵌套层数)
-- [使用\<br/>](#使用br)
 - [CSS3中的新规则](#css3中的新规则)
   - [自定义变量](#自定义变量)
   - [访问节点属性](#访问节点属性)
@@ -18,26 +16,6 @@
 
 <!-- /TOC -->
 
-### 标签嵌套层数
-```c++
-// Chrome只允许最多20层同类型标记的嵌套，如果嵌套更多，就会全部忽略
-bool HTMLParser::allowNestedRedundantTag(const AtomicString& tagName){
-    unsigned i = 0;
-    for(HTMLStackElem* curr = m_blockStack;
-        i < cMaxRedundantTagDepth && curr && curr->tagName == tagName;
-        curr = curr->next, i++){ }
-    return i != cMaxRedundantTagDepth;
-}
-```
-
-### 使用\<br/>
-```c++
-//虽然为了与IE和FireFox兼容, 支持</br>, 但不推荐使用
-if(t->isCloseTag(brTag) && m_document->inCompatMode()){
-    reportError(MalformedBRError);
-    t->beginTag = true;
-}
-```
 ### CSS3中的新规则
 [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)
 
