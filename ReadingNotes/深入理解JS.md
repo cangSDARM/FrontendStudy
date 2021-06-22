@@ -10,7 +10,6 @@
 - [Tip](#tip)
     - [Object.preventExtensions](#objectpreventextensions)
     - [Object.seal](#objectseal)
-    - [ToArray](#toarray)
     - [RegExp的/g死循环](#regexp的g死循环)
     - [尾调用优化](#尾调用优化)
     - [自定义JSON格式](#自定义json格式)
@@ -109,11 +108,6 @@ var obj = Object.create({}, {foo: {value:1, enumerable: false}})
 Object.seal(obj)    //使得无法修改obj的属性(可迭代, 可写, 可配置)
 Object.isSeled(obj) //true
 obj.foo = 'b';  //可以修改值
-```
-#### ToArray
-```js
-let arr = Array.from('..'); //将类数组对象转为数组
-arr.forEach();  //则之后就可调用数组方法
 ```
 #### RegExp的/g死循环
 ```js
