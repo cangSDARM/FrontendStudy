@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <link href="main.css" rel="stylesheet" />
+    <script src="sample.js"></script>
+  </head>
+  <body onscroll="Scroll()">
+    <div id="title">
+      <div></div>
+      <button value="ex_01" onclick="SwitchDiv(this)">滚动菜单</button>
+      <button value="ex_02" onclick="SwitchDiv(this)">模态对话框</button>
+      <button value="ex_03" onclick="SwitchDiv(this)">拖动面板</button>
+      <button value="cube" onclick="SwitchDiv(this)">3D Cube</button>
+    </div>
+    <div>
+      <div id="ex_01" class="">
+        <div class="dao">
+          <a class="1 point cur">①</a>
+          <a class="2 point">②</a>
+          <a class="3 point">③</a>
+          <a class="4 point">④</a>
+          <div class="toTop" onclick="ToTop()">toTop</div>
+        </div>
+        <div id="inner">
+          <div id="1">first</div>
+          <div id="2">second</div>
+          <div id="3">third</div>
+          <div id="4">fourth</div>
+        </div>
+      </div>
+      <div id="ex_02" class="hide">
+        <div id="div1">
+          <button class="lef" onclick="Show()">模态对话框</button>
+          <p class="peffect01">abcdefghijklmnopqrstuvwxyz</p>
+          <p class="peffect02">abcdefghijklmnopqrstuvwxyz</p>
+          <p class="peffect03">abcdefghijklmnopqrstuvwxyz</p>
+          <p class="peffect04">abcdefghijklmnopqrstuvwxyz</p>
+        </div>
+        <div id="backdrop" class="hide div"></div>
+        <div id="modal" class="hide div">
+          <button onclick="Eixt()">Exit</button>
+        </div>
+      </div>
+      <div id="ex_03" class="hide">
+        <div class="ex03">
+          <header onmousedown="MouseDown()">标题</header>
+          <div style="height: 400px; border: 2px solid #f6f6f6">
+            <span>:after/:before 在选择对象前后添加样式或内容</span>
+          </div>
+        </div>
+      </div>
+      <div id="cube" class="hide">
+        <div>
+          <p>1202</p>
+        </div>
+        <div>
+          <ul>
+            <li>5</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>4</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>3</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>2</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>1</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
