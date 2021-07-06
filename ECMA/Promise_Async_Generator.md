@@ -12,7 +12,7 @@
 
 # Promise Async Generator
 
-[不错的说明](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
+[Concurrency in JS](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
 
 ## Promise
 
