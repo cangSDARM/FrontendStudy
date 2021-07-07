@@ -87,6 +87,10 @@ ECS5: function(a){ a=a|1 }
 //未定义时默认值
     [ zero=1 ] = []    //0号下标元素未定义
 ```
+##### 复杂结构
+```js
+let [{age}] = [{age:8,name:'xx'},'深圳',[1,2,3]];
+```
 + 简化赋值
 > ECS6: 已知: name. Person = { name, age(){}, [name++]: name }<br/>
 > ECS5: 已知: name, names. Person = { name: name, age:function(){}, name1: name }
