@@ -7,7 +7,6 @@
 - [片段模板，box-decoration-break]
 - [二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 - [类表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/class)
-- [对象解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 - [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 - [Reflect反射](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
@@ -15,3 +14,8 @@
 - [WebNFC](https://web.dev/nfc/)
 - [WebSerial_api串行设备api(打印机/微控制器等)](https://wicg.github.io/serial/)
 - [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+- [AOP](https://juejin.cn/post/6903484050095210509)
+- [页面生命周期](https://juejin.cn/post/6906779518040539144)
+- Service-Worker, 监听event、fetchProxy和Cache处理
+  - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
+  - [Part2, React](https://juejin.im/post/6881616183158636552)

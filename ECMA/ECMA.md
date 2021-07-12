@@ -54,6 +54,9 @@ ECS5: function(a){ a=a|1 }
 > ECS6: function(...args){}<br/>
 > ECS5: function(){ arguments }<br/>
 > args是一个数组, arguments是一个Object
++ 简化赋值
+> ECS6: 已知: name. Person = { name, age(){}, [name++]: name }<br/>
+> ECS5: 已知: name, names. Person = { name: name, age:function(){}, name1: name }
 
 #### 解构
 **常用于:**
@@ -69,12 +72,14 @@ ECS5: function(a){ a=a|1 }
 //新写法:
     const { age, name } = Tom
 //对已声明对象用于解构时
-    let age, name;
-    ({ age, name } = Tom)   //小括号是必要的. 防止js错误解析大括号
+    let age, name, rest;
+    ({ age, name, ...rest } = Tom)   //小括号是必要的. 防止js错误解析大括号
 //但也可重命名:
     { name: Name } = Tom  //重命名为Name
 //未定义时默认值:
     { sex = 'Male' } = Tom
+//可以和简化赋值的共用
+    let { ['z']: foo } = { z: "bar" }   //foo "bar"
 ```
 ##### 数组解构
 ```js
@@ -91,9 +96,10 @@ ECS5: function(a){ a=a|1 }
 ```js
 let [{age}] = [{age:8,name:'xx'},'深圳',[1,2,3]];
 ```
-+ 简化赋值
-> ECS6: 已知: name. Person = { name, age(){}, [name++]: name }<br/>
-> ECS5: 已知: name, names. Person = { name: name, age:function(){}, name1: name }
+##### for-of中结构
+```js
+for (var {name: n, family: {father: f}} of people)
+```
 + Symbol
 > const p = Symbol('p')<br/>
 > 不可遍历, 唯一不重复
