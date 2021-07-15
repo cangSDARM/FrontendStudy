@@ -1,13 +1,11 @@
-[![official JetBrains project](https://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
-# Building Web Applications with React and Kotlin JS Hands-On Lab
+Write React in Kotlin. Use modern hook and "css-in-kotlin" implementation
 
-This repository is the code corresponding to the hands-on lab Building Web Applications with React and Kotlin JS.
-
-**You can find the code of the lab after each step outlined in the tutorial in the corresponding branch.**
+## Tip
+- [kotlin coroutines](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/01_Introduction)
+- [Kotlin React Repo](https://github.com/cangSDARM/kotlin-wrappers)
+- [Gameplay](https://www.bilibili.com/video/BV1h54y1k7Pt?from=search&seid=2287667677512899238)
 
 ## Run
-`./gradlew browserDevelopmentRun --continuous` -> for developers
-`./gradlew build` -> for build into `/build/distributions` folder
-
+- `./gradlew browserDevelopmentRun --continuous` -> for developers
+- `./gradlew build` -> for build into `/build/distributions` folder
