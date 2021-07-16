@@ -1,12 +1,16 @@
 import kotlinx.css.*
 import kotlinx.css.properties.*
+import kotlinx.html.js.onClickFunction
 import react.RProps
 import react.functionalComponent
+import react.useContext
 import styled.css
 import styled.styledLi
 import styled.styledSpan
 
 val Deck = functionalComponent<RProps> {
+    val context = useContext(CardDeckContext)
+
     styledSpan {
         css {
             children {
@@ -33,6 +37,12 @@ val Deck = functionalComponent<RProps> {
         }
 
         styledLi {
+            attrs {
+                onClickFunction = {
+                    context.draw(1)
+                }
+            }
+            
             css {
                 +PokerCardClasses.root
                 zIndex = 99

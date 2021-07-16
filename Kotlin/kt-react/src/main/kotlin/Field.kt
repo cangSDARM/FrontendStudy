@@ -1,10 +1,12 @@
 import kotlinx.css.*
 import kotlinx.css.properties.*
 import kotlinx.html.classes
-import react.RProps
-import react.child
+import kotlinx.html.js.onDragEnterFunction
+import kotlinx.html.js.onDragOverFunction
+import kotlinx.html.js.onDropFunction
+import org.w3c.dom.events.Event
+import react.*
 import react.dom.div
-import react.functionalComponent
 import styled.css
 import styled.styledDiv
 
@@ -12,8 +14,11 @@ external interface FieldProps : RProps {}
 
 val Field = functionalComponent<FieldProps> {
 
+
     div {
-        attrs { classes += "perspective" }
+        attrs {
+            classes += "perspective"
+        }
 
         styledDiv {
             css {
@@ -25,11 +30,14 @@ val Field = functionalComponent<FieldProps> {
                 gap = Gap("3px 2px")
                 width = LinearDimension.maxContent
 
-                children {
+                " > div, > span, > div > li" {
                     width = 6.rem
                     height = 8.4.rem
                     position = Position.relative
                     display = Display.inlineBlock
+                }
+                " > * > li" {
+                    borderRadius = 12.px
                 }
             }
 
@@ -40,24 +48,67 @@ val Field = functionalComponent<FieldProps> {
                 else if (i == 35)
                     child(Deck) { }
                 else
-                    styledDiv {
-                        +i.toString()
-
-                        css {
-                            position = Position.relative
-                            display = Display.inlineBlock
-                            backgroundColor = Color.gray
-                            transition("all", 1.s)
-
-                            hover {
-                                cursor = Cursor.pointer
-                                boxShadow(Color("rgb(0 0 0/50%)"), 2.px, 18.px, 6.px)
-                                transform {
-                                    translate3d(0.px, 0.px, 20.px)
-                                }
-                            }
-                        }
+                    child(FieldItem) {
+                        attrs { index = i }
                     }
+            }
+        }
+    }
+}
+
+private interface FieldItemProps : RProps {
+    var index: Int
+}
+
+private val FieldItem = functionalComponent<FieldItemProps> { props ->
+
+    var theCard by useState<Card?>(null)
+
+    val cancelDefault = { e: Event ->
+        e.preventDefault()
+        e.stopPropagation()
+    }
+    val context = useContext(DragDropContext)
+
+    fun initField() {
+        if (theCard == null)
+            context.drop(props.index)?.let {
+                theCard = it
+            }
+    }
+
+    styledDiv {
+        +props.index.toString()
+        attrs {
+            onDragOverFunction = {
+                cancelDefault(it)
+            }
+            onDragEnterFunction = {
+                cancelDefault(it)
+            }
+            onDropFunction = { e ->
+                cancelDefault(e)
+                initField()
+            }
+        }
+
+        css {
+            position = Position.relative
+            display = Display.inlineBlock
+            backgroundColor = Color.gray
+            transition("all", 1.s)
+
+            hover {
+                cursor = Cursor.pointer
+                boxShadow(Color("rgb(0 0 0/50%)"), 2.px, 18.px, 6.px)
+                transform {
+                    translate3d(0.px, 0.px, 20.px)
+                }
+            }
+        }
+        theCard?.let {
+            child(PokerCard) {
+                attrs { card = it }
             }
         }
     }

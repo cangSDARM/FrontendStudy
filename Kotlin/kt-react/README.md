@@ -1,6 +1,11 @@
 
 Write React in Kotlin. Use modern hook and "css-in-kotlin" implementation
 
+Problems for now:
+- compile time is too long
+- not everything is type-safe
+- not support custom attributes (like aria-*, data-*)
+
 ## Tip
 - [kotlin coroutines](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/01_Introduction)
 - [Kotlin React Repo](https://github.com/cangSDARM/kotlin-wrappers)

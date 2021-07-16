@@ -1,13 +1,15 @@
 import kotlinx.css.*
-import kotlinx.css.properties.deg
-import kotlinx.css.properties.rotate
-import kotlinx.css.properties.transform
-import kotlinx.css.properties.translate
+import kotlinx.css.properties.*
+import kotlinx.html.Draggable
+import kotlinx.html.draggable
+import kotlinx.html.js.onDragStartFunction
 import react.RProps
 import react.child
 import react.functionalComponent
+import react.useContext
 import styled.StyleSheet
 import styled.css
+import styled.styledLi
 import styled.styledUl
 
 external interface Card {
@@ -32,6 +34,14 @@ private object HandAreaClasses : StyleSheet("hand-area", isStatic = true) {
         marginBottom = 10.pct
         listStyleType = ListStyleType.none
     }
+    val hover by css {
+        hover {
+            top = (-40).px
+            cursor = Cursor.pointer
+            boxShadowInset(Color("rgb(150 100 50 / 30%)"), 0.px, 0.px, 80.px)
+            boxShadow(Color("rgb(255 255 200 / 80%)"), 0.px, 0.px, 30.px)
+        }
+    }
 }
 
 data class Portal(val translateX: Double, val translateY: Double, val rotate: Double)
@@ -46,13 +56,14 @@ fun cardPortal(i: Int, size: Int): Portal {
 
 val HandArea = functionalComponent<HandAreaProps> { props ->
 
+    val context = useContext(DragDropContext)
+
     styledUl {
         css {
             +HandAreaClasses.root
-            position = Position.fixed
             height = 6.rem
+            marginTop = (-8).rem
 
-            bottom = 0.px
             left = 50.pct
 
             children {
@@ -69,12 +80,26 @@ val HandArea = functionalComponent<HandAreaProps> { props ->
             }
         }
 
-        for (card in props.cards) {
-            child(PokerCard) {
-                key = "${card.suit}${card.rank}"
+        for (tcard in props.cards) {
+            styledLi {
                 attrs {
-                    suit = card.suit
-                    rank = card.rank
+                    css {
+                        width = 8.rem
+                        height = 11.2.rem
+                        listStyleType = ListStyleType.none
+                        +PokerCardClasses.root
+                        +HandAreaClasses.hover
+                    }
+                    draggable = Draggable.htmlTrue
+                    onDragStartFunction = {
+                        context.drag(tcard)
+                    }
+                }
+                child(PokerCard) {
+                    key = "${tcard.suit}${tcard.rank}"
+                    attrs {
+                        card = tcard
+                    }
                 }
             }
         }

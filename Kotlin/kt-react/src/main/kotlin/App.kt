@@ -6,9 +6,23 @@ import react.dom.h3
 
 val App = functionalComponent<RProps> {
     var unwatchedVideos by useState<List<Video>>(emptyList())
-    val (currentVideo, setCurrentVideo) = useState<Video?>(null)
+    val currentVideo by useState<Video?>(null)
     var currentHandCards by useState<List<Card>>(emptyList())
     val (_, drawCard, loading) = useDeck()
+    val (currentDragDropCard, setCurrentDraDropCard) = useState<Card?>(null)
+
+    val drag = { card: Card ->
+        setCurrentDraDropCard(card)
+    }
+    val drop = fun(index: Int): Card? {
+        return if (currentDragDropCard != null && initFieldRole(index, currentDragDropCard)) {
+            val cdd = currentDragDropCard
+            currentHandCards -= cdd
+            setCurrentDraDropCard(null)
+
+            cdd
+        } else null
+    }
 
     useEffectWithCleanup(emptyList()) {
         val job = MainScope().launch {
@@ -21,7 +35,7 @@ val App = functionalComponent<RProps> {
     }
 
     useEffect(listOf(loading)) {
-        if(!loading) {
+        if (!loading) {
             currentHandCards = drawCard(9)
         }
     }
@@ -30,21 +44,20 @@ val App = functionalComponent<RProps> {
         h3 {
             +"Videos to watch"
         }
-        videoList {
-            videos = unwatchedVideos
-            selectedVideo = currentVideo
-            onSelectVideo = { video ->
-                setCurrentVideo(video)
-            }
-        }
 
         h3 {
             +"Videos watched"
         }
     }
-    child(Field) {}
-    child(HandArea) {
-        attrs.cards = currentHandCards
+    DragDropContext.Provider(CardDragDrop(currentDragDropCard, drag, drop)) {
+        CardDeckContext.Provider(CardDeck(draw = {
+            currentHandCards += drawCard(it)
+        })) {
+            child(Field) {}
+        }
+        child(HandArea) {
+            attrs.cards = currentHandCards
+        }
     }
     currentVideo?.let {
         videoPlayer {

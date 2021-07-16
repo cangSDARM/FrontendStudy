@@ -1,5 +1,6 @@
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import react.createContext
 import react.useEffectWithCleanup
 import react.useState
 
@@ -49,4 +50,23 @@ fun useDeck(): Triple<List<Card>, (Int) -> List<Card>, Boolean> {
     }
 
     return Triple(cardsInDeck, drawCard, loading)
+}
+
+data class CardDragDrop(
+    val card: Card?,
+    val drag: (Card) -> Unit,
+    val drop: (Int) -> Card?,
+)
+
+val DragDropContext = createContext<CardDragDrop>()
+
+data class CardDeck(val draw: (Int) -> Unit)
+
+val CardDeckContext = createContext<CardDeck>()
+
+fun initFieldRole(index: Int, card: Card): Boolean {
+    if (listOf(9, 10, 11, 16, 17, 18, 23, 24, 25).indexOf(index) < 0) return false
+    if (card.rank.ordinal > PokerRank.C10.ordinal) return false
+
+    return true
 }

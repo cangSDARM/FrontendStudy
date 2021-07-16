@@ -1,14 +1,12 @@
 import kotlinx.css.*
 import kotlinx.css.properties.*
-import kotlinx.html.Draggable
-import kotlinx.html.draggable
 import react.RProps
 import react.dom.span
 import react.functionalComponent
 import styled.StyleSheet
 import styled.css
-import styled.styledLi
 import styled.styledP
+import styled.styledSpan
 
 enum class PokerSuit(val displayName: String) {
     Clubs("2663"),
@@ -61,8 +59,7 @@ enum class PokerRank {
 }
 
 external interface PokerCardProps : RProps {
-    var suit: PokerSuit
-    var rank: PokerRank
+    var card: Card
 }
 
 object PokerCardClasses : StyleSheet("poker-card", isStatic = true) {
@@ -75,18 +72,11 @@ object PokerCardClasses : StyleSheet("poker-card", isStatic = true) {
         marginTop = 4.pct
         marginLeft = 0.pct
     }
-    val hover by css {
-        hover {
-            top = (-40).px
-            cursor = Cursor.pointer
-            boxShadowInset(Color("rgb(150 100 50 / 30%)"), 0.px, 0.px, 80.px)
-            boxShadow(Color("rgb(255 255 200 / 80%)"), 0.px, 0.px, 30.px)
-        }
-    }
     val root by css {
         top = 0.px
         left = 0.px
-        listStyleType = ListStyleType.none
+        bottom = 0.px
+        right = 0.px
         backgroundColor = Color.white
         borderRadius = 15.px
         boxShadowInset(Color("rgb(150 100 50 / 50%)"), 0.px, 0.px, 80.px)
@@ -95,14 +85,12 @@ object PokerCardClasses : StyleSheet("poker-card", isStatic = true) {
         transition(delay = 0.1.s, duration = 0.5.s, property = "top", timing = Timing.ease)
         put("transform-style", "preserve-3d")
         put("backface-visibility", "hidden")
-
     }
     val content by css {
         width = 60.pct
         height = 75.pct
-        left = 50.pct
-        marginLeft = 25.px
-        marginTop = 24.px
+        marginLeft = 20.pct
+        marginTop = 18.pct
         color = Color.transparent
         border = "1px solid #000"
         backgroundPosition = "center"
@@ -112,22 +100,17 @@ object PokerCardClasses : StyleSheet("poker-card", isStatic = true) {
 }
 
 val PokerCard = functionalComponent<PokerCardProps> { props ->
-
-    styledLi {
-        attrs {
-            draggable = Draggable.htmlTrue
-        }
+    styledSpan {
         css {
-            val isJoker = props.rank == PokerRank.Joker
-            val contentOf = if (isJoker) props.rank.toString().quoted
-            else "${props.rank} \\${props.suit.displayName}".quoted
+            val isJoker = props.card.rank == PokerRank.Joker
+            val contentOf = if (isJoker) props.card.rank.toString().quoted
+            else "${props.card.rank} \\${props.card.suit.displayName}".quoted
 
             +PokerCardClasses.root
-            +PokerCardClasses.hover
-            width = 8.rem
-            height = 11.2.rem
             color =
-                if (props.suit == PokerSuit.Hearts || props.suit == PokerSuit.Diamonds) Color("#a00")
+                if (props.card.suit == PokerSuit.Hearts || props.card.suit == PokerSuit.Diamonds) Color(
+                    "#a00"
+                )
                 else Color("#222")
 
             if (isJoker) put("writing-mode", "vertical-lr")
@@ -147,8 +130,8 @@ val PokerCard = functionalComponent<PokerCardProps> { props ->
 
         styledP {
             css { +PokerCardClasses.content }
-            span { +props.suit.displayName }
-            span { +props.rank.toString() }
+            span { +props.card.suit.displayName }
+            span { +props.card.rank.toString() }
         }
     }
 }
