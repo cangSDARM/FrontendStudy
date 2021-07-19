@@ -52,7 +52,7 @@ self.close();
 限制:<br>
 
 + 同源限制
-+ 无法使用 document / window / DOM / parent
++ 无法使用 window / DOM / parent
 + 无法加载本地资源
 + 更多参见: [Functions and classes available to workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
 
