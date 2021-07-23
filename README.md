@@ -8,9 +8,12 @@
 
 <!-- /TOC -->
 
+- [跨域](./Same-origin-policy.md)
 - [各种存储方案](./storages.md)
-- [跨域解决方案](./cors.md)
 - [xPath](./xpath.md)
+
+
+[参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
 
 ## 废弃或提案
 > 这里放的是未归类的废弃或提案。有分类的应于对应条目查看
