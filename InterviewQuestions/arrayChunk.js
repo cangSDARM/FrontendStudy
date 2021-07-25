@@ -1,4 +1,3 @@
-//1、考虑到性能问题，如何快速生成巨大数组 array 并从中随机取出部分不重复元素？
 (function (len, num) {
   /**genArray
    * Gen The Array
