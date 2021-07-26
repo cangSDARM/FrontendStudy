@@ -64,7 +64,6 @@ self.close();
 - [异步构造函数](https://www.blackglory.me/async-constructor/)
 - [自定义URL打开本地程序](https://www.lefer.cn/posts/12763/)
 - [检测Devtools是否被打开](https://nocilol.me/archives/lab/check-browser-devtools-open/)
-- [Retry in JS](https://lihautan.com/retry-async-function-with-callback-promise/), [Dart](https://stackoverflow.com/questions/56328814/how-can-i-retry-a-future-in-dart-flutter)
 
 ## 函数式编程
 [高阶函数](https://segmentfault.com/a/1190000017569569)<br>

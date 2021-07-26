@@ -1,3 +1,6 @@
+[参考](https://segmentfault.com/a/1190000021367378)
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
+
 |                  |                                        Fetch                                        |                 XMLHTMLRequest                  |
 | :--------------: | :---------------------------------------------------------------------------------: | :---------------------------------------------: |
 |   如何中断请求   | [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) |                    .abort()                     |
@@ -60,7 +63,6 @@ fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 ```
 
 ### 断点续传
-[参考](https://segmentfault.com/a/1190000021367378)
 1. 发起请求
 2. 从响应头中拿到 Content-Length 属性
 3. 在响应过程中拿到正在下载的数据
