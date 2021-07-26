@@ -8,7 +8,8 @@
 
 <!-- /TOC -->
 
-- [跨域](./Same-origin-policy.md)
+- [跨域](./network/Same-origin-policy.md)
+- [Fetch/XHR and Relatived Streams](./network/fetch&XHR.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
 
