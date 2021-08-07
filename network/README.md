@@ -1,16 +1,20 @@
 [Referer](https://juejin.cn/post/6844903608543084558)
 
-- [WebSocket](./WebRTC/README.md)
-- [WebRTC](./WebRTC/README.md)
-- [Server-Side-Event](./SSE.md)
-- [Fetch/XHR and Relatived Streams](./fetch&XHR.md)
-- [Same-Orgin-policy](./Same-origin-policy.md)
+<!-- TOC -->
 
 - [导航时序规范](#导航时序规范)
 - [源(Origin)](#源origin)
 - [套接字池(Socket Pool)](#套接字池socket-pool)
 - [Keep Alive](#keep-alive)
 - [TLS 协商](#tls-协商)
+
+<!-- TOC -->
+
+- [WebSocket](./WebRTC/README.md)
+- [WebRTC](./WebRTC/README.md)
+- [Server-Side-Event](./SSE.md)
+- [Fetch/XHR and Relatived Streams](./fetch&XHR.md)
+- [Same-Orgin-policy](./Same-origin-policy.md)
 
 ![layers](../assets/network-layer.png)
 
