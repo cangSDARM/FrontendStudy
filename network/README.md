@@ -3,7 +3,7 @@
 - [WebSocket](./WebRTC/README.md)
 - [WebRTC](./WebRTC/README.md)
 - [Server-Side-Event](./SSE.md)
-- [fetch&xmlHTTPRequest](./fetch&XHR.md)
+- [Fetch/XHR and Relatived Streams](./fetch&XHR.md)
 - [Same-Orgin-policy](./Same-origin-policy.md)
 
 - [导航时序规范](#导航时序规范)
