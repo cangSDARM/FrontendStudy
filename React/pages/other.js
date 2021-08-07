@@ -1,13 +1,5 @@
 import React from 'react';
 
-//************************************消息订阅包
-import Pubsub from 'pubsub-js';
-
-Pubsub.subscribe('delate', function(data){})	//订阅
-
-Pubsub.publish('delate', data)	//发布
-//****************************************************************
-
 //************************************ES7 property initializers
 // 同ES6的PropTypes, State 初始化，但更为直观
 //		ES6版:
@@ -96,18 +88,6 @@ const Index = <Func>		{/*使用*/}
 </Func>
 //****************************************************************
 
-//*************************************Text Only Component
-//允许只返回纯字符串的组件
-//减少组件的层级嵌套
-const Compon = ({text}) => text.replace(".", ":");
-
-class App extends React.Component{
-	render(){
-		return <Compon text={"1. 2. 3."}/>
-	}
-}
-//****************************************************************
-
 //*************************************Context
 // 另一Context实现参考index.js
 // 这一种是组件包裹
@@ -162,19 +142,6 @@ componentDidCatch(error, info){
 	https://blog.csdn.net/liwusen/article/details/78521006
 //****************************************************************
 
-//*************************************性能优化
-// 只有数据变化时, 才调用函数
-// 可以使用momorized函数代替(参考hooks)
-import { createSelector } from 'reselect';
-const item = data => data.items;	//所有需要监听的数据
-const dataSelector = createSelector(
-	item,
-	(item)=>{
-		//item 不变时, 返回缓存的数据
-		return data * 5;
-	}
-)
-
 //**************************************React.memo
 //^16.6.0
 // 类似于class形式的PureComponent, 内部实现了浅比较来优化function组件
@@ -195,7 +162,5 @@ React 后期版本特性
 	https://www.reactjscn.com/blog/2018/10/23/react-v-16-6.html
 Suspense
 	https://www.colabug.com/5397403.html
-React 各种Demo
-	https://codesandbox.io/search?query=React
 Rust in React
   https://www.newline.co/fullstack-react/articles/rust-react-and-web-assembly/

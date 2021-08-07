@@ -9,7 +9,7 @@ import { StaticQuery, graphql } from 'gatsby'
 //动画样式插件. github自己下
 import { CSSTransition } from 'react-transition-group'
 
-import Store from './store/store.js'
+import Store from './ReactRedux/store.js'
 
 //标准写法
 class App extends Component{
@@ -44,12 +44,6 @@ class App extends Component{
   }
   render(){
     //return里是JSX
-    //    如果>16.x则:
-    //      return [
-    //        <li></li>
-    //        <li></li>
-    //      ]
-    //      是被允许的
     //可以将render函数和其它函数拆分为父子两个组件
     //    父控制逻辑, 子显示UI
     //    此时子组件就是无状态组件: const child = (props) => {}
@@ -59,16 +53,16 @@ class App extends Component{
     return (
       <div>
         <input
-          {/* { 表示里面是js或css的原生对象 } */}
-          className = 'input'   {/*React中, class使用className代替*/}
-          {/*多class：
+          /* { 表示里面是js或css的原生对象 } */
+          className = 'input'   /*React中, class使用className代替*/
+          /*多class：
             1.className={['1','2'].join(' ')]}
-            2.className={'1'+' 2'} */}
-          value = {this.state.inputValue}   {/*使用存储的字段, 方法甚至注释: 需要加{}*/}
-          onChange = {this.fun}   {/*React的按键事件等和原生类似, 但命名封装为驼峰规则*/}
-          {/*绑定事件需要传参时: onChange={()=>this.fun(参数)} */}
-          dangerouslySetInnerHTML={{__html: this.state.inputValue}}   {/*不对html标签转义. 也不用在InnerHTML中填值*/}
-          ref={(input)=>{ this.input = input }}   {/*ref引用.(尽量不用) 对该DOM结点标记一个引用. 参数为该结点*/}
+            2.className={'1'+' 2'} */
+          value = {this.state.inputValue}   /*使用存储的字段, 方法甚至注释: 需要加{}*/
+          onChange = {this.fun}   /*React的事件等和原生类似, 但处理了各个浏览器的兼容问题. 命名封装为驼峰规则*/
+          /*绑定事件需要传参时: onChange={(outParmas)=>this.fun(params)} */
+          dangerouslySetInnerHTML={{__html: this.state.inputValue}}   /*不对html标签转义. 也不用在InnerHTML中填值*/
+          ref={(input)=>{ this.input = input }}   /*ref引用.(尽量不用) 对该DOM结点标记一个引用. 参数为该结点*/
         />
         <ul>
           {this.getItem()}
@@ -79,9 +73,8 @@ class App extends Component{
   }
   getItem(){
     return (
-      this.state.list.map((item, index)=>{  //map: 对可迭代对象进行循环
+      this.state.list.map((item, index)=>{
         /*对于react的循环渲染, 需要对每一项最外层标签增加一个key值*/
-        /*key值类型是不确定的, 可以是int也可以是string*/
         return <li key={item}>{item}</li>
       })
     )
@@ -109,13 +102,12 @@ class App extends Component{
     const value = e.target.value;
     const list = [...this.state.list, this.state.inputValue]
     this.setState(()=>({    //异步函数. 有可能造成无法访问e.target的状况, 使用闭包解决
-      inputValue: value,
-      list: list
-    })  //这个 () 是ecs6中对return的简写
-    ,()=>{
+        inputValue: value,
+        list: list
+      })  //这个 () 是ecs6中对return的简写
+      ,()=>{
       //Callback函数
-    }
-    )
+    })
 
     //标准写法
     this.setState((prevState)=>{
