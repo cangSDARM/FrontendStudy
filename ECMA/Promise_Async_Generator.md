@@ -95,6 +95,7 @@ async function getColumn(url) {
 > await 接收一个 Promise。当接收一个普通内容时，会自动将其转为 Promise.resolve<br/>
 > await 返回 Promise 的 resolve 的值<br/>
 > Async/Await 的错误需要自己增加判断逻辑，没有错误统一判断的 API<br/>
+> 注意: try{}catch 只会捕获*awaited*的 Promise(return await promise 也可以, 但 return Promise 不会)<br/>
 
 ### async 函数返回永远是一个 Promise，然后像 Promise 一样使用
 
