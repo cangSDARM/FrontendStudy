@@ -1,5 +1,7 @@
 # About `package.json`
 
+[Ref](https://2ality.com/)
+
 ```json
 {
   "main": "./dist/src/main.js",
@@ -17,6 +19,10 @@
     "*": {
       "main.d.ts": ["dist/src/main.d.ts"]
     }
+  },
+  "workspaces": ["xyz", "abc"],
+  "dependencies": {
+    "xx": "file:../xx"
   }
 }
 ```
@@ -39,3 +45,10 @@
      - "./impreq/\*": import 和 export 导入的内容可以不同
      - 没有: import 和 export 导入内容一样，并由于 ESM/CommonJS 的逻辑不同，有可能出 BUG
 - "typeVersions": 与 exports 作用相似, 但是用于 ts 的类型导入
+- ["workspaces"](https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces): npm 的 monorepo 支持，允许<br/>
+  - 自动更新 monorepo 内的内容，互相可以得到最新的代码
+  - xyz 可以`import ABC from 'abc'`，如同发布的包
+  - 所有依赖都是在顶层目录，每个依赖不会重复
+  - 可以在顶层目录使用`npm install`安装所有项目的依赖
+- "dependencies":
+  1. xx: file:本地依赖目录(`npm install ../xx`)
