@@ -4,6 +4,7 @@
   - [Quadratic Bézier curve](#quadratic-bézier-curve)
   - [Smooth Quadratic Bézier curve](#smooth-quadratic-bézier-curve)
   - [Arc (TODO)](#arc-todo)
+- [animate](#animate)
 
 ## Path Commands
 
@@ -188,3 +189,24 @@ Effect
     </g>
     <ellipse cx="110" cy="80" rx="30" ry="50" fill="transparent" stroke="#aaf" stroke-dasharray="5 5"></ellipse>
 </svg>
+
+## [animate](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate)
+
+Sample
+
+```js
+<animate
+  ref={animate}
+  fill="freeze"
+  attributeType="XML"
+  attributeName="r"
+  begin="indefinite"
+  calcMode="spline"
+  keyTimes="0; 1"
+  keySplines=".2 1 1 1"
+  dur="200ms"
+  values={`${animateFrom}; ${animateTo}`}
+></animate>;
+
+animate.current.beginElement();
+```
