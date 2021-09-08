@@ -1,21 +1,22 @@
 # TODO
 
-- [二维倾斜Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
+- [二维倾斜 Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
 - [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
-- [Grid布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-auto-flow)
+- [Grid 布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-auto-flow)
 - [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
 - [片段模板，box-decoration-break]
 - [二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 - [类表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/class)
 - [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 - [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
-- [Reflect反射](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
-- [WebHID通用输入设备逻辑接口(手柄等)](https://wicg.github.io/webhid/)
+- [Reflect 反射](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
+- [WebHID 通用输入设备逻辑接口(手柄等)](https://wicg.github.io/webhid/)
 - [WebNFC](https://web.dev/nfc/)
-- [WebSerial_api串行设备api(打印机/微控制器等)](https://wicg.github.io/serial/)
+- [WebSerial_api 串行设备 api(打印机/微控制器等)](https://wicg.github.io/serial/)
 - [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 - [AOP](https://juejin.cn/post/6903484050095210509)
 - [页面生命周期](https://juejin.cn/post/6906779518040539144)
-- Service-Worker, 监听event、fetchProxy和Cache处理
+- Service-Worker, 监听 event、fetchProxy 和 Cache 处理
   - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
   - [Part2, React](https://juejin.im/post/6881616183158636552)
+- [querys](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
