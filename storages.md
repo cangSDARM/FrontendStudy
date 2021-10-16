@@ -1,19 +1,14 @@
 # 各种存储方式
 **已被废弃的:** *Web SQL Database*<br>
 **尚未完善的:** *CacheStorage*
-<!-- TOC -->
 
-- [Redux](####redux)
-
-<!-- /TOC -->
-
-|Cookie[^Cookie]|localStorage[^localStorage]|sessionStorage[^sessionStorage]|IndexedDB[^IndexedDB]|redux|
+|Cookie[^Cookie]|localStorage[^localStorage]|sessionStorage[^sessionStorage]|IndexedDB[^IndexedDB]|redux[^Redux]|
 |:-:|:-:|:-:|:-:|:-:|
 |一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效|除非被清除，否则永久保存|仅在当前会话下有效，关闭页面后被清除|适合存储大量数据，其 API 是异步调用的。IndexedDB 使用索引存储数据，各种数据库操作放在事务中执行，且支持简单的数据类型。对于简单的数据，应该使用 localstorage。IndexedDB 能提供更为复杂的查询数据的方式|浏览网页过程中开辟的一块内存，刷新网页或者关闭网页，内存就会清除掉，用于整合散乱的组件数据|
 |4K左右|一般为5MB|一般为5MB|任意大小|任意大小|
 |每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|仅在客户端中保存，不参与和服务器的通信|
 
-[^Cookie] 更人性化的Cookie操作: [js-cookie包](https://www.npmjs.com/package/js-cookie)
+[^Cookie]: 更人性化的Cookie操作: [js-cookie包](https://www.npmjs.com/package/js-cookie)
 
     ```js
     /*
@@ -59,10 +54,11 @@
     
     [简明教程](https://www.jianshu.com/p/ca838ff7e4d8)<br/>
 
-#### Redux
-+ Redux = Reducer + Flux
-+ Store是唯一的, Store对外是封闭的(因此reducer是生成新对象)
-+ React只是一个UI框架, Redux是数据层框架
-+ 用以优化和存储组件数据
-+ 开辟公共空间来存储数据, 组件受其数据影响并更新
-+ Redux的中间件是影响dispatch方法
+[^Redux]:
+
+  + Redux = Reducer + Flux
+  + Store是唯一的, Store对外是封闭的(因此reducer是生成新对象)
+  + React只是一个UI框架, Redux是数据层框架
+  + 用以优化和存储组件数据
+  + 开辟公共空间来存储数据, 组件受其数据影响并更新
+  + Redux的中间件是影响dispatch方法
