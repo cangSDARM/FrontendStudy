@@ -2,5 +2,35 @@
   "markdown.extension.toc.updateOnSave": true,
   "markdown.extension.toc.levels": "2..6",
   "editor.fontSize": 16,
-  "editor.fontFamily": "'Fira Mono for Powerline', 'SourceCode Pro' , Consolas, monospace"
+  "editor.fontFamily": "'Fira Mono for Powerline', 'SourceCode Pro' , Consolas, monospace",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#294a5b",
+    "activityBar.activeBorder": "#fbfbfb",
+    "activityBar.foreground": "#fafa0f"
+  },
+  "editor.wordWrap": "on",
+  "eslint.alwaysShowStatus": true,
+  "prettier.trailingComma": "all",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.wpy": "vue",
+    "*.ejs": "html",
+    "*.html": "html"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "files.eol": "\n",
+  "git.autofetch": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
 }
