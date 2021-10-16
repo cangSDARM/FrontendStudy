@@ -54,7 +54,7 @@
     
     [简明教程](https://www.jianshu.com/p/ca838ff7e4d8)<br/>
 
-[^Redux]:
+[^Redux]: Runtime
 
   + Redux = Reducer + Flux
   + Store是唯一的, Store对外是封闭的(因此reducer是生成新对象)
