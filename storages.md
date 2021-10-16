@@ -26,7 +26,7 @@
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT";   //设置 expires 参数为以前的时间即可删除cookie
     ```
 
-[^localStorage]
+[^localStorage]:
 
     ```js
     /*
@@ -41,7 +41,7 @@
     window.localStorage.key(i)      //查
     ```
 
-[^sessionStorage]
+[^sessionStorage]:
 
     ```js
     /*
@@ -53,7 +53,7 @@
     sessionStorage.clear();
     ```
 
-[^IndexedDB] <strong style="color: #afdc01">TODO</strong>
+[^IndexedDB]: <strong style="color: #afdc01">TODO</strong>
 
     [对应的API](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)<br/>
     
