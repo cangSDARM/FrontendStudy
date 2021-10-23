@@ -16,6 +16,8 @@
 
 ## Promise
 
+`new Promise(fun)`, 这个`fun`函数是**立即执行**的
+
 ### 两个内容
 
 1. PromiseStatus：Promise 的状态
