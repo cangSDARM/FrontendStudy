@@ -148,19 +148,15 @@ componentDidCatch(error, info){
 // 一个高阶组件
 const Comp = React.memo(function MyMemoComp(props){
 	/*only rerenders if props change*/
-})
+}, customMemoFunc)
 
 //****************************************************************
 
-Time Slicing和Subspense
+Time Slicing和Suspense
 	https://segmentfault.com/a/1190000013524698
 React16 Fiber架构
 	http://zxc0328.github.io/2017/09/28/react-16-source/
 React16 生命周期改动
 	https://juejin.im/post/5abf4a09f265da237719899d
-React 后期版本特性
-	https://www.reactjscn.com/blog/2018/10/23/react-v-16-6.html
 Suspense
 	https://www.colabug.com/5397403.html
-Rust in React
-  https://www.newline.co/fullstack-react/articles/rust-react-and-web-assembly/
