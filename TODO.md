@@ -20,3 +20,24 @@
   - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
   - [Part2, React](https://juejin.im/post/6881616183158636552)
 - [querys](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
+
+> inline-log
+```typescript
+const useWorker = () => {
+  const blob = `(function(){
+    self.onmessage = function(msg) {
+      console.log('worker', msg)
+      self.postMessage('worker response')
+    }
+  })()`;
+  const worker = new Worker(
+    window.URL.createObjectURL(new Blob([blob], { type: 'text/javascript' }))
+  );
+  worker.postMessage('worker');
+  worker.onmessage = console.log;
+
+  return worker;
+}
+
+const worker = useWorker();
+```
