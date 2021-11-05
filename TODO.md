@@ -4,7 +4,7 @@
 - [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
 - [Grid 布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-auto-flow)
 - [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
-- [片段模板，box-decoration-break]
+- [片段模板，box-decoration-break](https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break)
 - [二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 - [类表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/class)
 - [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
@@ -20,3 +20,4 @@
   - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
   - [Part2, React](https://juejin.im/post/6881616183158636552)
 - [querys](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
+- [webassembly](https://wasmbyexample.dev/home.en-us.html#)
