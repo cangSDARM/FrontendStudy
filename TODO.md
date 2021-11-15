@@ -19,5 +19,5 @@
 - Service-Worker, 监听 event、fetchProxy 和 Cache 处理
   - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
   - [Part2, React](https://juejin.im/post/6881616183158636552)
-- [querys](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
+- [queryCommandSupported](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
 - [webassembly](https://wasmbyexample.dev/home.en-us.html#)
