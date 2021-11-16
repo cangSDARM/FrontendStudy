@@ -124,7 +124,7 @@ export default Layout
 //支持状态组件和无状态组件
 import { connect } from 'react-redux'
 //扩展写法. lambda
-const App () => <div>Hello World</div>
+const App = () => <div>Hello World</div>
 const MapState2AppProps = (state, ownProps)=>{
   //ownProps: 原有的props
   return{
