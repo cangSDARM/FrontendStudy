@@ -73,9 +73,6 @@
         - [name] 表示**样式表文件**名称
         - [local] 表示**样式定义的**名称
         - [hash:length] 表示**hash值**(32位hash)
-2. 在CSS文件中:
-    + `:global()`包裹的, 是全局生效的
-    + `:local()`包裹的, 是被模块化的(默认)
 3. 使用:
     + `import CSS from 'xx.css'`
     + `<p className={CSS.类名} />`
