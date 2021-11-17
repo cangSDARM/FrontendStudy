@@ -131,8 +131,7 @@ for (var {name: n, family: {father: f}} of people)
 > 重写父类方法不需要任何关键字<br/>
 > 静态函数: static func(){}<br/>
 > super 对象在普通方法指向父类原型 prototype, static 方法中指向父类<br/>
-> set 函数: set func(){}. 同 C#的 set<br/>
-> get 函数: get func(){}. 同 C#的 get
+> set 函数: set func(){}. 同 C#的 set；get 类似<br/>
 
 - Older type
 
@@ -146,6 +145,29 @@ function Person.prototype.constructor = Person;
 Person.prototype.consoleName = function(){}
 
 var p = new Person("name", 1);
+```
+
+-- 类表达式
+
+```js
+//可以是匿名的
+let Foo = class {
+  constructor() {}
+  bar() {
+    return "Hello World!";
+  }
+};
+new Foo().bar();
+Foo = class {}  //类表达式允许重新赋值
+
+//可以是具名的
+const Foo = class NamedFoo {
+  constructor() {}
+  whoIsThere() {
+    //主要用于类的内部引用类本身，外部是undefined的
+    return NamedFoo.name;
+  }
+}
 ```
 
 #### Proxy 代理
