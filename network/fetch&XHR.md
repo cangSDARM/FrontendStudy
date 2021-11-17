@@ -1,17 +1,18 @@
 [参考](https://segmentfault.com/a/1190000021367378)
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
 
-|                  |                                        Fetch                                        |                 XMLHTMLRequest                  |
-| :--------------: | :---------------------------------------------------------------------------------: | :---------------------------------------------: |
-|   如何中断请求   | [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) |                    .abort()                     |
-|   如何超时中断   |                            AbortController配合setTimeout                            | 1.timeout=500ms自动中断<br/>2.ontimeout事件回调 |
-| 如何获取请求进度 |                        参考[下面的内容](###fetch-onprogess)                         | progress事件有total/lengthComputable/loaded属性 |
-|    怎么算失败    |                   仅当网络错误或请求被阻止reject,否则都是resolve                    |    出现任何非正常200-300的返回或网络请求错误    |
-|     Cookies      |                          不会默认发送,否则设置credentials                           |                     UNKNOWN                     |
-
+|                  |                                        Fetch                                        |                   XMLHTMLRequest                   |
+| :--------------: | :---------------------------------------------------------------------------------: | :------------------------------------------------: |
+|   如何中断请求   | [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) |                      .abort()                      |
+|   如何超时中断   |                           AbortController 配合 setTimeout                           | 1.timeout=500ms 自动中断<br/>2.ontimeout 事件回调  |
+| 如何获取请求进度 |                        参考[下面的内容](###fetch-onprogess)                         | progress 事件有 total/lengthComputable/loaded 属性 |
+|    怎么算失败    |                  仅当网络错误或请求被阻止 reject,否则都是 resolve                   |    出现任何非正常 200-300 的返回或网络请求错误     |
+|     Cookies      |                          不会默认发送,否则设置 credentials                          |                      UNKNOWN                       |
 
 ### fetch onprogess
+
 1. single stream
+
 ```js
 const logProgress = (res) => {
     const total = res.headers.get('content-length');
@@ -42,7 +43,9 @@ const logProgress = (res) => {
 };
 fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 ```
+
 2. mutiple stream
+
 ```js
 const logProgress = (res) => {
     const total = res.headers.get('content-length');
@@ -63,6 +66,7 @@ fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 ```
 
 ### 断点续传
+
 1. 发起请求
 2. 从响应头中拿到 Content-Length 属性
 3. 在响应过程中拿到正在下载的数据

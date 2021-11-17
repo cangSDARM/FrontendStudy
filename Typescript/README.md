@@ -140,7 +140,8 @@ let nameOfA = Enum[a]; //"A", 可以由枚举的值得到它的名字
 > 声明(匿名函数:函数类型)
 
 ```ts
-let func: (e: array) => number = function (e: array): string { //声明类型
+let func: (e: array) => number = function (e: array): string {
+  //声明类型
   return "str";
 }; //赋值
 let myAdd = function (x: number): number {

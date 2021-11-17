@@ -4,35 +4,35 @@
 var websocket = require("./websocket-server");
 var net = require("net");
 
-var remotePort = 5900;	//vnc server port
-var remoteHost = '129.168.56.101';	//vnc server host
+var remotePort = 5900; //vnc server port
+var remoteHost = "129.168.56.101"; //vnc server host
 
-websocket.listen(8080, 'localhost', function(websocket) {
-	//set up backend TCP connection
-	var tcpsocket = new net.Socket({type: "tcp4"});
-	tcpsocket.connect(remotePort, remoteHost);
+websocket.listen(8080, "localhost", function (websocket) {
+  //set up backend TCP connection
+  var tcpsocket = new net.Socket({ type: "tcp4" });
+  tcpsocket.connect(remotePort, remoteHost);
 
-	//TCP handler functions
-	tcpsocket.on("connect", function(){
-		console.log("Tcp connection open");
-	});
-	tcpsocket.on("data", function(data){
-		websocket.send(data);	//send framebuffer
-	});
-	tcpsocket.on("error", function(){
-		console.log("Tcp connection error", arguments);
-	});
+  //TCP handler functions
+  tcpsocket.on("connect", function () {
+    console.log("Tcp connection open");
+  });
+  tcpsocket.on("data", function (data) {
+    websocket.send(data); //send framebuffer
+  });
+  tcpsocket.on("error", function () {
+    console.log("Tcp connection error", arguments);
+  });
 
-	//WebSocket handler functions
-	websocket.on("data", function(opcode, data){
-		tcpsocket.write(data);
-	});
-	websocket.on("close", function(code, reason){
-		console.log("Websocket closed");
-		//Close backend connection
-		tcpsocket.end();
-	});
-	console.log("WebSocket connection open");
+  //WebSocket handler functions
+  websocket.on("data", function (opcode, data) {
+    tcpsocket.write(data);
+  });
+  websocket.on("close", function (code, reason) {
+    console.log("Websocket closed");
+    //Close backend connection
+    tcpsocket.end();
+  });
+  console.log("WebSocket connection open");
 });
 
 //前端部分作者并没有给全

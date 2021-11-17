@@ -11,14 +11,14 @@
 现代浏览器的 JavaScript**多线程环境**
 
 有
+
 - Worker
 - SharedWorker
 - ServiceWorker
 
 > 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**<br>
 > 数据的交互方式为**传递副本**，而不是直接共享数据<br>
-> workers 运行在另一个全局上下文(self)中, 不同于当前的 window<br>
-> [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
+> workers 运行在另一个全局上下文(self)中, 不同于当前的 window<br> > [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
 
 ### Limitation
 
@@ -44,7 +44,7 @@ worker.onmessage = function (event) {
 // 错误处理(主进程中处理)
 worker.onerror = function (event) {
   console.log(
-    "该事件不会冒泡并且可以被取消；为了防止触发默认动作，worker 可以调用错误事件的 preventDefault()方法"
+    "该事件不会冒泡并且可以被取消；为了防止触发默认动作，worker 可以调用错误事件的 preventDefault()方法",
   );
   console.log(event.message, event.filename, event.lineno);
 };
@@ -66,13 +66,13 @@ const useWorker = () => {
     }
   })()`;
   const worker = new Worker(
-    window.URL.createObjectURL(new Blob([blob], { type: 'text/javascript' }))
+    window.URL.createObjectURL(new Blob([blob], { type: "text/javascript" })),
   );
-  worker.postMessage('worker');
+  worker.postMessage("worker");
   worker.onmessage = console.log;
 
   return worker;
-}
+};
 
 const worker = useWorker();
 ```

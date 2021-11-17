@@ -177,7 +177,7 @@ WebSocket 关闭时，终止连接的端点发送一个数字代码，用于表�
 ```js
 if (!window.WebSocket) {
   console.log(
-    "is not support, please use Polyfill or Kaazing's websocket service."
+    "is not support, please use Polyfill or Kaazing's websocket service.",
   );
 }
 ```

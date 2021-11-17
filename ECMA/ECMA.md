@@ -158,7 +158,7 @@ let Foo = class {
   }
 };
 new Foo().bar();
-Foo = class {}  //类表达式允许重新赋值
+Foo = class {}; //类表达式允许重新赋值
 
 //可以是具名的
 const Foo = class NamedFoo {
@@ -167,7 +167,7 @@ const Foo = class NamedFoo {
     //主要用于类的内部引用类本身，外部是undefined的
     return NamedFoo.name;
   }
-}
+};
 ```
 
 #### Proxy 代理

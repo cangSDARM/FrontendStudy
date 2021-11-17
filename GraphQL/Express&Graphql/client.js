@@ -1,4 +1,4 @@
-var variables = { userName: 'xx', city: 'beijing'};
+var variables = { userName: "xx", city: "beijing" };
 
 //服务器端也得是 userName
 //GraphQL 中，所有参数必须具名传递
@@ -23,20 +23,16 @@ mutation {
 }
 `;
 
-fetch('/graphql', {
-	method: "POST",
-	headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json'
-	},
-	body: JSON.stringify({
-		query: query,
-		variables: variables,
-	})
+fetch("/graphql", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    query: query,
+    variables: variables,
+  }),
 })
-.then(
-	r=> r.json();
-)
-.then(
-	data=> console.log('data retured: ', data);
-)
+  .then((r) => r.json())
+  .then((data) => console.log("data retured: ", data));

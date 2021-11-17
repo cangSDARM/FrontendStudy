@@ -31,7 +31,7 @@
 
 ```js
 //声明
-const p = new Promise((reslove, reject) => {
+const p = new Promise((resolve, reject) => {
   xx ? resolve(data) : reject(err);
 });
 const p = Promise.resolve();
@@ -49,16 +49,16 @@ let p = Promise.race([pa, pb]); //只解析第一个的resolve/reject
 let p = Promise.allSettled([pa, pb]); //返回的Promise决议的结果, 允许resolve/reject混杂
 ```
 
-|        reslove        |         reject         |
+|        resolve        |         reject         |
 | :-------------------: | :--------------------: |
 | 成功时调用, then 捕获 | 失败时调用, catch 捕获 |
 
-> `then`和`catch`都接收一个回调函数，若传入非函数，则会忽略当前的 then 方法<br/> > `then`回调函数中会把上一个 then 中返回的`PrmoiseValue`当做参数值供当前 then 方法调用<br/> > `then`回调函数中返回一个`非Promise`对象时，它会生成一个`状态为resolved的新Promise`对象，并将其 return<br/> > **`then`和`catch`返回的都是 Promise 对象，因此一个 Promise 也能链式调用**<br/>
+> `then`和`catch`都接收一个回调函数，若传入非函数，则会忽略当前的 then 方法<br/> > `then`回调函数中会把上一个 then 中返回的`PromiseValue`当做参数值供当前 then 方法调用<br/> > `then`回调函数中返回一个`非Promise`对象时，它会生成一个`状态为resolved的新Promise`对象，并将其 return<br/> > **`then`和`catch`返回的都是 Promise 对象，因此一个 Promise 也能链式调用**<br/>
 > 异步
 
 ### 在一个 Promise 链中
 
-- 如果状态变成了`resloved`，它会自动向后寻找：
+- 如果状态变成了`resolved`，它会自动向后寻找：
   - 发现下一个`then`方法，执行其中`第一个参数的回调函数`；
 - 如果状态变成了`rejected`，它会自动向后寻找：
   - 发现下一个`then`方法，执行其中`第二个参数的回调函数`；
@@ -84,7 +84,7 @@ async function getColumn(url) {
     try{
         const response = await fetch(url);
         const column = await response.json();
-        if (response.staus !== 200){
+        if (response.status !== 200){
             throw new Error("response fail");
         }
         console.log(`column detail: ${column.detail}`)
@@ -156,7 +156,7 @@ const gene = func();
 let b = gene.next(A); //调用
 let d = gene.next(B); //调用. 之后a=A
 /* b = {value: "", done: false}
- * d = {value: undefined, done: ture}
+ * d = {value: undefined, done: true}
  */
 ```
 
