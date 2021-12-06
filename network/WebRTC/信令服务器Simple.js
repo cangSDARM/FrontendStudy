@@ -2,7 +2,7 @@ const WebSocketServer = require("ws").Server;
 const wss = new WebSocketServer({ port: 8888 });
 const users = {}; //存储所有连接的用户。测试用
 
-ws.on("connection", function (connection) {
+wss.on("connection", function (connection) {
   console.log("User connected");
 
   connection.on("message", function (meg) {

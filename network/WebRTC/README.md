@@ -5,9 +5,9 @@
 - [重要名词](#重要名词)
 - [建立媒体会话](#建立媒体会话)
   - [建立 WebRTC 会话](#建立-webrtc-会话)
-  - [<span id="changeSDP">通过 offer 和 answer 交换 SDP 描述符</span>](#通过-offer-和-answer-交换-sdp-描述符)
-  - [<span id="iceHandle">通过 ICE 框架建立 NAT/防火墙穿越的连接</span>](#通过-ice-框架建立-nat防火墙穿越的连接)
-- [<span id="dataChannel">通过 RTCDataChannel 来传输任意数据</span>](#通过-rtcdatachannel-来传输任意数据)
+  - [通过 offer 和 answer 交换 SDP 描述符](#通过-offer-和-answer-交换-sdp-描述符)
+  - [通过 ICE 框架建立 NAT/防火墙穿越的连接](#通过-ice-框架建立-nat防火墙穿越的连接)
+- [通过 RTCDataChannel 来传输任意数据](#通过-rtcdatachannel-来传输任意数据)
 
 <!-- /TOC -->
 
@@ -59,7 +59,8 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 **MCU(Multi Control Unit)**
 
 > 多点控制单元。为了实现多点会议电视系统，必须设置 MCU。MCU 实质上是一台多媒体信息交换机，进行多点呼叫和连接，实现视频广播、视频选择、音频混合、数据广播等功能，完成各终端信号的汇接与切换<br>
-> 参考：[三款基于 WebRTC 的 MCU 框架](#https://blog.csdn.net/xiaoluer/article/details/79088416)<br> > [licode](#https://github.com/lynckia/licode) / [Kurento](#https://github.com/Kurento) / [jitsi](#https://github.com/jitsi)
+
+参考：[三款基于 WebRTC 的 MCU 框架](#https://blog.csdn.net/xiaoluer/article/details/79088416)<br> > [licode](#https://github.com/lynckia/licode) / [Kurento](#https://github.com/Kurento) / [jitsi](#https://github.com/jitsi)
 
 ## 建立媒体会话
 
@@ -89,7 +90,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
    - 任何一端都可以关闭链接。
    - 通过对`RTCPeerConnection`对象调用 close()来关闭，用来停止 ICE 处理和媒体流传输
 
-### <span id="changeSDP">通过 offer 和 answer 交换 SDP 描述符</span>
+### 通过 offer 和 answer 交换 SDP 描述符
 
 |                                                  对象发起方（甲）                                                  |                                                 对象接收方（乙）                                                 |
 | :----------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: |
@@ -101,7 +102,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 | **9**. 接收到乙的 answer 信令后，将其中乙的 SDP 描述符提取出来，调用 setRemoteDescripttion()方法交给自己的 PC 实例 |                                                                                                                  |
 |                                                  **10**. 完成连接                                                  |                                                 **10**. 完成连接                                                 |
 
-### <span id="iceHandle">通过 ICE 框架建立 NAT/防火墙穿越的连接</span>
+### 通过 ICE 框架建立 NAT/防火墙穿越的连接
 
 > WebRTC 使用 ICE 框架来获得这个外界可以直接访问的地址，在创立 PC 的时候可以将 ICE 服务器的地址传递进去
 
@@ -110,7 +111,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 3. 在回调函数内部，甲或乙将网络候选的消息封装在 ICE Candidate 信令中，通过服务器中转，传递给对方
 4. 甲或乙接收到对方通过服务器中转所发送过来 ICE Candidate 信令时，将其解析并获得网络候选，将其通过 PC 实例的`addIceCandidate()`方法加入到 PC 实例中
 
-## <span id="dataChannel">通过 RTCDataChannel 来传输任意数据</span>
+## 通过 RTCDataChannel 来传输任意数据
 
 WebRTC 会处理所有连接问题. 一旦信令完成连接建立, 则自动处理
 
