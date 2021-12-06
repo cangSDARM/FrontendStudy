@@ -81,21 +81,26 @@
 > 每消息帧(frame)组成: 帧头 + 数据内容; 每内容(message)组成: 一帧或多帧(组帧, framing)<br/>
 > WebSocket API 并不暴露帧级别信息
 
-```html
-0 byte 1 byte 2 byte 3 byte 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
-6 7 8 9 0 1 bit
-+-+-+-+-+-------+-+-------------+-------------------------------+ |F|R|R|R|
-opcode|M| Payload len | Extended payload length | |I|S|S|S| (4) |A| (7) |
-(16/64) | |N|V|V|V| |S| | (if payload len==126/127) | | |1|2|3| |K| | |
-+-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - + | Extended
-payload length continued, if payload len == 127 | + - - - - - - - - - - - - - -
-- +-------------------------------+ | | Masking-key, if MASK set to 1 |
-+-------------------------------+-------------------------------+ | Masking-key
-(continued) | Payload Data | +-------------------------------- - - - - - - - - -
-- - - - - - + : Paylaod Data continued ... : + - - - - - - - - - - - - - - - - -
-- - - - - - - - - - - - - - + | Payload Data continued ... |
+```
+0 byte              1 byte              2 byte              3 byte
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 bit
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+|     Extended payload length continued, if payload len == 127  |
++ - - - - - - - - - - - - - - - +-------------------------------+
+|                               | Masking-key, if MASK set to 1 |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |        Payload Data           |
++-------------------------------- - - - - - - - - - - - - - - - +
+:                     Paylaod Data continued ...                :
++ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+|                     Payload Data continued ...                |
 +---------------------------------------------------------------+
-<b> WebSocket 帧头 </b>
+                  <b> WebSocket 帧头 </b>
 ```
 
 - **FIN**：1 个比特. 如果是 1, 表示这是消息(message)的最后一个分片(fragment); 反之不是

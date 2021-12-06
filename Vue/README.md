@@ -4,14 +4,13 @@
 
 - [入门 Tips](#入门-tips)
 - [组件](#组件)
-	- [Mustache](#mustache)
-	- [多组件通信](#多组件通信)
-	- [插槽](#插槽)
+  - [Mustache](#mustache)
+  - [多组件通信](#多组件通信)
+  - [插槽](#插槽)
 - [必装](#必装)
-	- [Route](#route)
-	- [Vuex](#vuex)
+  - [Route](#route)
+  - [Vuex](#vuex)
 - [其它](#其它)
-- [Also can used to React](#also-can-used-to-react)
 
 <!-- /TOC -->
 
@@ -251,7 +250,7 @@ this.$refs.div this.$refs.div.$el //原生元素
 
 > register
 
-```
+```js
 import Home from ...;
 const router = new Router({
 	routes: [
@@ -322,9 +321,10 @@ router.afterEach((to, from) => {});
 **`Component` -Dispatch-> `Actions` -Commit-> `Mutation` -Mutate-> `State` -Render-> `Component`**<br>
 
 - 和 Vue 一样，有“响应式缺陷”。使用`Vue.set, Vue.delate`解决 <!--挺傻逼的。不如React直接装个api来得好-->
-  > install
 
-```
+> install
+
+```js
 1. npm install vuex
 2. src/store/index.js
   import Vuex from "vuex";
@@ -343,48 +343,52 @@ router.afterEach((to, from) => {});
 
 > store
 
-```
+```js
 const store = new Vuex.Store({
-	state: {}, //default state
-	mutations: {  //reduce, synchronous
-	  changeState: (state, payload)=>{
-	    //payload === Redux.action
-	    state.xx = xx;
-	  }
-	},
-	actions: {  //reduce, asynchronous
-	  update: (context, payload)=>{
-	    //context == store
-	    //axios in there.
-	    context.commit('update');  //do mutate
+  state: {}, //default state
+  mutations: {
+    //reduce, synchronous
+    changeState: (state, payload) => {
+      //payload === Redux.action
+      state.xx = xx;
+    },
+  },
+  actions: {
+    //reduce, asynchronous
+    update: (context, payload) => {
+      //context == store
+      //axios in there.
+      context.commit("update"); //do mutate
 
-	    return new Promise.resolve('callback');
-	  }
-	},
-	getters: {  //computed
-	  get: state=>{
-	    return state.xx.filter(s=>s.id>1);
-	  },
-	  getinget: (state, getters, rootState)=>{
-	    //rootState, for modules
-	    return getters.get.length;
-	  }
-	},
-	modules: {  //combineReducers
-	  mod: {
-	    state:{},  //this.$store.mod.xx
-	    mutations:{},  //this.$store.commit('')
-	    actions:{},  //private for each module
-	    getters:{},  //this.$store.getter.xx
-	    moudules:{},
-	  }
-	}
+      return new Promise.resolve("callback");
+    },
+  },
+  getters: {
+    //computed
+    get: (state) => {
+      return state.xx.filter((s) => s.id > 1);
+    },
+    getinget: (state, getters, rootState) => {
+      //rootState, for modules
+      return getters.get.length;
+    },
+  },
+  modules: {
+    //combineReducers
+    mod: {
+      state: {}, //this.$store.mod.xx
+      mutations: {}, //this.$store.commit('')
+      actions: {}, //private for each module
+      getters: {}, //this.$store.getter.xx
+      moudules: {},
+    },
+  },
 });
 ```
 
 > use
 
-```vue
+```js
 <div>{{$store.state.xx}}</div>
 <div>{{$store.getters.get}}</div>
 
@@ -400,9 +404,3 @@ this.$store.commit({ type: 'changeState', data: args }) } } }
 ## 其它
 
 - 事件总线[实现](https://www.cnblogs.com/fanlinqiang/p/7756566.html)
-
-## Also can used to React
-
-- Uglifyjs
-- iScroll
-- Better-Scroll
