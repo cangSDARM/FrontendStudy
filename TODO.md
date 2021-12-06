@@ -20,3 +20,4 @@
   - [Part2, React](https://juejin.im/post/6881616183158636552)
 - [queryCommandSupported](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
 - [webassembly](https://wasmbyexample.dev/home.en-us.html#)
+- [Crypto](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
