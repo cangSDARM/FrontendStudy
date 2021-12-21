@@ -41,38 +41,6 @@ class Index extends Component{
 }
 //****************************************************************
 
-//************************************高阶组件
-// 高阶组件接受组件作为参数, 返回一个新的组件
-// 		类似于python的装饰器, 由内部包装决定
-function hyperFunc(Component){		//定义
-	return class extends React.Component {
-		state = {time: new Date()};
-		componentDidMount(){
-			this.timerID = setInterval(()=>this.tick(), 1000);
-		}
-		componentWillUnmount(){
-			clearInterval(this.timerID);
-		}
-		tick(){
-			this.setState({
-				time: new Date();
-			});
-		}
-		render(){
-			return <Component time={this.state.time}>
-				{...this.props}
-			</Component>
-		}
-	}
-}
-const Index = (props)=>(	//使用
-	<div>
-		{props.time.toLocaleString()}
-	</div>
-)
-export default hyperFunc(Index);
-//****************************************************************
-
 //************************************函数作为子组件
 // 同样类似于python的装饰器.
 // 		只是和高阶函数不同, 函数作为子组件是由外部使用决定
