@@ -2,6 +2,8 @@
 
 Server-Sent Events
 
+[参考](http://www.ruanyifeng.com/blog/2017/05/server-sent-events.html)
+
 服务器发送事件（SSE）是服务器到客户端的单工通讯。每当此数据流更新时，用户都可以实时看到新事件。但现在逐渐被 WebSocket 所替代。
 
 本质上来说，要想实现 SSE，可以使用[EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)标准 API 来实现。

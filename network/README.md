@@ -12,7 +12,8 @@
 
 - [WebSocket](./WebRTC/README.md)
 - [WebRTC](./WebRTC/README.md)
-- [Server-Side-Event](./SSE.md)
+- [Server-Sent-Event](./SSE.md)
+- [Comet](./Comet.md)
 - [Fetch/XHR and Relatived Streams](./fetch&XHR.md)
 - [Same-Orgin-policy](./Same-origin-policy.md)
 
