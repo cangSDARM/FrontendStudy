@@ -19,5 +19,33 @@
 - Service-Worker, 监听 event、fetchProxy 和 Cache 处理
   - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
   - [Part2, React](https://juejin.im/post/6881616183158636552)
+  - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)
 - [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 - [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
+
+****
+temp
+
+防止事件循环
+- 当新值等于旧值时， trigger 方法不会导致触发 change 事件
+- 模型正处于自身的 change 事件期间时，不会再触发 change 事件
+- 如果在 trigger 方法中添加了{silent:true}选项，则不会触发 change 事件
+
+
+// Deferred 对象是 Promise 的超集，可以手动触发
+// 参考: https://github.com/shalldie/mini-dfd/blob/master/index.js
+//      https://github.com/jquery/jquery/blob/main/src/deferred.js
+var Deferred = $.get('/mydata');
+Deferred.then(onSuccess);
+Deferred.catch(onFailure);
+Deferred.final(onAlways);
+
+Deferred.resolve();
+Deferred.reject();
+
+Deferred.notify();  //通知步进数据
+Deferred.progress();  //步进数据
+
+// 异步工作流库 (简便处理限制并行，复杂依赖的函数链)
+// https://github.com/caolan/async
+// https://github.com/npm/slide-flow-control (带use case的实现demo)
