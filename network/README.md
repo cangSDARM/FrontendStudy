@@ -7,11 +7,12 @@
 
 <!-- TOC -->
 
+- [Http](./http.md)
 - [WebSocket](./WebRTC/README.md)
 - [WebRTC](./WebRTC/README.md)
 - [Server-Sent-Event](./SSE.md)
 - [Comet](./Comet.md)
-- [Fetch/XHR and Relatived Streams](./fetch&XHR.md)
+- [Fetch/XHR and Related Streams](./fetch&XHR.md)
 - [Same-Origin-policy](./Same-origin-policy.md)
 
 ![layers](../assets/network-layer.png)

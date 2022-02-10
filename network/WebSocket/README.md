@@ -51,7 +51,7 @@
 | 消息定界 |      否       |    是     |        是        |
 | 链接定向 |      是       |    否     |        是        |
 
-#####tips:
+##### tips:
 
 1. TCP 只能传输字节流，所以消息边界由高层协议来表现。所谓粘包，并不是 TCP 所需要定义的
 2. websocket 协议内置消息边界，所以发送和接收没有所谓的"碎片"
@@ -59,6 +59,8 @@
 4. IP(互联网层)-> TCP(传输层) -> Websocket、http(应用层)
 
 ### 初始握手
+
+HTTP/1.1 Only, HTTP/2 不通过HTTP协议握手
 
 1. 使用普通 http 请求(GET)，携带`Upgrade; Sec-WebSocket-Version; Sec-WebSocket-Key`等必须的头进行初始握手(opening handshake)
 2. 服务器响应`Sec-WebSocket-Accept; 101 Switching Portocals; Upgrade`头

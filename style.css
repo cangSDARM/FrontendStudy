@@ -3,9 +3,10 @@
  * 正常文档流: 将元素布局从上到下,从左到右的顺序排布
  * 脱离文档流: 将元素从文档流取出进行覆盖(position:fixed,absolute;float)
 */
-/* 匹配所有元素 */
-@charset 'utf-8';   /*指定该文档的编码方式*/
+/*指定该文档的编码方式*/
+@charset 'utf-8';
 
+/* 匹配所有元素 */
 * {
     margin: 0px 1px 0px 2px;
 }
@@ -61,10 +62,10 @@ div + span{
     float: left;
 }
 
-/* lable[attribute='value'] */
+/* label[attribute='value'] */
 div[id='id']{
     /* position */
-    /* fixed屏幕上绝对定位, absolute相对非static的父标签原位置移动脱离文档流, ralative类似absolute但仍在正常文档流, static默认*/
+    /* fixed屏幕上绝对定位, absolute相对非static的父标签原位置移动脱离文档流, relative类似absolute但仍在正常文档流, static默认*/
     position: fixed;
     /* bottom top left right设置position*/
     bottom: 20px;
@@ -79,7 +80,7 @@ div[id='id']{
 
 /* [attribute$='lue'] */
 [id$='lue']{
-    /*id="vlaue"*/
+    /*id="value"*/
     border-color: sienna;
 }
 

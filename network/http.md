@@ -31,17 +31,34 @@ HTTP 报文是由一行一行的简单字符串组成的。 HTTP 报文都是纯
 
 #### 代理
 
-##### 服务器代理
+- 服务器代理: 位于客户端和服务器之间的 HTTP 中间实体
+- 用户代理: 发起自动 HTTP 请求的半智能 Web 客户端(如浏览器、爬虫等)
+- 反向代理: 假扮服务器接收和响应
 
-位于客户端和服务器之间的 HTTP 中间实体
+##### 代理配置
 
-##### 用户代理
-
-发起自动 HTTP 请求的半智能 Web 客户端
-
-如浏览器、爬虫等
+- 客户端：
+  1. 手工配置
+  2. [PAC(Proxy Auto-Configuration)](https://www.cnblogs.com/milton/p/6263596.html): 提供一个 URI，指向一个用 Js 语言编写的代理自动配置文件；客户端下载这个 Js 文件，并运行来选择代理
+  3. [WPAD 的代理发现(Web Proxy Auto-Discovery Protocol)](https://xz.aliyun.com/t/1739/): IE 特性，自动检测代理服务器
 
 #### 缓存
+
+"新鲜度检测" 被称为 http 的再验证(revalidation)，缓存是否命中对 C 都是无感知的(304 是因为发送了 If-* 头)
+
+复杂的缓存组成了网状缓存(cache mesh)，其间的缓存代理称为内容路由器(content router)。之中常见的协议有因特网缓存协议(Internet Cache Protocol，ICP)、超文本缓存协议(HyperText Caching Protocol，HTCP)
+
+http 主要通过 Age 和 Date 来计算缓存时间(其算法有对网络时延的补偿)。有两种简单机制进行再验证：
+
+1. 文档过期(document expiration)
+   - Cache-Control 及 Expires 首部进行协商过期时间
+   - LM-factor 试探性过期算法估计过期时间
+2. 服务器再验证(server revalidation)
+   - If-Modified-Since、If-None-Match、If-Unmodified-Since、If-Range、If-Match 配合 Etag<sup>[1](#etag)</sup>、Last-Modified， 过期时才返回内容主体
+
+- <span id="etag">Etag</span>:
+  - `Etag: W/"v3.2"`弱实体: 只有发生重要变化才会变化
+  - `Etag: "v3.2"`强实体: 内容发生任何变化，其都会变化
 
 #### 网关
 
@@ -69,9 +86,7 @@ ftp 若没指定 user:password，ftp 客户端会使用 anonymous:自定义密�
 
 frag 并不会在请求中被发送，通常用于浏览器定位
 
-##### 源(Origin)
-
-协议、域名、端口 三者构成(https, example.\com, 443)
+- 源(Origin): 协议、域名、端口 三者构成(https, example.\com, 443)
 
 #### URN
 
@@ -86,7 +101,7 @@ https://www.w3.org/Protocols/HTTP/Performance/
 |      |                                      并行连接                                      |                                                持久连接                                                 |                管道化连接                 |       复用的连接       |
 | :--: | :--------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :---------------------------------------: | :--------------------: |
 | 说明 |                      通过多条并发的 TCP 连接发起 HTTP 请求。                       |                                              重用 TCP 连接                                              |  通过持久的 TCP 连接发起并发的 HTTP 请求  | 交替传送请求和响应报文 |
-| 应用 | - 套接字池(Socket Pool): 一组属于同一源的套接字(即同一网页，通常浏览器限制为 6 个) | - Keep-Alive(Http/1.0+)<sup>[1](#sup1)</sup><br/>- persistent connection(Http/1.1)<sup>[2](#sup2)</sup> | - 请求管道 Http(1.1)<sup>[3](#sup3)</sup> |                        |
+| 应用 | - 套接字池(Socket Pool): 一组属于同一源的套接字(即同一网页，通常浏览器限制为 6 个) | - Keep-Alive(Http/1.0+)<sup>[1](#sup1)</sup><br/>- persistent connection(Http/1.1)<sup>[2](#sup2)</sup> | - 请求管道 Http(1.1)<sup>[3](#sup3)</sup> |           /            |
 | 缺点 |            低带宽时，一条连接就可能消耗所有带宽，多条则产生竞争增加时延            |                                                    /                                                    |                     /                     |           /            |
 
 1. <span id="sup1">Keep-Alive 的问题</span>
@@ -94,7 +109,7 @@ https://www.w3.org/Protocols/HTTP/Performance/
    - 发出 keep-alive 请求之后，C/S 并不一定会同意进行 keep-alive 会话。它们可以在任意时刻关闭空闲的 keep-alive 连接，并可随意限制 keep-alive 连接所处理事务的数量
    - Connection: Keep-Alive 首部必须随**所有希望保持持久连接的报文**一起发送
    - 只有当连接上所有的报文都有正确的报文长度时，连接才能保持
-   - 在有盲中继(blind relay，只将字节从一个连接转发到另一个连接中去，不对 Keep-Alive 进行特殊处理)的情况下，会产生哑代理问题(C/S 保持连接，但代理中断响应)。因此现代代理将删除相关的 Connection/Keep-Alive 首部
+   - 在有盲中继(blind relay，只将字节从一个连接转发到另一个连接中去，不对 Keep-Alive 进行特殊处理)的情况下，会产生哑代理问题(C/S 保持连接，但代理中断响应)。因此现代代理将删除相关的 Connection/Keep-Alive 首部，且浏览器会忽略
 
 2. <span id="sup2">persistent connection</span>
 
