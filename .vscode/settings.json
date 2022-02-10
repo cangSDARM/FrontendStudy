@@ -1,6 +1,6 @@
 {
   "markdown.extension.toc.updateOnSave": true,
-  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.levels": "2..4",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontSize": 16,
   "editor.fontFamily": "'Fira Mono for Powerline', 'Fira Code', 'SourceCode Pro' , Consolas, monospace",

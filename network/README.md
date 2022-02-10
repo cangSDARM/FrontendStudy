@@ -3,9 +3,6 @@
 <!-- TOC -->
 
 - [导航时序规范](#导航时序规范)
-- [源(Origin)](#源origin)
-- [套接字池(Socket Pool)](#套接字池socket-pool)
-- [Keep Alive](#keep-alive)
 - [TLS 协商](#tls-协商)
 
 <!-- TOC -->
@@ -15,33 +12,13 @@
 - [Server-Sent-Event](./SSE.md)
 - [Comet](./Comet.md)
 - [Fetch/XHR and Relatived Streams](./fetch&XHR.md)
-- [Same-Orgin-policy](./Same-origin-policy.md)
+- [Same-Origin-policy](./Same-origin-policy.md)
 
 ![layers](../assets/network-layer.png)
 
-- 用户在浏览器地址栏中输入 URL
-- 给定一个 Web 资源的 URL，浏览器首先检查本地和应用程序缓存，并尝试使用本地副本完成请求。
-- 如果缓存无法使用，浏览器将从 URL 中获取域名，并通过 DNS 请求 Server 的 IP 地址。如果该域被缓存，则不需要 DNS 查询。
-- 浏览器创建一个 HTTP 数据包。
-- 数据包发送到 TCP 层，在 HTTP 数据包的顶部添加它自己的信息。此信息将被用于维护已经开始的会话。
-- 然后将数据包交给 IP 层，用于找出将数据包从用户发送到 Server 的途径。这些信息同样添加在数据包的顶部。
-- 数据包发送到 Server。Server 一旦接收到数据包，就会以类似的方式发回响应。
-
-#### [导航时序规范](https://link.juejin.cn/?target=http%3A%2F%2Fwww.w3.org%2FTR%2Fnavigation-timing%2F)
+#### [导航时序规范](https://www.w3.org/TR/navigation-timing/)
 
 ![guide](../assets/导航时序.png)
-
-#### 源(Origin)
-
-协议、域名、端口 三者构成(https, example.\com, 443)
-
-#### 套接字池(Socket Pool)
-
-一组属于同一源的套接字(通常浏览器限制为 6 个)
-
-#### Keep Alive
-
-允许浏览器重用套接字
 
 #### TLS 协商
 
