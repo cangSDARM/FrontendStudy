@@ -60,7 +60,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 > 多点控制单元。为了实现多点会议电视系统，必须设置 MCU。MCU 实质上是一台多媒体信息交换机，进行多点呼叫和连接，实现视频广播、视频选择、音频混合、数据广播等功能，完成各终端信号的汇接与切换<br>
 
-参考：[三款基于 WebRTC 的 MCU 框架](#https://blog.csdn.net/xiaoluer/article/details/79088416)<br> > [licode](#https://github.com/lynckia/licode) / [Kurento](#https://github.com/Kurento) / [jitsi](#https://github.com/jitsi)
+参考：[三款基于 WebRTC 的 MCU 框架](https://blog.csdn.net/xiaoluer/article/details/79088416)<br> > [licode](https://github.com/lynckia/licode) / [Kurento](https://github.com/Kurento) / [jitsi](https://github.com/jitsi)
 
 ## 建立媒体会话
 
@@ -73,8 +73,8 @@ Web 实时通信技术(Web Real-Time Communication)<br>
    - **意指不通过服务器，而是直接在两个终端之间建立链接。每一对浏览器都需要一个对等链接才能加入会议**
    - 建立此链接需要一个新的`RTCPeerConnection`对象
    - 在建立 RTCPeerConnection 实例之后，想要建立点对点的信道，需要做两件事:
-     - 确定本机上的媒体流的特性，如分辨率、编解码能力等（SDP 描述符）[通过 Offer/Answer 交换](#changeSDP)
-     - 连接两端的主机的网络地址（ICE Candidate）[使用 ICE 处理连接](#iceHandle)
+     - 确定本机上的媒体流的特性，如分辨率、编解码能力等（SDP 描述符）[通过 Offer/Answer 交换](#通过-offer-和-answer-交换-sdp-描述符)
+     - 连接两端的主机的网络地址（ICE Candidate）[使用 ICE 处理连接](#通过-ice-框架建立-nat防火墙穿越的连接)
 4. 关联新媒体和数据通道至该链接
    - 每次更改媒体时，都需要在两个终端之间协商如何在链接通道中表示媒体
    - 使用`RTCSessionDescription`对象表示提议和应答
@@ -85,7 +85,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
    - 加入流非常容易，API 会负责流的建立和发送。
    - 当另一方在对等连接中加入流时，会发送提醒，通知第一个用户有变更。
    - 浏览器使用`onaddstream`来通知用户流已加入
-   - 使用`RTCDataChannel`来在两者之间建立一个双向数据通道的连接，[传输任意数据，而非仅仅是媒体流](#dataChannel)
+   - 使用`RTCDataChannel`来在两者之间建立一个双向数据通道的连接，[传输任意数据，而非仅仅是媒体流](#通过-rtcdatachannel-来传输任意数据)
 7. 关闭链接
    - 任何一端都可以关闭链接。
    - 通过对`RTCPeerConnection`对象调用 close()来关闭，用来停止 ICE 处理和媒体流传输

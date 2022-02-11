@@ -1,9 +1,8 @@
-//The Difinitive Guide to HTML5 WebSocket
+//The Definitive Guide to HTML5 WebSocket
 
 var events = require("events");
 var http = require("http");
 var crypto = require("crypto");
-var uitl = require("uitl");
 
 var opcodes = {
   TEXT: 1,
