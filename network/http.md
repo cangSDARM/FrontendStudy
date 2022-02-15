@@ -12,6 +12,12 @@
   - [URN](#urn)
 - [优化](#优化)
   - [时延](#时延)
+- [安全](#安全)
+  - [三种基础认证](#三种基础认证)
+    - [基本认证](#基本认证)
+    - [摘要认证](#摘要认证)
+    - [Bearer 验证](#bearer-验证)
+  - [HTTPs](#https)
 
 ## 事物
 
@@ -113,7 +119,7 @@ https://www.w3.org/Protocols/HTTP/Performance/
 |      |                                      并行连接                                      |                                                持久连接                                                 |                管道化连接                 |       复用的连接       |
 | :--: | :--------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :---------------------------------------: | :--------------------: |
 | 说明 |                      通过多条并发的 TCP 连接发起 HTTP 请求。                       |                                              重用 TCP 连接                                              |  通过持久的 TCP 连接发起并发的 HTTP 请求  | 交替传送请求和响应报文 |
-| 应用 | - 套接字池(Socket Pool): 一组属于同一源的套接字(即同一网页，通常浏览器限制为 6 个) | - Keep-Alive(Http/1.0+)<sup>[1](#sup1)</sup><br/>- persistent connection(Http/1.1)<sup>[2](#sup2)</sup> | - 请求管道 Http(1.1)<sup>[3](#sup3)</sup> |           /            |
+| 应用 | - 套接字池(Socket Pool): 一组属于同一源的套接字(即同一网页，通常浏览器限制为 6 个) | - Keep-Alive(Http/1.0+)<sup>[1](#sup1)</sup><br/>- persistent connection(Http/1.1)<sup>[2](#sup2)</sup> | - 请求管道 Http(1.1)<sup>[3](#sup3)</sup> |   - Http(2)多路复用    |
 | 缺点 |            低带宽时，一条连接就可能消耗所有带宽，多条则产生竞争增加时延            |                                                    /                                                    |                     /                     |           /            |
 
 1. <span id="sup1">Keep-Alive 的问题</span>
@@ -135,3 +141,35 @@ https://www.w3.org/Protocols/HTTP/Performance/
    - 必须按照与请求相同的顺序回送 HTTP 响应
    - C 必须做好连接会在任意时刻关闭的准备，还要准备好重发所有未完成的管道化请求
    - 不应该用管道化的方式发送会产生副作用的请求(如 POST)。出错时，管道化方式会阻碍 C 了解 S 执行的是一系列管道化请求中的哪一些。而非幂等请求(如 POST)无法安全地重试，因此就存在某些方法永远不会被执行的风险
+
+## 安全
+
+### 三种基础认证
+
+> **安全域**(security realm): 指不同访问权限的不同授权等级集
+
+#### 基本认证
+
+1. 请求数据，服务器返回 401 及 WWW-Authenticate 头
+2. 浏览器弹出密码验证框，用户输入后经过扰码(username:password 的 BASE64)添加到 Authentication 头
+3. 服务器验证 username 和 password
+
+> 也有对称的代理认证。过程相同，使用 407、Proxy-Authenticate、Proxy-Authentication
+
+#### 摘要认证
+
+1. 请求数据，S 返回 401 及包含随机数 nonce、支持摘要算法列表的 WWW-Authenticate 头
+2. C 选择算法，计算摘要添加到 Authentication 头，可选的发送 cnoce 给 S 以做客户端验证
+3. S 验证，返回客户端验证信息、验证超时等信息给 Authentication-Info 头
+
+#### Bearer 验证
+
+##### JWT
+
+1. 请求数据，服务器返回 401，及包含 bearer 字段的 WWW-Authenticate 头
+2. C 输入验证信息，携带用户名&MD5 加密的密码给 S
+3. S 颁发 token，C 携带 token 到 Authentication 头再次请求
+
+### HTTPs
+
+WIP
