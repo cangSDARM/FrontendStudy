@@ -22,6 +22,7 @@
   - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)
 - [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 - [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
+- [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
 
 ****
 temp

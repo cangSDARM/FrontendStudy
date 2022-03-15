@@ -93,6 +93,8 @@ ECS5: function(a){ a = a|1 }
     ({ age, name, ...rest } = Tom)   //小括号是必要的. 防止js错误解析大括号
 //但也可重命名:
     { name: Name } = Tom  //重命名为Name
+//还可以多次解构同一个key
+    {profile: { img }, profile: { birth }} = Tom
 //未定义时默认值:
     { sex = 'Male' } = Tom
 //可以和简化赋值的共用

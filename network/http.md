@@ -18,6 +18,8 @@
     - [摘要认证](#摘要认证)
     - [Bearer 验证](#bearer-验证)
   - [HTTPs](#https)
+- [Trivia](#trivia)
+  - [字符系统](#字符系统)
 
 ## 事物
 
@@ -83,6 +85,7 @@ http 主要通过 Age 和 Date 来计算缓存时间(其算法有对网络时延
    - LM-factor 试探性过期算法估计过期时间
 2. 服务器再验证(server revalidation)
    - If-Modified-Since、If-None-Match、If-Unmodified-Since、If-Range、If-Match 配合 Etag<sup>[1](#etag)</sup>、Last-Modified， 过期时才返回内容主体
+   - A-IM(Accept-Instance-Manipulation) 配合 IM、Etag、Delta-Base 头，进行差异化片段更新
 
 - <span id="etag">Etag</span>:
   - `Etag: W/"v3.2"`弱实体: 只有发生重要变化才会变化
@@ -173,3 +176,32 @@ https://www.w3.org/Protocols/HTTP/Performance/
 ### HTTPs
 
 WIP
+
+## Trivia
+
+### 字符系统
+
+- 字符
+  指字母、数字、标点、表意文字、符号，或其他文本形式的书写“原子”。
+  由统一字符集（Universal Character Set，UCS, 它的非正式的名字
+  是 Unicode）首创，为多种语言中的很多字符开发了一系列标准化的文本名称，
+  它们常用来便捷地命名字符，而且不会与其他字符冲突
+- 字形
+  描述字符的笔画图案或唯一的图形化形状。如果一个字符有多种不同的写法，就有多个字形
+- 编码后的字符
+  分配给字符的唯一数字编号，这样我们就可以操作它了。
+- 代码空间
+  计划用于字符代码值的整数范围。
+- 代码宽度
+  每个（固定大小的）字符代码所用的位数。
+- 字符库
+  特定的工作字符集（全体字符的一个子集）
+- 编码后的字符集
+  组成字符库（从全球的字符中选出若干字符）的已编码字符集，并为每个字符
+  分配代码空间中的一个代码。换句话说，它把 Int 映射为实际的字符。
+- 字符编码方案
+  把 Int 编码成一系列二进制码（并能相应地反向解码）的算法。字符编码方案
+  可用来减少识别字符所需要的数据总量（压缩）、解决传输限制、统一重叠编码字符集
+  有三种主要类型: 固定宽度、可变宽度(无模态)、可变宽度(有模态)。模态指可以通过特殊转义在不同模态间切换，以支持复杂的书写系统(如连笔)
+
+https://mp.weixin.qq.com/s?__biz=Mzg3OTYwMjcxMA==&mid=2247485285&idx=1&sn=4de2e896ef4cc1e82d43645d7b874c7e&utm_source=tuicool&utm_medium=referral
