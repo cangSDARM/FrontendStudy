@@ -216,5 +216,3 @@ WIP
   把 Int 编码成一系列二进制码（并能相应地反向解码）的算法。字符编码方案
   可用来减少识别字符所需要的数据总量（压缩）、解决传输限制、统一重叠编码字符集
   有三种主要类型: 固定宽度、可变宽度(无模态)、可变宽度(有模态)。模态指可以通过特殊转义在不同模态间切换，以支持复杂的书写系统(如连笔)
-
-https://mp.weixin.qq.com/s?__biz=Mzg3OTYwMjcxMA==&mid=2247485285&idx=1&sn=4de2e896ef4cc1e82d43645d7b874c7e&utm_source=tuicool&utm_medium=referral

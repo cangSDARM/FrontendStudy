@@ -2,6 +2,7 @@
   - [两个内容](#两个内容)
   - [三种状态](#三种状态)
   - [在一个 Promise 链中](#在一个-promise-链中)
+  - [例子](#例子)
 - [Async/Await](#asyncawait)
   - [基于 Promise 的更高层封装，可以将 Promise 链扁平化](#基于-promise-的更高层封装可以将-promise-链扁平化)
   - [async 函数返回永远是一个 Promise，然后像 Promise 一样使用](#async-函数返回永远是一个-promise然后像-promise-一样使用)
@@ -26,8 +27,11 @@
 ### 三种状态
 
 1. 如果使用`Promise()`构造器创建一个`Promise`对象，<br/>它的状态是`pending`
-2. 如果`resolve`方法被调用 或者 使用`Promise.resolve()`创建的`Promise`对象，<br/>其状态都是`resolved`
+2. 如果`resolve`方法被调用 或者 使用`Promise.resolve()`创建的`Promise`对象，<br/>其状态都是`fulfilled`
 3. 如果`reject`方法被调用 或者 使用`Promise.reject()`创建的`Promise`对象，<br/>其状态都是`rejected`
+
+- 如果是`pending`，其本身立马被压进 microtask 等待执行
+- 如果是`fulfilled`或`rejected`，则其 then/catch 立马会被压进 microtask 等待执行
 
 ```js
 //声明
@@ -53,19 +57,55 @@ let p = Promise.allSettled([pa, pb]); //返回的Promise决议的结果, 允许r
 | :-------------------: | :--------------------: |
 | 成功时调用, then 捕获 | 失败时调用, catch 捕获 |
 
-> `then`和`catch`都接收一个回调函数，若传入非函数，则会忽略当前的 then 方法<br/> > `then`回调函数中会把上一个 then 中返回的`PromiseValue`当做参数值供当前 then 方法调用<br/> > `then`回调函数中返回一个`非Promise`对象时，它会生成一个`状态为resolved的新Promise`对象，并将其 return<br/> > **`then`和`catch`返回的都是 Promise 对象，因此一个 Promise 也能链式调用**<br/>
+> `then`和`catch`都接收一个回调函数，若传入非函数，则会忽略当前的 then 方法
+> > `then`回调函数中会把上一个 then 中返回的`PromiseValue`当做参数值供当前 then 方法调用
+> > `then`回调函数中返回一个`非Promise`对象时，它会生成一个`状态为fulfilled的新Promise`对象，并将其 return
+> > `then`和`catch`如果返回一个`含有then方法`对象，则该对象被压进 microtask, 等待解析
+> > **`then`和`catch`返回的都是 fulfilled 的 Promise 对象，因此 catch 后也可以调用 then**<br/>
 > 异步
 
 ### 在一个 Promise 链中
 
-- 如果状态变成了`resolved`，它会自动向后寻找：
+- 如果状态变成了`fulfilled`，它会自动向后寻找：
   - 发现下一个`then`方法，执行其中`第一个参数的回调函数`；
 - 如果状态变成了`rejected`，它会自动向后寻找：
   - 发现下一个`then`方法，执行其中`第二个参数的回调函数`；
   - 发现下一个`catch`方法，直接执行；
 - 无论如何，finally 都会被调用
 
+### 例子
+```js
+let p1 = Promise.resolve();
+let p2 = p1.then(() => {
+    console.log(0);
+    let p3 = { then(resolve){resolve(4) } };
+    return p3;
+});
+let p4 = p2.then((res) => { console.log(res); });
+
+let p5 = Promise.resolve();
+let p6 = p5.then(() => { console.log(1); });
+let p7 = p6.then(() => { console.log(2); });
+let p8 = p7.then(() => { console.log(3); });
+let p9 = p8.then(() => { console.log(5); });
+let p10 = p9.then(() => { console.log(6); });
+
+/*顺序:
+p1, p5 -> fulfilled -> 其then压进microtask -> [p2, p6]
+执行p2 -> 0 -> p3是pending其本身压进microtask, p2被block -> [p6, p3]
+执行p6 -> 1 -> 其then压进microtask -> [p3, p7]
+执行p3 -> fulfilled -> 其then压进microtask -> [p7, p3.then]
+执行p7 -> 2 -> 其then压进microtask -> [p3.then, p8]
+执行p3.then -> p2 为 fulfilled -> 其then压进microtask -> [p8, p4]
+执行p8 -> 3 -> 其then压进microtask -> [p4, p9]
+执行p4 -> 4 -> [p9]
+执行p9 -> 5 -> 其then压进microtask -> [p10]
+执行p10 -> 6
+*/
+```
+
 ## Async/Await
+[Async是如何被JavaScript实现的](https://juejin.cn/post/7069317318332907550)
 
 ### 基于 Promise 的更高层封装，可以将 Promise 链扁平化
 
