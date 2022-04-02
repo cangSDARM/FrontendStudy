@@ -15,7 +15,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 > 允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输
 
-1. WebRTC 使用 UDP 协议传输信息, 但 TURN 服务器可以使用 TCP 来传输 WebRTC 信息
+1. WebRTC 使用 UDP 协议传输信息, 因此需要 STUN / TURN / ICE 等技术绕过 NAT 的限制, TURN 服务器也可以使用 TCP 来传输 WebRTC 信息
 2. 使用[Adapter.js](https://github.com/webrtcHacks/adapter)，确保 Web 应用程序的兼容性
 3. WebRTC 创建连接时，顺序十分重要。如果没按照正确步骤会导致连接失败
 4. WebRTC 运行时，对于所有协议的实现都会强制执行加密功能，因此 WebRTC 处于 DTLS 上
@@ -33,16 +33,18 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 **STUN(Session Traversal Utilities for NAT)**
 
 > NAT 会话传输应用程序协议<br>
-> 允许位于 NAT (或多重 NAT)后的客户端找出自己的公网地址，查出自己位于哪种类型的 NAT 之后以及 NAT 为某一个本地端口所绑定的 Internet 端端口。这些信息被用来在两个同时处于 NAT 路由器之后的主机之间建立 UDP 通信
+> 允许位于 NAT (或多重 NAT)后的客户端建立 UDP 通信。使用 STUN 服务器绑定双方 Ip 和端口号，以此为 NAT 指明转发方式、保证转发在 UDP 连接时不超时<br >
+> 但当防火墙完全屏蔽 / NAT 不支持时，STUN 将失败
 
 **TURN 服务器(Traversal Using Relays around NAT 服务器)**
 
-> a protocol that allows for an element behind a NAT or firewall to receive incoming data over TCP or UDP connections<br>
-> TURN 服务器用于中间人转播消息，对双方透明
+> TURN 服务器用于中间人转播消息，对双方透明<br >
+> 两端向同一 TURN 中继服务器请求并建立连接，TURN 负责填充 NAT 所需的 Ip 和端口号，并转发 UDP / TCP 信息到 NAT，实现 NAT 穿透
 
 **ICE(Interactive Connectivity Establishment)**
 
-> 交互式链接技术。允许实时对等端发现对方并且彼此连接的框架<br> > [参考](https://webrtc.org.cn/three-things-about-ice/)
+> 交互式链接技术。允许实时对等端发现对方并且彼此连接的框架<br>
+> [参考](https://webrtc.org.cn/three-things-about-ice/)
 
 **NAT(Network Address Translation)**
 
