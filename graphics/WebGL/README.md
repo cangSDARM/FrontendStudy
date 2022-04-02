@@ -3,7 +3,6 @@
 <!-- TOC -->
 
 - [概念](#概念)
-  - [OpenGL ES](#opengl-es)
   - [可绘制的基本图形](#可绘制的基本图形)
 - [绘图](#绘图)
 - [JS 和 Shader 交互](#js-和-shader-交互)
@@ -14,6 +13,9 @@
   - [调用流程](#调用流程)
 
 <!-- /TOC -->
+
+[纹理映射的示例程序](./TextureQuad.md)
+[OpenGL ES](./OpenGL%20ES.md)
 
 - WebGL 内置于浏览器内, 基于`OpenGL ES 2.0`, 使用*GLSL ES*编写 shader
 - WebGL 的颜色使用`0-1`
@@ -29,13 +31,6 @@
 - canvas 中，如果裁切面的宽高比和 canvas 不同，将按照 canvas 的进行压缩，物体会被扭曲
 - **齐次坐标**指: `(x, y, z, w)`， 是个四维坐标. 等价于三维中的`(x/w, y/w, z/w)`
 - 观察者所处的位置称为**视点(eye point)**，从视点出发沿着观察方向的射线称为**视线(viewing direction)**
-
-### OpenGL ES
-
-[ES sample](<./OpenGL\ ES.md>)
-
-- float 变量必须加小数点. 如: `10.0`, <span style="color:red">Error</span>:`10`
-- 对于*三维对象*, 使用**齐次坐标**来赋值
 
 ### 可绘制的基本图形
 
@@ -53,21 +48,21 @@
 
 **WebGL 和 canvas 的坐标系不同**
 
-![webgl/canvas](../assets/webgl-canvas.png)
+![webgl/canvas](../../assets/webgl-canvas.png)
 
 **WebGL 的旋转**
 
-![webgl/rotation](../assets/webgl-rotation.png)
+![webgl/rotation](../../assets/webgl-rotation.png)
 
 **WebGL 的纹理坐标**
 
-![webgl/texturecoodingnate](../assets/webgl-texturecood.png)
+![webgl/texturecoodingnate](../../assets/webgl-texturecood.png)
 
 **注意**:WebGL 纹理坐标中的 t 轴方向和 PNG/BMP/JPG 等格式的坐标系统的 Y 轴方向是相反的. 因此加载这些纹理之前需要做 Y 轴翻转才能正确映射
 
 ## JS 和 Shader 交互
 
-![webgl/js](../assets/webgl-js.png)
+![webgl/js](../../assets/webgl-js.png)
 
 > **attribute 变量**传输与顶点有关的数据, 且只有*顶点着色器*能够使用
 
@@ -176,7 +171,7 @@ var xformMatrix = new Float32Array([
 
 ### 顶点着色器
 
-![webgl/vertex](../assets/webgl-vertex.png)
+![webgl/vertex](../../assets/webgl-vertex.png)
 
 ```js
 var VSHADER_SOURCE = `
@@ -189,7 +184,7 @@ var VSHADER_SOURCE = `
 
 ### 片元着色器
 
-![webgl/fragment](../assets/webgl-fragment.png)
+![webgl/fragment](../../assets/webgl-fragment.png)
 
 ```js
 var FSHADER_SOURCE = `
@@ -245,5 +240,3 @@ function main() {
   //绘图(使用ctx.ELEMENT_ARRAY_BUFFER的顶点索引offset后绘制n个顶点). 目的是减少顶点个数
 }
 ```
-
-[纹理映射的示例程序](./TextureQuad.md)

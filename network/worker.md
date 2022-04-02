@@ -76,3 +76,8 @@ const useWorker = () => {
 
 const worker = useWorker();
 ```
+
+- Service-Worker, 监听 event、fetchProxy 和 Cache 处理
+  - [Part1, ValiaJS](https://ithelp.ithome.com.tw/articles/10216819)
+  - [Part2, React](https://juejin.im/post/6881616183158636552)
+  - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)

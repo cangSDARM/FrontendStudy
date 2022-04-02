@@ -8,7 +8,7 @@
 <!-- TOC -->
 
 - [Http](./http.md)
-- [WebSocket](./WebRTC/README.md)
+- [WebSocket](./WebSocket/README.md)
 - [WebRTC](./WebRTC/README.md)
 - [Server-Sent-Event](./SSE.md)
 - [Comet](./Comet.md)
