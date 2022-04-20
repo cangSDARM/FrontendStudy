@@ -3,6 +3,9 @@
 <!-- TOC -->
 
 - [重要名词](#重要名词)
+  - [NAT 穿透](#nat-穿透)
+  - [应用层协议](#应用层协议)
+  - [会话描述](#会话描述)
 - [建立媒体会话](#建立媒体会话)
   - [建立 WebRTC 会话](#建立-webrtc-会话)
   - [通过 offer 和 answer 交换 SDP 描述符](#通过-offer-和-answer-交换-sdp-描述符)
@@ -18,7 +21,8 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 1. WebRTC 使用 UDP 协议传输信息, 因此需要 STUN / TURN / ICE 等技术绕过 NAT 的限制, TURN 服务器也可以使用 TCP 来传输 WebRTC 信息
 2. 使用[Adapter.js](https://github.com/webrtcHacks/adapter)，确保 Web 应用程序的兼容性
 3. WebRTC 创建连接时，顺序十分重要。如果没按照正确步骤会导致连接失败
-4. WebRTC 运行时，对于所有协议的实现都会强制执行加密功能，因此 WebRTC 处于 DTLS 上
+4. WebRTC 运行时，对于所有协议的实现都会强制执行加密功能，因此 WebRTC 处于 DTLS 上。WebRTC 客户端自动为每一端生成自已签名的证书。因此，也就没有证书链需要验证
+5. WebRTC 仅提供了端到端的全套方案。网络拓扑需要应用解决
 
 参考资料<br>
 
@@ -28,7 +32,21 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 **信令信息(Signaling information)**
 
-> 是指通信系统中的控制指令。用于指导终端、交换系统及传输系统协同运行，在指定的终端之间建立临时的通信信道，并维护网络本身正常运行。除了通信时的用户信息（包括话音信息和非话业务信息）以外的控制交换机动作的信号，就是信令信息
+> 是指通信系统中的控制指令。用于指导终端、交换系统及传输系统协同运行，在指定的终端之间建立临时的通信信道，并维护网络本身正常运行。除了通信时的用户信息（包括话音信息和非话业务信息）以外的控制交换机动作的信号，就是信令信息<br />
+> 信令服务器的作用是作为一个中间人帮助双方在尽可能少的暴露隐私的情况下建立连接。信令服务器仅在建立连接、ICE 时提供消息中转，其消息内容对信令服务器不重要
+
+### NAT 穿透
+
+处于安全原因，通常 UDP 协议没法穿透 NAT，因此 WebRTC 要工作的话，需要绕过其限制
+
+**NAT(Network Address Translation)**
+
+> 网络地址转换，用于代理服务
+
+**ICE(Interactive Connectivity Establishment)**
+
+> 交互式链接技术。允许实时对等端发现对方并且开启、维持彼此连接的框架<br/>
+> [参考](https://webrtc.org.cn/three-things-about-ice/)
 
 **STUN(Session Traversal Utilities for NAT)**
 
@@ -41,26 +59,38 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 > TURN 服务器用于中间人转播消息，对双方透明<br >
 > 两端向同一 TURN 中继服务器请求并建立连接，TURN 负责填充 NAT 所需的 Ip 和端口号，并转发 UDP / TCP 信息到 NAT，实现 NAT 穿透
 
-**ICE(Interactive Connectivity Establishment)**
+### 应用层协议
 
-> 交互式链接技术。允许实时对等端发现对方并且彼此连接的框架<br>
-> [参考](https://webrtc.org.cn/three-things-about-ice/)
+用于修补 UDP 的部分不足，以提供足够够用的可靠交付
 
-**NAT(Network Address Translation)**
+**DTLS(Datagram Transport Layer Security)**
 
-> 网络地址转换，用于代理服务
-
-**SDP(Session Description Protocol)**
-
-> 会话描述协议，用于描述不同内容的会话并向系统提供标准 API
+> 数据报传输层安全。用于在 UDP 协议上实现加密安全
 
 **SCTP(Stream Control Translation Protocol)**
 
-> 流传输控制协议。位于传输层安全协议（DTLS）上。设计用于解决 TCP 问题，同时利用 UDP 的传输能力，即提供基于不可靠传输业务的协议之上的可靠的数据报传输协议
+> 流传输控制协议。提供基于不可靠传输业务的协议之上的可靠的数据报传输协议。WebRTC 使用它传输除媒体数据外的所有数据<br/>
+> SCTP 是一个传输层协议，直接在 IP 协议上运行，这一点跟 TCP 和 UDP 类似。但 WebRTC 里，它位于 DTLS/UDP 上
+
+**SRTP(Secure Real-Time Transport Protocol)**
+
+> 安全实时传输协议。通过 IP 网络交付音频和视频等实时媒体数据的标准。负责把数字化的音频采样和视频帧用一些元数据封装起来，以辅助接收方处理这些流
+
+**SRTCP(Secure Real-time Control Transport Protocol)**
+
+> 安全实时控制传输协议。通过 SRTP 流交付发送和接收方统计及控制信息
+
+### 会话描述
+
+WebRTC 仅提供了流传输时的逻辑，其上的编码、数据加密等需要会话描述来解决
+
+**SDP(Session Description Protocol)**
+
+> 会话描述协议，用于描述不同内容的会话并向系统提供标准 API。SDP 仅为 WebRTC 提供标准接口，以给上面的 ICE、信令信息、数据等提供标准接口。数据的解析格式需要自己指定
 
 **MCU(Multi Control Unit)**
 
-> 多点控制单元。为了实现多点会议电视系统，必须设置 MCU。MCU 实质上是一台多媒体信息交换机，进行多点呼叫和连接，实现视频广播、视频选择、音频混合、数据广播等功能，完成各终端信号的汇接与切换<br>
+> 多点控制单元。为了实现多点会议电视系统，必须设置 MCU。MCU 实质上是一台多媒体信息交换机，进行多点呼叫和连接，实现视频广播、视频选择、音频混合、数据广播等功能，完成各终端信号的汇接与切换
 
 参考：[三款基于 WebRTC 的 MCU 框架](https://blog.csdn.net/xiaoluer/article/details/79088416)<br> > [licode](https://github.com/lynckia/licode) / [Kurento](https://github.com/Kurento) / [jitsi](https://github.com/jitsi)
 
@@ -69,8 +99,8 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 ### 建立 WebRTC 会话
 
 1. 获取本地媒体
-   - `MediaStream()`
-2. *(可选)*建立信令通道，及对等链接
+   - `MediaStream()`(包含多个同步的`MediaStreamTrack`)
+2. 建立信令通道 *(可选)*，及对等链接
 3. 在浏览器和对等终端建立链接
    - **意指不通过服务器，而是直接在两个终端之间建立链接。每一对浏览器都需要一个对等链接才能加入会议**
    - 建立此链接需要一个新的`RTCPeerConnection`对象
@@ -110,14 +140,16 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 1. 甲、乙各创建配置了 ICE 服务器的 PC 实例，并为其添加`onicecandidate`事件回调
 2. 当网络候选可用时，将会调用`onicecandidate`函数
-3. 在回调函数内部，甲或乙将网络候选的消息封装在 ICE Candidate 信令中，通过服务器中转，传递给对方
-4. 甲或乙接收到对方通过服务器中转所发送过来 ICE Candidate 信令时，将其解析并获得网络候选，将其通过 PC 实例的`addIceCandidate()`方法加入到 PC 实例中
+3. 在回调函数内部，甲或乙将网络候选的消息封装在 ICE Candidate 信令中，通过信令服务器中转，传递给对方
+4. 甲或乙接收到对方通过信令服务器中转所发送过来 ICE Candidate 信令时，将其解析并获得网络候选，将其通过 PC 实例的`addIceCandidate()`方法加入到 PC 实例中
 
 ## 通过 RTCDataChannel 来传输任意数据
 
 WebRTC 会处理所有连接问题. 一旦信令完成连接建立, 则自动处理
 
-> 为方便处理, dataChannel 和多 API 和 WebSocket 近似, 但发送协议和路径完全不同
+`RTCDataChannel`基于 SCTP/DLTS/UDP，提供不可靠或部分可靠的加密通信
+
+> 为方便处理, dataChannel 很多 API 和 WebSocket 近似, 但发送协议和路径完全不同
 
 ```js
 var peerConn = new RTCPeerConnection();

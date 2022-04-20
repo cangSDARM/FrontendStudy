@@ -63,7 +63,7 @@
 HTTP/1.1 Only, HTTP/2 不通过HTTP协议握手
 
 1. 使用普通 http 请求(GET)，携带`Upgrade; Sec-WebSocket-Version; Sec-WebSocket-Key`等必须的头进行初始握手(opening handshake)
-2. 服务器响应`Sec-WebSocket-Accept; 101 Switching Portocals; Upgrade`头
+2. 服务器响应`Sec-WebSocket-Accept; 101 Switching Portocols; Upgrade`头
 
 ### 对应头信息
 
@@ -74,8 +74,8 @@ HTTP/1.1 Only, HTTP/2 不通过HTTP协议握手
 |            Connection            | 请求/响应 |                                                                                      表示需要升级协议(必须), 值固定为`Upgrade`                                                                                      |
 |      Sec-WebSocket-Version       | 请求/响应 |                                                                    表示版本兼容性, 正常可行版本总是 13. 如果不支持, 服务器需要返回对应的支持版本                                                                    |
 |     Sec-WebSocket-Extensions     | 请求/响应 |                                                                       协商 WebSocket 的协议级拓展。扩展允许添加自定义的帧头，需要浏览器标准化                                                                       |
-|      Sec-WebSocket-Protocal      | 请求/响应 |                                                                                    协商更高级协议, 如 XMPP、STOMP、自定义协议等                                                                                     |
-| HTTP/1.1 101 Switching Protocals |   响应    |                                                                                            表示服务器接受 WebSocket 连接                                                                                            |
+|      Sec-WebSocket-Protocol      | 请求/响应 |                                                                                    协商更高级协议, 如 XMPP、STOMP、自定义协议等                                                                                     |
+| HTTP/1.1 101 Switching Protocols |   响应    |                                                                                            表示服务器接受 WebSocket 连接                                                                                            |
 |       Sec-WebSocket-Accept       |   响应    | 根据请求首部的 Sec-WebSocket-Key 计算出来. <br/> 用于表示服务器理解 WebSocket<br/> 固定公式: 将 Sec-WebSocket-Key 跟`258EAFA5-E914-47DA-95CA-C5AB0DC85B11`拼接; <br/>通过 SHA1 计算出摘要，并转成 base64 字符串返回 |
 
 ### 消息帧
@@ -98,7 +98,7 @@ HTTP/1.1 Only, HTTP/2 不通过HTTP协议握手
 +-------------------------------+-------------------------------+
 | Masking-key (continued)       |        Payload Data           |
 +-------------------------------- - - - - - - - - - - - - - - - +
-:                     Paylaod Data continued ...                :
+:                     Payload Data continued ...                :
 + - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
 |                     Payload Data continued ...                |
 +---------------------------------------------------------------+
@@ -166,7 +166,7 @@ WebSocket 关闭时，终止连接的端点发送一个数字代码，用于表�
 ### 非兼容时备用手段
 
 1. 浏览器插件: Adobe Flash 技术
-2. Polyfill 库: Kaazing's Websoket, Modernizr's Polyfill
+2. Polyfill 库: Kaazing's Websocket, Modernizr's Polyfill
 
 ## 生命周期
 
@@ -195,9 +195,9 @@ if (!window.WebSocket) {
 /**
  * 构造函数示例
  * @param url: 必须以ws:或者wss:开头的链接
- * @param protocal: 可选协议列表，包括XMPP/SOAP或其他自定义协议
+ * @param protocol: 可选协议列表，包括XMPP/SOAP或其他自定义协议
  */
-var ws = new WebSocket("ws://www.websocket.org", [protocal lists]);
+var ws = new WebSocket("ws://www.websocket.org", [protocol lists]);
 ```
 
 #### <span id="onopen">事件：Open</span>
@@ -207,15 +207,15 @@ var ws = new WebSocket("ws://www.websocket.org", [protocal lists]);
 ```js
 //Evnet handler for the WebSocket connection opening
 ws.onopen = function (e) {
-  console.log(ws.protocal); //服务器响应的通讯协议
+  console.log(ws.protocol); //服务器响应的通讯协议
 };
 ```
 
 #### <span id="onmessage">事件：Message</span>
 
 - 该事件在接收到消息时触发
-- 输出完整消息，Websocket 帧由其他方式处理
-- 可以处理：文本数据；Blob（二进制）数据；ArrayBuffer 数据
+- 输出完整消息(例如服务器发送1M数据，则onmessage只会在接收完毕后调用)，Websocket 帧由其他方式处理
+- 可以处理：文本数据；Blob(二进制)数据；ArrayBuffer 数据
 
 ```js
 //Event handler for receiving message
@@ -317,4 +317,4 @@ if (ws.bufferedAmout < THRESHOLD) {
 - VNC(Virtual NetWork Computing) 虚拟网络计算
   - noVNC VNC client using H5
   - RFB(Remote Framebuffer) 远程帧缓冲
-- AMQP(Advanced Message Queueing Protocal) 高级消息队列协议
+- AMQP(Advanced Message Queueing Protocol) 高级消息队列协议

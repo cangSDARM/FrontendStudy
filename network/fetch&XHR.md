@@ -1,4 +1,4 @@
-[参考](https://segmentfault.com/a/1190000021367378)
+[参考](https://segmentfault.com/a/1190000021367378)<br/>
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
 
 |                  |                                        Fetch                                        |                   XMLHTMLRequest                   |
