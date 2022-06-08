@@ -19,6 +19,7 @@
 - [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 - [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 - [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
+- [浏览器往返缓存(Back/Forward cache)](https://www.cnblogs.com/SyMind/p/8485332.html)
 
 ****
 temp
