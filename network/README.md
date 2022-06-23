@@ -14,6 +14,7 @@
 - [Comet](./Comet.md)
 - [Fetch/XHR and Related Streams](./fetch&XHR.md)
 - [Same-Origin-policy](./Same-origin-policy.md)
+- [WebWorker](./web-worker.md)
 
 ![layers](../assets/network-layer.png)
 
