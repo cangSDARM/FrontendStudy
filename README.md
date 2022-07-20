@@ -12,6 +12,7 @@
 - [Network 相关](./network/README.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
+- [Renderer Patterns](./renderer.md)
 
 [参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
 
