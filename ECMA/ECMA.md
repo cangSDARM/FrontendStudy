@@ -48,7 +48,8 @@
   > ECS5: 已知: name, names. Person = { name: name, age:function(){}, name1: name }
 - Symbol
   > const p = Symbol('p')<br/>
-  > 不可遍历, 唯一不重复
+  > 不可遍历, 唯一不重复<br/>
+  > 可以使用 const p1 = Symbol.for('p'), p2 = Symbol.for('p'); p1 === p2; 称为 Symbol 全局注册表<br/>
 - 模块
   > export default Code<br/>
   > 默认导出. 一个模块只有一个<br/>

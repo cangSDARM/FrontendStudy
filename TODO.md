@@ -49,3 +49,5 @@ Deferred.progress();  //步进数据
 // 异步工作流库 (简便处理限制并行，复杂依赖的函数链)
 // https://github.com/caolan/async
 // https://github.com/npm/slide-flow-control (带use case的实现demo)
+
+为了统一网络传输时候的字节的顺序，TCP/IP 协议 RFC1700 里规定使用「大端」字节序作为网络字节序，所以，我们在开发网络通讯协议的时候操作 Buffer 都应该用大端序的 API，也就是 BE 结尾的
