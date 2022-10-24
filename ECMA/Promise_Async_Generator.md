@@ -58,10 +58,10 @@ let p = Promise.allSettled([pa, pb]); //返回的Promise决议的结果, 允许r
 | 成功时调用, then 捕获 | 失败时调用, catch 捕获 |
 
 > `then`和`catch`都接收一个回调函数，若传入非函数，则会忽略当前的 then 方法
-> > `then`回调函数中会把上一个 then 中返回的`PromiseValue`当做参数值供当前 then 方法调用
-> > `then`回调函数中返回一个`非Promise`对象时，它会生成一个`状态为fulfilled的新Promise`对象，并将其 return
-> > `then`和`catch`如果返回一个`含有then方法`对象，则该对象被压进 microtask, 等待解析
-> > **`then`和`catch`返回的都是 fulfilled 的 Promise 对象，因此 catch 后也可以调用 then**<br/>
+> > `then`和`catch`回调函数中返回一个`非Promise`对象时，它会生成一个`状态为fulfilled的新Promise`对象，并将其 return，因此 catch 后也可以调用 then<br/>
+> > `then`和`catch`如果返回一个`含有then方法`对象，则该对象被压进 microtask, 等待解析<br/>
+> > **同一个 Promise 的多个`then`或`catch`会同时触发，相当于事件的 once**<br/>
+> > `then`和`catch`及`fun`都包含隐式 try..catch。只要`throw Something`就会默认变成一个rejected的Promise给后面<br/>
 > 异步
 
 ### 在一个 Promise 链中
@@ -71,7 +71,7 @@ let p = Promise.allSettled([pa, pb]); //返回的Promise决议的结果, 允许r
 - 如果状态变成了`rejected`，它会自动向后寻找：
   - 发现下一个`then`方法，执行其中`第二个参数的回调函数`；
   - 发现下一个`catch`方法，直接执行；
-- 无论如何，finally 都会被调用
+- 无论如何，finally 都会被调用，但不是最终结果。它会将上一个的结果透传给下一个，并忽略自己的返回结果
 
 ### 例子
 ```js
@@ -112,25 +112,25 @@ p1, p5 -> fulfilled -> 其then压进microtask -> [p2, p6]
 ```js
 //before
 function getColumn(url) {
-    fetch(url)
-        .then(response => response.json());
-        .then(column => {
-            console.log(`column detail: ${column.detail}`);
-        })
-        .catch(err=>{});
+  fetch(url)
+    .then(response => response.json());
+    .then(column => {
+      console.log(`column detail: ${column.detail}`);
+    })
+    .catch(err=>{});
 }
 //after
 async function getColumn(url) {
-    try{
-        const response = await fetch(url);
-        const column = await response.json();
-        if (response.status !== 200){
-            throw new Error("response fail");
-        }
-        console.log(`column detail: ${column.detail}`)
-    } catch(err) {
-        console.error(err);
+  try{
+    const response = await fetch(url);
+    const column = await response.json();
+    if (response.status !== 200){
+        throw new Error("response fail");
     }
+    console.log(`column detail: ${column.detail}`)
+  } catch(err) {
+    console.error(err);
+  }
 }
 ```
 

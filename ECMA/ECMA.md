@@ -173,6 +173,19 @@ const Foo = class NamedFoo {
 };
 ```
 
+-- 类继承
+
+```js
+function f(phrase) {
+  return class {
+    sayHi() { alert(phrase); }
+  };
+}
+// 在 extends 后允许任意表达式
+class User extends f("Hello") {}  //继承自 f("Hello") 的结果
+new User().sayHi();
+```
+
 #### Proxy 代理
 
 > `const proxy = new Proxy(target, hander)`<br/>
