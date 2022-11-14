@@ -8,8 +8,10 @@
   - [async 函数返回永远是一个 Promise，然后像 Promise 一样使用](#async-函数返回永远是一个-promise然后像-promise-一样使用)
   - [await 串行写则是串行执行。前一个 await 完成后，后一个才会调用](#await-串行写则是串行执行前一个-await-完成后后一个才会调用)
 - [生成器(协程)](#生成器协程)
-  - [yield\* 用来展开迭代器](#yield-用来展开迭代器)
-- [Async 和迭代器混用](#async-和迭代器混用)
+  - [`throw` 错误进生成器](#throw-错误进生成器)
+  - [`return` 终止生成器](#return-终止生成器)
+  - [yield\* 用来展开生成器](#yield-用来展开生成器)
+- [Async 和生成器混用](#async-和生成器混用)
 
 # Promise Async Generator
 
@@ -46,11 +48,13 @@ p.then((data) => {})
   .then((data) => {})
   .finally();
 //多个结束
-let p = Promise.all([pa, pb]); //只要有一个失败, 及返回reject
+let p = Promise.all([pa, pb]); //若有一个被 reject，立即被 reject。完全忽略列表中其他的 promise。其结果也被忽略
 //竞赛
 let p = Promise.race([pa, pb]); //只解析第一个的resolve/reject
+//成功竞赛
+let p = Promise.any([pa, pb]);  //then返回第一个成功的，其他的会被忽略。全部失败会返回一个AggregateError
 //多个决议
-let p = Promise.allSettled([pa, pb]); //返回的Promise决议的结果, 允许resolve/reject混杂
+let p = Promise.allSettled([pa, pb]); //then返回的Promise决议的结果, 允许resolve/reject混杂
 ```
 
 |        resolve        |         reject         |
@@ -203,7 +207,51 @@ let d = gene.next(B); //调用. 之后a=A
 > next()函数总会返回一个带有 value 和 done 属性的对象<br/>
 > value 为返回值，done 则是一个 Boolean，用来标识 Generator 是否还能继续提供返回值
 
-### yield\* 用来展开迭代器
+### `throw` 错误进生成器
+也可以在 yield 出抛出一个 error。因为 error 本身也是一种结果
+如果生成器内部有try-catch，则被内部(1)捕获，否则将抛出到外面调用的位置(2)
+
+```js
+function* gen() {
+  try {
+    let result = yield "2 + 2 = ?";// (1)
+  } catch(e) {
+    console.log(e);// (1)
+  }
+}
+
+let g = gen();
+try {
+  g.throw(new Error("The answer is not found in my database"));// (2)
+}catch(e) {
+  console.log(e);// (2)
+}
+```
+
+### `return` 终止生成器
+generator.return(value) 终止生成器的执行(=直接跳到生成器最后一行)，并将给定的 value 返回给外部左值，不影响内部左值
+如果我们在已完成的生成器上再次使用 generator.return()，它将再次返回该值
+
+```js
+function* gen() {
+  let one = yield 1;
+  console.log('one', one);  //never called
+  let two = yield 2;  //never called
+  console.log('two', two);  //never called
+  let three = yield 3;  //never called
+  console.log('three', three);  //never called
+
+  console.log('end'); //never called
+}
+const g = gen();
+
+g.next(); // { value: 1, done: false }
+let foo = g.return('foo'); // { value: "foo", done: true }
+g.next(); // { value: undefined, done: true }
+let foo = g.return('foo'); // { value: "foo", done: true }
+```
+
+### yield\* 用来展开生成器
 
 ```js
 function* gen1() {
@@ -226,7 +274,7 @@ for (let value of gen1()) {
 /* 1, 2, 3, 4, 5 */
 ```
 
-## Async 和迭代器混用
+## Async 和生成器混用
 
 ```js
 async function foo() {
