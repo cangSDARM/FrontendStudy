@@ -51,6 +51,7 @@
   > 不可遍历, 唯一不重复<br/>
   > 可以使用 const p1 = Symbol.for('p'), p2 = Symbol.for('p'); p1 === p2; 称为 Symbol 全局注册表<br/>
 - 模块
+  > 模块仅在第一次导入时被解析。之后不管在哪在什么位置导入第二次都不会执行<br/>
   > export default Code<br/>
   > 默认导出. 一个模块只有一个<br/>
   > 使用 import XX from XXX 导入. XX 自定义<br/>
@@ -188,20 +189,49 @@ new User().sayHi();
 
 #### Proxy 代理
 
-> `const proxy = new Proxy(target, hander)`<br/>
-> 使用 hander 对象限定 target 的访问和重写其元方法.<br/>
-> hander 会捕获[特定的 trap 动作](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy#handler_%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95)
-
-例子:
+> `const proxy = new Proxy(target, handler)`<br/>
+> 使用 handler 对象限定 target 的访问和重写其元方法.<br/>
+> handler 会捕获[特定的 trap 动作](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy#handler_%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95)<br/>
+> 严格相等性检查 `===` 无法被拦截<br/>
 
 ```js
-const hander = {
-    set: function(target, key, value){
-        const target[key] = value;
-        return true; //表示成功
-    },
-    get: function(target, key, receiver){
-        return target[key]
-    }
+const handler = {
+  set: function(target, key, value){
+    const target[key] = value;
+    return true; //表示成功
+  },
+  get: function(target, key, receiver){
+    return target[key]
+  },
+  apply(target, thisArg, args) {//允许包装后的对象被 ()/call/apply 调用
+    setTimeout(() => target.apply(thisArg, args), ms);
+  }
 }
+```
+
+##### 可撤销的代理
+
+> 代理会将操作转发给对象，并且我们可以随时将其禁用
+
+```js
+let object = {
+  data: "Valuable data"
+};
+let {proxy, revoke} = Proxy.revocable(object, {});
+// 将 proxy 传递到其他某处，而不是对象...
+alert(proxy.data); // Valuable data
+revoke();
+// proxy 不再工作（revoked）
+alert(proxy.data); // Error
+```
+
+#### Reflect 反射
+
+> 提供拦截 JavaScript 操作(.[], (), new, delete)的方法
+
+```js
+Reflect.set(duck, 'eyes', 'black'); // duck['eyes'] = 'black'
+Reflect.ownKeys(duck);  //Object.ownKeys(duck)
+Reflect.deleteProperty(duck, 'eyes'); //delete duck['eyes']
+Reflect.construct(duck, value); //new duck(value)
 ```

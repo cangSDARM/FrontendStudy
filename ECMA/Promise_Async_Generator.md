@@ -82,7 +82,7 @@ let p = Promise.allSettled([pa, pb]); //then返回的Promise决议的结果, 允
 let p1 = Promise.resolve();
 let p2 = p1.then(() => {
     console.log(0);
-    let p3 = { then(resolve){resolve(4) } };
+    let p3 = { then(resolve){ resolve(4) } };
     return p3;
 });
 let p4 = p2.then((res) => { console.log(res); });
