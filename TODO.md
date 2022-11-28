@@ -23,6 +23,44 @@
 - [安全博客](https://blog.huli.tw/)
 - [前端程序构建系列](https://juejin.cn/post/6844903734460301325)
 
+## Reading List
+
+http://www.alloyteam.com/2020/05/14385/?comefrom=https://blogread.cn/news/
+
+https://tech.meituan.com/2022/05/26/construction-and-evolution-of-software-component-analysis-capability.html?comefrom=https://blogread.cn/news/
+
+https://insights.thoughtworks.cn/clean-architecture-css/?comefrom=https://blogread.cn/news/
+
+https://insights.thoughtworks.cn/failure-driven-development/?comefrom=https://blogread.cn/news/
+
+https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
+
+https://juejin.cn/post/6844903792358473742
+
+https://joaoforja.com/blog/guideline-on-how-to-decompose-a-react-component
+
+https://www.zhangxinxu.com/wordpress/2021/08/file-system-access-api/
+
+https://www.smashingmagazine.com/2021/08/react-children-iteration-methods/
+
+https://css-tricks.com/fancy-image-decorations-single-element-magic/
+
+https://css-tricks.com/how-to-make-a-folder-slit-effect-with-css/
+
+https://css-tricks.com/the-difference-between-web-sockets-web-workers-and-service-workers/
+
+https://teobler.com/posts/20220920-re-thinking-architecture-of-react-project?comefrom=https://blogread.cn/news/
+
+https://insights.thoughtworks.cn/frontend-testing/?comefrom=https://blogread.cn/news/
+
+https://insights.thoughtworks.cn/how-to-code-review/?comefrom=https://blogread.cn/news/
+
+https://paper.seebug.org/2007/
+
+https://blog.est.im/2022/stdout-11
+
+https://blog.p2hp.com/archives/10054
+
 ---
 
 temp
@@ -49,6 +87,6 @@ Deferred.progress(); //步进数据
 
 // 异步工作流库 (简便处理限制并行，复杂依赖的函数链)
 // https://github.com/caolan/async
-// https://github.com/npm/slide-flow-control (带use case的实现demo)
+// https://github.com/npm/slide-flow-control (带 use case 的实现 demo)
 
 为了统一网络传输时候的字节的顺序，TCP/IP 协议 RFC1700 里规定使用「大端」字节序作为网络字节序，所以，我们在开发网络通讯协议的时候操作 Buffer 都应该用大端序的 API，也就是 BE 结尾的
