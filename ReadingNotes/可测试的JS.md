@@ -1,16 +1,42 @@
-# 可测试的 JS
+- [相关名词及解释](#相关名词及解释)
+  - [圈复杂度](#圈复杂度)
+  - [扇出](#扇出)
+  - [扇入](#扇入)
+  - [耦合](#耦合)
+    - [内容耦合](#内容耦合)
+    - [公共耦合](#公共耦合)
+    - [控制耦合](#控制耦合)
+    - [标记耦合](#标记耦合)
+    - [数据耦合](#数据耦合)
+    - [无耦合](#无耦合)
+  - [依赖注入](#依赖注入)
+- [单元测试](#单元测试)
+  - [原则](#原则)
+  - [Mock 和 Stub](#mock-和-stub)
+  - [Spy](#spy)
+  - [测试自动化](#测试自动化)
+  - [例子：Mocha + Chai + Sinon](#例子mocha--chai--sinon)
+- [性能测试](#性能测试)
+  - [浏览器解析 JS](#浏览器解析-js)
+    - [HAR（HTTP Archive）](#harhttp-archive)
+  - [负载测试](#负载测试)
+- [自动化构建](#自动化构建)
 
-## 圈复杂度
+[前端测试体系简略介绍]https://insights.thoughtworks.cn/frontend-testing/
 
-### 表示: 函数中独立现行路径的数量(分支数量), 即单元测试的最少个数
+## 相关名词及解释
 
-##### 检查函数的圈复杂度 tool: jscheckstyle
+### 圈复杂度
 
-## 扇出
+表示: 函数中独立现行路径的数量(分支数量), 即单元测试的最少个数
 
-### 表示其过程的内部调用的外部过程 + 其过程影响的外部数据
+> 检查函数的圈复杂度 tool: jscheckstyle
 
-##### 高扇出通常代表所在过程是程序的高压力点, 且该过程在做太多的事情需要重构
+### 扇出
+
+表示其过程的内部调用的外部过程 + 其过程影响的外部数据
+
+高扇出通常代表所在过程是程序的高压力点, 且该过程在做太多的事情需要重构
 
 ```js
 //高扇出: 5+2
@@ -44,11 +70,11 @@ function make(ingredients, cooker, mixer) {
 }
 ```
 
-## 扇入
+### 扇入
 
-### 表示: 其过程内部引用的外部过程 + 欲从该过程获取信息的其他过程
+表示: 其过程内部引用的外部过程 + 欲从该过程获取信息的其他过程
 
-##### 高扇入代表这是高代码重用, 但顶层抽象和不常用功能应该有较少扇入
+高扇入代表这是高代码重用, 但顶层抽象和不常用功能应该有较少扇入
 
 ```js
 // 扇入: 3 + n
@@ -59,9 +85,11 @@ function make(ingredients, cooker, mixer) {
 }
 ```
 
-## 耦合
+### 耦合
 
-##### 内容耦合. 最差的一种, 包括: 在外部对象上调用方法或函数; 修改外都对象属性直接改变其状态
+#### 内容耦合
+
+最差的一种, 包括: 在外部对象上调用方法或函数; 修改外都对象属性直接改变其状态
 
 ```js
 O.property = "blash"; //changing O's state directly
@@ -69,7 +97,9 @@ O.method = function () {}; //changing O's internals
 O.prototype.method = function () {}; //changing all Os
 ```
 
-##### 公共耦合. 也很差, 包括: 多个对象共享另外一个公共对象, 则这多个对象公共耦合
+#### 公共耦合
+
+也很差, 包括: 多个对象共享另外一个公共对象, 则这多个对象公共耦合
 
 ```js
 var G = "global";
@@ -81,13 +111,17 @@ function B() {
 }
 ```
 
-##### 控制耦合. 差强人意, 包括: 过程控制外部对象的逻辑
+#### 控制耦合
+
+差强人意, 包括: 过程控制外部对象的逻辑
 
 ```js
 var abs = new Abstruct({ env: 1 }); //abs controlled Abstruct
 ```
 
-##### 标记耦合, 一般, 包括: 过程使用一个数据结构(而不是简单数据), 但只使用了其一部分
+#### 标记耦合
+
+一般, 包括: 过程使用一个数据结构(而不是简单数据), 但只使用了其一部分
 
 ```js
 O.prototype.make = function (args) {
@@ -96,7 +130,9 @@ O.prototype.make = function (args) {
 O.make({ type: "A", age: 1 }); //only age used
 ```
 
-##### 数据耦合, 不错, 包括: 对象传递消息数据, 且外部对象的逻辑流程不被数据影响
+#### 数据耦合
+
+不错, 包括: 对象传递消息数据, 且外部对象的逻辑流程不被数据影响
 
 ```js
 O.prototype.fun = function (val) {
@@ -105,11 +141,13 @@ O.prototype.fun = function (val) {
 O.fun(15); //data can change, but fun's logic can be clear and breaf without the data
 ```
 
-##### 无耦合, 完美
+#### 无耦合
 
-## 依赖注入
+完美
 
-### IoS 原则(控制反转), 则可注入的对象可以被第三方控制单元所控制, 从而实现控制与逻辑的解耦
+### 依赖注入
+
+IoS 原则(控制反转), 则可注入的对象可以被第三方控制单元所控制, 从而实现控制与逻辑的解耦
 
 ```js
 //强依赖, 无注入, 高耦合:
@@ -149,26 +187,18 @@ var Space = function (engine, booster, arm) {
 
 1. spy 对象类似于一个装饰器. spy 调用时会调用需要测试的真实代码, 而通常在其前后加上内容
 
-### 测试自动化(集成测试)
+### 测试自动化
 
 1. 可以在浏览器里加载对应代码然后进行测试, 但这样效率很低
 2. 也可以使用 Headless 的浏览器 + Selenium 自动化测试<br/>
    [Headless 的浏览器清单](https://github.com/dhamaniasad/HeadlessBrowsers)<br/>
    [测试框架对比](https://www.cnblogs.com/lihuanqing/p/8533552.html)<br/>
 
-### 测试工具链 Mocha + Chai + Sinon
+### 例子：Mocha + Chai + Sinon
 
-##### [Mocha](https://github.com/mochajs/mocha) 是 JavaScript 测试框架，可以运行在 Node.js 和浏览器中。Mocha 可以持续运行测试，支持报告，当映射到未捕获异常时转到正确的测试示例
-
-##### [Chai](https://github.com/chaijs/chai) 是一个针对 JavaScript 的 BDD 和 TDD 的断言库，可与任何 JavaScript 测试框架集成
-
-##### [Sinon](https://github.com/sinonjs/sinon) 是一个独立的 JavaScript 测试 spy, stub, mock 库，没有依赖任何单元测试框架工程
-
-```bash
-npm install -g mocha
-npm install sinon
-npm install chai
-```
+- [Mocha](https://github.com/mochajs/mocha) 是 JavaScript 测试框架，可以运行在 Node.js 和浏览器中。Mocha 可以持续运行测试，支持报告，当映射到未捕获异常时转到正确的测试示例
+- [Chai](https://github.com/chaijs/chai) 是一个针对 JavaScript 的 BDD 和 TDD 的断言库，可与任何 JavaScript 测试框架集成
+- [Sinon](https://github.com/sinonjs/sinon) 是一个独立的 JavaScript 测试 spy, stub, mock 库，没有依赖任何单元测试框架工程
 
 ```js
 //纯Mocha
@@ -220,7 +250,7 @@ describe("Array#indexOf", function(){
 
 ## 性能测试
 
-### [概述](https://www.cnblogs.com/yanghj010/p/6020986.html)
+[性能测试概述](https://www.cnblogs.com/yanghj010/p/6020986.html)
 
 ### 浏览器解析 JS
 
@@ -245,19 +275,17 @@ describe("Array#indexOf", function(){
 
 ## 自动化构建
 
-### gulp/grunt 和 webpack 强调的点不相同，在一个项目中可以一起使用, [参考](https://www.cnblogs.com/lovesong/p/6413546.html)
-
-##### [grunt](https://www.gruntjs.net/) 是 js 任务管理工具
+- [grunt](https://www.gruntjs.net/) 是 js 任务管理工具
 
 优势：出来早 社区成熟 插件全  
 缺点：配置复杂 效率低 (cpu 占用率高)
 
-##### [gulp](https://www.gulpjs.com.cn/) 基于流的自动化构建工具
+- [gulp](https://www.gulpjs.com.cn/) 基于流的自动化构建工具
 
 优点：配置简单 效率高 流式工作(一个任务 的输出作为另一个任务的输入) 优点正好是 grunt 缺点  
 缺点：出现晚 插件少
 
-##### [webpack](https://www.webpackjs.com/) 模块打包机
+- [webpack](https://www.webpackjs.com/) 模块打包机
 
 优点：模块化  
 缺点：配置复杂

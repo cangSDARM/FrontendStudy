@@ -25,13 +25,9 @@
 
 ## Reading List
 
-http://www.alloyteam.com/2020/05/14385/?comefrom=https://blogread.cn/news/
+http://www.alloyteam.com/2020/05/14385/
 
-https://tech.meituan.com/2022/05/26/construction-and-evolution-of-software-component-analysis-capability.html?comefrom=https://blogread.cn/news/
-
-https://insights.thoughtworks.cn/clean-architecture-css/?comefrom=https://blogread.cn/news/
-
-https://insights.thoughtworks.cn/failure-driven-development/?comefrom=https://blogread.cn/news/
+https://insights.thoughtworks.cn/clean-architecture-css/
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
 
@@ -49,17 +45,47 @@ https://css-tricks.com/how-to-make-a-folder-slit-effect-with-css/
 
 https://css-tricks.com/the-difference-between-web-sockets-web-workers-and-service-workers/
 
-https://teobler.com/posts/20220920-re-thinking-architecture-of-react-project?comefrom=https://blogread.cn/news/
-
-https://insights.thoughtworks.cn/frontend-testing/?comefrom=https://blogread.cn/news/
-
-https://insights.thoughtworks.cn/how-to-code-review/?comefrom=https://blogread.cn/news/
-
-https://paper.seebug.org/2007/
-
 https://blog.est.im/2022/stdout-11
 
-https://blog.p2hp.com/archives/10054
+https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
+
+https://deno.com/blog/the-future-of-web-is-on-the-edge
+
+https://quic.xargs.org/
+
+https://juejin.cn/post/7022637452066029599
+
+https://cp-algorithms.com/graph/strongly-connected-components.html
+
+https://zhuanlan.zhihu.com/p/468185946
+
+https://zhuanlan.zhihu.com/p/50712698
+
+https://sidbala.com/h-264-is-magic/
+
+https://www.smashingmagazine.com/2022/06/precise-timing-web-animations-api/
+
+https://greenteapress.com/thinkdsp/html/thinkdsp002.html
+
+https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
+
+https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
+
+https://www.figma.com/blog/how-figmas-multiplayer-technology-works/
+
+https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-review-of-kmp(knuth-morris-pratt)-algorithm/
+
+https://charliegerard.dev/blog/ultrasonic-payments/
+
+https://secretgeek.github.io/html_wysiwyg/html.html
+
+https://abstractkitchen.com/blog/a-short-guide-to-chinese-coordinate-system/
+
+https://httptoolkit.com/blog/cache-your-cors/
+
+https://www.jianshu.com/p/a7b900e8e50a
+
+https://zhuanlan.zhihu.com/p/484991482
 
 ---
 
