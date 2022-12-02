@@ -33,17 +33,7 @@ https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.htm
 
 https://juejin.cn/post/6844903792358473742
 
-https://joaoforja.com/blog/guideline-on-how-to-decompose-a-react-component
-
-https://www.zhangxinxu.com/wordpress/2021/08/file-system-access-api/
-
-https://www.smashingmagazine.com/2021/08/react-children-iteration-methods/
-
 https://css-tricks.com/fancy-image-decorations-single-element-magic/
-
-https://css-tricks.com/how-to-make-a-folder-slit-effect-with-css/
-
-https://css-tricks.com/the-difference-between-web-sockets-web-workers-and-service-workers/
 
 https://blog.est.im/2022/stdout-11
 
@@ -86,6 +76,28 @@ https://httptoolkit.com/blog/cache-your-cors/
 https://www.jianshu.com/p/a7b900e8e50a
 
 https://zhuanlan.zhihu.com/p/484991482
+
+https://lcamtuf.coredump.cx/photo_basics/
+
+https://www.wired.com/story/mars-hiberators-guide-to-the-galaxy/
+
+https://two-wrongs.com/statistical-process-control-a-practitioners-guide
+
+https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md
+
+https://busy-beavers.tigyog.app/rice
+
+https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How%20to%20use%20React%20with%20Rust%20Actix.md
+
+https://notes.normally.com/cookieless-unique-visitor-counts/
+
+https://zed.dev/blog/crdts
+
+https://www.programiz.com/dsa/radix-sort
+
+https://www.youtube.com/watch?v=2y3IK1l6PI4
+
+https://www.youtube.com/watch?v=ynNDmp7hBdo
 
 ---
 
