@@ -27,19 +27,15 @@
 
 http://www.alloyteam.com/2020/05/14385/
 
-https://insights.thoughtworks.cn/clean-architecture-css/
-
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
 
-https://juejin.cn/post/6844903792358473742
+https://github.com/dunwu/blog/blob/master/source/_posts/03.%E8%AE%BE%E8%AE%A1/03.%E9%87%8D%E6%9E%84/01.%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93%E5%92%8C%E9%87%8D%E6%9E%84.md
 
 https://css-tricks.com/fancy-image-decorations-single-element-magic/
 
 https://blog.est.im/2022/stdout-11
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
-
-https://deno.com/blog/the-future-of-web-is-on-the-edge
 
 https://quic.xargs.org/
 
@@ -89,8 +85,6 @@ https://busy-beavers.tigyog.app/rice
 
 https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How%20to%20use%20React%20with%20Rust%20Actix.md
 
-https://notes.normally.com/cookieless-unique-visitor-counts/
-
 https://zed.dev/blog/crdts
 
 https://www.programiz.com/dsa/radix-sort
@@ -98,6 +92,48 @@ https://www.programiz.com/dsa/radix-sort
 https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 https://www.youtube.com/watch?v=ynNDmp7hBdo
+
+https://www.youtube.com/watch?v=VS54M5Mqa9M
+
+https://www.youtube.com/watch?v=60MfXWyQhRE
+
+https://www.youtube.com/watch?v=vmvq9jKBlGc
+
+https://blog.hirnschall.net/flow-simulation-js/
+
+https://www.zxch3n.com/crdt-intro/design-crdt/
+
+https://zh.javascript.info/unicode
+
+https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
+
+https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
+
+https://github.com/rust-lang/rust/issues/93740
+
+https://webkit.org/blog/6161/locking-in-webkit/
+
+https://zverok.space/blog/2021-12-28-grok-shan-shui.html
+
+https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
+
+https://learn.microsoft.com/zh-cn/shows/browse?show_type=series
+
+https://lotuc.gitbooks.io/plai-cn/content/
+
+https://www.youtube.com/watch?v=95NgtNgmnWA
+
+https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
+
+蓝牙开发：
+
+https://grack.com/blog/2022/12/01/hacking-bluetooth-to-brew-coffee-on-github-actions-part-1/
+
+https://medium.com/@charlie.d.anderson/how-to-get-the-bluetooth-host-controller-interface-logs-from-a-modern-android-phone-d23bde00b9fa
+
+https://www.cnblogs.com/iini/p/12334646.html
+
+https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial
 
 ---
 
