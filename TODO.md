@@ -25,6 +25,10 @@
 
 ## Reading List
 
+https://www.youtube.com/watch?v=iKAVRgIrUOU
+
+https://blog.palark.com/open-source-business-models/
+
 http://www.alloyteam.com/2020/05/14385/
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
@@ -43,15 +47,21 @@ https://juejin.cn/post/7022637452066029599
 
 https://cp-algorithms.com/graph/strongly-connected-components.html
 
+https://effective-shell.com/
+
+https://learngenomics.dev/docs/biological-foundations/cells-genomes-dna-chromosomes/
+
 https://zhuanlan.zhihu.com/p/468185946
 
 https://zhuanlan.zhihu.com/p/50712698
 
 https://sidbala.com/h-264-is-magic/
 
+https://defensivecss.dev/
+
 https://www.smashingmagazine.com/2022/06/precise-timing-web-animations-api/
 
-https://greenteapress.com/thinkdsp/html/thinkdsp002.html
+https://greenteapress.com/thinkdsp/html/index.html
 
 https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
 
@@ -91,13 +101,11 @@ https://www.programiz.com/dsa/radix-sort
 
 https://www.youtube.com/watch?v=2y3IK1l6PI4
 
-https://www.youtube.com/watch?v=ynNDmp7hBdo
+https://www.youtube.com/watch?v=qFoFKLI3O8w
 
-https://www.youtube.com/watch?v=VS54M5Mqa9M
+[Tom Clancy Speaks at the National Security Agency](https://www.youtube.com/watch?v=VS54M5Mqa9M)
 
-https://www.youtube.com/watch?v=60MfXWyQhRE
-
-https://www.youtube.com/watch?v=vmvq9jKBlGc
+[Audio adventures in Rust: UI with Actix, WebView, and React](https://www.youtube.com/watch?v=vmvq9jKBlGc)
 
 https://blog.hirnschall.net/flow-simulation-js/
 
@@ -117,11 +125,7 @@ https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
 https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
 
-https://learn.microsoft.com/zh-cn/shows/browse?show_type=series
-
 https://lotuc.gitbooks.io/plai-cn/content/
-
-https://www.youtube.com/watch?v=95NgtNgmnWA
 
 https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
 
