@@ -29,15 +29,9 @@ https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 https://blog.palark.com/open-source-business-models/
 
-http://www.alloyteam.com/2020/05/14385/
-
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
 
 https://github.com/dunwu/blog/blob/master/source/_posts/03.%E8%AE%BE%E8%AE%A1/03.%E9%87%8D%E6%9E%84/01.%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93%E5%92%8C%E9%87%8D%E6%9E%84.md
-
-https://css-tricks.com/fancy-image-decorations-single-element-magic/
-
-https://blog.est.im/2022/stdout-11
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
 
@@ -109,7 +103,27 @@ https://www.youtube.com/watch?v=qFoFKLI3O8w
 
 https://blog.hirnschall.net/flow-simulation-js/
 
+https://wiki.nikitavoloboev.xyz/distributed-systems/crdt
+
 https://www.zxch3n.com/crdt-intro/design-crdt/
+
+https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
+
+https://www.khanacademy.org/computing/pixar
+
+https://course.fast.ai/
+
+https://blog.replit.com/code-editors
+
+https://probability4datascience.com/
+
+https://github.com/Dapp-Learning-DAO/Dapp-Learning-Utopia/blob/df709e9df7d832200d7e722eeb9c8b5f8cae8a3d/www/thoughts/2021-11-09-intro-zh/index.mdx
+
+https://github.com/BoltzmannEntropy/interviews.ai
+
+https://bookdown.org/rdpeng/advstatcomp/introduction.html
+
+https://microsoft.github.io/code-with-engineering-playbook/SPRINT-STRUCTURE/
 
 https://zh.javascript.info/unicode
 
