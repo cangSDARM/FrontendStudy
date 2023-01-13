@@ -91,15 +91,97 @@ https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How
 
 https://zed.dev/blog/crdts
 
+https://www.trashworldnews.com/yoda-stories/
+
+https://medium.com/big-on-development/how-to-address-tech-debt-vs-product-debt-vs-business-debt-42d43d5f768c
+
+https://github.com/sourcegraph/conc
+
+https://www.joshwcomeau.com/react/data-binding/
+
+https://www.tofugu.com/learn-japanese/
+
+https://garden.bradwoods.io/notes/css/3d
+
+http://www.annlewkowicz.com/2022/12/method-core-injection-c-pattern-for.html
+
+https://findthatmeme.com/blog/2023/01/08/image-stacks-and-iphone-racks-building-an-internet-scale-meme-search-engine-Qzrz7V6T.html
+
+https://open.nytimes.com/collective-decision-making-with-ahp-3ef819e5bc2a
+
+https://github.com/google/cdc-file-transfer
+
+https://www.youtube.com/watch?v=nB_s79lHSVs
+
+https://mp.weixin.qq.com/s/dFqm_zTRMkJqvOdY9yaerQ
+
+https://arzg.github.io/lang/
+
+https://github.com/simeydotme/pokemon-cards-css.git
+
+[投资建议文章推送流](https://www.bogleheads.org/)
+
+https://www.mcmaster.com/
+
+https://ibiyemiabiodun.com/projects/reversing-tiktok-pt2/
+
+https://github.com/neatnik/typo/blob/main/typo.js
+
+https://www.infoq.com/presentations/scientific-method-testing-resilience/
+
+https://medium.com/@alexgulakov/javascript-function-to-search-base-text-for-all-words-or-words-in-quotes-in-search-term-like-in-3270b07c440d
+
+[password and its md5](https://www.passwordrandom.com/most-popular-passwords)
+
+https://www.youtube.com/watch?v=d6hiUIz40yQ
+
+https://meatfighter.com/tetromino-computer/
+
+https://khalilstemmler.com/articles/software-design-architecture/full-stack-software-design/
+
+https://github.com/abouolia/use-next-context
+
+https://fellrnr.com/wiki/The_Science_of_Running_Shoes
+
 https://www.programiz.com/dsa/radix-sort
 
 https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
+https://www.youtube.com/watch?v=frgmk0Wu76A
+
+https://www.youtube.com/watch?v=MEl2R7mEAP8
+
+https://www.youtube.com/watch?v=geV8F59q48E
+
+https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7Ag
+
+https://www.youtube.com/playlist?list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ
+
+[Douglas Adams: Parrots, the Universe and Everything](https://www.youtube.com/watch?v=_ZG8HBuDjgc)
+
 [Tom Clancy Speaks at the National Security Agency](https://www.youtube.com/watch?v=VS54M5Mqa9M)
 
 [Audio adventures in Rust: UI with Actix, WebView, and React](https://www.youtube.com/watch?v=vmvq9jKBlGc)
+
+[Image Scaling Attacks are CRAZY!!! Hiding images in plain sight (Machine Learning)](https://www.youtube.com/watch?v=UItbZNBtfaQ)
+
+[Ergonomic APIs for hard problems](https://www.youtube.com/watch?v=Phk0C-kLlho)
+
+https://backlight.dev/blog/nodejs-in-browser
+
+https://www.flipt.io/blog/embedding-react-in-go
+
+https://www.businessballs.com/amusement-stress-relief/tree-swing-cartoon-pictures-early-versions/
+
+https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
+
+https://www.x86matthew.com/view_post?id=selfdebug
+
+https://vorpus.org/blog/why-does-calloc-exist/
+
+https://www.highflux.io/blog/what-makes-git-hard-to-use
 
 https://blog.hirnschall.net/flow-simulation-js/
 
@@ -111,7 +193,23 @@ https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revoluti
 
 https://www.khanacademy.org/computing/pixar
 
+https://kylemayes.github.io/vulkanalia/
+
+https://www.youtube.com/@BrendanGalea/videos
+
+https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html
+
+https://mortoray.com/finding-neighbours-in-a-hex-map/
+
+https://exact.realty/blog/posts/2023/01/12/progressive-enhancement-script-load/
+
+https://pod.link/1097417804
+
+https://prasanthmj.github.io/go/javascript-parser-in-go/
+
 https://course.fast.ai/
+
+https://www.gcores.com/articles/119371
 
 https://blog.replit.com/code-editors
 
@@ -133,6 +231,26 @@ https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
 
 https://github.com/rust-lang/rust/issues/93740
 
+https://aescreens.com/blog/gumroad-hack
+
+https://actualcontrol.substack.com/p/making-radio-waves
+
+https://www.leadingsapiens.com/mid-career-mistakes/
+
+https://dragostis.github.io/posts/analytic-quad-offset/
+
+https://www.outseta.com/posts/outseta-six-year-update
+
+https://val.packett.cool/blog/ergonice/
+
+https://blog.encodeart.dev/the-only-two-ux-rules-you-need-to-know-in-2023
+
+https://neil-fox.github.io/Reverse-Engineering-Obfuscated-Code/
+
+https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
+
+https://www.youtube.com/watch?v=ZFls7absdbs
+
 https://webkit.org/blog/6161/locking-in-webkit/
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
@@ -142,6 +260,54 @@ https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highli
 https://lotuc.gitbooks.io/plai-cn/content/
 
 https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
+
+https://www.allaboutcircuits.com/
+
+https://www.timdbg.com/posts/fakers-guide-to-assembly/
+
+https://thesephist.com/posts/lua/
+
+https://www.learncpp.com/
+
+https://www.bearssl.org/bigint.html
+
+http://cdsweb.u-strasbg.fr/Dic/iau-spec.html
+
+https://petro.blog/decision-making-d29702c58d3d
+
+https://meticulous.ai/blog/the-beginner-guide-to-visual-regression-testing/
+
+http://elarson.pythonanywhere.com/
+
+https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
+
+https://thecomputersciencebook.com/book/
+
+https://www.builder.io/blog/new-url
+
+https://www.bleepingcomputer.com/news/security/auth0-fixes-rce-flaw-in-jsonwebtoken-library-used-by-22-000-projects/
+
+https://jakearchibald.com/2023/unhandled-rejections/
+
+https://www.switchboard.app//blog/step-by-step-guide-to-defining-your-company-core-values
+
+https://webkit.org/blog/13096/css-has-pseudo-class/
+
+https://iamkate.com/code/tree-views/
+
+https://blog.ploeh.dk/2015/08/10/type-driven-development/
+
+https://stripe.com/blog/idempotency
+
+https://mlu-explain.github.io/
+
+https://blog.amis.com/srp-1f28676aa525
+
+https://www.bmnt.com/blog/in-the-innovation-game-the-best-ideas-start-with-the-right-problem
+
+https://greptime.com/blogs/2023-01-12-hidden-control-flow
+
+https://redis.com/blog/future-proof-your-dev-career/
 
 蓝牙开发：
 
@@ -154,8 +320,6 @@ https://www.cnblogs.com/iini/p/12334646.html
 https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial
 
 ---
-
-temp
 
 防止事件循环
 
