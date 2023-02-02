@@ -13,7 +13,7 @@
 - [Server-Sent-Event](./SSE.md)
 - [Comet](./Comet.md)
 - [Fetch/XHR and Related Streams](./fetch&XHR.md)
-- [Same-Origin-policy](./Same-origin-policy.md)
+- [Browser Security](./browser-security.md)
 - [WebWorker](./web-worker.md)
 
 ![layers](../assets/network-layer.png)
@@ -39,6 +39,8 @@ TLS(传输层安全协定)
   10. Client 和 Server 现在可以通过安全的通道交换应用数据。所有从当前 Client 发送并返回的消息均使用会话密钥加密。
 
 任何一步校验失败，用户都将会收到警告。例如，服务器正在使用自签名证书。
+
+> 证书：SSL or EVSSL
 
 ##### TLS 会话恢复
 

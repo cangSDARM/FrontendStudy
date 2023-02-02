@@ -1,12 +1,12 @@
 - [**浏览器**同源策略](#浏览器同源策略)
-- [跨域读取同一浏览器内容(cookie、localStorage 等)](#跨域读取同一浏览器内容cookielocalstorage-等)
-- [跨域读取请求](#跨域读取请求)
-  - [jsonp: json + padding](#jsonp-json--padding)
-    - [缺点](#缺点)
-  - [CORS](#cors)
-    - [步骤](#步骤)
+  - [跨域读取同一浏览器内容(cookie、localStorage 等)](#跨域读取同一浏览器内容cookielocalstorage-等)
+  - [跨域读取请求](#跨域读取请求)
+    - [jsonp: json + padding](#jsonp-json--padding)
+    - [CORS](#cors)
     - [简单请求](#简单请求)
     - [CORS 处理](#cors-处理)
+- [浏览器恶意网站管理](#浏览器恶意网站管理)
+- [内容安全策略(CSP)](#内容安全策略csp)
 
 ## **浏览器**同源策略
 
@@ -15,7 +15,7 @@
 > 域名, 端口, 协议相同.<br/>
 > 不同源的客户端脚本未授权时不可以访问服务器资源(是浏览器限制，非浏览器环境无该限制) <br/>
 
-## 跨域读取同一浏览器内容(cookie、localStorage 等)
+### 跨域读取同一浏览器内容(cookie、localStorage 等)
 
 1. 只有子域名不同：
    - 配置`document.domain`跨子域(iframe 和父窗口之间)
@@ -41,9 +41,9 @@ window.addEventListener(
 );
 ```
 
-## 跨域读取请求
+### 跨域读取请求
 
-### jsonp: json + padding
+#### jsonp: json + padding
 
 > 前提条件: script 的 src 属性可以跨域
 
@@ -53,7 +53,7 @@ window.addEventListener(
 2. 而服务器通过脚本 url 的查询字符串, 将响应封装在回调函数中.
 3. 回调函数名是由请求方通过 URL 的查询字符串提供的. 这个回调函数被称作填充, 即 JSONP 的 P
 
-#### 缺点
+##### 缺点
 
 1. JSONP 只能使用 GET 请求; 提交的数据量受 URL 最大长度限制
 2. JSONP 缺乏错误处理机制; 调用失败无任何响应, 只能前端设置超时检测处理
@@ -86,9 +86,11 @@ function fetch(arg) {} //调用数据函数
         return HttpResponse("%s(%s)"%(func,data))   #调用前端要求的callback函数
 ```
 
-### CORS
+#### CORS
 
-#### 步骤
+Cross-Origin Resource Sharing
+
+##### 步骤
 
 1. 简单请求无 CORS 需求
 2. 发起跨域请求时, 引入额外的 Origin 头信息指定请求的源.<br>
@@ -112,3 +114,19 @@ function fetch(arg) {} //调用数据函数
 |        后端理解        |         后端反对         |
 | :--------------------: | :----------------------: |
 | 协商设置正确的 ACAO 头 | 第三方代理服务器代理请求 |
+
+## 浏览器恶意网站管理
+
+[PhishTank 是互联网免费提供恶意网站黑名单的组织之一](https://phishtank.org/index.php)
+
+## 内容安全策略(CSP)
+
+CSP 头允许 S 端配置哪些资源(JavaScript, CSS, Images, etc.)可以被加载，以及哪些资源提供商的 URL 是安全的
+
+具体细节：https://content-security-policy.com/
+
+例子：
+```
+Content-Security-Policy: allow 'self'; img-src *; media-src qq.com; script-src test.com
+# 浏览器除了信任自身来源外，还可以加载任意域的图片、来自qq.com的媒体文件和来自test.com的脚本，其他的一律拒绝
+```

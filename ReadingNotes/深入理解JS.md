@@ -46,6 +46,7 @@ function foo() {
 ```js
 //Array------------------------------------------------------------------------
 arr.splice(1, 2)    //remove 2 elements begin at index 1, (safely and anyIndexing)
+arr.copyWithin(1, 2, 3) //move something in index [2, 3) to [1, 3-(2-1))
 //Reg------------------------------------------------------------------------
 /^abc$/.test('att') //try test Reg
 /abc/   //加载时编译

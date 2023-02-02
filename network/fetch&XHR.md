@@ -44,7 +44,7 @@ const logProgress = (res) => {
 fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 ```
 
-2. mutiple stream
+2. multiple stream
 
 ```js
 const logProgress = (res) => {
