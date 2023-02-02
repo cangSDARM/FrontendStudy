@@ -1,4 +1,3 @@
 - [WebGL](./WebGL/README.md)
 - [SVG](./SVG.md)
 - [Canvas](./Canvas/Canvas.html)
-- [ThreeJs](./Threejs/README.md)

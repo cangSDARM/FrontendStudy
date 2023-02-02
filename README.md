@@ -42,7 +42,6 @@
 
 ## 未分类
 [中文开源字体](https://font.gentleflow.tech/)
-[Http头安全检测](https://securityheaders.com/)
 [通过验证码(css:visited)检索你的浏览历史](https://varun.ch/history)
 [网页性能相关的博客](https://calendar.perfplanet.com/)
 [网页安全相关博客](https://blog.huli.tw/categories/)
