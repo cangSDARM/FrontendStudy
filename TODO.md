@@ -23,25 +23,25 @@
 [安全博客](https://blog.huli.tw/)
 [前端程序构建系列](https://juejin.cn/post/6844903734460301325)
 
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/offset
+
+https://webkit.org/blog/12288/working-together-on-interop-2022/
+
+https://webkit.org/blog/13706/interop-2023/
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries
+
 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
-https://www.zhangxinxu.com/wordpress/2023/01/js-parse-barcode-qrcode-barcodedetector/
-
-https://www.zhangxinxu.com/wordpress/2022/12/js-array-copywithin/?comefrom=https://blogread.cn/news/
-
-https://www.zhangxinxu.com/wordpress/2022/12/css-logic-property-for-write/?comefrom=https://blogread.cn/news/
+https://www.zhangxinxu.com/wordpress/2022/12/css-logic-property-for-write/
 
 http://www.hackdig.com/06/hack-46619.htm
 
-https://medium.com/@alexgulakov/javascript-function-to-search-base-text-for-all-words-or-words-in-quotes-in-search-term-like-in-3270b07c440d
-
 https://blog.cloudflare.com/http-2-for-web-developers/
-
-https://web.dev/preload-critical-assets/
-
-https://abstractkitchen.com/blog/geolocation-with-cloudflare-workers/
 
 https://sidbala.com/h-264-is-magic/
 
@@ -70,7 +70,7 @@ https://spin.atomicobject.com/2021/03/22/makefiles-vs-package-json-scripts/
 
 http://chuquan.me/2020/03/22/ios-certificate-principle/
 
-https://blog.csdn.net/comwise/article/details/16892765
+中文点阵字库介绍 https://blog.csdn.net/comwise/article/details/16892765
 
 ebpf https://coolshell.cn/articles/22320.html
 
@@ -83,10 +83,6 @@ https://www.kancloud.cn/chandler/web_technology/724755
 js async modals https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/
 
 book http://liubin.org/promises-book/
-
-互联网广告的概念 https://lichuanyang.top/posts/27934/
-
-https://www.ixiqin.com/2022/10/05/you-reach-ten-thousand-yuan-the-company-has-paid-a-how-many-money/
 
 格式塔 https://zhuanlan.zhihu.com/p/36991992
 
@@ -114,7 +110,9 @@ chaos engineering https://www.jianshu.com/p/4bd4f88e24e4
 
 book https://learngitbranching.js.org/
 
-浏览器的几种防护策略 https://www.freebuf.com/sectool/303551.html
+c10k https://zhuanlan.zhihu.com/p/23114695
+
+https://www.lloydatkinson.net/posts/2022/react-conditional-rendering-with-type-safety-and-exhaustive-checking/
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
@@ -304,14 +302,90 @@ https://webkit.org/blog/13096/css-has-pseudo-class/
 
 https://iamkate.com/code/tree-views/
 
+https://github.com/tree-sitter/tree-sitter
+
+https://blog.thoughtspile.tech/2023/01/23/typescript-sets/
+
+https://snyk.io/blog/node-js-multithreading-with-worker-threads/
+
+sim (series) game ui design https://news.ycombinator.com/item?id=34573406
+
+the recommendation of lecture series https://news.ycombinator.com/item?id=34591291
+
+YouTube channels focused on mastering a skill/craft https://news.ycombinator.com/item?id=34666777
+
+https://github.com/MaxBittker/broider
+
+创业涉及的软件简介 https://fibery.io/startups
+
+https://herbcaudill.com/words/20190219-rewrite-refactor-reinvent
+
+book https://themarketplace.guide/
+
+Steve Jobs on Market Research https://www.youtube.com/watch?v=2U3w5Blv0Lg
+
+Confidential Virtual Machines https://www.youtube.com/watch?v=xupBmCB-TDY
+
+https://www.infoq.cn/article/C4-architecture-model/
+
+https://www.webgamedev.com/
+
+https://publicdomainreview.org/essay/notes-on-the-fourth-dimension
+
 https://mlu-explain.github.io/
+
+https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-programming-in-age-of-empires-and-beyond
+
+https://notes.volution.ro/v1/2023/02/notes/0a9aaa3a/
+
+https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/
+
+https://github.com/sw-yx/spark-joy/blob/master/README.md
+
+https://sxyz.blog/functors-applicatives-and-monads-in-pictures/
+
+https://irreal.org/blog/?p=11127
+
+https://github.com/motion-canvas/motion-canvas
+
+https://eaton-works.com/2023/02/06/toyota-gspims-hack/
+
+https://www.youtube.com/watch?v=R6vQ9VmMz2w
+
+https://muted.io/cheat-sheet/
+
+https://eylenburg.github.io/browser_engines.htm
+
+https://pixelparmesan.com/fundamentals-of-isometric-pixel-art/
+
+https://c6y.github.io/tilix-reference/
+
+https://jaredforsyth.com/posts/type-inference-that-sticks/
+
+https://blog.youmu.moe/posts/finding-nice-md5s-using-rust/
+
+https://brevzin.github.io/c++/2023/01/02/rust-cpp-format/
+
+https://www.deusinmachina.net/p/weird-ones-30-years-of-brainfuck
+
+https://www.construct.net/en/blogs/ashleys-blog-2/rts-devlog-beat-lag-1607
+
+https://marioslab.io/posts/rendering-like-its-1996/dos-nostalgia/
+
+https://github.com/cinit/WSAPatch/blob/main/README_zhs.md
+
+book https://ohiostate.pressbooks.pub/graphicshistory/
 
 SRP  —  更健全的登入及資料傳輸保護協議
 https://blog.amis.com/srp-1f28676aa525
 
 https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
-### 蓝牙开发
+### 互联网广告
+
+程序化广告交易更多细节及涉及平台：https://blog.hubspot.com/marketing/real-time-bidding
+
+### bluetooth
 
 https://grack.com/blog/2022/12/01/hacking-bluetooth-to-brew-coffee-on-github-actions-part-1/
 
@@ -453,4 +527,11 @@ learn japanese^(
 
 手游通用加速器^(
 绝大部分手机游戏使用两大引擎（Cocos2D 引擎和 Unity3D 引擎）开发游戏，两大引擎采用固定的 Libc.so 函数计算游戏每帧更新（Cocos2D 引擎通过 libc.so 的 gettimeofday 函数计算每帧更新，Unity3D 引擎通过调用 clock_gettime 计算每帧更新）所需时间，从而修改引擎获取时间或者影响计算每帧更新相关变量
+)
+
+互联网广告的概念^(
+互联网广告的内容是可以因人而异的。那么媒体只需向广告主保证投放量，以及投放量不能完成时的一些赔偿方式。产生合约广告
+媒体会觉得自己很多流量没有卖出最高价，广告主越来越多，产生竞价广告
+竞价广告中每一次广告展示都按照收益最高的原则来决策，逐渐发展成了「流量交易」，多方博弈形成了 RTB(real time bidding，实时竞价)这样的交易方式，形成了程序化广告交易
+程序化广告交易和股票交易等实时交易的场景都非常类似，都是存在一个交易场（ADX）, 买方（广告主, Demand）和卖方（媒体, Supplier），各自在其中实时的做买卖决策。唯一一个重要的区别是，对于媒体来说，没有择时的机会，流量来了只能立刻卖出去，没有办法攒起来。
 )
