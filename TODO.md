@@ -22,18 +22,19 @@
 [React18 新 API](https://thisweekinreact.com/articles/useSyncExternalStore-the-underrated-react-api)
 [安全博客](https://blog.huli.tw/)
 [前端程序构建系列](https://juejin.cn/post/6844903734460301325)
+[WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
+
+博客重构参考：https://blog.skk.moe/post/use-nextjs-and-hexo-to-rebuild-my-blog/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
-https://webkit.org/blog/12288/working-together-on-interop-2022/
-
-https://webkit.org/blog/13706/interop-2023/
+https://webkit.org/blog/13096/css-has-pseudo-class/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries
 
-https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
+期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
@@ -51,6 +52,12 @@ https://css-irl.info/detecting-hover-capable-devices/
 
 book https://pandolia.net/tinyc/
 
+js写ssh https://github.com/CatsAndMice/blog/issues/42
+
+https://fathy.fr/carbonyl
+
+https://github.com/evanw/float-toy
+
 [password hashes: Bcrypt Scrypt pdkdf2](https://zhuanlan.zhihu.com/p/113971205)
 
 Stanford CS Curriculum : Stanford
@@ -65,8 +72,6 @@ https://color.adobe.com/create/color-wheel
 https://www.colormatters.com/color-and-design/basic-color-theory
 
 https://99designs.hk/blog/tips/the-7-step-guide-to-understanding-color-theory/
-
-https://spin.atomicobject.com/2021/03/22/makefiles-vs-package-json-scripts/
 
 http://chuquan.me/2020/03/22/ios-certificate-principle/
 
@@ -112,8 +117,6 @@ book https://learngitbranching.js.org/
 
 c10k https://zhuanlan.zhihu.com/p/23114695
 
-https://www.lloydatkinson.net/posts/2022/react-conditional-rendering-with-type-safety-and-exhaustive-checking/
-
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
@@ -130,15 +133,27 @@ book https://cp-algorithms.com/
 
 book https://effective-shell.com/
 
+book https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md
+
 book https://learngenomics.dev/docs/biological-foundations/cells-genomes-dna-chromosomes/
 
-https://zhuanlan.zhihu.com/p/468185946
+Unity L procedure https://zhuanlan.zhihu.com/p/468185946
 
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
 https://defensivecss.dev/
 
+https://www.builder.io/blog/monomorphic-javascript
+
 book https://github.com/AllenDowney/ThinkDSP
+
+https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
+
+book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
+
+https://results.stateofreactnative.com/
+
+https://github.com/Pere001/2d-platformer-tutorial-2023
 
 https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
 
@@ -150,9 +165,23 @@ https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-revi
 
 https://charliegerard.dev/blog/ultrasonic-payments/
 
+https://contra.com/p/EEUr7sRc-detecting-unnecessarily-mounted-react-components-in-a-large-app
+
+https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md
+
+https://www.youtube.com/watch?v=qWFScmtiC44
+
+packing problem https://erich-friedman.github.io/packing/
+
 https://secretgeek.github.io/html_wysiwyg/html.html
 
+https://github.com/hackclub/some-assembly-required
+
 https://httptoolkit.com/blog/cache-your-cors/
+
+https://allisonseboldt.com/replacing-universal-analytics-plausible-vs-fathom-vs-simple-analytics/
+
+webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 
 https://www.jianshu.com/p/a7b900e8e50a
 
@@ -162,13 +191,11 @@ https://lcamtuf.coredump.cx/photo_basics/
 
 https://two-wrongs.com/statistical-process-control-a-practitioners-guide
 
-book https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md
-
 https://busy-beavers.tigyog.app/rice
 
 https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How%20to%20use%20React%20with%20Rust%20Actix.md
 
-https://github.com/sourcegraph/conc
+go concurrency https://github.com/sourcegraph/conc
 
 https://garden.bradwoods.io/notes/css/3d
 
@@ -196,6 +223,8 @@ Organising and Governing Evolutionary Architectures https://www.youtube.com/watc
 
 book https://meatfighter.com/tetromino-computer/
 
+leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
+
 https://khalilstemmler.com/articles/software-design-architecture/full-stack-software-design/
 
 https://github.com/abouolia/use-next-context
@@ -208,7 +237,7 @@ v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
 threejs https://www.youtube.com/watch?v=frgmk0Wu76A
 
-https://www.youtube.com/watch?v=geV8F59q48E
+Basic optics: lenses, prisms, and traversals in Haskell https://www.youtube.com/watch?v=geV8F59q48E
 
 cpp conf https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7Ag
 
@@ -230,8 +259,6 @@ https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
 https://blog.hirnschall.net/flow-simulation-js/
 
-https://www.zxch3n.com/crdt-intro/design-crdt/
-
 book https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
 
 https://www.khanacademy.org/computing/pixar
@@ -243,8 +270,6 @@ vulkan cpp https://www.youtube.com/@BrendanGalea/videos
 https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html
 
 https://mortoray.com/finding-neighbours-in-a-hex-map/
-
-https://prasanthmj.github.io/go/javascript-parser-in-go/
 
 book https://course.fast.ai/
 
@@ -262,15 +287,13 @@ https://zh.javascript.info/unicode
 
 https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
 
-crdt https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
-
 https://github.com/rust-lang/rust/issues/93740
+
+https://webkit.org/blog/6161/locking-in-webkit/
 
 https://dragostis.github.io/posts/analytic-quad-offset/
 
 build 8-bit computer https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
-
-https://webkit.org/blog/6161/locking-in-webkit/
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
@@ -298,11 +321,7 @@ book https://thecomputersciencebook.com/book/
 
 https://www.bleepingcomputer.com/news/security/auth0-fixes-rce-flaw-in-jsonwebtoken-library-used-by-22-000-projects/
 
-https://webkit.org/blog/13096/css-has-pseudo-class/
-
 https://iamkate.com/code/tree-views/
-
-https://github.com/tree-sitter/tree-sitter
 
 https://blog.thoughtspile.tech/2023/01/23/typescript-sets/
 
@@ -324,14 +343,11 @@ book https://themarketplace.guide/
 
 Steve Jobs on Market Research https://www.youtube.com/watch?v=2U3w5Blv0Lg
 
-Confidential Virtual Machines https://www.youtube.com/watch?v=xupBmCB-TDY
-
 https://www.infoq.cn/article/C4-architecture-model/
 
 https://www.webgamedev.com/
 
-https://publicdomainreview.org/essay/notes-on-the-fourth-dimension
-
+Visual explanations of core machine learning concepts
 https://mlu-explain.github.io/
 
 https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-programming-in-age-of-empires-and-beyond
@@ -340,7 +356,7 @@ https://notes.volution.ro/v1/2023/02/notes/0a9aaa3a/
 
 https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/
 
-https://github.com/sw-yx/spark-joy/blob/master/README.md
+design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
 
 https://sxyz.blog/functors-applicatives-and-monads-in-pictures/
 
@@ -348,19 +364,21 @@ https://irreal.org/blog/?p=11127
 
 https://github.com/motion-canvas/motion-canvas
 
+https://codefol.io/posts/the-hundred-year-programming-language/
+
+https://calebhearth.com/decree
+
 https://eaton-works.com/2023/02/06/toyota-gspims-hack/
 
-https://www.youtube.com/watch?v=R6vQ9VmMz2w
+Pixel Renderer Devlog https://www.youtube.com/watch?v=R6vQ9VmMz2w
 
-https://muted.io/cheat-sheet/
+Music Theory Tools https://muted.io/cheat-sheet/
 
 https://eylenburg.github.io/browser_engines.htm
 
 https://pixelparmesan.com/fundamentals-of-isometric-pixel-art/
 
 https://c6y.github.io/tilix-reference/
-
-https://jaredforsyth.com/posts/type-inference-that-sticks/
 
 https://blog.youmu.moe/posts/finding-nice-md5s-using-rust/
 
@@ -372,7 +390,7 @@ https://www.construct.net/en/blogs/ashleys-blog-2/rts-devlog-beat-lag-1607
 
 https://marioslab.io/posts/rendering-like-its-1996/dos-nostalgia/
 
-https://github.com/cinit/WSAPatch/blob/main/README_zhs.md
+Windows Subsystem for Android on win10 https://github.com/cinit/WSAPatch/blob/main/README_zhs.md
 
 book https://ohiostate.pressbooks.pub/graphicshistory/
 
@@ -380,6 +398,17 @@ SRP  —  更健全的登入及資料傳輸保護協議
 https://blog.amis.com/srp-1f28676aa525
 
 https://greptime.com/blogs/2023-01-12-hidden-control-flow
+
+## CRDT
+
+https://www.zxch3n.com/crdt-intro/design-crdt/
+
+https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
+
+## Makefile
+https://www.cmcrossroads.com/article/gnu-make-path-handling
+
+book https://seisman.github.io/how-to-write-makefile/overview.html
 
 ### 互联网广告
 
@@ -535,3 +564,8 @@ learn japanese^(
 竞价广告中每一次广告展示都按照收益最高的原则来决策，逐渐发展成了「流量交易」，多方博弈形成了 RTB(real time bidding，实时竞价)这样的交易方式，形成了程序化广告交易
 程序化广告交易和股票交易等实时交易的场景都非常类似，都是存在一个交易场（ADX）, 买方（广告主, Demand）和卖方（媒体, Supplier），各自在其中实时的做买卖决策。唯一一个重要的区别是，对于媒体来说，没有择时的机会，流量来了只能立刻卖出去，没有办法攒起来。
 )
+
+github with socket5 https://gist.github.com/chuyik/02d0d37a49edc162546441092efae6a1?permalink_comment_id=3661809#gistcomment-3661809
+
+语言语法解析器(无自定义语法解析) https://github.com/tree-sitter/tree-sitter
+
