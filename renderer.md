@@ -1,4 +1,5 @@
 ## Intro
+
 <div style="background:white;">
 
 ![patterns](./assets/renderer-patterns.svg)

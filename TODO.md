@@ -26,6 +26,12 @@
 
 博客重构参考：https://blog.skk.moe/post/use-nextjs-and-hexo-to-rebuild-my-blog/
 
+https://whatwebcando.today/storage.html
+
+https://web.dev/learn/pwa/offline-data/
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
@@ -430,8 +436,6 @@ bit tutorial https://www.youtube.com/@Bitdev/playlists
 
 qiankun tutorial https://www.bilibili.com/video/BV16T4y1e7TC/
 
-https://www.youtube.com/watch?v=lKKsjpH09dU
-
 single-spa https://www.youtube.com/watch?v=lQkR-Vlnbgs
 
 piral tutorial https://www.youtube.com/watch?v=ltTXWEwhSiY&list=PLQ9i8GS-LNXkHE8fbkU4Qwgbak4Rwjbg-
@@ -546,7 +550,7 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 
 learn japanese^(
 顺序：内容基于英语母语的
-学习阅读平假名, 预计时间： 1 天到 1 周, https://www.tofugu.com/japanese/learn-hiragana/
+学习阅读平假名, 预计时间： 1 周到 1 个月, https://www.tofugu.com/japanese/learn-hiragana/
 学习用日语输入平假名, 预计时间： 1-2 天（或更短）, https://www.tofugu.com/japanese/how-to-install-japanese-keyboard/, https://www.tofugu.com/japanese/how-to-type-in-japanese/
 学习阅读片假名, 预计时间： 2 天到 2 周, https://www.tofugu.com/japanese/learn-katakana/
 学习输入片假名, 预计时间： 1-2 小时, https://www.tofugu.com/japanese/how-to-type-in-japanese/
@@ -569,3 +573,4 @@ github with socket5 https://gist.github.com/chuyik/02d0d37a49edc162546441092efae
 
 语言语法解析器(无自定义语法解析) https://github.com/tree-sitter/tree-sitter
 
+[CQ:image,file=C:\Users\Allen\Desktop\0.gif]

@@ -10,6 +10,7 @@
 
 - [Graphics 相关](./graphics/README.md)
 - [Network 相关](./network/README.md)
+- [架构相关](./structure/README.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
 - [Renderer Patterns](./renderer.md)
@@ -40,8 +41,9 @@
 [Monad](https://github.com/cangSDARM/rust-scratch/blob/master/src/gof/state_monad.rs)
 
 ## 未分类
+
 [中文开源字体](https://font.gentleflow.tech/)
 [通过验证码(css:visited)检索你的浏览历史](https://varun.ch/history)
 [网页性能相关的博客](https://calendar.perfplanet.com/)
 [网页安全相关博客](https://blog.huli.tw/categories/)
-[Node+Typescript的esm依赖问题~解决方案: tsup~](https://juejin.cn/post/7117673524692516895)
+[Node+Typescript 的 esm 依赖问题~解决方案: tsup~](https://juejin.cn/post/7117673524692516895)
