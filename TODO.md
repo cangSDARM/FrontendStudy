@@ -18,21 +18,30 @@
 [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
-[浏览器往返缓存(Back/Forward cache)](https://www.cnblogs.com/SyMind/p/8485332.html)
 [React18 新 API](https://thisweekinreact.com/articles/useSyncExternalStore-the-underrated-react-api)
 [安全博客](https://blog.huli.tw/)
 [前端程序构建系列](https://juejin.cn/post/6844903734460301325)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
 
-博客重构参考：https://blog.skk.moe/post/use-nextjs-and-hexo-to-rebuild-my-blog/
+博客重构参考：
 
-https://whatwebcando.today/storage.html
+https://json-ld.org/
+
+https://ogp.me/
+
+https://easonchang.com/posts/hygen-generate-new-post
+
+[Have a better developer experience using code generators](https://www.youtube.com/watch?v=SPll1Rxl_Es)
 
 https://web.dev/learn/pwa/offline-data/
 
-https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage
+https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
+
+https://www.joshwcomeau.com/css/color-formats/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
+
+https://www.joshwcomeau.com/react/boop/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
@@ -179,6 +188,8 @@ https://www.youtube.com/watch?v=qWFScmtiC44
 
 packing problem https://erich-friedman.github.io/packing/
 
+https://google.github.io/comprehensive-rust/
+
 https://secretgeek.github.io/html_wysiwyg/html.html
 
 https://github.com/hackclub/some-assembly-required
@@ -189,9 +200,10 @@ https://allisonseboldt.com/replacing-universal-analytics-plausible-vs-fathom-vs-
 
 webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 
-https://www.jianshu.com/p/a7b900e8e50a
+OTP & TOTP https://www.jianshu.com/p/a7b900e8e50a
 
-https://zhuanlan.zhihu.com/p/484991482
+OTP & TOTP https://zhuanlan.zhihu.com/p/484991482
+
 
 https://lcamtuf.coredump.cx/photo_basics/
 
@@ -366,8 +378,6 @@ design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
 
 https://sxyz.blog/functors-applicatives-and-monads-in-pictures/
 
-https://irreal.org/blog/?p=11127
-
 https://github.com/motion-canvas/motion-canvas
 
 https://codefol.io/posts/the-hundred-year-programming-language/
@@ -379,6 +389,8 @@ https://eaton-works.com/2023/02/06/toyota-gspims-hack/
 Pixel Renderer Devlog https://www.youtube.com/watch?v=R6vQ9VmMz2w
 
 Music Theory Tools https://muted.io/cheat-sheet/
+
+https://citw.dev/tutorial/create-your-own-compiler
 
 https://eylenburg.github.io/browser_engines.htm
 
@@ -412,6 +424,7 @@ https://www.zxch3n.com/crdt-intro/design-crdt/
 https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
 
 ## Makefile
+
 https://www.cmcrossroads.com/article/gnu-make-path-handling
 
 book https://seisman.github.io/how-to-write-makefile/overview.html
@@ -548,16 +561,6 @@ write a bragging document template, fill it after you're done something. don't s
 it helps 1) your supervisor effectively advocate for you, 2) your coworkers understand and admire you, 3) you know yourself
 ) https://jvns.ca/blog/brag-documents/
 
-learn japanese^(
-顺序：内容基于英语母语的
-学习阅读平假名, 预计时间： 1 周到 1 个月, https://www.tofugu.com/japanese/learn-hiragana/
-学习用日语输入平假名, 预计时间： 1-2 天（或更短）, https://www.tofugu.com/japanese/how-to-install-japanese-keyboard/, https://www.tofugu.com/japanese/how-to-type-in-japanese/
-学习阅读片假名, 预计时间： 2 天到 2 周, https://www.tofugu.com/japanese/learn-katakana/
-学习输入片假名, 预计时间： 1-2 小时, https://www.tofugu.com/japanese/how-to-type-in-japanese/
-学习输入汉字, 预计时间： 1-2 小时, https://www.tofugu.com/japanese/how-to-type-in-japanese/
-初级日语语法, https://www.tofugu.com/japanese/beginner-japanese-textbook/
-)
-
 手游通用加速器^(
 绝大部分手机游戏使用两大引擎（Cocos2D 引擎和 Unity3D 引擎）开发游戏，两大引擎采用固定的 Libc.so 函数计算游戏每帧更新（Cocos2D 引擎通过 libc.so 的 gettimeofday 函数计算每帧更新，Unity3D 引擎通过调用 clock_gettime 计算每帧更新）所需时间，从而修改引擎获取时间或者影响计算每帧更新相关变量
 )
@@ -569,8 +572,8 @@ learn japanese^(
 程序化广告交易和股票交易等实时交易的场景都非常类似，都是存在一个交易场（ADX）, 买方（广告主, Demand）和卖方（媒体, Supplier），各自在其中实时的做买卖决策。唯一一个重要的区别是，对于媒体来说，没有择时的机会，流量来了只能立刻卖出去，没有办法攒起来。
 )
 
-github with socket5 https://gist.github.com/chuyik/02d0d37a49edc162546441092efae6a1?permalink_comment_id=3661809#gistcomment-3661809
+github with socket5^(
+   git -c "http.proxy=socks5://127.0.0.1:1080" clone git@github.com:xx/yy.git
+)
 
 语言语法解析器(无自定义语法解析) https://github.com/tree-sitter/tree-sitter
-
-[CQ:image,file=C:\Users\Allen\Desktop\0.gif]
