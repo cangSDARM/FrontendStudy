@@ -3,22 +3,19 @@
 [浏览器页面的原生生命周期](https://juejin.cn/post/6906779518040539144)
 [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 [WebHID 通用输入设备逻辑接口(手柄等)](https://web.dev/hid/)
-[queryCommandSupported](https://github.com/microsoft/vscode/blob/ad91637f6a8ac84fcd8ac1b5449127c3460e828e/src/vs/editor/contrib/clipboard/clipboard.ts#L25)
 [Crypto](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 [二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 [二维倾斜 Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
 [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
-[Grid 布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-auto-flow)
+[Grid 布局](https://web.dev/learn/css/grid/)
 [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
 [Reflect 反射](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 [WebNFC](https://web.dev/nfc/)
 [WebSerial_api 串行设备 api(打印机/微控制器等)](https://wicg.github.io/serial/)
-[AOP, 面向切面编程](https://juejin.cn/post/6903484050095210509)
 [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
-[React18 新 API](https://thisweekinreact.com/articles/useSyncExternalStore-the-underrated-react-api)
 [安全博客](https://blog.huli.tw/)
 [前端程序构建系列](https://juejin.cn/post/6844903734460301325)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
@@ -51,6 +48,10 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
+https://web.dev/sign-in-form-best-practices/
+
+https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
+
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 https://www.zhangxinxu.com/wordpress/2022/12/css-logic-property-for-write/
@@ -62,8 +63,6 @@ https://blog.cloudflare.com/http-2-for-web-developers/
 https://sidbala.com/h-264-is-magic/
 
 https://www.smashingmagazine.com/2021/09/orchestrating-complexity-web-animations-api/
-
-https://css-irl.info/detecting-hover-capable-devices/
 
 book https://pandolia.net/tinyc/
 
@@ -98,13 +97,11 @@ book https://linuxtools-rst.readthedocs.io/zh_CN/latest/
 
 book https://github.com/huangz1990/real-world-haskell-cn
 
-https://www.kancloud.cn/chandler/web_technology/724755
+前端工程化 https://www.kancloud.cn/chandler/web_technology/724755
 
 js async modals https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/
 
 book http://liubin.org/promises-book/
-
-格式塔 https://zhuanlan.zhihu.com/p/36991992
 
 did https://www.syscom.com.tw/ePaper_New_Content.aspx?id=784&EPID=271&TableName=sgEPArticle
 
@@ -120,9 +117,19 @@ https://web.dev/streams/
 
 https://weizman.github.io/page-js-anti-debug-1/
 
+book https://sourceacademy.org/sicpjs/index
+
+book https://webgpufundamentals.org/webgpu/lessons/zh_cn/
+
 book https://diveintosystems.org/book/index.html
 
 book http://icyfenix.cn/
+
+https://law-cn-ai.vercel.app/
+
+HTTP Multipart https://blog.adamchalmers.com/multipart/
+
+https://www.wangan.com/p/7fy7f8ce7b3d3dc6
 
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
@@ -140,8 +147,6 @@ https://github.com/dunwu/blog/blob/master/source/_posts/03.%E8%AE%BE%E8%AE%A1/03
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
 
-https://quic.xargs.org/
-
 js read gif https://juejin.cn/post/7022637452066029599
 
 book https://cp-algorithms.com/
@@ -157,8 +162,6 @@ Unity L procedure https://zhuanlan.zhihu.com/p/468185946
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
 https://defensivecss.dev/
-
-https://www.builder.io/blog/monomorphic-javascript
 
 book https://github.com/AllenDowney/ThinkDSP
 
@@ -180,20 +183,23 @@ https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-revi
 
 https://charliegerard.dev/blog/ultrasonic-payments/
 
-https://contra.com/p/EEUr7sRc-detecting-unnecessarily-mounted-react-components-in-a-large-app
-
-https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md
-
+Talk: Video Games and the Future of Education
 https://www.youtube.com/watch?v=qWFScmtiC44
 
 packing problem https://erich-friedman.github.io/packing/
 
-https://google.github.io/comprehensive-rust/
+RFID intro https://lmark.cc/archives/f746fa7f.html
+
+https://github.com/JuliaPlots/UnicodePlots.jl
+
+book https://google.github.io/comprehensive-rust/
 
 https://secretgeek.github.io/html_wysiwyg/html.html
+aside design https://css-irl.info/detecting-hover-capable-devices/
 
-https://github.com/hackclub/some-assembly-required
+assembly introduction https://github.com/hackclub/some-assembly-required
 
+https://www.amitmerchant.com/create-and-download-text-files-using-javascript/
 https://httptoolkit.com/blog/cache-your-cors/
 
 https://allisonseboldt.com/replacing-universal-analytics-plausible-vs-fathom-vs-simple-analytics/
@@ -204,8 +210,26 @@ OTP & TOTP https://www.jianshu.com/p/a7b900e8e50a
 
 OTP & TOTP https://zhuanlan.zhihu.com/p/484991482
 
+密码分析学 (门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
+
+Bresenham 直线算法 https://www.gcores.com/articles/150791
 
 https://lcamtuf.coredump.cx/photo_basics/
+
+讲点日本不良少年漫画的背景知识
+https://www.gcores.com/articles/157640
+
+神智学研究笔记（三）：《隐秘教义》概述
+https://www.gcores.com/articles/160965
+
+韩版《传奇2》源码分析与 Unity 重制（二）：客户端启动与交互流程
+https://www.gcores.com/articles/163577
+
+从三个可能方向浅谈Puzzle game的深度来源
+https://www.gcores.com/articles/162290
+
+游戏杂谈：期末作业反思——应该设计什么样的牌？
+https://www.gcores.com/articles/161716
 
 https://two-wrongs.com/statistical-process-control-a-practitioners-guide
 
@@ -269,8 +293,6 @@ Creative Writing https://www.youtube.com/playlist?list=PLSH_xM-KC3Zv-79sVZTTj-YA
 
 [Image Scaling Attacks are CRAZY!!! Hiding images in plain sight (Machine Learning)](https://www.youtube.com/watch?v=UItbZNBtfaQ)
 
-https://github.com/linebender/xilem
-
 https://www.flipt.io/blog/embedding-react-in-go
 
 https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
@@ -315,7 +337,7 @@ build 8-bit computer https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTB
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
-book https://lotuc.gitbooks.io/plai-cn/content/
+book http://lotuc.org/PLAI-cn/chap01/
 
 https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
 
@@ -370,7 +392,7 @@ https://mlu-explain.github.io/
 
 https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-programming-in-age-of-empires-and-beyond
 
-https://notes.volution.ro/v1/2023/02/notes/0a9aaa3a/
+Binary to text encoding -- state of the art and missed opportunities https://notes.volution.ro/v1/2023/02/notes/0a9aaa3a/
 
 https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/
 
@@ -382,7 +404,7 @@ https://github.com/motion-canvas/motion-canvas
 
 https://codefol.io/posts/the-hundred-year-programming-language/
 
-https://calebhearth.com/decree
+Decree Design Pattern https://calebhearth.com/decree
 
 https://eaton-works.com/2023/02/06/toyota-gspims-hack/
 
@@ -401,8 +423,6 @@ https://c6y.github.io/tilix-reference/
 https://blog.youmu.moe/posts/finding-nice-md5s-using-rust/
 
 https://brevzin.github.io/c++/2023/01/02/rust-cpp-format/
-
-https://www.deusinmachina.net/p/weird-ones-30-years-of-brainfuck
 
 https://www.construct.net/en/blogs/ashleys-blog-2/rts-devlog-beat-lag-1607
 
@@ -512,7 +532,6 @@ idempotency Api^(
 (2) see errors, auto retry `exponential back-off + a random wait` to avoid "the thundering hard problem")
 
 make a decisions^(
-
 1. certain it is a problem, make sure it's not a surface of deeper problem
 2. the decisions of the problem are reversible? if one of them is been chosen, how costly to change to another?
    1. reversible. decide as soon as possible, since the cost of making the wrong decision is probably lower than the cost of indecision
@@ -572,8 +591,39 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 程序化广告交易和股票交易等实时交易的场景都非常类似，都是存在一个交易场（ADX）, 买方（广告主, Demand）和卖方（媒体, Supplier），各自在其中实时的做买卖决策。唯一一个重要的区别是，对于媒体来说，没有择时的机会，流量来了只能立刻卖出去，没有办法攒起来。
 )
 
-github with socket5^(
+git with proxy^(
    git -c "http.proxy=socks5://127.0.0.1:1080" clone git@github.com:xx/yy.git
 )
 
 语言语法解析器(无自定义语法解析) https://github.com/tree-sitter/tree-sitter
+
+BrainFuck^(
+https://www.deusinmachina.net/p/weird-ones-30-years-of-brainfuck
+image it operate a `short[]` and a hidden index, and this array has 8 rules:
+
+1. `+` Increment the value of the current indexed cell by 1
+2. `-` Decrement the value of the current indexed cell by 1
+3. `>` Move the pointer to the next index
+4. `<` Move the pointer to the previous index
+5. `.` Output the Binary (to Ascii or any format) to the value of the current indexed cell
+6. `,` Input a character and store its Binary value in the current indexed cell
+7. `[` If the value of the current cell is zero, jump to the corresponding `]` code
+8. `]` if the value of the current cell is non-zero, jump back to the corresponding `[` code
+)
+
+格式塔^(
+Gestalttheorie 这个词是德语，字面意思是统一的图案、图形、形式或结构。格式塔心理学是一种在20世纪20年代在柏林兴起的运动，旨在理解我们的大脑是如何以整体形式感知事物的，而不是个体的元素。
+格式塔心理学最重要的观点就是：“在心理现象中，人们对客观对象的感受源于整体关系而非具体元素，也就是说知觉不是感觉元素的总和而是一个统一的整体，部分之和不等于整体，因此整体不能分割”
+多年来，格式塔心理学家们已经提出了一个清单来总结视觉感知的基本原理，这已经成为了设计师们的非常有价值的工具：
+1. 简单性原则(Simplicity) 人们对一个复杂对象进行知觉时，只要没有特定的要求，就会常常倾向于把对象看作是有组织的简单的规则图形。
+2. 图形与背景关系原则(Figure-ground) “图形”是视觉焦点元素，而“背景”则是图形背后的底板。(另外两个相关的原则：区域：大脑通常认为构图中最小的物体是图形，而更大的物体则是背景。凸面：跟凹面元素相比，凸面元素与图形相关联更多些。)
+3. 接近性或邻近原则(proximity) 空间中距离相近的元素有被看作一体的趋势。我们认为元素属于同一组，如果它们是有间隔地被放在一起的。
+4. 相似原则(similarity) 刺激物的形状、大小、颜色、强度等物理属性方面比较相似时，这些刺激物就容易被组织起来而构成一个整体。也就是说，如果元素彼此相像，我们会将元素视为同属于一个群组。
+5. 共方向原则(common movement) 也有称共同命运原则。如果一个对象中的一部分都向共同的方向去运动，那这些共同移动的部分就易被感知为一个整体。我们的眼睛将被吸引到一起移动的人物上，这个原则对于2D和3D动画尤其重要。
+6. 对称性原则(Symmetry) 对称的元素被视为同一组的一部分。你有没有看过那些看起来像镜子里的物体互相反射的图形？这种关系帮助我们将这些元素视为一个整体。
+7. 平行性原则(Parallelism) 具有相同或非常相似的倾斜角度的元素放在一起时，将被作为一个相关联的组合体。
+8. 连续性原则(good continuation) 如果一个图形的某些部分可以被看作是连接在一起的，那么这些部分就相对容易被我们知觉为一个整体。如果元素是对齐的，那么它们在视觉上是相关联的。线条在连续的情况下被视为一个整体的图形。它们的线段越平滑，我们就越能看到它们是一个统一的形状图。
+9. 封闭性原则(closure) 有时也称闭合性原则。有些图形是一个没有闭合的残缺的图形，但主体有一种使其闭合的倾向，即主体能自行填补缺口而把其知觉为一个整体。如果元素是一个封闭图形的一部分，我们将其视为属于同一组的元素。(FeedEx的箭头)
+10. 共同区域原则(Common Region) 多个元素是单个区域的一部分时，我们会认为它们是共存的，倾向于作为一个单独的元素进行关联。
+11. 元素连通性(Element Connectedness) 如果一些元素与其他元素(线条、颜色)相连时，我们认为这些元素是统一体。
+)
