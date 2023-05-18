@@ -32,6 +32,7 @@
 - [自定义 URL 打开本地程序](https://www.lefer.cn/posts/12763/)
 - 检测 Devtools 是否被打开
   - https://nocilol.me/archives/lab/check-browser-devtools-open/
+  - https://weizman.github.io/page-js-anti-debug-2/
   - https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-2-abusing-chromium-devtools-scope-pane-b2796c00331d
 
 ## 函数式编程

@@ -34,8 +34,6 @@ https://web.dev/learn/pwa/offline-data/
 
 https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
 
-https://www.joshwcomeau.com/css/color-formats/
-
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
 
 https://www.joshwcomeau.com/react/boop/
@@ -68,6 +66,7 @@ book https://pandolia.net/tinyc/
 
 js写ssh https://github.com/CatsAndMice/blog/issues/42
 
+Forking Chrome to render in a terminal
 https://fathy.fr/carbonyl
 
 https://github.com/evanw/float-toy
@@ -83,10 +82,6 @@ SOLID https://juejin.cn/post/6844903461172051982
 
 https://color.adobe.com/create/color-wheel
 
-https://www.colormatters.com/color-and-design/basic-color-theory
-
-https://99designs.hk/blog/tips/the-7-step-guide-to-understanding-color-theory/
-
 http://chuquan.me/2020/03/22/ios-certificate-principle/
 
 中文点阵字库介绍 https://blog.csdn.net/comwise/article/details/16892765
@@ -100,6 +95,16 @@ book https://github.com/huangz1990/real-world-haskell-cn
 前端工程化 https://www.kancloud.cn/chandler/web_technology/724755
 
 js async modals https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/
+
+book https://czekster.github.io/markov/
+
+book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pdf
+
+book https://learningmusic.ableton.com/zh-Hans/
+
+book https://learningsynths.ableton.com/zh-Hans
+
+book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Preface
 
 book http://liubin.org/promises-book/
 
@@ -115,8 +120,6 @@ https://github.com/joeyguo/blog
 
 https://web.dev/streams/
 
-https://weizman.github.io/page-js-anti-debug-1/
-
 book https://sourceacademy.org/sicpjs/index
 
 book https://webgpufundamentals.org/webgpu/lessons/zh_cn/
@@ -126,8 +129,6 @@ book https://diveintosystems.org/book/index.html
 book http://icyfenix.cn/
 
 https://law-cn-ai.vercel.app/
-
-HTTP Multipart https://blog.adamchalmers.com/multipart/
 
 https://www.wangan.com/p/7fy7f8ce7b3d3dc6
 
@@ -143,7 +144,7 @@ Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
 
-https://github.com/dunwu/blog/blob/master/source/_posts/03.%E8%AE%BE%E8%AE%A1/03.%E9%87%8D%E6%9E%84/01.%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93%E5%92%8C%E9%87%8D%E6%9E%84.md
+https://github.com/dunwu/blog/blob/master/source/_posts/15.%E5%88%86%E5%B8%83%E5%BC%8F/21.%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E4%BF%A1/01.RPC/00.RPC%E7%BB%BC%E5%90%88/01.RPC%E5%9F%BA%E7%A1%80.md
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
 
@@ -199,7 +200,8 @@ aside design https://css-irl.info/detecting-hover-capable-devices/
 
 assembly introduction https://github.com/hackclub/some-assembly-required
 
-https://www.amitmerchant.com/create-and-download-text-files-using-javascript/
+https://github.com/lucaong/minisearch
+
 https://httptoolkit.com/blog/cache-your-cors/
 
 https://allisonseboldt.com/replacing-universal-analytics-plausible-vs-fathom-vs-simple-analytics/
@@ -251,6 +253,12 @@ protobuf https://mp.weixin.qq.com/s/dFqm_zTRMkJqvOdY9yaerQ
 
 make a language https://arzg.github.io/lang/
 
+https://www.zjmainstay.cn/deep-regexp
+
+https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
+
+http://dist-prog-book.com/chapter/1/rpc.html
+
 https://github.com/simeydotme/pokemon-cards-css
 
 https://www.mcmaster.com/
@@ -262,6 +270,15 @@ https://www.infoq.com/presentations/scientific-method-testing-resilience/
 [password and its md5](https://www.passwordrandom.com/most-popular-passwords)
 
 Organising and Governing Evolutionary Architectures https://www.youtube.com/watch?v=d6hiUIz40yQ
+
+https://danpalmer.me/2020-05-18-board-game-design/
+
+https://www.rtl-sdr.com/iqengine-a-web-based-toolkit-for-sharing-and-analyzing-rf-iq-recordings/
+
+https://github.com/jawj/subtls
+
+A Practical Introduction to Derive Macros in Rust
+https://www.youtube.com/watch?v=XY0yR6IPbhw
 
 book https://meatfighter.com/tetromino-computer/
 
@@ -293,8 +310,6 @@ Creative Writing https://www.youtube.com/playlist?list=PLSH_xM-KC3Zv-79sVZTTj-YA
 
 [Image Scaling Attacks are CRAZY!!! Hiding images in plain sight (Machine Learning)](https://www.youtube.com/watch?v=UItbZNBtfaQ)
 
-https://www.flipt.io/blog/embedding-react-in-go
-
 https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
 https://blog.hirnschall.net/flow-simulation-js/
@@ -322,8 +337,6 @@ book https://github.com/BoltzmannEntropy/interviews.ai
 book https://bookdown.org/rdpeng/advstatcomp/introduction.html
 
 book https://microsoft.github.io/code-with-engineering-playbook/SPRINT-STRUCTURE/
-
-https://zh.javascript.info/unicode
 
 https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
 
@@ -363,8 +376,6 @@ https://www.bleepingcomputer.com/news/security/auth0-fixes-rce-flaw-in-jsonwebto
 
 https://iamkate.com/code/tree-views/
 
-https://blog.thoughtspile.tech/2023/01/23/typescript-sets/
-
 https://snyk.io/blog/node-js-multithreading-with-worker-threads/
 
 sim (series) game ui design https://news.ycombinator.com/item?id=34573406
@@ -394,15 +405,16 @@ https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-program
 
 Binary to text encoding -- state of the art and missed opportunities https://notes.volution.ro/v1/2023/02/notes/0a9aaa3a/
 
-https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/
-
 design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
+
+https://en.wikipedia.org/wiki/K-way_merge_algorithm
+
+The technology behind GitHub's new code search
+https://www.youtube.com/watch?v=QCs76SC1ZZ0
 
 https://sxyz.blog/functors-applicatives-and-monads-in-pictures/
 
 https://github.com/motion-canvas/motion-canvas
-
-https://codefol.io/posts/the-hundred-year-programming-language/
 
 Decree Design Pattern https://calebhearth.com/decree
 
@@ -626,4 +638,15 @@ Gestalttheorie 这个词是德语，字面意思是统一的图案、图形、�
 9. 封闭性原则(closure) 有时也称闭合性原则。有些图形是一个没有闭合的残缺的图形，但主体有一种使其闭合的倾向，即主体能自行填补缺口而把其知觉为一个整体。如果元素是一个封闭图形的一部分，我们将其视为属于同一组的元素。(FeedEx的箭头)
 10. 共同区域原则(Common Region) 多个元素是单个区域的一部分时，我们会认为它们是共存的，倾向于作为一个单独的元素进行关联。
 11. 元素连通性(Element Connectedness) 如果一些元素与其他元素(线条、颜色)相连时，我们认为这些元素是统一体。
+)
+
+color theory^(
+colors are organized on a color wheel and grouped into 3 categories: primary colors, secondary colors and tertiary colors.
+RGB: the additive color mixing model (red, green, blue)
+CMYK: the subtractive color mixing model (cyan, magenta, yellow, black or red, yellow, blue), “subtractive” simply refers to the fact that you subtract the light from the paper by adding more color.
+Color wheel consists of three primary colors (red, yellow, blue), three secondary colors (colors created when primary colors are equally mixed: green, orange, purple) and six tertiary colors (colors made from primary and secondary colors, such as blue-green or red-violet).
+Tints, tones and shades are variations of hues, or colors, on the color wheel. A tint is a hue to which white has been added. For example, red + white = pink. A shade is a hue to which black has been added. For example, red + black = burgundy. Finally, a tone is a color to which black and white (or grey) have been added. This darkens the original hue while making the color appear more subtle and less intense.
+Complementary colors are opposites on the color wheel—red and green, for example.
+Analogous colors sit next to one another on the color wheel—red, orange and yellow, for example.
+Triadic colors are evenly spaced around the color wheel and tend to be very bright and dynamic.
 )

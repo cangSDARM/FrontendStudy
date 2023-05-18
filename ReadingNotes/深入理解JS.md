@@ -58,6 +58,11 @@ new RegExp('abc')   //运行时编译
 Array.from('😂😅').slice(0, 1).join('');  //依赖于字符串的可迭代特性（新特性）所以可以正确处理四字符
 '的'.codePointAt(0)  //返回字符串对应位置的Unicode编号, 能正确处理四字节或两字节
 String.fromCodePrint(134071)    //返回Unicode编号对应的字符串
+
+let s1 = 'S\u0307\u0323'; // Ṩ, S + 上方点符号 + 下方点符号
+let s2 = 'S\u0323\u0307'; // Ṩ, S + 下方点符号 + 上方点符号
+s1 === s2; // 看着一样其实是 false
+s1.normalize() === s2.normalize();  // true (“Unicode 规范化”算法)
 ```
 
 ### 类型判断
