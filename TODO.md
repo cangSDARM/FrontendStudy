@@ -184,9 +184,6 @@ https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-revi
 
 https://charliegerard.dev/blog/ultrasonic-payments/
 
-Talk: Video Games and the Future of Education
-https://www.youtube.com/watch?v=qWFScmtiC44
-
 packing problem https://erich-friedman.github.io/packing/
 
 RFID intro https://lmark.cc/archives/f746fa7f.html
@@ -197,8 +194,6 @@ book https://google.github.io/comprehensive-rust/
 
 https://secretgeek.github.io/html_wysiwyg/html.html
 aside design https://css-irl.info/detecting-hover-capable-devices/
-
-assembly introduction https://github.com/hackclub/some-assembly-required
 
 https://github.com/lucaong/minisearch
 
@@ -269,8 +264,6 @@ https://www.infoq.com/presentations/scientific-method-testing-resilience/
 
 [password and its md5](https://www.passwordrandom.com/most-popular-passwords)
 
-Organising and Governing Evolutionary Architectures https://www.youtube.com/watch?v=d6hiUIz40yQ
-
 https://danpalmer.me/2020-05-18-board-game-design/
 
 https://www.rtl-sdr.com/iqengine-a-web-based-toolkit-for-sharing-and-analyzing-rf-iq-recordings/
@@ -301,8 +294,6 @@ Basic optics: lenses, prisms, and traversals in Haskell https://www.youtube.com/
 cpp conf https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7Ag
 
 Creative Writing https://www.youtube.com/playlist?list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ
-
-[Douglas Adams: Parrots, the Universe and Everything](https://www.youtube.com/watch?v=_ZG8HBuDjgc)
 
 [Tom Clancy Speaks at the National Security Agency](https://www.youtube.com/watch?v=VS54M5Mqa9M)
 
@@ -353,8 +344,6 @@ https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 book http://lotuc.org/PLAI-cn/chap01/
 
 https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
-
-book https://www.timdbg.com/posts/fakers-guide-to-assembly/
 
 https://thesephist.com/posts/lua/
 
@@ -491,13 +480,19 @@ https://microservices.io/patterns/data/event-sourcing.html
 
 ### game mod
 
+book https://www.timdbg.com/posts/fakers-guide-to-assembly/
+
+assembly introduction https://github.com/hackclub/some-assembly-required/blob/main/guide/writing-code/registers.md
+
 unity mod https://www.bilibili.com/video/BV1Q34y1j7ps/
 
-ida https://www.youtube.com/playlist?list=PLKwUZp9HwWoDDBPvoapdbJ1rdofowT67z
+ida https://www.youtube.com/watch?v=thyK3VaA1GE&list=PLKwUZp9HwWoDDBPvoapdbJ1rdofowT67z&index=2
+
+cpp with ida https://www.youtube.com/watch?v=GEtpznMFsEs
 
 directx hook for game hacking: https://paper.seebug.org/2037/
 
-game hook tutorial https://gslab.qq.com/portal.php?mod=view&aid=94
+game hook tutorial https://gslab.qq.com/portal.php?mod=view&aid=103
 
 Reverse Engineering https://www.trashworldnews.com/yoda-stories/
 
@@ -591,10 +586,6 @@ Brag-documents^(
 write a bragging document template, fill it after you're done something. don't summarize what you did while the company is considering candidates for a raise.
 it helps 1) your supervisor effectively advocate for you, 2) your coworkers understand and admire you, 3) you know yourself
 ) https://jvns.ca/blog/brag-documents/
-
-手游通用加速器^(
-绝大部分手机游戏使用两大引擎（Cocos2D 引擎和 Unity3D 引擎）开发游戏，两大引擎采用固定的 Libc.so 函数计算游戏每帧更新（Cocos2D 引擎通过 libc.so 的 gettimeofday 函数计算每帧更新，Unity3D 引擎通过调用 clock_gettime 计算每帧更新）所需时间，从而修改引擎获取时间或者影响计算每帧更新相关变量
-)
 
 互联网广告的概念^(
 互联网广告的内容是可以因人而异的。那么媒体只需向广告主保证投放量，以及投放量不能完成时的一些赔偿方式。产生合约广告
