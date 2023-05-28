@@ -88,7 +88,7 @@ http://chuquan.me/2020/03/22/ios-certificate-principle/
 
 ebpf https://coolshell.cn/articles/22320.html
 
-book https://linuxtools-rst.readthedocs.io/zh_CN/latest/
+book Linux工具教程 https://linuxtools-rst.readthedocs.io/zh_CN/latest/
 
 book https://github.com/huangz1990/real-world-haskell-cn
 
@@ -106,7 +106,11 @@ book https://learningsynths.ableton.com/zh-Hans
 
 book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Preface
 
-book http://liubin.org/promises-book/
+book https://exploringjs.com/es5/toc.html
+
+https://www.jdon.com/idea/nodejs/io-stream3.html
+
+node streams https://www.youtube.com/watch?v=e5E8HHEYRNI
 
 did https://www.syscom.com.tw/ePaper_New_Content.aspx?id=784&EPID=271&TableName=sgEPArticle
 
@@ -398,9 +402,6 @@ design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
 
 https://en.wikipedia.org/wiki/K-way_merge_algorithm
 
-The technology behind GitHub's new code search
-https://www.youtube.com/watch?v=QCs76SC1ZZ0
-
 https://sxyz.blog/functors-applicatives-and-monads-in-pictures/
 
 https://github.com/motion-canvas/motion-canvas
@@ -480,9 +481,13 @@ https://microservices.io/patterns/data/event-sourcing.html
 
 ### game mod
 
+NAND to teris https://www.nand2tetris.org/
+
+逻辑电路在线模拟 https://logiclights.vercel.app/
+
 book https://www.timdbg.com/posts/fakers-guide-to-assembly/
 
-assembly introduction https://github.com/hackclub/some-assembly-required/blob/main/guide/writing-code/registers.md
+x86-intel assembly introduction https://github.com/hackclub/some-assembly-required/tree/main/code/x86-intel
 
 unity mod https://www.bilibili.com/video/BV1Q34y1j7ps/
 

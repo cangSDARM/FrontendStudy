@@ -6,17 +6,24 @@ async function delay(time: number = 1000): Promise<void> {
 async function retry<T>(
   fn: () => T,
   test: (ret: T, times: number) => Promise<boolean>,
-  times: number = Infinity
+  times: number = Infinity,
 ) {
   let i = 0;
   while (i < times) {
     try {
-      const rest = await test(fn(), i);
-      if (rest) return;
+      const ret = fn();
+      const tested = await test(ret, i);
+      if (tested) return ret;
       i++;
     } catch {}
   }
   throw new Error("max times when retry");
+}
+async function timeout<T>(promise: Promise<T>, ms: number) {
+  const timeout = delay(ms).then(function () {
+    throw new Error("Operation timed out after " + ms + " ms");
+  });
+  return Promise.race([promise, timeout]);
 }
 
 /**
@@ -24,17 +31,20 @@ async function retry<T>(
  * @param queryFn returns `false`, it waits for 1.5s*times and invokes `queryFn` again until `queryFn` returns `true`,
  * @param callback When `queryFn` returns `true`, invokes it and exit the function
  */
-function simplePoller(
+function simplePoller<T>(
   queryFn: () => boolean,
-  callback: (...args: any[]) => any
+  callback: () => void,
 ): void {
   delay(1000)
     .then(() =>
-      retry(
-        queryFn,
-        (ret, times) => delay(1500 * (times + 1)).then(() => ret),
-        Infinity
-      )
+      timeout(
+        retry(
+          queryFn,
+          (ret, times) => delay(1500 * (times + 1)).then(() => ret),
+          Infinity,
+        ),
+        1000
+      ),
     )
     .then(callback);
 }

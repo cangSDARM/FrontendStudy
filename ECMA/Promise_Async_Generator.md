@@ -3,6 +3,8 @@
   - [三种状态](#三种状态)
   - [在一个 Promise 链中](#在一个-promise-链中)
   - [例子](#例子)
+  - [Thenable](#thenable)
+  - [顺序处理](#顺序处理)
 - [Async/Await](#asyncawait)
   - [基于 Promise 的更高层封装，可以将 Promise 链扁平化](#基于-promise-的更高层封装可以将-promise-链扁平化)
   - [async 函数返回永远是一个 Promise，然后像 Promise 一样使用](#async-函数返回永远是一个-promise然后像-promise-一样使用)
@@ -106,6 +108,43 @@ p1, p5 -> fulfilled -> 其then压进microtask -> [p2, p6]
 执行p9 -> 5 -> 其then压进microtask -> [p10]
 执行p10 -> 6
 */
+```
+
+### Thenable
+Thenable 对象可以用`Promise.resolve(thenable)`转换为 Promise 对象
+
+```js
+function notifyMessageAsThenable(message, options) {
+  return {
+    // 和 new Promise 的格式相同
+    'then': function (resolve, reject) {
+      notifyMessage(message, options, function (error, notification) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(notification);
+        }
+      });
+    }
+  };
+}
+Promise.resolve(notifyMessageAsThenable("message")).then(console.log);
+```
+
+### 顺序处理
+> taskA -> taskB -> taskC
+
+```js
+function sequenceTasks(tasks) {
+    function recordValue(results, value) {
+        results.push(value);
+        return results;
+    }
+    var pushValue = recordValue.bind(null, []);
+    return tasks.reduce(function (promise, task) {
+        return promise.then(task).then(pushValue);
+    }, Promise.resolve());
+}
 ```
 
 ## Async/Await
