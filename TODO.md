@@ -16,8 +16,6 @@
 [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
-[安全博客](https://blog.huli.tw/)
-[前端程序构建系列](https://juejin.cn/post/6844903734460301325)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
 
 博客重构参考：
@@ -30,13 +28,15 @@ https://easonchang.com/posts/hygen-generate-new-post
 
 [Have a better developer experience using code generators](https://www.youtube.com/watch?v=SPll1Rxl_Es)
 
-https://web.dev/learn/pwa/offline-data/
+book https://web.dev/learn/pwa/
 
 https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
 
 https://www.joshwcomeau.com/react/boop/
+
+https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
@@ -46,6 +46,17 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
+
+https://alain.xyz/blog/game-engine-architecture
+
+https://cloud.tencent.com/developer/article/1893989
+
+book https://sotrh.github.io/learn-wgpu/
+
+https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
+
+the history of shading languages and GPUs
+https://www.youtube.com/watch?v=uL4H1ct_-dI
 https://web.dev/sign-in-form-best-practices/
 
 https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
@@ -54,9 +65,10 @@ https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 https://www.zhangxinxu.com/wordpress/2022/12/css-logic-property-for-write/
 
-http://www.hackdig.com/06/hack-46619.htm
 
-https://blog.cloudflare.com/http-2-for-web-developers/
+根据身高计算椅子高度、桌子高度、屏幕高度
+https://www.ergotron.com/zh-cn/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92%E5%99%A8
+http://www.hackdig.com/06/hack-46619.htm
 
 https://sidbala.com/h-264-is-magic/
 
@@ -78,15 +90,19 @@ https://docs.google.com/spreadsheets/d/1zfw8nPvJeewxcFUBpKUKmAVE8PjnJI7H0CKimdQX
 
 book https://rustwasm.github.io/docs/book/introduction.html
 
-SOLID https://juejin.cn/post/6844903461172051982
-
 https://color.adobe.com/create/color-wheel
 
 http://chuquan.me/2020/03/22/ios-certificate-principle/
 
 中文点阵字库介绍 https://blog.csdn.net/comwise/article/details/16892765
 
+book https://moderncss.dev/topics/
+
+book https://www.atlassian.com/agile
+
 ebpf https://coolshell.cn/articles/22320.html
+
+book https://github.com/lizrice/ebpf-beginners
 
 book Linux工具教程 https://linuxtools-rst.readthedocs.io/zh_CN/latest/
 
@@ -106,7 +122,7 @@ book https://learningsynths.ableton.com/zh-Hans
 
 book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Preface
 
-book https://exploringjs.com/es5/toc.html
+https://web.dev/streams/
 
 https://www.jdon.com/idea/nodejs/io-stream3.html
 
@@ -122,8 +138,6 @@ https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
 
 https://github.com/joeyguo/blog
 
-https://web.dev/streams/
-
 book https://sourceacademy.org/sicpjs/index
 
 book https://webgpufundamentals.org/webgpu/lessons/zh_cn/
@@ -134,7 +148,7 @@ book http://icyfenix.cn/
 
 https://law-cn-ai.vercel.app/
 
-https://www.wangan.com/p/7fy7f8ce7b3d3dc6
+浅谈程序的数字签名 https://www.wangan.com/p/7fy7f8ce7b3d3dc6
 
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
@@ -147,8 +161,6 @@ c10k https://zhuanlan.zhihu.com/p/23114695
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
-
-https://github.com/dunwu/blog/blob/master/source/_posts/15.%E5%88%86%E5%B8%83%E5%BC%8F/21.%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E4%BF%A1/01.RPC/00.RPC%E7%BB%BC%E5%90%88/01.RPC%E5%9F%BA%E7%A1%80.md
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
 
@@ -164,6 +176,17 @@ book https://learngenomics.dev/docs/biological-foundations/cells-genomes-dna-chr
 
 Unity L procedure https://zhuanlan.zhihu.com/p/468185946
 
+
+40+ non-V8 JavaScript implementations https://notes.eatonphil.com/javascript-implementations.html
+
+https://planetscale.com/blog/how-does-database-sharding-work
+
+数据可视化的各种图形，给出详细的解释和示例
+https://datavizproject.com/
+
+Code CHESS in JavaScript https://www.youtube.com/watch?v=Qv0fvm5B0EM
+
+
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
 https://defensivecss.dev/
@@ -173,8 +196,6 @@ book https://github.com/AllenDowney/ThinkDSP
 https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
 
 book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
-
-https://results.stateofreactnative.com/
 
 https://github.com/Pere001/2d-platformer-tutorial-2023
 
@@ -202,8 +223,6 @@ aside design https://css-irl.info/detecting-hover-capable-devices/
 https://github.com/lucaong/minisearch
 
 https://httptoolkit.com/blog/cache-your-cors/
-
-https://allisonseboldt.com/replacing-universal-analytics-plausible-vs-fathom-vs-simple-analytics/
 
 webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 
@@ -244,9 +263,9 @@ https://garden.bradwoods.io/notes/css/3d
 
 https://findthatmeme.com/blog/2023/01/08/image-stacks-and-iphone-racks-building-an-internet-scale-meme-search-engine-Qzrz7V6T.html
 
-https://open.nytimes.com/collective-decision-making-with-ahp-3ef819e5bc2a
-
 https://github.com/google/cdc-file-transfer
+
+层次分析法AHP https://blog.csdn.net/qq_41686130/article/details/122081827
 
 protobuf https://mp.weixin.qq.com/s/dFqm_zTRMkJqvOdY9yaerQ
 
@@ -256,7 +275,7 @@ https://www.zjmainstay.cn/deep-regexp
 
 https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
 
-http://dist-prog-book.com/chapter/1/rpc.html
+book https://github.com/heathermiller/dist-prog-book/blob/master/chapter/1/rpc.md
 
 https://github.com/simeydotme/pokemon-cards-css
 
@@ -281,8 +300,6 @@ book https://meatfighter.com/tetromino-computer/
 
 leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
 
-https://khalilstemmler.com/articles/software-design-architecture/full-stack-software-design/
-
 https://github.com/abouolia/use-next-context
 
 https://www.programiz.com/dsa/radix-sort
@@ -299,17 +316,20 @@ cpp conf https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7A
 
 Creative Writing https://www.youtube.com/playlist?list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ
 
-[Tom Clancy Speaks at the National Security Agency](https://www.youtube.com/watch?v=VS54M5Mqa9M)
+Tom Clancy Speaks at the National Security Agency
+https://www.youtube.com/watch?v=VS54M5Mqa9M
 
-[Audio adventures in Rust: UI with Actix, WebView, and React](https://www.youtube.com/watch?v=vmvq9jKBlGc)
+Audio adventures in Rust: UI with Actix, WebView, and React
+https://www.youtube.com/watch?v=vmvq9jKBlGc
 
-[Image Scaling Attacks are CRAZY!!! Hiding images in plain sight (Machine Learning)](https://www.youtube.com/watch?v=UItbZNBtfaQ)
+Image Scaling Attacks are CRAZY!!! Hiding images in plain sight (Machine Learning)
+https://www.youtube.com/watch?v=UItbZNBtfaQ
 
 https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
 https://blog.hirnschall.net/flow-simulation-js/
 
-book https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
+book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
 
 https://www.khanacademy.org/computing/pixar
 
@@ -323,13 +343,13 @@ https://mortoray.com/finding-neighbours-in-a-hex-map/
 
 book https://course.fast.ai/
 
+book https://github.com/BoltzmannEntropy/interviews.ai
+
 book https://probability4datascience.com/
 
 https://github.com/Dapp-Learning-DAO/Dapp-Learning-Utopia/blob/df709e9df7d832200d7e722eeb9c8b5f8cae8a3d/www/thoughts/2021-11-09-intro-zh/index.mdx
 
-book https://github.com/BoltzmannEntropy/interviews.ai
-
-book https://bookdown.org/rdpeng/advstatcomp/introduction.html
+book statistical https://bookdown.org/rdpeng/advstatcomp/introduction.html
 
 book https://microsoft.github.io/code-with-engineering-playbook/SPRINT-STRUCTURE/
 
@@ -345,7 +365,8 @@ build 8-bit computer https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTB
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
-book http://lotuc.org/PLAI-cn/chap01/
+Programming Languages: Application and Interpretation
+http://lotuc.org/PLAI-cn/chap01/
 
 https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
 
@@ -357,13 +378,16 @@ https://www.bearssl.org/bigint.html
 
 http://cdsweb.u-strasbg.fr/Dic/iau-spec.html
 
-https://meticulous.ai/blog/the-beginner-guide-to-visual-regression-testing/
+Automerge: Making servers optional for real-time collaboration https://www.youtube.com/watch?v=PHz17gwiOc8
+
+https://lost-pixel.com/blog/post/playwright-visual-regression-testing
 
 [Automatic Checking of Regular Expressions](http://elarson.pythonanywhere.com/)
 
 book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
-book https://thecomputersciencebook.com/book/
+book 消息传递接口 https://mpitutorial.com/tutorials/
+
 
 https://www.bleepingcomputer.com/news/security/auth0-fixes-rce-flaw-in-jsonwebtoken-library-used-by-22-000-projects/
 
@@ -380,8 +404,6 @@ YouTube channels focused on mastering a skill/craft https://news.ycombinator.com
 https://github.com/MaxBittker/broider
 
 创业涉及的软件简介 https://fibery.io/startups
-
-https://herbcaudill.com/words/20190219-rewrite-refactor-reinvent
 
 book https://themarketplace.guide/
 
@@ -408,15 +430,11 @@ https://github.com/motion-canvas/motion-canvas
 
 Decree Design Pattern https://calebhearth.com/decree
 
-https://eaton-works.com/2023/02/06/toyota-gspims-hack/
-
 Pixel Renderer Devlog https://www.youtube.com/watch?v=R6vQ9VmMz2w
 
 Music Theory Tools https://muted.io/cheat-sheet/
 
 https://citw.dev/tutorial/create-your-own-compiler
-
-https://eylenburg.github.io/browser_engines.htm
 
 https://pixelparmesan.com/fundamentals-of-isometric-pixel-art/
 
@@ -440,6 +458,8 @@ https://blog.amis.com/srp-1f28676aa525
 https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
 ## CRDT
+
+https://loro-dev.notion.site/crdt-richtext-Rust-implementation-of-Peritext-and-Fugue-c49ef2a411c0404196170ac8daf066c0
 
 https://www.zxch3n.com/crdt-intro/design-crdt/
 
@@ -483,11 +503,15 @@ https://microservices.io/patterns/data/event-sourcing.html
 
 NAND to teris https://www.nand2tetris.org/
 
+Intel Software Developer's Manual https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
+
+https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture
+
+linux x86+nasm tutorial https://0xax.github.io/asm_1/
+
+win32 x86+nasm tutorial https://sonictk.github.io/asm_tutorial/
+
 逻辑电路在线模拟 https://logiclights.vercel.app/
-
-book https://www.timdbg.com/posts/fakers-guide-to-assembly/
-
-x86-intel assembly introduction https://github.com/hackclub/some-assembly-required/tree/main/code/x86-intel
 
 unity mod https://www.bilibili.com/video/BV1Q34y1j7ps/
 
@@ -567,6 +591,10 @@ Open Source Business Modals^(
 (3) professional services, involves selling extended technical support, consulting, and training for Open Source software
 (4) marketplaces, Android)
 
+rewrite-refactor-reinvent^(
+   应该避免重写软件，而是进行渐进式改进——除非你充分了解到你的产品的当前版本与你能想象到的该产品的最佳版本之间存在一定的差距，那么正确的方法就是不要用新的软件替换你的软件版本，在不要扔掉现有的东西的前提下，在它旁边并行构建一些新的东西。不应该因为创新放弃价值。
+)
+
 precise clock: https://codepen.io/smashingmag/pen/BaYVLMj
 
 Chinese-coordinate-system^(
@@ -636,6 +664,12 @@ Gestalttheorie 这个词是德语，字面意思是统一的图案、图形、�
 11. 元素连通性(Element Connectedness) 如果一些元素与其他元素(线条、颜色)相连时，我们认为这些元素是统一体。
 )
 
+测试^(
+   回归测试
+   回归是回到以前或欠发达的状态。在软件测试中，回归测试是指确保应用到软件系统的新更改不会无意中破坏以前工作的东西。
+   视觉回归测试通过比较代码更改前后截取的屏幕截图来检查最终用户看到的差异。
+)
+
 color theory^(
 colors are organized on a color wheel and grouped into 3 categories: primary colors, secondary colors and tertiary colors.
 RGB: the additive color mixing model (red, green, blue)
@@ -645,4 +679,16 @@ Tints, tones and shades are variations of hues, or colors, on the color wheel. A
 Complementary colors are opposites on the color wheel—red and green, for example.
 Analogous colors sit next to one another on the color wheel—red, orange and yellow, for example.
 Triadic colors are evenly spaced around the color wheel and tend to be very bright and dynamic.
+)
+
+computational theory^(
+automata theory:
+   any NFA can be represented as a valid DFA. In fact, deterministic and non-deterministic automata are equivalent.
+   Turing machine is a combination of a NFA + a memory
+   universal Turing machine: a Turing machine that can simulate other Turing machines
+computability theory
+   Church-Turing thesis"A problem is computable only if it can be solved on a Turing machine"
+   halting problem"there is no way to write a program that will tell you in all cases whether a given program will terminate or loop infinitely on a given input" another term called be "decision problem"
+   incompleteness theorem"any “sufficiently expressive” formal system for expressing truth will be incomplete"
+complexity theory
 )
