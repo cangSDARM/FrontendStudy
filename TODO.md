@@ -26,7 +26,12 @@ https://ogp.me/
 
 https://easonchang.com/posts/hygen-generate-new-post
 
-[Have a better developer experience using code generators](https://www.youtube.com/watch?v=SPll1Rxl_Es)
+Have a better developer experience using code generators
+https://www.youtube.com/watch?v=SPll1Rxl_Es
+
+react new hooks
+https://www.51cto.com/article/754355.html
+https://react.dev/reference/react/useImperativeHandle
 
 book https://web.dev/learn/pwa/
 
@@ -35,8 +40,6 @@ https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
 
 https://www.joshwcomeau.com/react/boop/
-
-https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
@@ -55,8 +58,6 @@ book https://sotrh.github.io/learn-wgpu/
 
 https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
 
-the history of shading languages and GPUs
-https://www.youtube.com/watch?v=uL4H1ct_-dI
 https://web.dev/sign-in-form-best-practices/
 
 https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
@@ -116,7 +117,7 @@ book https://czekster.github.io/markov/
 
 book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pdf
 
-book https://learningmusic.ableton.com/zh-Hans/
+book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
 book https://learningsynths.ableton.com/zh-Hans
 
@@ -183,9 +184,6 @@ https://planetscale.com/blog/how-does-database-sharding-work
 
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
-
-Code CHESS in JavaScript https://www.youtube.com/watch?v=Qv0fvm5B0EM
-
 
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
@@ -378,8 +376,6 @@ https://www.bearssl.org/bigint.html
 
 http://cdsweb.u-strasbg.fr/Dic/iau-spec.html
 
-Automerge: Making servers optional for real-time collaboration https://www.youtube.com/watch?v=PHz17gwiOc8
-
 https://lost-pixel.com/blog/post/playwright-visual-regression-testing
 
 [Automatic Checking of Regular Expressions](http://elarson.pythonanywhere.com/)
@@ -487,11 +483,11 @@ https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/
 
 ### micro frontend
 
+https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
+
+monorepo nx https://www.youtube.com/watch?v=M5NwkRNrpK0
+
 bit tutorial https://www.youtube.com/@Bitdev/playlists
-
-qiankun tutorial https://www.bilibili.com/video/BV16T4y1e7TC/
-
-single-spa https://www.youtube.com/watch?v=lQkR-Vlnbgs
 
 piral tutorial https://www.youtube.com/watch?v=ltTXWEwhSiY&list=PLQ9i8GS-LNXkHE8fbkU4Qwgbak4Rwjbg-
 
@@ -692,3 +688,23 @@ computability theory
    incompleteness theorem"any “sufficiently expressive” formal system for expressing truth will be incomplete"
 complexity theory
 )
+
+音乐^(
+   音乐播放的速度称为tempo。Tempo是指每分钟多少节拍(BPM, Beats per Second)。“120BPM”，意思是指每分钟有120下的节拍
+   音节指音乐发音的最小单位。比如说一个敲一下鼓发出的声音就是一个音节；或者按一下钢琴的声音也是一个音节
+   节拍(beat)指代“指循环出现的小节”。常用的节拍有 4/4 拍(four on the floor, 每4音节1拍)
+   四拍一组的单位称为小节(bar/measure)
+   曲风(genre)由许多因素所决定的。这其中包括声音的类型，节奏模式，和速度
+   音高(note)即声音相对的“高度”和“低度”。有些音高会有特定的名字，如ABCDEFG。大多数音乐都有特定的调。假设一首歌是C调，这意味着C音是这首歌主音
+   音阶(Scale)指一组从低到高顺序排列的音符(音高)集合。每一音阶都有着独特的声音气质，许多人甚至会对某一些音阶产生情感共鸣
+   半音音阶(Chromatic Scale)指有12个不同音高(全音高+半音高)顺序排列的音阶
+   大调是指没有降音的音阶，如C大调就是(CDEFGABC)。小调是指有降音的，如C小调就是(CDEbFGAbBbC)
+   和弦(chords)指的是一组不同音高的音符一起同时发声
+鼓
+   最常用的有四种 kick(底鼓, 低音), Snare(军鼓, 中音), Closed hi-hat(踩镲, 短高音), Open hihat(开镲, 有波动的短高音) + Clap(拍手, 促音)
+   假设closed hat时同时一个open hat，closed的声音会作为“主导”，并中断open声音的进行。踩镲和开镲无法同时发生
+   鼓当中节拍点通常由Kick主导
+   当音乐以4/4拍为节拍，clap或snare出现在第二拍和第4拍这种节奏模式，我们称为反拍节奏(backbeat)
+钢琴
+   钢琴键盘上的黑键同时也可以用♯(升)和♭(降)符号来表示。"A♯/B♭"是A和B中间的同一个键
+) https://learningmusic.ableton.com/zh-Hans/
