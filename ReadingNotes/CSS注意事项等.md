@@ -1,17 +1,12 @@
 <!-- TOC -->
 
-[HTML Living Standard: WHATWG, not W3C](https://whatwg-cn.github.io/html/#introduction)
-
 - [CSS3 中的新规则](#css3-中的新规则)
   - [自定义变量](#自定义变量)
   - [访问节点属性](#访问节点属性)
   - [单位](#单位)
   - [新的伪类](#新的伪类)
   - [圆角和多边形](#圆角和多边形)
-      - [圆角](#圆角)
-      - [半圆、多边形](#半圆多边形)
   - [文字排版](#文字排版)
-- [在线和离线事件](#在线和离线事件)
 - [其他注意事项](#其他注意事项)
 
 <!-- /TOC -->
@@ -151,10 +146,6 @@ div {
   writing-mode: horizontal-tb;
 }
 ```
-
-### 在线和离线事件
-
-[Online/Offline](https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
 
 ### 其他注意事项
 

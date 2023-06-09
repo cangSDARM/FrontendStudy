@@ -3,9 +3,8 @@
 <!-- TOC -->
 
 - [RESTful](#restful)
-- [GraphQL](#graphql)
+- [GraphQL](#graphql-1)
 - [Express 实现](#express-实现)
-- [Init](#init)
 
 <!-- /TOC -->
 
@@ -43,9 +42,3 @@ htmls://h5.ele.me/restapi/shopping/rest?latitude=31&longtitue=121
 
 - 使用中间件来拦截非法请求
 - 使用 ConstrucingType 来解构 Schema, 便于维护
-
-## Init
-
-- npm i express graphql express-graphql
-- nodemon main.js
-- localhost:3000/graphql

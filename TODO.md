@@ -1,24 +1,16 @@
 ## Reading List
 
-[浏览器页面的原生生命周期](https://juejin.cn/post/6906779518040539144)
 [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
-[WebHID 通用输入设备逻辑接口(手柄等)](https://web.dev/hid/)
-[Crypto](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 [二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 [二维倾斜 Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
 [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
 [Grid 布局](https://web.dev/learn/css/grid/)
 [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
-[Reflect 反射](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
-[WebNFC](https://web.dev/nfc/)
-[WebSerial_api 串行设备 api(打印机/微控制器等)](https://wicg.github.io/serial/)
 [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 [webassembly](https://wasmbyexample.dev/home.en-us.html#)
 [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
-
-博客重构参考：
 
 https://json-ld.org/
 
@@ -58,7 +50,10 @@ book https://sotrh.github.io/learn-wgpu/
 
 https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
 
-https://web.dev/sign-in-form-best-practices/
+the history of shading languages and GPUs
+https://www.youtube.com/watch?v=uL4H1ct_-dI
+
+book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
 
 https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
 
@@ -66,6 +61,13 @@ https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 https://www.zhangxinxu.com/wordpress/2022/12/css-logic-property-for-write/
 
+https://www.sandromaglione.com/snippets/trie-data-structure-typescript
+
+https://dev.to/documatic/the-art-of-code-review-1lo4
+
+https://nakedjsx.org/
+
+https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ecdc744d/thesis/ctufit-thesis.pdf
 
 根据身高计算椅子高度、桌子高度、屏幕高度
 https://www.ergotron.com/zh-cn/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92%E5%99%A8
@@ -111,8 +113,6 @@ book https://github.com/huangz1990/real-world-haskell-cn
 
 前端工程化 https://www.kancloud.cn/chandler/web_technology/724755
 
-js async modals https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/
-
 book https://czekster.github.io/markov/
 
 book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pdf
@@ -122,10 +122,6 @@ book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 book https://learningsynths.ableton.com/zh-Hans
 
 book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Preface
-
-https://web.dev/streams/
-
-https://www.jdon.com/idea/nodejs/io-stream3.html
 
 node streams https://www.youtube.com/watch?v=e5E8HHEYRNI
 
@@ -155,7 +151,11 @@ Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
 chaos engineering https://www.jianshu.com/p/4bd4f88e24e4
 
-book https://learngitbranching.js.org/
+代码的坏味道和重构 https://dunwu.github.io/blog/pages/d86872/
+
+https://spacelift.io/blog/container-security
+
+https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
 
 c10k https://zhuanlan.zhihu.com/p/23114695
 
@@ -196,8 +196,6 @@ https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
 book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
 
 https://github.com/Pere001/2d-platformer-tutorial-2023
-
-https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
 
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 
@@ -258,8 +256,6 @@ https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How
 go concurrency https://github.com/sourcegraph/conc
 
 https://garden.bradwoods.io/notes/css/3d
-
-https://findthatmeme.com/blog/2023/01/08/image-stacks-and-iphone-racks-building-an-internet-scale-meme-search-engine-Qzrz7V6T.html
 
 https://github.com/google/cdc-file-transfer
 
@@ -372,7 +368,7 @@ https://thesephist.com/posts/lua/
 
 book https://www.learncpp.com/
 
-https://www.bearssl.org/bigint.html
+大整数设计 https://www.bearssl.org/bigint.html
 
 http://cdsweb.u-strasbg.fr/Dic/iau-spec.html
 
@@ -385,7 +381,7 @@ book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 book 消息传递接口 https://mpitutorial.com/tutorials/
 
 
-https://www.bleepingcomputer.com/news/security/auth0-fixes-rce-flaw-in-jsonwebtoken-library-used-by-22-000-projects/
+Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
 
 https://iamkate.com/code/tree-views/
 
@@ -414,8 +410,6 @@ https://mlu-explain.github.io/
 
 https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-programming-in-age-of-empires-and-beyond
 
-Binary to text encoding -- state of the art and missed opportunities https://notes.volution.ro/v1/2023/02/notes/0a9aaa3a/
-
 design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
 
 https://en.wikipedia.org/wiki/K-way_merge_algorithm
@@ -432,6 +426,8 @@ Music Theory Tools https://muted.io/cheat-sheet/
 
 https://citw.dev/tutorial/create-your-own-compiler
 
+https://iucompilercourse.github.io/tutorial-web-page/
+
 https://pixelparmesan.com/fundamentals-of-isometric-pixel-art/
 
 https://c6y.github.io/tilix-reference/
@@ -445,8 +441,6 @@ https://www.construct.net/en/blogs/ashleys-blog-2/rts-devlog-beat-lag-1607
 https://marioslab.io/posts/rendering-like-its-1996/dos-nostalgia/
 
 Windows Subsystem for Android on win10 https://github.com/cinit/WSAPatch/blob/main/README_zhs.md
-
-book https://ohiostate.pressbooks.pub/graphicshistory/
 
 SRP  —  更健全的登入及資料傳輸保護協議
 https://blog.amis.com/srp-1f28676aa525
@@ -530,32 +524,6 @@ https://www.x86matthew.com/view_post?id=selfdebug
 windbg https://www.youtube.com/watch?v=8zBpqc3HkSE&list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu
 
 ---
-
-防止事件循环
-
-- 当新值等于旧值时， trigger 方法不会导致触发 change 事件
-- 模型正处于自身的 change 事件期间时，不会再触发 change 事件
-- 如果在 trigger 方法中添加了{silent:true}选项，则不会触发 change 事件
-
-// Deferred 对象是 Promise 的超集，可以手动触发
-// 参考: https://github.com/shalldie/mini-dfd/blob/master/index.js
-// https://github.com/jquery/jquery/blob/main/src/deferred.js
-var Deferred = $.get('/mydata');
-Deferred.then(onSuccess);
-Deferred.catch(onFailure);
-Deferred.final(onAlways);
-
-Deferred.resolve();
-Deferred.reject();
-
-Deferred.notify(); //通知步进数据
-Deferred.progress(); //步进数据
-
-// 异步工作流库 (简便处理限制并行，复杂依赖的函数链)
-// https://github.com/caolan/async
-// https://github.com/npm/slide-flow-control (带 use case 的实现 demo)
-
-为了统一网络传输时候的字节的顺序，TCP/IP 协议 RFC1700 里规定使用「大端」字节序作为网络字节序，所以，我们在开发网络通讯协议的时候操作 Buffer 都应该用大端序的 API，也就是 BE 结尾的
 
 Use `Url` constructor and `URLSearchParams` for manipulate a url
 

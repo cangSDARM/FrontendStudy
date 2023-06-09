@@ -9,11 +9,15 @@
   - [基于 Promise 的更高层封装，可以将 Promise 链扁平化](#基于-promise-的更高层封装可以将-promise-链扁平化)
   - [async 函数返回永远是一个 Promise，然后像 Promise 一样使用](#async-函数返回永远是一个-promise然后像-promise-一样使用)
   - [await 串行写则是串行执行。前一个 await 完成后，后一个才会调用](#await-串行写则是串行执行前一个-await-完成后后一个才会调用)
-- [生成器(协程)](#生成器协程)
+- [生成器](#生成器)
   - [`throw` 错误进生成器](#throw-错误进生成器)
   - [`return` 终止生成器](#return-终止生成器)
   - [yield\* 用来展开生成器](#yield-用来展开生成器)
 - [Async 和生成器混用](#async-和生成器混用)
+- [扩展：Deferred](#扩展deferred)
+
+
+[js async modals](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
 
 # Promise Async Generator
 
@@ -229,7 +233,7 @@ async function show() {
 }
 ```
 
-## 生成器(协程)
+## 生成器
 
 ```js
 function* func() {
@@ -325,4 +329,23 @@ async function foo() {
 async function bar() {
     for await(const _ of foo()) void;
 }
+```
+
+## 扩展：Deferred
+
+Deferred 对象是 Promise 的超集，可以手动触发
+// 参考: https://github.com/shalldie/mini-dfd/blob/master/index.js
+// https://github.com/jquery/jquery/blob/main/src/deferred.js
+
+```js
+var Deferred = $.get('/mydata');
+Deferred.then(onSuccess);
+Deferred.catch(onFailure);
+Deferred.final(onAlways);
+
+Deferred.resolve();
+Deferred.reject();
+
+Deferred.notify(); //通知步进数据
+Deferred.progress(); //步进数据
 ```

@@ -50,7 +50,7 @@ fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 const logProgress = (res) => {
     const total = res.headers.get('content-length');
     let loaded = 0;
-    const [progressStream, returnStream] = res.body.tee();  //split one stream to mutiple
+    const [progressStream, returnStream] = res.body.tee();
     const reader = progressStream.getReader();
     const log = () => {
         reader.read().then(({ value, done }) => {

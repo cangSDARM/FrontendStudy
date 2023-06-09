@@ -8,6 +8,7 @@
 
 <!-- /TOC -->
 
+- [数据处理模式](./DataFlow/README.md)
 - [Graphics 相关](./graphics/README.md)
 - [Network 相关](./network/README.md)
 - [架构相关](./structure/README.md)
@@ -23,8 +24,10 @@
 
 ### 提案
 
+- **WebHID** 通用输入设备逻辑接口(手柄等)
+- **WebSerial** 串行设备 api(打印机/微控制器等)
+- **WebNFC** Web NFC
 - **WebTransport** 提案将允许在浏览器和服务器之间发送和接收数据，并在顶部使用常见 API 来实现其下的可插拔协议（尤其是基于 QUIC）。该 API 与 WebSocket 相似，也是客户端和服务器的双向连接，但允许进一步减少客户端和服务器之间的网络通信延迟，并且还支持多个流、单向流、乱序和不可靠传输。使用场景包括使用不可靠且乱序的消息向服务器重复发送低延迟的游戏状态、从服务器到客户端的媒体片段的低延迟传输以及大多数逻辑在服务器上运行的云场景。
-- **WebML** Web Machine-Learning
 
 ## 黑魔法
 

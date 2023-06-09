@@ -1,3 +1,6 @@
+- [Favicon](#favicon)
+- [事件周期](#事件周期)
+  - [在线和离线事件](#在线和离线事件)
 - [CSS 处理](#css-处理)
   - [媒体查询](#媒体查询)
 - [检查/搜索元素](#检查搜索元素)
@@ -9,6 +12,57 @@
 - [指针事件](#指针事件)
   - [鼠标拖放](#鼠标拖放)
   - [setPointerCapture](#setpointercapture)
+
+## Favicon
+
+https://realfavicongenerator.net/
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="any">
+<!-- 32x32;48x48;128x128px, size=any表示icon是任意大小,主要用于糊弄chrome让它用svg; -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- type=image表示图像格式,主要用于适配safari让他明白这是svg -->
+<!-- 现代浏览器都应使用svg的favicon,ico用于老旧浏览器兼容 -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<!-- 180x180px, apple-touch-icon用于ios及其他操作系统pwa时 -->
+<link rel="manifest" href="/site.webmanifest" />
+<!-- webmanifest用于安卓 -->
+```
+
+## 事件周期
+
+```js
+<script>
+  log('initial readyState:' + document.readyState);
+
+  document.addEventListener('readystatechange', () => log('readyState:' + document.readyState));
+  document.addEventListener('DOMContentLoaded', () => log('DOMContentLoaded'));
+
+  window.onload = () => log('window onload');
+</script>
+
+<iframe src="iframe.html" onload="log('iframe onload')"></iframe>
+
+<img src="http://en.js.cx/clipart/train.gif" id="img">
+<script>
+  img.onload = () => log('img onload');
+</script>
+/**
+ * 输出顺序：(方括号中的数字表示大致时间)
+  [1] initial readyState:loading
+  [2] readyState:interactive (DOM 树就绪，但像 <img/> 和样式表之类的外部资源可能尚未加载完成)
+  [2] DOMContentLoaded (在interactive后立即触发)
+  [3] iframe onload
+  [4] img onload (页面parse顺序)
+  [4] readyState:complete (所有资源（iframe 和 img）都加载完成后)
+  [4] window onload (始终在所有其他 load 处理程序之后运行)
+*/
+```
+
+### 在线和离线事件
+
+[Online/Offline](https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
+
 
 ## CSS 处理
 

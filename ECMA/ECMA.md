@@ -1,3 +1,14 @@
+- [函数默认值](#函数默认值)
+- [解构](#解构)
+  - [对象解构](#对象解构)
+  - [数组解构](#数组解构)
+  - [复杂解构](#复杂解构)
+  - [for-of 中解构](#for-of-中解构)
+- [类](#类)
+- [Proxy 代理](#proxy-代理)
+  - [可撤销的代理](#可撤销的代理)
+- [Reflect 反射](#reflect-反射)
+
 # ECMA
 
 - 变量修饰符
@@ -60,7 +71,7 @@
   > 可以导出 function, 变量等<br/>
   > 多变量导出: export { value1, value2, ...}
 
-#### 函数默认值
+### 函数默认值
 
 ```js
 //ECS6:
@@ -73,7 +84,7 @@
 ECS5: function(a){ a = a|1 }
 ```
 
-#### 解构
+### 解构
 
 **常用于:**
 
@@ -81,7 +92,7 @@ ECS5: function(a){ a = a|1 }
 2. 从函数返回多个值 `function(){ return [r1, r2, ..] }`
 3. 参数默认值 `function({sync=ture, cache=true}){ }`
 
-##### 对象解构
+#### 对象解构
 
 - 需要变量和属性名字相同
 
@@ -103,7 +114,7 @@ ECS5: function(a){ a = a|1 }
     let { ['z']: foo } = { z: "bar" }   //foo "bar"
 ```
 
-##### 数组解构
+#### 数组解构
 
 ```js
 //快速拆解数组
@@ -117,19 +128,19 @@ var [foo, [[bar], baz]] = ([1, [[2], 3]][
 ] = []); //0号下标元素未定义
 ```
 
-##### 复杂解构
+#### 复杂解构
 
 ```js
 let [{ age }] = [{ age: 8, name: "xx" }, "深圳", [1, 2, 3]];
 ```
 
-##### for-of 中解构
+#### for-of 中解构
 
 ```js
 for (var {name: n, family: {father: f}} of people)
 ```
 
-#### 类
+### 类
 
 > 继承: class A extends B { constructor(a,b){ super(a); }}<br/>
 > 重写父类方法不需要任何关键字<br/>
@@ -187,11 +198,11 @@ class User extends f("Hello") {}  //继承自 f("Hello") 的结果
 new User().sayHi();
 ```
 
-#### Proxy 代理
+### Proxy 代理
 
 > `const proxy = new Proxy(target, handler)`<br/>
 > 使用 handler 对象限定 target 的访问和重写其元方法.<br/>
-> handler 会捕获[特定的 trap 动作](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy#handler_%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95)<br/>
+> handler 会捕获[特定的 trap 动作](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy)<br/>
 > 严格相等性检查 `===` 无法被拦截<br/>
 
 ```js
@@ -209,7 +220,7 @@ const handler = {
 }
 ```
 
-##### 可撤销的代理
+#### 可撤销的代理
 
 > 代理会将操作转发给对象，并且我们可以随时将其禁用
 
@@ -225,13 +236,26 @@ revoke();
 alert(proxy.data); // Error
 ```
 
-#### Reflect 反射
+### Reflect 反射
 
-> 提供拦截 JavaScript 操作(.[], (), new, delete)的方法
+> 提供拦截元操作(.[], (), new, delete)的方法
+>
+> 规范化：Object 里已有的明显属于元编程的函数挪到 Reflect 里，并修正不合理行为<br/>
+> 函数化：in/new/delete 命令操作函数化<br/>
+> 和Proxy的使命相同：提供元编程功能
 
 ```js
-Reflect.set(duck, 'eyes', 'black'); // duck['eyes'] = 'black'
-Reflect.ownKeys(duck);  //Object.ownKeys(duck)
-Reflect.deleteProperty(duck, 'eyes'); //delete duck['eyes']
-Reflect.construct(duck, value); //new duck(value)
+Reflect.apply(target, this, [...args]); // 通过指定的参数列表发起对target函数调用
+Reflect.construct(target, [...args], newTarget); // new target()，构造函数内部的new.target值会指向target
+Reflect.defineProperty(target, key, attr);   // 设置属性描述值，Object 失败抛异常，Reflect 返回布尔值。
+Reflect.deleteProperty(target, key);  // delete target[key]，唯一不同是返回布尔值。
+Reflect.get(target, key);  // target[key]，但它是通过一个函数执行来操作的
+Reflect.set(target, key, value); // target[key]=value，唯一不同是返回布尔值。
+Reflect.getOwnPropertyDescriptor(target, key); // 获取属性的属性描述符，当属性不存在时返回 undefined。Reflect 抛异常，Object 强制转换非 Object
+Reflect.getPrototypeOf(target);  // 获取对象的原型对象，Reflect 抛异常，Object 强制转换非 Object
+Reflect.has(target, key); // key in target，返回布尔值。Reflect 抛异常，Object 强制转换非 Object
+Reflect.ownKeys(target); // 等同于 Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))
+Reflect.isExtensible(target);  // 判断一个对象是否可扩展（即是否能够添加新的属性）。Reflect 抛异常，Object 强制转换非 Object
+Reflect.preventExtensions(target);  // 阻止新属性添加到对象。Reflect 抛异常，Object 强制转换非 Object
+Reflect.setPrototypeOf(target, prototype); // 为对象设置新的原型对象。Reflect 返回布尔值，Object 返回新对象
 ```
