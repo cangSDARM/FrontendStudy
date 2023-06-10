@@ -6,19 +6,15 @@ import Layout from "../componets/layout"
 // improt 用default导出的组件时，
 // 应为import 类名 from “./…js”
 
-// @从src开始寻找路径
-import Layout from "@/componets/layout"
-
 //更好的redux
 import { Provider } from 'react-redux'
 //<Provider store={ Store }><Provider>
 //  使得子组件可以获取store
 //  里面必须只能用一个子元素包裹所有其它元素
 
-// PWA progressvie web application
-//	   - 只要服务器支持https, 用户可以在不联网时访问以前的缓存
-//	   - 将原有data放在浏览器中
-//	   - gatsby没有内置
+// PWA
+//	 - 只要服务器支持https, 用户可以在不联网时访问以前的缓存
+//	 - 将原有data放在浏览器中
 //import registerServiceWorker from './registerServiceWorker'
 
 //父

@@ -21,10 +21,6 @@ https://easonchang.com/posts/hygen-generate-new-post
 Have a better developer experience using code generators
 https://www.youtube.com/watch?v=SPll1Rxl_Es
 
-react new hooks
-https://www.51cto.com/article/754355.html
-https://react.dev/reference/react/useImperativeHandle
-
 book https://web.dev/learn/pwa/
 
 https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
@@ -39,6 +35,12 @@ https://webkit.org/blog/13096/css-has-pseudo-class/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries
 
+edit http req/rep https://httptoolkit.com/
+
+what is cors https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS
+
+check api is a cors rep https://httptoolkit.com/will-it-cors/
+
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
 
@@ -50,16 +52,13 @@ book https://sotrh.github.io/learn-wgpu/
 
 https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
 
-the history of shading languages and GPUs
-https://www.youtube.com/watch?v=uL4H1ct_-dI
-
 book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
 
 https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
 
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
-https://www.zhangxinxu.com/wordpress/2022/12/css-logic-property-for-write/
+https://www.zhangxinxu.com/wordpress/2016/03/css-direction-introduction-apply/
 
 https://www.sandromaglione.com/snippets/trie-data-structure-typescript
 
@@ -71,9 +70,8 @@ https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ec
 
 根据身高计算椅子高度、桌子高度、屏幕高度
 https://www.ergotron.com/zh-cn/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92%E5%99%A8
-http://www.hackdig.com/06/hack-46619.htm
 
-https://sidbala.com/h-264-is-magic/
+http://www.hackdig.com/06/hack-46619.htm
 
 https://www.smashingmagazine.com/2021/09/orchestrating-complexity-web-animations-api/
 
@@ -123,7 +121,7 @@ book https://learningsynths.ableton.com/zh-Hans
 
 book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Preface
 
-node streams https://www.youtube.com/watch?v=e5E8HHEYRNI
+node stream https://youtu.be/e5E8HHEYRNI?t=328
 
 did https://www.syscom.com.tw/ePaper_New_Content.aspx?id=784&EPID=271&TableName=sgEPArticle
 
@@ -195,7 +193,7 @@ https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
 
 book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
 
-https://github.com/Pere001/2d-platformer-tutorial-2023
+https://github.com/Pere001/2d-platformer-tutorial-2023#intro
 
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 
@@ -218,8 +216,6 @@ aside design https://css-irl.info/detecting-hover-capable-devices/
 
 https://github.com/lucaong/minisearch
 
-https://httptoolkit.com/blog/cache-your-cors/
-
 webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 
 OTP & TOTP https://www.jianshu.com/p/a7b900e8e50a
@@ -228,7 +224,7 @@ OTP & TOTP https://zhuanlan.zhihu.com/p/484991482
 
 密码分析学 (门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
 
-Bresenham 直线算法 https://www.gcores.com/articles/150791
+2D Graphics Algorithms https://youtu.be/bfvmPa9eWew?t=146
 
 https://lcamtuf.coredump.cx/photo_basics/
 
@@ -249,7 +245,7 @@ https://www.gcores.com/articles/161716
 
 https://two-wrongs.com/statistical-process-control-a-practitioners-guide
 
-https://busy-beavers.tigyog.app/rice
+rice Algorithm tutorial https://busy-beavers.tigyog.app/rice
 
 https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How%20to%20use%20React%20with%20Rust%20Actix.md
 
@@ -261,11 +257,7 @@ https://github.com/google/cdc-file-transfer
 
 层次分析法AHP https://blog.csdn.net/qq_41686130/article/details/122081827
 
-protobuf https://mp.weixin.qq.com/s/dFqm_zTRMkJqvOdY9yaerQ
-
 make a language https://arzg.github.io/lang/
-
-https://www.zjmainstay.cn/deep-regexp
 
 https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
 
@@ -283,7 +275,7 @@ https://www.infoq.com/presentations/scientific-method-testing-resilience/
 
 https://danpalmer.me/2020-05-18-board-game-design/
 
-https://www.rtl-sdr.com/iqengine-a-web-based-toolkit-for-sharing-and-analyzing-rf-iq-recordings/
+https://www.iqengine.org/sigmf
 
 https://github.com/jawj/subtls
 
@@ -302,22 +294,17 @@ sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
-threejs https://www.youtube.com/watch?v=frgmk0Wu76A
-
 Basic optics: lenses, prisms, and traversals in Haskell https://www.youtube.com/watch?v=geV8F59q48E
 
 cpp conf https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7Ag
 
-Creative Writing https://www.youtube.com/playlist?list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ
+Creative Writing https://www.youtube.com/watch?v=-6HOdHEeosc&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=2
 
 Tom Clancy Speaks at the National Security Agency
 https://www.youtube.com/watch?v=VS54M5Mqa9M
 
 Audio adventures in Rust: UI with Actix, WebView, and React
 https://www.youtube.com/watch?v=vmvq9jKBlGc
-
-Image Scaling Attacks are CRAZY!!! Hiding images in plain sight (Machine Learning)
-https://www.youtube.com/watch?v=UItbZNBtfaQ
 
 https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
@@ -355,7 +342,7 @@ https://webkit.org/blog/6161/locking-in-webkit/
 
 https://dragostis.github.io/posts/analytic-quad-offset/
 
-build 8-bit computer https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
+build 8-bit computer https://www.youtube.com/watch?v=kRlSFm519Bo&list=PLowKtXNTBypGqImE405J2565dvjafglHU&index=2
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
@@ -380,7 +367,6 @@ book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
 book 消息传递接口 https://mpitutorial.com/tutorials/
 
-
 Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
 
 https://iamkate.com/code/tree-views/
@@ -398,8 +384,6 @@ https://github.com/MaxBittker/broider
 创业涉及的软件简介 https://fibery.io/startups
 
 book https://themarketplace.guide/
-
-Steve Jobs on Market Research https://www.youtube.com/watch?v=2U3w5Blv0Lg
 
 https://www.infoq.cn/article/C4-architecture-model/
 
@@ -486,8 +470,6 @@ bit tutorial https://www.youtube.com/@Bitdev/playlists
 piral tutorial https://www.youtube.com/watch?v=ltTXWEwhSiY&list=PLQ9i8GS-LNXkHE8fbkU4Qwgbak4Rwjbg-
 
 https://blog.bitsrc.io/revolutionizing-micro-frontends-with-webpack-5-module-federation-and-bit-99ff81ceb0
-
-https://microservices.io/patterns/data/event-sourcing.html
 
 ### game mod
 
@@ -676,3 +658,28 @@ complexity theory
 钢琴
    钢琴键盘上的黑键同时也可以用♯(升)和♭(降)符号来表示。"A♯/B♭"是A和B中间的同一个键
 ) https://learningmusic.ableton.com/zh-Hans/
+
+字符系统^(
+- 字符
+  指字母、数字、标点、表意文字、符号，或其他文本形式的书写“原子”。
+  由统一字符集（Universal Character Set，UCS, 它的非正式的名字
+  是 Unicode）首创，为多种语言中的很多字符开发了一系列标准化的文本名称，
+  它们常用来便捷地命名字符，而且不会与其他字符冲突
+- 字形
+  描述字符的笔画图案或唯一的图形化形状。如果一个字符有多种不同的写法，就有多个字形
+- 编码后的字符
+  分配给字符的唯一数字编号，这样我们就可以操作它了。
+- 代码空间
+  计划用于字符代码值的整数范围。
+- 代码宽度
+  每个（固定大小的）字符代码所用的位数。
+- 字符库
+  特定的工作字符集（全体字符的一个子集）
+- 编码后的字符集
+  组成字符库（从全球的字符中选出若干字符）的已编码字符集，并为每个字符
+  分配代码空间中的一个代码。换句话说，它把 Int 映射为实际的字符。
+- 字符编码方案
+  把 Int 编码成一系列二进制码（并能相应地反向解码）的算法。字符编码方案
+  可用来减少识别字符所需要的数据总量（压缩）、解决传输限制、统一重叠编码字符集
+  有三种主要类型: 固定宽度、可变宽度(无模态)、可变宽度(有模态)。模态指可以通过特殊转义在不同模态间切换，以支持复杂的书写系统(如连笔)
+)

@@ -72,15 +72,14 @@ const Button = (props)=>(
 //****************************************************************
 
 //*************************************按需加载
-import loadable from 'react-loadable';
+import { lazy, Suspense } from 'react';
 
-const PageLoad = loadable({
-	loader: ()=> import('./Index'),		//需要加载的组件
-	loading: ()=> <div>loading</div>,	//加载时显示的信息
-});
-
-React.lazy
-  https://reactjs.bootcss.com/docs/code-splitting.html
+//需要加载的组件
+const PageLoad = lazy(() => import('./Index'));
+//加载时显示的信息
+<Suspense fallback={<div>loading</div>}>
+	<PageLoad />
+</Suspense>
 
 //****************************************************************
 
@@ -89,9 +88,9 @@ React.lazy
 // 将虚拟DOM映射到任何真实DOM节点
 // 解决了漂浮层问题
 // 除了渲染位置不同外, 和其它组件相同
-ReactDOM.createProtal(
+ReactDOM.createPortal(
 	this.Dialog(),		//虚拟节点
-	document.getElementById("Dialog-Wapper"),	//真实存在的DOM节点. 不能是React渲染出来的虚拟节点
+	document.getElementById("Dialog-Warper"),	//真实存在的DOM节点. 不能是React渲染出来的虚拟节点
 )
 //****************************************************************
 
@@ -99,15 +98,19 @@ ReactDOM.createProtal(
 // >=16.x
 // 通过一个生命周期方法捕获子组件的所有异常
 // 只能捕获子组件的异常，而不能捕获自身出现的异常
+// 只能以class组件的形式定义
 // 只能捕获Render和生命周期方法中出现的异常
-// 只能在Create-React-App中使用. 其它配置情况自己百度
-componentDidCatch(error, info){
-	*@param error: 被抛出的异常
-	*@param info: 包含异常堆栈列表的对象
-	console.error({error: info})
+class ErrorBoundary extends React.Component {
+	componentDidCatch(error, info){
+		*@param error: 被抛出的异常
+		*@param info: 包含异常堆栈列表的对象
+		console.error({error: info})
+	}
+	render() {
+		// 不干扰子组件结构
+		return this.props.children;
+	}
 }
-详细参考:
-	https://blog.csdn.net/liwusen/article/details/78521006
 //****************************************************************
 
 //**************************************React.memo
@@ -119,12 +122,3 @@ const Comp = React.memo(function MyMemoComp(props){
 }, customMemoFunc)
 
 //****************************************************************
-
-Time Slicing和Suspense
-	https://segmentfault.com/a/1190000013524698
-React16 Fiber架构
-	http://zxc0328.github.io/2017/09/28/react-16-source/
-React16 生命周期改动
-	https://juejin.im/post/5abf4a09f265da237719899d
-Suspense
-	https://www.colabug.com/5397403.html
