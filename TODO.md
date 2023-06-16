@@ -43,22 +43,28 @@ check api is a cors rep https://httptoolkit.com/will-it-cors/
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
-
-https://alain.xyz/blog/game-engine-architecture
-
-https://cloud.tencent.com/developer/article/1893989
-
-book https://sotrh.github.io/learn-wgpu/
-
-https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
-
 book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
 
 https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
 
+https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm
+
+rust wasm framework https://trunkrs.dev/
+
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 https://www.zhangxinxu.com/wordpress/2016/03/css-direction-introduction-apply/
+
+聊天内容不经过服务器，可以自己搭建，分享房间号给其他人 https://chitchatter.im/
+https://getaether.net/
+
+https://kreya.app/blog/rest-vs-grpc/
+
+https://qri.org/blog/psycrypto-contest
+
+https://eli.thegreenplace.net/2023/demystifying-tuppers-formula/
+
+https://netflixtechblog.com/native-frame-rate-playback-6c87836a948
 
 https://www.sandromaglione.com/snippets/trie-data-structure-typescript
 
@@ -70,6 +76,8 @@ https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ec
 
 根据身高计算椅子高度、桌子高度、屏幕高度
 https://www.ergotron.com/zh-cn/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92%E5%99%A8
+
+https://embedded.fm/blog/2023/5/19/embedded-skills-tree
 
 http://www.hackdig.com/06/hack-46619.htm
 
@@ -105,6 +113,10 @@ ebpf https://coolshell.cn/articles/22320.html
 
 book https://github.com/lizrice/ebpf-beginners
 
+https://blog.cloudnativefolks.org/ebpf-for-cybersecurity-part-1
+
+https://betterprogramming.pub/a-visual-guide-to-sed-a7a8abd2f675
+
 book Linux工具教程 https://linuxtools-rst.readthedocs.io/zh_CN/latest/
 
 book https://github.com/huangz1990/real-world-haskell-cn
@@ -119,7 +131,7 @@ book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
 book https://learningsynths.ableton.com/zh-Hans
 
-book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Preface
+book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Chapter-1_What_Is_Software_Engineering/Chapter-1_What_Is_Software_Engineering?id=hyrums-law-%e6%b5%b7%e5%8b%92%e5%a7%86%e5%ae%9a%e5%be%8b
 
 node stream https://youtu.be/e5E8HHEYRNI?t=328
 
@@ -127,17 +139,15 @@ did https://www.syscom.com.tw/ePaper_New_Content.aspx?id=784&EPID=271&TableName=
 
 Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
+桌游太空竞速的设计 https://www.youtube.com/watch?v=JcyyeAww2wc
+
 如何将 exe 反编译成 Python 脚本 https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&mid=2648982698&idx=1&sn=36e8c6a513508e473c7abe5d132f21e2
 
 https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
 
 https://github.com/joeyguo/blog
 
-book https://sourceacademy.org/sicpjs/index
-
-book https://webgpufundamentals.org/webgpu/lessons/zh_cn/
-
-book https://diveintosystems.org/book/index.html
+book https://diveintosystems.org/book/introduction.html
 
 book http://icyfenix.cn/
 
@@ -336,6 +346,10 @@ book https://microsoft.github.io/code-with-engineering-playbook/SPRINT-STRUCTURE
 
 https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
 
+https://jamiemagee.co.uk/blog/your-jest-tests-might-be-wrong/
+
+https://safecurves.cr.yp.to/
+
 https://github.com/rust-lang/rust/issues/93740
 
 https://webkit.org/blog/6161/locking-in-webkit/
@@ -345,6 +359,8 @@ https://dragostis.github.io/posts/analytic-quad-offset/
 build 8-bit computer https://www.youtube.com/watch?v=kRlSFm519Bo&list=PLowKtXNTBypGqImE405J2565dvjafglHU&index=2
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
+
+https://onevariable.com/blog/phase-locked-state-machines/
 
 Programming Languages: Application and Interpretation
 http://lotuc.org/PLAI-cn/chap01/
@@ -430,6 +446,46 @@ SRP  —  更健全的登入及資料傳輸保護協議
 https://blog.amis.com/srp-1f28676aa525
 
 https://greptime.com/blogs/2023-01-12-hidden-control-flow
+
+## Computer Graphics (WGSL)
+
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-uniforms.html
+
+https://carmencincotti.com/2022-05-16/rasterization/
+
+https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
+
+https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/perspective-correct-interpolation-vertex-attributes.html
+
+Center or Centroid? (Or When Shaders Attack!) https://www.opengl.org/pipeline/article/vol003_6/
+
+https://asawicki.info/news_1721_how_to_correctly_interpolate_vertex_attributes_on_a_parallelogram_using_modern_gpus
+
+https://cglearn.codelight.eu/pub/computer-graphics/computer-graphics
+
+https://decode.sh/building-a-code-pen-type-editor-from-scratch
+
+https://alain.xyz/blog/realtime-renderer-architectures
+
+https://webgpu.github.io/webgpu-samples/samples/helloTriangle
+
+https://alain.xyz/blog/game-engine-architecture
+
+https://maierfelix.github.io/2020-01-13-webgpu-ray-tracing/
+
+http://erights.org/elib/distrib/pipeline.html
+
+https://www.jezzamon.com/fourier/
+
+https://github.com/hjlld/LearningWebGPU/blob/wgsl/Lesson0_Whole_new_start/Tutorial/Lesson0_Whole_new_start.md
+
+https://cloud.tencent.com/developer/article/1893989
+
+https://www.willusher.io/graphics/2023/05/16/0-to-gltf-first-mesh
+
+book https://jinleili.github.io/learn-wgpu-zh/beginner/wgsl
+
+book https://sotrh.github.io/learn-wgpu/
 
 ## CRDT
 
