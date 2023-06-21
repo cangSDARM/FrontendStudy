@@ -21,6 +21,8 @@ https://easonchang.com/posts/hygen-generate-new-post
 Have a better developer experience using code generators
 https://www.youtube.com/watch?v=SPll1Rxl_Es
 
+https://zh.javascript.info/selection-range
+
 book https://web.dev/learn/pwa/
 
 https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
@@ -126,6 +128,8 @@ book https://github.com/huangz1990/real-world-haskell-cn
 book https://czekster.github.io/markov/
 
 book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pdf
+
+https://interfaces.rauno.me/
 
 book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
@@ -322,6 +326,8 @@ https://blog.hirnschall.net/flow-simulation-js/
 
 book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
 
+https://abhinavsarkar.net/posts/implementing-co-4/
+
 https://www.khanacademy.org/computing/pixar
 
 book https://kylemayes.github.io/vulkanalia/
@@ -382,6 +388,10 @@ https://lost-pixel.com/blog/post/playwright-visual-regression-testing
 book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
 book 消息传递接口 https://mpitutorial.com/tutorials/
+
+https://thebookofshaders.com/?lan=ch
+
+包含了最常用的10种Web安全漏洞，供练习者破解 https://github.com/juice-shop/juice-shop
 
 Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
 
@@ -449,7 +459,7 @@ https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
 ## Computer Graphics (WGSL)
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-uniforms.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-vertex-buffers.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
 

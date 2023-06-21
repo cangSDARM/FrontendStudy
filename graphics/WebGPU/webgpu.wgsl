@@ -21,14 +21,19 @@ struct VertexOutPut {
 
 // 绑定到第0个location，的第0个bindGroup
 // 类型是storage(GPUBufferUsage.STORAGE)，功能是read_write(GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST)
+// storage可修改，但只能GPGPU中修改
+// array 在js中依然是一个TypeedArray,只是offset按照array内容去取
 @group(0) @binding(0) var<storage, read_write> data: array<f32>;
 
-// uniform 相当于wgsl里的全局变量。可以通过js设置修改，并通过wgsl读取
+// usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+// uniform ≈ var<storage, read>，但uniform更快，而大小限制更严格
 @group(0) @binding(0) var<uniform> uniformStruct: SomeStruct;
 
 // Vertex 对每次渲染过程调用(vertexIndex表识第几次调用)生成顶点，光栅化后 GPU 丢弃不需要的渲染的 pixel
 @stage(vertex) fn v_main(
-    @builtin(vertex_index) vertexIndex : u32
+    @builtin(vertex_index) vertexIndex : u32,
+    // draw 的第二个参数。vertex 会 per instanceIndex per vertexIndex drawn
+    @builtin(instance_index) instanceIndex: u32
 ) -> VertexOutPut {
     // WebGPU的座标空间是标准化后的[-1, 1]
     var pos = array<vec2f, 3>(

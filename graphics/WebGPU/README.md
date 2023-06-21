@@ -137,7 +137,7 @@ const pass = encoder.beginRenderPass(renderPassDescriptor);
 pass.setPipeline(pipeline);
 pass.setBindGroup(0, bindGroup); // map buffer group
 pass.dispatchWorkgroups(input.length); // call compute shader 3 times
-pass.draw(3); // call our vertex shader 3 times
+pass.draw(3, 2); // call our vertex shader 3 * 2 times (per 2 obj, 3 times)
 // render pass 完成，准备提交
 pass.end();
 
