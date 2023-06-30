@@ -18,7 +18,6 @@
 [纹理映射的示例程序](./TextureQuad.md)
 [OpenGL ES](./OpenGL%20ES.md)
 
-- WebGL 内置于浏览器内, 基于`OpenGL ES 2.0`, 使用*GLSL ES*编写 shader
 - WebGL 的颜色使用`0-1`
 - WebGL 的 X 轴水平向右, Y 轴水平向下, Z 轴水平向外
 - WebGL 不需要交换颜色缓冲区
@@ -32,6 +31,7 @@
 - canvas 中，如果裁切面的宽高比和 canvas 不同，将按照 canvas 的进行压缩，物体会被扭曲
 - **齐次坐标**指: `(x, y, z, w)`， 是个四维坐标. 等价于三维中的`(x/w, y/w, z/w)`
 - 观察者所处的位置称为**视点(eye point)**，从视点出发沿着观察方向的射线称为**视线(viewing direction)**
+- WebGL 基于`OpenGL ES 2.0`, 使用*GLSL ES*编写 shader。其直接着色器程序源代码，用文本的形式提交给浏览器，然后浏览器内部再提交到 GPU 使用显卡驱动中的 OpenGL 实现进行编译(事实上，在大部分 Windows 操作系统上，浏览器会使用 ANGLE 引擎将 GLSL 转换为 DirectX 3D 使用的 HLSL 语言和接口，最终使用 DirectX 实现 WebGL 的绘制)
 
 ### 可绘制的基本图形
 

@@ -230,7 +230,7 @@ aside design https://css-irl.info/detecting-hover-capable-devices/
 
 https://github.com/lucaong/minisearch
 
-webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
+https://hughfenghen.github.io/fe/body-mask-danmaku/#%E5%89%8D%E8%A8%80
 
 OTP & TOTP https://www.jianshu.com/p/a7b900e8e50a
 
@@ -330,10 +330,6 @@ https://abhinavsarkar.net/posts/implementing-co-4/
 
 https://www.khanacademy.org/computing/pixar
 
-book https://kylemayes.github.io/vulkanalia/
-
-vulkan cpp https://www.youtube.com/@BrendanGalea/videos
-
 https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html
 
 https://mortoray.com/finding-neighbours-in-a-hex-map/
@@ -366,6 +362,8 @@ build 8-bit computer https://www.youtube.com/watch?v=kRlSFm519Bo&list=PLowKtXNTB
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
+https://github.com/kochrt/qr-designer
+
 https://onevariable.com/blog/phase-locked-state-machines/
 
 Programming Languages: Application and Interpretation
@@ -389,9 +387,13 @@ book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
 book 消息传递接口 https://mpitutorial.com/tutorials/
 
-https://thebookofshaders.com/?lan=ch
+https://thecomputersciencebook.com/book/algorithms-and-data-structures/
+
+https://palmstroem.blogspot.com/2012/05/lambda-calculus-for-absolute-dummies.html
 
 包含了最常用的10种Web安全漏洞，供练习者破解 https://github.com/juice-shop/juice-shop
+
+How to Create Cool Bounce Effects Using a Loop  https://www.youtube.com/watch?v=BRR7x-uLoWE
 
 Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
 
@@ -459,13 +461,33 @@ https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
 ## Computer Graphics (WGSL)
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-vertex-buffers.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-importing-textures.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
 
+webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
+
+https://www.vertexshaderart.com/
+
+https://wickedengine.net/2017/06/05/should-we-get-rid-of-vertex-buffers/
+
+https://www.yosoygames.com.ar/wp/2018/03/vertex-formats-part-2-fetch-vs-pull/
+
 https://github.com/OmarShehata/webgpu-compute-rasterizer/blob/main/how-to-build-a-compute-rasterizer.md
 
+https://sbcode.net/threejs/add-initial-scripts/
+
+https://kosmonautblog.wordpress.com/2017/06/04/terrain-rendering-overview-and-tricks/
+
+https://developer.nvidia.com/gpugems/gpugems3/contributors
+
 https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/perspective-correct-interpolation-vertex-attributes.html
+
+https://vulkan-tutorial.com/Introduction
+
+book https://kylemayes.github.io/vulkanalia/
+
+vulkan cpp https://www.youtube.com/@BrendanGalea/videos
 
 Center or Centroid? (Or When Shaders Attack!) https://www.opengl.org/pipeline/article/vol003_6/
 
@@ -479,6 +501,8 @@ https://alain.xyz/blog/realtime-renderer-architectures
 
 https://webgpu.github.io/webgpu-samples/samples/helloTriangle
 
+https://compute.toys/list/0
+
 https://alain.xyz/blog/game-engine-architecture
 
 https://maierfelix.github.io/2020-01-13-webgpu-ray-tracing/
@@ -487,15 +511,23 @@ http://erights.org/elib/distrib/pipeline.html
 
 https://www.jezzamon.com/fourier/
 
-https://github.com/hjlld/LearningWebGPU/blob/wgsl/Lesson0_Whole_new_start/Tutorial/Lesson0_Whole_new_start.md
+https://thebookofshaders.com/?lan=ch
 
-https://cloud.tencent.com/developer/article/1893989
+https://github.com/hjlld/LearningWebGPU/blob/wgsl/Lesson2_Add_Color/Tutorial/Lesson2_Add_colors.md
 
 https://www.willusher.io/graphics/2023/05/16/0-to-gltf-first-mesh
 
-book https://jinleili.github.io/learn-wgpu-zh/beginner/wgsl
+book https://jinleili.github.io/learn-wgpu-zh/beginner/tutorial1-window
 
 book https://sotrh.github.io/learn-wgpu/
+
+book https://google.github.io/tour-of-wgsl/
+
+https://github.com/jinleili/simuverse
+
+https://github.com/jinleili/bevy-in-app
+
+https://github.com/jinleili/wgpu-in-app
 
 ## CRDT
 
