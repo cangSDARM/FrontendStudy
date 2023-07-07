@@ -5,17 +5,23 @@
   - [访问节点属性](#访问节点属性)
   - [单位](#单位)
   - [新的伪类](#新的伪类)
-  - [圆角和多边形](#圆角和多边形)
+    - [子级匹配选择器](#子级匹配选择器)
+  - [容器查询](#容器查询)
+  - [元素形状](#元素形状)
+    - [圆角](#圆角)
+    - [半圆、多边形](#半圆多边形)
+    - [内凹图形](#内凹图形)
   - [文字排版](#文字排版)
+    - [文字环绕](#文字环绕)
 - [其他注意事项](#其他注意事项)
 
 <!-- /TOC -->
 
-### CSS3 中的新规则
+## CSS3 中的新规则
 
 [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)
 
-#### 自定义变量
+### 自定义变量
 
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)
 
@@ -32,7 +38,7 @@ span {
 }
 ```
 
-#### 访问节点属性
+### 访问节点属性
 
 > [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr)
 
@@ -42,7 +48,7 @@ p:before {
 }
 ```
 
-#### 单位
+### 单位
 
 [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/length)
 
@@ -92,7 +98,7 @@ html {
 }
 ```
 
-#### 新的伪类
+### 新的伪类
 
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Selectors)
 
@@ -104,12 +110,44 @@ html {
 :first-of-type {};  /*选择在父元素中第一个出现的元素，而不管其在兄弟内的位置如何*/
 :focus-within {};   /*元素自身或者它的某个后代匹配:focus伪类*/
 :indeterminate {};  /*表示状态不确定的表单元素*/
-...
+:is(div, span, p, ul); /*和 div,span,p,ul {} 一样，但是这样可以组合更为复杂的样式*/
 ```
 
-#### 圆角和多边形
+#### 子级匹配选择器
 
-###### 圆角
+父级有该子级，父级才会应用 style
+
+```css
+parent:has(> child) {
+  direction: rtl;
+}
+parent:has(child) {
+  direction: rtl;
+}
+```
+
+### 容器查询
+
+支持查询父容器大小来实现响应式
+
+```css
+parent {
+  container-type: inline-size;  /*现在只有这个可用*/
+  container-name: Cont;
+}
+
+/*查询语法和 media query 一致*/
+/* name 写了只能用于表明的 container */
+@container Cont (size condition) {
+  /*内部的元素及可方便设置*/
+  .child-cls {}
+  #child-id {}
+}
+```
+
+### 元素形状
+
+#### 圆角
 
 > [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
 
@@ -122,7 +160,7 @@ div {
 }
 ```
 
-###### 半圆、多边形
+#### 半圆、多边形
 
 > [使用裁剪方式创建元素的可显示区域](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)
 
@@ -135,7 +173,11 @@ div {
 }
 ```
 
-#### 文字排版
+#### 内凹图形
+
+使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
+
+### 文字排版
 
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode)
 
@@ -147,8 +189,23 @@ div {
 }
 ```
 
-### 其他注意事项
+#### 文字环绕
+
+> [Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
+
+```css
+/*不一定需要img，div等也可以*/
+img {
+  /* 图片外形，相邻的内联内容可围绕该形状 */
+  shape-outside: url(/media/examples/round-balloon.png);
+  /* shape 和外部内联内容的 margin */
+  shape-margin: 2px;
+  /* shape 边缘 alpha 的阈值 */
+  shape-image-threshold: 0.7;
+}
+```
+
+## 其他注意事项
 
 1. `inline`元素只能包括`block`或`inline`中的一种. 如果有混合内容, 则应该创建匿名的`block`呈现器以包裹`inline`元素
-2. 使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
-3. [图片版注意事项](./其他注意事项图片版.md)
+2. [图片版注意事项](./其他注意事项图片版.md)

@@ -2,8 +2,6 @@
 
 [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 [二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
-[二维倾斜 Transform](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/skew)
-[Shape](https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside)
 [Grid 布局](https://web.dev/learn/css/grid/)
 [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
 [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
@@ -12,16 +10,81 @@
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
 
+[Autofill Issue](https://github.com/facebook/react/issues/1159)
+https://react-hook-form.com/
+
 https://json-ld.org/
 
 https://ogp.me/
 
 https://easonchang.com/posts/hygen-generate-new-post
 
+https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-animations/
+
 Have a better developer experience using code generators
 https://www.youtube.com/watch?v=SPll1Rxl_Es
 
+https://webauthn.wtf/
+
 https://zh.javascript.info/selection-range
+
+https://alexharri.com/blog/typescript-structural-typing
+
+https://xavierleroy.org/mpri/2-4/monads.pdf
+
+在线玩桌游
+https://zh-cn.boardgamearena.com/
+
+https://algorithm-visualizer.org/
+
+中文开源字体
+https://font.gentleflow.tech/
+
+https://www.gohacking.com/category/how-to-guides/
+
+https://processing.org/examples/
+
+http://www.52shijing.com/lsxx/117317.html
+
+https://github.com/sindresorhus/promise-fun
+
+https://q.shanyue.tech/interview
+
+https://hicks.design/journal/moo-card-player
+
+http://jsfiddle.net/roman01la/LZKVM/9/
+
+https://andreasbm.github.io/web-skills/
+
+https://github.com/getify/monio/blob/master/MONADS.md#fp--monads
+
+https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
+
+https://refactoring.guru/design-patterns
+
+https://red3d.com/cwr/boids/
+
+https://blog.acolyer.org/
+
+https://www.patterns.dev/posts
+
+http://dthain.blogspot.com/2009/02/exponential-backoff-in-distributed.html
+
+https://proofwiki.org/wiki/Main_Page
+
+https://jrsinclair.com/articles/2022/whats-so-great-about-functional-programming-anyway/
+
+https://origami.kosmulski.org/blog/2022-10-23-fujimoto-books-public-domain
+
+https://book.hacktricks.xyz/welcome/getting-started-in-hacking
+
+http://algorithmicbotany.org/papers/#abop
+
+https://www.smartedu.cn/home/province
+
+https://roberthodgin.com/
+
+https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-overview.html
 
 book https://web.dev/learn/pwa/
 
@@ -31,15 +94,24 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
 
 https://www.joshwcomeau.com/react/boop/
 
+https://scrollbars.matoseb.com/
+
+https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
+
+https://github.com/thecodrr/alfaaz
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
-https://webkit.org/blog/13096/css-has-pseudo-class/
+https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries
+The Cost of JavaScript in 2023
+https://www.youtube.com/watch?v=ZKH3DLT4BKw
+
+https://web.dev/new-responsive/#responsive-to-the-container
+
+cat memes tarot https://www.pinghatta.com/art-posters
 
 edit http req/rep https://httptoolkit.com/
-
-what is cors https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS
 
 check api is a cors rep https://httptoolkit.com/will-it-cors/
 
@@ -47,15 +119,11 @@ check api is a cors rep https://httptoolkit.com/will-it-cors/
 
 book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
 
-https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/
-
 https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm
 
 rust wasm framework https://trunkrs.dev/
 
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
-
-https://www.zhangxinxu.com/wordpress/2016/03/css-direction-introduction-apply/
 
 聊天内容不经过服务器，可以自己搭建，分享房间号给其他人 https://chitchatter.im/
 https://getaether.net/
@@ -66,7 +134,7 @@ https://qri.org/blog/psycrypto-contest
 
 https://eli.thegreenplace.net/2023/demystifying-tuppers-formula/
 
-https://netflixtechblog.com/native-frame-rate-playback-6c87836a948
+https://netflixtechblog.com/migrating-netflix-to-graphql-safely-8e1e4d4f1e72
 
 https://www.sandromaglione.com/snippets/trie-data-structure-typescript
 
@@ -78,6 +146,12 @@ https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ec
 
 根据身高计算椅子高度、桌子高度、屏幕高度
 https://www.ergotron.com/zh-cn/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92%E5%99%A8
+
+https://github.com/openai-translator/openai-translator/tree/main/src-tauri
+
+密码学基础及SSL/TLS协议 https://catbro666.github.io/posts/e92ef4b4/
+
+https://continuation.passing.style/blog/quantum-interpreter-cps.html
 
 https://embedded.fm/blog/2023/5/19/embedded-skills-tree
 
@@ -125,6 +199,12 @@ book https://github.com/huangz1990/real-world-haskell-cn
 
 前端工程化 https://www.kancloud.cn/chandler/web_technology/724755
 
+http://www.longluo.me/blog/2023/06/07/CORDIC-algorithm/
+
+监控平台，需要自己搭建，类似于 sentry https://github.com/highlight/highlight
+
+https://colah.github.io/posts/2015-09-Visual-Information/
+
 book https://czekster.github.io/markov/
 
 book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pdf
@@ -138,6 +218,9 @@ book https://learningsynths.ableton.com/zh-Hans
 book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Chapter-1_What_Is_Software_Engineering/Chapter-1_What_Is_Software_Engineering?id=hyrums-law-%e6%b5%b7%e5%8b%92%e5%a7%86%e5%ae%9a%e5%be%8b
 
 node stream https://youtu.be/e5E8HHEYRNI?t=328
+
+rust streams https://rust-lang.github.io/async-book/05_streams/01_chapter.html
+https://www.qovery.com/blog/a-guided-tour-of-streams-in-rust
 
 did https://www.syscom.com.tw/ePaper_New_Content.aspx?id=784&EPID=271&TableName=sgEPArticle
 
@@ -190,12 +273,18 @@ book https://learngenomics.dev/docs/biological-foundations/cells-genomes-dna-chr
 Unity L procedure https://zhuanlan.zhihu.com/p/468185946
 
 
+https://github.com/paulirish/trace.cafe/blob/8852ecf43e8dfdbe42551deaf09201b0224a6c11/src/app.js#L19
+
+https://github.com/one-piece-official/ImageFlow/blob/master/src/transtions.js
+
 40+ non-V8 JavaScript implementations https://notes.eatonphil.com/javascript-implementations.html
 
 https://planetscale.com/blog/how-does-database-sharding-work
 
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
+
+controls the APIs provided by the browser https://pagure.io/JShelter/webextension/tree/main
 
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
@@ -206,6 +295,14 @@ book https://github.com/AllenDowney/ThinkDSP
 https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
 
 book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
+
+https://gruebelinchen.wordpress.com/2023/06/06/demystifying-trait-generics-in-rust/
+
+https://cohenarthur.github.io/2023/06/05/rust-derives.html
+
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+
+https://blogs.windows.com/msedgedev/2020/09/30/microsoft-edge-multi-process-architecture/
 
 https://github.com/Pere001/2d-platformer-tutorial-2023#intro
 
@@ -341,6 +438,10 @@ book https://github.com/BoltzmannEntropy/interviews.ai
 book https://probability4datascience.com/
 
 https://github.com/Dapp-Learning-DAO/Dapp-Learning-Utopia/blob/df709e9df7d832200d7e722eeb9c8b5f8cae8a3d/www/thoughts/2021-11-09-intro-zh/index.mdx
+
+https://github.com/chaitin/safeline
+
+https://github.com/YJDoc2/8086-emulator-web
 
 book statistical https://bookdown.org/rdpeng/advstatcomp/introduction.html
 
