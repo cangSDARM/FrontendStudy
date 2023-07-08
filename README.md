@@ -14,6 +14,7 @@
 - [架构相关](./structure/README.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
+- [JWT](./JWT.md)
 - [Renderer Patterns](./renderer.md)
 
 [参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)

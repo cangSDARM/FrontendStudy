@@ -12,6 +12,10 @@
 - [指针事件](#指针事件)
   - [鼠标拖放](#鼠标拖放)
   - [setPointerCapture](#setpointercapture)
+- [文本/节点选择](#文本节点选择)
+  - [Selection 对象](#selection-对象)
+  - [input/textarea](#inputtextarea)
+  - [Range 对象](#range-对象)
 
 ## Favicon
 
@@ -154,3 +158,58 @@ Simple Guide
 - 可以在 `pointerdown` 事件的处理程序中调用 `thumb.setPointerCapture(event.pointerId)`
 - **接下来发生的所有指针事件都会被重定向到 `thumb` 上**
 - 当 `pointerup/pointercancel` 事件发生、`elem` 被移除、`elem.releasePointerCapture` 调用时，绑定会被自动移除
+
+## 文本/节点选择
+
+Referrer: https://zh.javascript.info/selection-range
+
+没有直接监听选择字的事件, 但有读取选择区间的<br/>
+所以可以加一步鼠标监听来配合达到
+
+### Selection 对象
+允许读取、添加、删除等选择内容/节点
+
+```js
+function getSelectedText() {
+  if (window.getSelection) {
+    return window.getSelection().toString();
+  } else if (document.selection) {
+    return document.selection.createRange().text;
+  }
+  return "";
+}
+// only document 当选择发生变化或开始时
+// workaround: $("div").mouseup
+document.onselectionchange = function() {
+  let selection = document.getSelection();// or window.getSelectText();
+  // Selection 对象允许读取、添加、删除等选择内容/节点
+
+  let {anchorNode, anchorOffset, focusNode, focusOffset} = selection;
+
+  // anchorNode 和 focusNode 通常是文本节点
+  const from = `${anchorNode?.data}, offset ${anchorOffset}`;
+  const to = `${focusNode?.data}, offset ${focusOffset}`;
+  // 获取选择的节点的文本内容
+  console.log(from, to, selection.toString());
+
+  selection.removeAllRanges(); // 清除现有选择。否则浏览器将忽略新范围
+};
+```
+
+### input/textarea
+有单独的选择API
+
+```js
+input.selectionStart/selectionEnd/selectionDirection
+input.select()/setSelectionRange()/setRangeText()
+input.onselect
+```
+
+### Range 对象
+会包含选择的node，没有直接取文本的。Range允许对 node 选择、复制、删除、插入等
+
+```js
+let range = Range();
+range.setStart(p.firstChild, 2);
+range.setEnd(p.firstChild, 4);
+```

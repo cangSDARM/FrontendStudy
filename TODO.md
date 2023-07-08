@@ -9,6 +9,7 @@
 [webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
+[TTS](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis)
 
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
@@ -26,7 +27,7 @@ https://www.youtube.com/watch?v=SPll1Rxl_Es
 
 https://webauthn.wtf/
 
-https://zh.javascript.info/selection-range
+https://zh.javascript.info/event-loop
 
 https://alexharri.com/blog/typescript-structural-typing
 
@@ -49,8 +50,6 @@ http://www.52shijing.com/lsxx/117317.html
 https://github.com/sindresorhus/promise-fun
 
 https://q.shanyue.tech/interview
-
-https://hicks.design/journal/moo-card-player
 
 http://jsfiddle.net/roman01la/LZKVM/9/
 
@@ -104,8 +103,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
 https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
-The Cost of JavaScript in 2023
-https://www.youtube.com/watch?v=ZKH3DLT4BKw
+https://kinsta.com/blog/brotli-compression/
 
 https://web.dev/new-responsive/#responsive-to-the-container
 
@@ -230,8 +228,6 @@ Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
 如何将 exe 反编译成 Python 脚本 https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&mid=2648982698&idx=1&sn=36e8c6a513508e473c7abe5d132f21e2
 
-https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
-
 https://github.com/joeyguo/blog
 
 book https://diveintosystems.org/book/introduction.html
@@ -272,7 +268,6 @@ book https://learngenomics.dev/docs/biological-foundations/cells-genomes-dna-chr
 
 Unity L procedure https://zhuanlan.zhihu.com/p/468185946
 
-
 https://github.com/paulirish/trace.cafe/blob/8852ecf43e8dfdbe42551deaf09201b0224a6c11/src/app.js#L19
 
 https://github.com/one-piece-official/ImageFlow/blob/master/src/transtions.js
@@ -302,8 +297,6 @@ https://cohenarthur.github.io/2023/06/05/rust-derives.html
 
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
 
-https://blogs.windows.com/msedgedev/2020/09/30/microsoft-edge-multi-process-architecture/
-
 https://github.com/Pere001/2d-platformer-tutorial-2023#intro
 
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
@@ -329,10 +322,6 @@ https://github.com/lucaong/minisearch
 
 https://hughfenghen.github.io/fe/body-mask-danmaku/#%E5%89%8D%E8%A8%80
 
-OTP & TOTP https://www.jianshu.com/p/a7b900e8e50a
-
-OTP & TOTP https://zhuanlan.zhihu.com/p/484991482
-
 密码分析学 (门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
 
 2D Graphics Algorithms https://youtu.be/bfvmPa9eWew?t=146
@@ -348,15 +337,10 @@ https://www.gcores.com/articles/160965
 韩版《传奇2》源码分析与 Unity 重制（二）：客户端启动与交互流程
 https://www.gcores.com/articles/163577
 
-从三个可能方向浅谈Puzzle game的深度来源
-https://www.gcores.com/articles/162290
-
 游戏杂谈：期末作业反思——应该设计什么样的牌？
 https://www.gcores.com/articles/161716
 
 https://two-wrongs.com/statistical-process-control-a-practitioners-guide
-
-rice Algorithm tutorial https://busy-beavers.tigyog.app/rice
 
 https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How%20to%20use%20React%20with%20Rust%20Actix.md
 
@@ -405,14 +389,9 @@ sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
-Basic optics: lenses, prisms, and traversals in Haskell https://www.youtube.com/watch?v=geV8F59q48E
-
 cpp conf https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7Ag
 
 Creative Writing https://www.youtube.com/watch?v=-6HOdHEeosc&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=2
-
-Tom Clancy Speaks at the National Security Agency
-https://www.youtube.com/watch?v=VS54M5Mqa9M
 
 Audio adventures in Rust: UI with Actix, WebView, and React
 https://www.youtube.com/watch?v=vmvq9jKBlGc
@@ -423,7 +402,7 @@ https://blog.hirnschall.net/flow-simulation-js/
 
 book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
 
-https://abhinavsarkar.net/posts/implementing-co-4/
+https://abhinavsarkar.net/posts/implementing-co-1/
 
 https://www.khanacademy.org/computing/pixar
 
@@ -445,7 +424,7 @@ https://github.com/YJDoc2/8086-emulator-web
 
 book statistical https://bookdown.org/rdpeng/advstatcomp/introduction.html
 
-book https://microsoft.github.io/code-with-engineering-playbook/SPRINT-STRUCTURE/
+book https://microsoft.github.io/code-with-engineering-playbook/agile-development/
 
 https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
 
