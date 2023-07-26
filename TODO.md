@@ -25,11 +25,43 @@ https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-ani
 Have a better developer experience using code generators
 https://www.youtube.com/watch?v=SPll1Rxl_Es
 
+https://github.com/partykit/partykit/tree/main/packages/partysocket
+
 https://webauthn.wtf/
+
+https://lemire.me/blog/2023/07/20/fast-decoding-of-base32-strings/
+
+https://www.rfc-editor.org/rfc/rfc9446.txt
+
+各种前端框架的基础写法展示 https://component-party.dev/
 
 https://zh.javascript.info/event-loop
 
+https://microsoft.github.io/FASTER/
+
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
+
+https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
+
+https://web.dev/canvas-performance/
+
+https://stephendoddtech.com/blog/game-design/mouse-event-listener-input-html-canvas
+
+https://developer.mozilla.org/en-US/docs/Games
+
+https://issaaboudi.medium.com/integrating-wasm-into-react-with-rust-cd5e96bfb504
+
+https://samwho.dev/hashing/
+
+https://github.com/vasanthv/talk
+
+https://masteringbackend.com/hubs/system-design/system-design-fundamentals
+
 https://alexharri.com/blog/typescript-structural-typing
+
+https://cloudfour.com/thinks/coding-randomized-zelda-patterns/
+
+https://news.ycombinator.com/item?id=36756504
 
 https://xavierleroy.org/mpri/2-4/monads.pdf
 
@@ -53,9 +85,15 @@ https://q.shanyue.tech/interview
 
 http://jsfiddle.net/roman01la/LZKVM/9/
 
+https://www.xyzw.io/posts/backend-gpu-p1/
+
+https://blog.danieljanus.pl/2023/07/20/iterating-trees/
+
 https://andreasbm.github.io/web-skills/
 
 https://github.com/getify/monio/blob/master/MONADS.md#fp--monads
+
+https://github.com/cli-guidelines/cli-guidelines/blob/main/content/_index.md
 
 https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 
@@ -75,11 +113,47 @@ https://jrsinclair.com/articles/2022/whats-so-great-about-functional-programming
 
 https://origami.kosmulski.org/blog/2022-10-23-fujimoto-books-public-domain
 
+https://news.ycombinator.com/item?id=36853931
+
+https://haz.ee/technical/rehype-tree-sitter/
+
 https://book.hacktricks.xyz/welcome/getting-started-in-hacking
 
 http://algorithmicbotany.org/papers/#abop
 
+https://learnreactive.com/
+
+https://github.com/pavlobu/deskreen/discussions/86
+
+https://pdalife.to/android/
+
+https://mp.weixin.qq.com/s/iK_JkVRrh5vIRBjnQbDOyw
+
+https://buf.build/blog/connect-web-protobuf-grpc-in-the-browser
+
+https://github.com/microsoft/msquic
+
+https://github.com/veltman/clmystery
+
+https://ruudvanasseldonk.com/2023/an-algorithm-for-shuffling-playlists
+
+https://nytimes.github.io/oak-byo-react-prosemirror-redux/
+
+https://github.com/lissy93/web-check
+
+https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
+
+http://fms.komkon.org/EMUL8/HOWTO.html
+
+https://borretti.me/article/type-systems-memory-safety
+
+https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7adb2e
+
 https://www.smartedu.cn/home/province
+
+https://webtips.dan.info/
+
+https://blog.danman.eu/reverse-engineering-tesla-2-bus-protocol/
 
 https://roberthodgin.com/
 
@@ -295,7 +369,11 @@ https://gruebelinchen.wordpress.com/2023/06/06/demystifying-trait-generics-in-ru
 
 https://cohenarthur.github.io/2023/06/05/rust-derives.html
 
-https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+https://www.youtube.com/watch?v=69yoIgJ1HF0
+
+https://github.com/weaviate/healthsearch-demo
+
+https://maciej.codes/2022-06-09-local-async.html
 
 https://github.com/Pere001/2d-platformer-tutorial-2023#intro
 
@@ -409,10 +487,6 @@ https://www.khanacademy.org/computing/pixar
 https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html
 
 https://mortoray.com/finding-neighbours-in-a-hex-map/
-
-book https://course.fast.ai/
-
-book https://github.com/BoltzmannEntropy/interviews.ai
 
 book https://probability4datascience.com/
 
@@ -541,6 +615,8 @@ https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
 ## Computer Graphics (WGSL)
 
+https://acko.net/blog/subpixel-distance-transform/
+
 main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-importing-textures.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
@@ -548,6 +624,8 @@ https://carmencincotti.com/2022-05-16/rasterization/
 webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 
 https://www.vertexshaderart.com/
+
+https://surma.dev/things/webgpu/
 
 https://wickedengine.net/2017/06/05/should-we-get-rid-of-vertex-buffers/
 
@@ -661,15 +739,21 @@ linux x86+nasm tutorial https://0xax.github.io/asm_1/
 
 win32 x86+nasm tutorial https://sonictk.github.io/asm_tutorial/
 
-逻辑电路在线模拟 https://logiclights.vercel.app/
+https://www.youtube.com/watch?v=uuMg7CeJF1k
 
-unity mod https://www.bilibili.com/video/BV1Q34y1j7ps/
+https://github.com/Crypto-Cat/CTF/tree/main/game_hacking#tutorialsguides
+
+cheat engine https://www.youtube.com/@intigriti/videos
+
+C/C++ Memory Hacking — External Signature/Pattern Scanning Tutorial https://www.youtube.com/watch?v=l7SgbLmO0L0
+
+逻辑电路在线模拟 https://logiclights.vercel.app/
 
 ida https://www.youtube.com/watch?v=thyK3VaA1GE&list=PLKwUZp9HwWoDDBPvoapdbJ1rdofowT67z&index=2
 
 cpp with ida https://www.youtube.com/watch?v=GEtpznMFsEs
 
-directx hook for game hacking: https://paper.seebug.org/2037/
+https://www.righto.com/2023/07/undocumented-8086-instructions.html
 
 game hook tutorial https://gslab.qq.com/portal.php?mod=view&aid=103
 
@@ -681,7 +765,7 @@ https://neil-fox.github.io/Reverse-Engineering-Obfuscated-Code/
 
 https://www.x86matthew.com/view_post?id=selfdebug
 
-windbg https://www.youtube.com/watch?v=8zBpqc3HkSE&list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu
+windbg https://youtu.be/sbRGDEexZH8?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu&t=482
 
 ---
 
