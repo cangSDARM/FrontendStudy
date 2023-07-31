@@ -41,12 +41,6 @@ https://microsoft.github.io/FASTER/
 
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
 
-https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
-
-https://web.dev/canvas-performance/
-
-https://stephendoddtech.com/blog/game-design/mouse-event-listener-input-html-canvas
-
 https://developer.mozilla.org/en-US/docs/Games
 
 https://issaaboudi.medium.com/integrating-wasm-into-react-with-rust-cd5e96bfb504
@@ -836,7 +830,7 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 )
 
 git with proxy^(
-   git -c "http.proxy=socks5://127.0.0.1:1080" clone git@github.com:xx/yy.git
+   git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
 )
 
 语言语法解析器(无自定义语法解析) https://github.com/tree-sitter/tree-sitter

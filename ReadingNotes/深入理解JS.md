@@ -48,7 +48,6 @@ function foo() {
 arr.splice(1, 2)    //remove 2 elements begin at index 1, (safely and anyIndexing)
 arr.copyWithin(1, 2, 3) //move something in index [2, 3) to [1, 3-(2-1))
 //Reg------------------------------------------------------------------------
-/^abc$/.test('att') //try test Reg
 /abc/   //加载时编译
 new RegExp('abc')   //运行时编译
 /^.$/u.test('的')    //正确匹配Unicode字符
@@ -63,6 +62,9 @@ let s1 = 'S\u0307\u0323'; // Ṩ, S + 上方点符号 + 下方点符号
 let s2 = 'S\u0323\u0307'; // Ṩ, S + 下方点符号 + 上方点符号
 s1 === s2; // 看着一样其实是 false
 s1.normalize() === s2.normalize();  // true (“Unicode 规范化”算法)
+//number------------------------------------------------------------------------
+Math.round(somenum) === (0.5 + somenum) | 0 === ~~(0.5 + somenum) === (0.5 + somenum) << 0;
+const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);
 ```
 
 ### 类型判断

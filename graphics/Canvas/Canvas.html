@@ -45,11 +45,23 @@
       ctx.putImageData(imgData, 0, 0); //放回去
     }
 
+    // 互动并没有什么神奇API，就是监听event并自己转换座标系
+    function interactive() {
+      canvas.addEventListener('mouseenter', mouseEnter);
+      canvas.addEventListener('mouseleave', mouseLeave);
+      canvas.addEventListener('mousemove', mouseMove);
+      canvas.addEventListener('mousedown', mouseDown);
+      canvas.addEventListener('mouseup', mouseUp);
+      canvas.addEventListener('keydown', keyDown);
+      canvas.addEventListener('keyup', keyUp);
+    }
+
     // 动画步骤
     // 动画就是每次循环的时候paint改动到的内容
     function animation(canvas) {
-      // 1. clean moving part
+      // 1. clean moving part. **Render screen differences only, not the whole new state**
       canvas.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.width = canvas.width;  //也可以清除canvas
       // 1.1 trailing effect
       canvas.fillStyle = 'rgba(255, 255, 255, 0.3)';  //more transparent longer trailing
       canvas.fillRect(0, 0, canvas.width, canvas.height);
@@ -63,7 +75,26 @@
       window.requestAnimationFrame(animation);
     }
 
-    // canvas 版本的双缓冲(支持webworker)
+    // 预渲染
+    // 当渲染操作成本高昂时, 可以将实时渲染的内容预先渲染好，然后仅复制渲染好的图片
+    function prerendering() {
+      // 假设有个固定图片需要每帧渲染
+      var m_canvas = document.createElement('canvas');
+      m_canvas.width = 64;
+      m_canvas.height = 64;
+      var m_context = m_canvas.getContext('2d');
+      drawMario(m_context);
+
+      // 主canvas调用
+      function render() {
+        // 应预渲染图像尺寸和应用尺寸相似，否则图片拉伸性能有可能破坏优化效果
+        context.drawImage(m_canvas, 0, 0, 64, 64);
+        requestAnimationFrame(render);
+      }
+    }
+
+    // 双缓冲(支持webworker)
+    // https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
     function offscreen(canvas) {
       // sample and unoptimized
       canvas.offscreenCanvas = document.createElement('canvas');
@@ -109,7 +140,7 @@
         ctx.strokeStyle = lineGrad; //描边画笔
         ctx.fillStyle = ptrn; //填充画笔
         ctx.lineCap = 'butt'; //可以设置线的表现(线端、宽度、颜色、dash、拐弯效果等)
-        ctx.shadowColor = 'rgba(0,0,0,0.5)';  //可以设置阴影表现(Blur、Offset、Color等)
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';  //可以设置阴影表现(Blur、Offset、Color等), 但在canvas中渲染阴影很低效
         ctx.globalCompositeOperation = 'source-over'; //图像bool混合
 
         ctx.fillRect(x, y, width, hight); // draw immediately.
