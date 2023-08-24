@@ -9,6 +9,8 @@
 
 ## 核心概念
 
+数据出自**可读流**；进入**可写流**
+
 **转换流**: 包含一个可写流和一个可读流。用于将可写流转换为可读流
 
 **背压(backpressure)**: 如果管道链中的任何组件暂时不能消费区块，那么它会通过管道链向后传播信号，直到最终原始源被告知减速。这种使流量正常化的过程称为背压
@@ -18,8 +20,6 @@
 ## 浏览器流
 
 ### Pitfall
-
-数据出自可读流；进入可写流
 
 浏览器流是 SPSC 的
 
@@ -77,10 +77,11 @@ const fileStream = document.querySelector("input").files[0].stream();
 // 字符编码、解码
 const { body: bodyReadableStream } = await fetch("/xx", {
   method: "POST",
+  // encoder only support utf-8
   body: textStream.pipeThrough(new TextEncoderStream()),
 });
 const textDecoderStream = bodyReadableStream.pipeThrough(
-  new TextDecoderStream(),
+  new TextDecoderStream("utf-8"),
 );
 
 // 压缩、解压缩
@@ -115,7 +116,42 @@ writer.releaseLock();
 
 ## Node 流
 
+Node 流有 ReadableStream, WriteableStream, Duplex(可读可写, 内部两条流独立), Transform(可修改数据的 Duplex)
+
 ```js
+const {
+  // pipeline(read, duplex, duplex, write);
+  // 会自动控制背压，保证stream的速率相似效率最高
+  pipeline, 
+  // const cleanup = finished(stream, err => cleanup());
+  // 辅助控制stream的善后工作
+  finished,
+} = require("node:stream");
+
+const safeWrite = (stream, content) => {
+  if (!content instanceof Buffer)
+    return Promise.reject("recommending you send raw buffer to write");
+  if (content.length >= stream.writableHighWaterMark)
+    return Promise.reject("content too long to write, you should split it");
+
+  return new Promise((res, rej) => {
+    if (stream.writable)
+      return rej("stream has been destroyed, errored or closed");
+
+    const res = stream.write(content);
+    if (res) resolve();
+    // 返回false时
+    // (内部buffer已到high watermark)应该等待drain事件，等stream清空内部buffer
+    // 此时如果再写会导致内存过高
+    else stream.once("drain", resolve);
+  });
+};
+stream.end(chunk); //最后一次写入。完成后触发 finish 事件，并且之后不允许 write
+
+// 读流可以被暂停，很适合用来减少后面写流的写入压力
+stream.pause();
+stream.resume();
+
 // 拉流模型
 stream.on("readable", function () {
   var chunk;
@@ -125,9 +161,32 @@ stream.on("readable", function () {
 });
 
 // 推流模型
+// Buffer 到达 high watermark 后触发`data`事件
 stream.on("data", function (chunk) {
   pushedData += chunk;
 });
+
+// 自己实现Stream
+// - 不能内部emit自身的事件
+// - 不能throw Error，需要callback(error)
+class WriteStream extends Writable {
+  // 会在 constructor 后调用
+  _construct(cb) {}
+  // 需要实现 _write/_read 方法
+  // 每次外部调用 write 时，就会调用(因此需要自己控制读写频率)
+  // 调用 callback 后会触发 drain
+  _write(chunk, encoding, callback) {}
+  // read出错时调用 this.destroy(err)
+  //     成功时调用 this.push(data || null)，为null时就完成读取
+  _read(size) {}
+  // 每次都需要调用 callback(err, data)，或者 this.push(data); callback(err);
+  _transform(chunk, encoding, callback) {}
+  // 最后一次写入后调用(外面需要明确调用 end)
+  // cb 后触发 finish
+  _final(cb) {}
+  // 销毁时调用
+  _destroy(err, cb) {}
+}
 ```
 
 ## 例子

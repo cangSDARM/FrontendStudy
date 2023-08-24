@@ -338,14 +338,20 @@ Deferred 对象是 Promise 的超集，可以手动触发
 // https://github.com/jquery/jquery/blob/main/src/deferred.js
 
 ```js
-var Deferred = $.get('/mydata');
-Deferred.then(onSuccess);
-Deferred.catch(onFailure);
-Deferred.final(onAlways);
+function AsyncPromiseQueue() {
+  var Deferred = Promise.defer();
 
-Deferred.resolve();
-Deferred.reject();
-
-Deferred.notify(); //通知步进数据
-Deferred.progress(); //步进数据
+  this.put = (value) => {
+    var next = Promise.defer();
+    // 手动触发 resolver
+    ends.resolver.return({ head: value, tail: next.promise });
+    ends.resolver = next.resolver;
+  }
+  this.get = () => {
+    // 手动 get
+    var result = ends.promise.get('head');
+    ends.promise = ends.promise.get('tail');
+    return result;
+  }
+}
 ```

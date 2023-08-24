@@ -188,11 +188,7 @@ https://www.w3.org/Protocols/HTTP/Performance/
 
 #### Bearer 验证
 
-##### JWT
-
-1. 请求数据，服务器返回 401，及包含 bearer 字段的 WWW-Authenticate 头
-2. C 输入验证信息，携带用户名&MD5 加密的密码给 S
-3. S 颁发 token，C 携带 token 到 Authentication 头再次请求
+##### [JWT](./JWT.md)
 
 ### HTTPs
 

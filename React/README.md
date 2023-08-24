@@ -59,18 +59,6 @@
 - 内存路由(MemoryRouter): 不会反映在 url 中, 状态在内存中
 - 不会触发浏览器刷新操作, 但会给 history 中 push 一个 url
 - 相关操作: window.onhashchange; window.location.hash
-- 核心组件:
-  - `<Route [exact] path="" component={}>`未加 exact 是非排他的
-  - `<Redirect to="">`重定向到
-  - `<Switch>`只显示第一个匹配到的路由
-  - `<Link to="">`链接
-  - `<NavLink activeClassName="xx" >`会添加当前选中状态
-  - `<Prompt when={} message="">`满足条件时提示用户是否离开当前页面
-- url 参数:
-  - `<Route path="/:id&:top">`定义
-  - `this.props.match.params`获取
-- 和 Redux 一起使用 url 变化的时候, 如果要重新 render, 必须要让组件绑定到 router 的 store 上
-  - `router: state.router`
 
 ## 组件化编程
 

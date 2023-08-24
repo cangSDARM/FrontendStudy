@@ -11,13 +11,13 @@ https://www.jianshu.com/p/88462e099347
 
 ```js
 function checkUpdates(url) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    xhr.onload = function() {   //处理更新并打开新的长轮询 XHR
-        ...
-        checkUpdates('/updates');   //发送长轮询请求并等待下次更新（如此不停循环）
-    };
-    xhr.send(); //发送第一次长轮询 XHR 请求
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
+  xhr.onload = function() {   //处理更新并打开新的长轮询 XHR
+    ...
+    checkUpdates('/updates');   //发送长轮询请求并等待下次更新（如此不停循环）
+  };
+  xhr.send(); //发送第一次长轮询 XHR 请求
 }
 
 checkUpdates('/updates');

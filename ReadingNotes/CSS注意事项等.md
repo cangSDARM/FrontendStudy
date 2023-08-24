@@ -175,7 +175,8 @@ div {
 
 #### 内凹图形
 
-使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
+1. 使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
+2. 使用 [CSS Mask](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Masking) 技术来裁切正常图形，以实现内凹图形
 
 ### 文字排版
 

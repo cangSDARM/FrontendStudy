@@ -1,12 +1,10 @@
 ## Reading List
 
 [可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
-[二元操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 [Grid 布局](https://web.dev/learn/css/grid/)
 [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
 [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 [webassembly](https://wasmbyexample.dev/home.en-us.html#)
-[webXR(vr+ar)](https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API)
 [webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
 [WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
 [TTS](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis)
@@ -29,43 +27,39 @@ https://github.com/partykit/partykit/tree/main/packages/partysocket
 
 https://webauthn.wtf/
 
-https://lemire.me/blog/2023/07/20/fast-decoding-of-base32-strings/
+https://build.intersection.tw/how-to-favicon
+
+https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
+
+https://github.com/ValdikSS/GoodbyeDPI
+
+random distribute https://github.com/ChrisCavs/aimless.js
+
+https://thepalindrome.org/p/matrices-and-graphs
 
 https://www.rfc-editor.org/rfc/rfc9446.txt
 
-各种前端框架的基础写法展示 https://component-party.dev/
+https://pudding.cool/2018/02/waveforms/
 
-https://zh.javascript.info/event-loop
+Color Plate https://github.com/eigenmiao/Rickrack/
+
+https://zh.javascript.info/bezier-curve
+
+https://zh.javascript.info/css-animations
+
+https://zh.javascript.info/js-animation
+
+https://zh.javascript.info/web-components
 
 https://microsoft.github.io/FASTER/
 
-https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
-
 https://developer.mozilla.org/en-US/docs/Games
-
-https://issaaboudi.medium.com/integrating-wasm-into-react-with-rust-cd5e96bfb504
 
 https://samwho.dev/hashing/
 
-https://github.com/vasanthv/talk
-
 https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 
-https://alexharri.com/blog/typescript-structural-typing
-
-https://cloudfour.com/thinks/coding-randomized-zelda-patterns/
-
 https://news.ycombinator.com/item?id=36756504
-
-https://xavierleroy.org/mpri/2-4/monads.pdf
-
-在线玩桌游
-https://zh-cn.boardgamearena.com/
-
-https://algorithm-visualizer.org/
-
-中文开源字体
-https://font.gentleflow.tech/
 
 https://www.gohacking.com/category/how-to-guides/
 
@@ -77,15 +71,15 @@ https://github.com/sindresorhus/promise-fun
 
 https://q.shanyue.tech/interview
 
-http://jsfiddle.net/roman01la/LZKVM/9/
+https://cjting.me/2021/08/07/fourier-transform-and-audio-visualization/
 
-https://www.xyzw.io/posts/backend-gpu-p1/
+https://css-tricks.com/exploring-the-css-paint-api-image-fragmentation-effect/
+
+https://blog.logrocket.com/online-radio-server-pure-node-js/
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
 
 https://andreasbm.github.io/web-skills/
-
-https://github.com/getify/monio/blob/master/MONADS.md#fp--monads
 
 https://github.com/cli-guidelines/cli-guidelines/blob/main/content/_index.md
 
@@ -99,37 +93,33 @@ https://blog.acolyer.org/
 
 https://www.patterns.dev/posts
 
-http://dthain.blogspot.com/2009/02/exponential-backoff-in-distributed.html
-
 https://proofwiki.org/wiki/Main_Page
-
-https://jrsinclair.com/articles/2022/whats-so-great-about-functional-programming-anyway/
 
 https://origami.kosmulski.org/blog/2022-10-23-fujimoto-books-public-domain
 
 https://news.ycombinator.com/item?id=36853931
 
-https://haz.ee/technical/rehype-tree-sitter/
-
 https://book.hacktricks.xyz/welcome/getting-started-in-hacking
 
 http://algorithmicbotany.org/papers/#abop
 
-https://learnreactive.com/
-
+Virtual Display Drivers Knowledge Base
 https://github.com/pavlobu/deskreen/discussions/86
 
-https://pdalife.to/android/
+android games download https://pdalife.to/android/
 
-https://mp.weixin.qq.com/s/iK_JkVRrh5vIRBjnQbDOyw
-
-https://buf.build/blog/connect-web-protobuf-grpc-in-the-browser
-
-https://github.com/microsoft/msquic
-
+The Command Line Murders
 https://github.com/veltman/clmystery
 
+Go defer 原理和源码剖析 https://www.cnblogs.com/wanghao72214/p/15544365.html
+
+https://engineering.atspotify.com/2014/02/how-to-shuffle-songs/
+
 https://ruudvanasseldonk.com/2023/an-algorithm-for-shuffling-playlists
+
+https://felixgerschau.com/how-to-make-your-react-app-a-progressive-web-app-pwa/
+
+https://felixgerschau.com/react-hooks-form-validation-typescript/
 
 https://nytimes.github.io/oak-byo-react-prosemirror-redux/
 
@@ -145,25 +135,17 @@ https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7
 
 https://www.smartedu.cn/home/province
 
-https://webtips.dan.info/
-
-https://blog.danman.eu/reverse-engineering-tesla-2-bus-protocol/
-
 https://roberthodgin.com/
 
-https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-overview.html
+book https://exploringjs.com/nodejs-shell-scripting/ch_packages.html
+
+https://nima101.github.io/io_multiplexing
+
+https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 book https://web.dev/learn/pwa/
 
-https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md
-
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Masking
-
-https://www.joshwcomeau.com/react/boop/
-
 https://scrollbars.matoseb.com/
-
-https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
 
 https://github.com/thecodrr/alfaaz
 
@@ -173,13 +155,9 @@ https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
 https://kinsta.com/blog/brotli-compression/
 
-https://web.dev/new-responsive/#responsive-to-the-container
+https://web.dev/new-responsive/
 
 cat memes tarot https://www.pinghatta.com/art-posters
-
-edit http req/rep https://httptoolkit.com/
-
-check api is a cors rep https://httptoolkit.com/will-it-cors/
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
@@ -187,26 +165,18 @@ book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
 
 https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm
 
-rust wasm framework https://trunkrs.dev/
-
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
-聊天内容不经过服务器，可以自己搭建，分享房间号给其他人 https://chitchatter.im/
+聊天内容不经过服务器，可以自己搭建，分享房间号给其他人
+https://chitchatter.im/
 https://getaether.net/
-
-https://kreya.app/blog/rest-vs-grpc/
-
-https://qri.org/blog/psycrypto-contest
+https://github.com/vasanthv/talk
 
 https://eli.thegreenplace.net/2023/demystifying-tuppers-formula/
 
 https://netflixtechblog.com/migrating-netflix-to-graphql-safely-8e1e4d4f1e72
 
-https://www.sandromaglione.com/snippets/trie-data-structure-typescript
-
 https://dev.to/documatic/the-art-of-code-review-1lo4
-
-https://nakedjsx.org/
 
 https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ecdc744d/thesis/ctufit-thesis.pdf
 
@@ -223,8 +193,6 @@ https://embedded.fm/blog/2023/5/19/embedded-skills-tree
 
 http://www.hackdig.com/06/hack-46619.htm
 
-https://www.smashingmagazine.com/2021/09/orchestrating-complexity-web-animations-api/
-
 book https://pandolia.net/tinyc/
 
 js写ssh https://github.com/CatsAndMice/blog/issues/42
@@ -233,8 +201,6 @@ Forking Chrome to render in a terminal
 https://fathy.fr/carbonyl
 
 https://github.com/evanw/float-toy
-
-[password hashes: Bcrypt Scrypt pdkdf2](https://zhuanlan.zhihu.com/p/113971205)
 
 Stanford CS Curriculum : Stanford
 https://docs.google.com/spreadsheets/d/1zfw8nPvJeewxcFUBpKUKmAVE8PjnJI7H0CKimdQXxr0/htmlview
@@ -263,9 +229,7 @@ book Linux工具教程 https://linuxtools-rst.readthedocs.io/zh_CN/latest/
 
 book https://github.com/huangz1990/real-world-haskell-cn
 
-前端工程化 https://www.kancloud.cn/chandler/web_technology/724755
-
-http://www.longluo.me/blog/2023/06/07/CORDIC-algorithm/
+fast sin cos calculate http://www.longluo.me/blog/2023/06/07/CORDIC-algorithm/
 
 监控平台，需要自己搭建，类似于 sentry https://github.com/highlight/highlight
 
@@ -281,14 +245,10 @@ book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
 book https://learningsynths.ableton.com/zh-Hans
 
-book https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Chapter-1_What_Is_Software_Engineering/Chapter-1_What_Is_Software_Engineering?id=hyrums-law-%e6%b5%b7%e5%8b%92%e5%a7%86%e5%ae%9a%e5%be%8b
-
-node stream https://youtu.be/e5E8HHEYRNI?t=328
+node modules https://www.youtube.com/playlist?list=PLCiGw8i6Nhvo08rQd9J7e19ToKMCJVKaM
 
 rust streams https://rust-lang.github.io/async-book/05_streams/01_chapter.html
 https://www.qovery.com/blog/a-guided-tour-of-streams-in-rust
-
-did https://www.syscom.com.tw/ePaper_New_Content.aspx?id=784&EPID=271&TableName=sgEPArticle
 
 Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
@@ -296,19 +256,13 @@ Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
 如何将 exe 反编译成 Python 脚本 https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&mid=2648982698&idx=1&sn=36e8c6a513508e473c7abe5d132f21e2
 
-https://github.com/joeyguo/blog
-
 book https://diveintosystems.org/book/introduction.html
 
 book http://icyfenix.cn/
 
 https://law-cn-ai.vercel.app/
 
-浅谈程序的数字签名 https://www.wangan.com/p/7fy7f8ce7b3d3dc6
-
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
-
-chaos engineering https://www.jianshu.com/p/4bd4f88e24e4
 
 代码的坏味道和重构 https://dunwu.github.io/blog/pages/d86872/
 
@@ -325,6 +279,8 @@ https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.htm
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
 
 js read gif https://juejin.cn/post/7022637452066029599
+
+https://www.zenrows.com/blog/web-crawler-python
 
 book https://cp-algorithms.com/
 
@@ -351,7 +307,7 @@ controls the APIs provided by the browser https://pagure.io/JShelter/webextensio
 
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
-https://defensivecss.dev/
+https://defensivecss.dev/tip/flexbox-wrapping/
 
 book https://github.com/AllenDowney/ThinkDSP
 
@@ -362,8 +318,6 @@ book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-10
 https://gruebelinchen.wordpress.com/2023/06/06/demystifying-trait-generics-in-rust/
 
 https://cohenarthur.github.io/2023/06/05/rust-derives.html
-
-https://www.youtube.com/watch?v=69yoIgJ1HF0
 
 https://github.com/weaviate/healthsearch-demo
 
@@ -388,13 +342,12 @@ https://github.com/JuliaPlots/UnicodePlots.jl
 book https://google.github.io/comprehensive-rust/
 
 https://secretgeek.github.io/html_wysiwyg/html.html
-aside design https://css-irl.info/detecting-hover-capable-devices/
 
 https://github.com/lucaong/minisearch
 
 https://hughfenghen.github.io/fe/body-mask-danmaku/#%E5%89%8D%E8%A8%80
 
-密码分析学 (门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
+密码分析(门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
 
 2D Graphics Algorithms https://youtu.be/bfvmPa9eWew?t=146
 
@@ -409,10 +362,7 @@ https://www.gcores.com/articles/160965
 韩版《传奇2》源码分析与 Unity 重制（二）：客户端启动与交互流程
 https://www.gcores.com/articles/163577
 
-游戏杂谈：期末作业反思——应该设计什么样的牌？
-https://www.gcores.com/articles/161716
-
-https://two-wrongs.com/statistical-process-control-a-practitioners-guide
+book https://two-wrongs.com/statistical-process-control-a-practitioners-guide
 
 https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How%20to%20use%20React%20with%20Rust%20Actix.md
 
@@ -434,17 +384,11 @@ https://github.com/simeydotme/pokemon-cards-css
 
 https://www.mcmaster.com/
 
-https://github.com/neatnik/typo/blob/main/typo.js
-
-https://www.infoq.com/presentations/scientific-method-testing-resilience/
-
 [password and its md5](https://www.passwordrandom.com/most-popular-passwords)
 
 https://danpalmer.me/2020-05-18-board-game-design/
 
 https://www.iqengine.org/sigmf
-
-https://github.com/jawj/subtls
 
 A Practical Introduction to Derive Macros in Rust
 https://www.youtube.com/watch?v=XY0yR6IPbhw
@@ -452,8 +396,6 @@ https://www.youtube.com/watch?v=XY0yR6IPbhw
 book https://meatfighter.com/tetromino-computer/
 
 leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
-
-https://github.com/abouolia/use-next-context
 
 https://www.programiz.com/dsa/radix-sort
 
@@ -488,17 +430,11 @@ https://github.com/Dapp-Learning-DAO/Dapp-Learning-Utopia/blob/df709e9df7d832200
 
 https://github.com/chaitin/safeline
 
-https://github.com/YJDoc2/8086-emulator-web
-
 book statistical https://bookdown.org/rdpeng/advstatcomp/introduction.html
 
 book https://microsoft.github.io/code-with-engineering-playbook/agile-development/
 
 https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
-
-https://jamiemagee.co.uk/blog/your-jest-tests-might-be-wrong/
-
-https://safecurves.cr.yp.to/
 
 https://github.com/rust-lang/rust/issues/93740
 
@@ -527,25 +463,17 @@ book https://www.learncpp.com/
 
 http://cdsweb.u-strasbg.fr/Dic/iau-spec.html
 
-https://lost-pixel.com/blog/post/playwright-visual-regression-testing
-
-[Automatic Checking of Regular Expressions](http://elarson.pythonanywhere.com/)
-
 book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
 book 消息传递接口 https://mpitutorial.com/tutorials/
 
-https://thecomputersciencebook.com/book/algorithms-and-data-structures/
-
-https://palmstroem.blogspot.com/2012/05/lambda-calculus-for-absolute-dummies.html
+book https://thecomputersciencebook.com/book/computer-architecture/
 
 包含了最常用的10种Web安全漏洞，供练习者破解 https://github.com/juice-shop/juice-shop
 
 How to Create Cool Bounce Effects Using a Loop  https://www.youtube.com/watch?v=BRR7x-uLoWE
 
 Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
-
-https://iamkate.com/code/tree-views/
 
 https://snyk.io/blog/node-js-multithreading-with-worker-threads/
 
@@ -556,8 +484,6 @@ the recommendation of lecture series https://news.ycombinator.com/item?id=345912
 YouTube channels focused on mastering a skill/craft https://news.ycombinator.com/item?id=34666777
 
 https://github.com/MaxBittker/broider
-
-创业涉及的软件简介 https://fibery.io/startups
 
 book https://themarketplace.guide/
 
@@ -573,8 +499,6 @@ https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-program
 design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
 
 https://en.wikipedia.org/wiki/K-way_merge_algorithm
-
-https://sxyz.blog/functors-applicatives-and-monads-in-pictures/
 
 https://github.com/motion-canvas/motion-canvas
 
@@ -607,6 +531,17 @@ https://blog.amis.com/srp-1f28676aa525
 
 https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
+## FP
+
+https://github.com/InceptionCode/Functional-Programming-Exercises
+
+https://github.com/stoeffel/awesome-fp-js
+
+book https://mostly-adequate.gitbook.io/mostly-adequate-guide/
+https://github.com/llh911001/mostly-adequate-guide-chinese
+
+https://github.com/getify/monio/blob/master/MONADS.md#where-to-learn-more-fp
+
 ## Computer Graphics (WGSL)
 
 https://acko.net/blog/subpixel-distance-transform/
@@ -614,6 +549,8 @@ https://acko.net/blog/subpixel-distance-transform/
 main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-importing-textures.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
+
+https://www.xyzw.io/posts/backend-gpu-p1/
 
 webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 
@@ -693,13 +630,15 @@ https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
 
 https://www.cmcrossroads.com/article/gnu-make-path-handling
 
+https://makefiletutorial.com/
+
 book https://seisman.github.io/how-to-write-makefile/overview.html
 
-### 互联网广告
+## 互联网广告
 
 程序化广告交易更多细节及涉及平台：https://blog.hubspot.com/marketing/real-time-bidding
 
-### bluetooth
+## bluetooth
 
 https://grack.com/blog/2022/12/01/hacking-bluetooth-to-brew-coffee-on-github-actions-part-1/
 
@@ -709,19 +648,19 @@ https://www.cnblogs.com/iini/p/12334646.html
 
 https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial
 
-### micro frontend
+## micro frontend
 
 https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
 
 monorepo nx https://www.youtube.com/watch?v=M5NwkRNrpK0
 
-bit tutorial https://www.youtube.com/@Bitdev/playlists
-
 piral tutorial https://www.youtube.com/watch?v=ltTXWEwhSiY&list=PLQ9i8GS-LNXkHE8fbkU4Qwgbak4Rwjbg-
 
 https://blog.bitsrc.io/revolutionizing-micro-frontends-with-webpack-5-module-federation-and-bit-99ff81ceb0
 
-### game mod
+Conf https://www.youtube.com/watch?v=x63PIpqQME8&list=PLQ9i8GS-LNXkJulBBvezBeOVeRJTF8TjY
+
+## game mod
 
 NAND to teris https://www.nand2tetris.org/
 
@@ -729,9 +668,13 @@ Intel Software Developer's Manual https://www.intel.com/content/www/us/en/develo
 
 https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture
 
+https://github.com/YJDoc2/8086-emulator-web
+
 linux x86+nasm tutorial https://0xax.github.io/asm_1/
 
 win32 x86+nasm tutorial https://sonictk.github.io/asm_tutorial/
+
+https://www.deusinmachina.net/p/the-basics-of-arm64-assembly
 
 https://www.youtube.com/watch?v=uuMg7CeJF1k
 
@@ -753,6 +696,8 @@ game hook tutorial https://gslab.qq.com/portal.php?mod=view&aid=103
 
 Reverse Engineering https://www.trashworldnews.com/yoda-stories/
 
+https://github.com/TomDotBat/AutoToot
+
 https://ibiyemiabiodun.com/projects/reversing-tiktok-pt2/
 
 https://neil-fox.github.io/Reverse-Engineering-Obfuscated-Code/
@@ -761,7 +706,7 @@ https://www.x86matthew.com/view_post?id=selfdebug
 
 windbg https://youtu.be/sbRGDEexZH8?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu&t=482
 
----
+## Refs
 
 Use `Url` constructor and `URLSearchParams` for manipulate a url
 
@@ -864,12 +809,6 @@ Gestalttheorie 这个词是德语，字面意思是统一的图案、图形、�
 9. 封闭性原则(closure) 有时也称闭合性原则。有些图形是一个没有闭合的残缺的图形，但主体有一种使其闭合的倾向，即主体能自行填补缺口而把其知觉为一个整体。如果元素是一个封闭图形的一部分，我们将其视为属于同一组的元素。(FeedEx的箭头)
 10. 共同区域原则(Common Region) 多个元素是单个区域的一部分时，我们会认为它们是共存的，倾向于作为一个单独的元素进行关联。
 11. 元素连通性(Element Connectedness) 如果一些元素与其他元素(线条、颜色)相连时，我们认为这些元素是统一体。
-)
-
-测试^(
-   回归测试
-   回归是回到以前或欠发达的状态。在软件测试中，回归测试是指确保应用到软件系统的新更改不会无意中破坏以前工作的东西。
-   视觉回归测试通过比较代码更改前后截取的屏幕截图来检查最终用户看到的差异。
 )
 
 color theory^(

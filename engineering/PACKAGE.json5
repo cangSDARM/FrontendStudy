@@ -1,0 +1,62 @@
+//设置的所有字段，都会被设置为 npm_package_ 开头的环境变量
+//npm 相关的所有配置也会有 npm_config_ 开头的环境变量
+{
+  /**
+  const midash = require('midash')
+ 
+  // 实际上是通过 main 字段来找到入口文件，等同于该引用
+  const midash = require('midash/dist/index.js')
+  */
+  main: "./dist/src/main.js",
+  // 如果使用 import 对该库进行导入，则首次寻找 module 字段引入，否则引入 main 字段
+  module: "./dist/index.mjs",
+  exports: {
+    /**
+    缩短导入时的说明符:
+     - `import {Internal} from 'my-pack/util/errors.js'`
+     - 没有: `import {Internal} from 'my-pack/dist/src/util/errors.js'`
+    */
+    "./*": "./dist/src/*",
+    /**
+    导出子路径/重导出
+     - `import {Lib} from 'my-pack/lib/main'`
+     - 没有: `import {Lib} from 'my-pack/lib/main.js'`
+    */
+    "./lib/*": "./dist/src/lib/*.js",
+    "./rexpo/*": "./dist/src/utils/third/*",
+    /**
+    隐藏不需要外部访问的内容:
+     - "./internal/\*": 外部导入则报错
+     - 没有: 外部可以随意访问
+    */
+    "./internal/*": null,
+    /**
+    import/require 重定向:
+     - 没有: import 和 export 导入内容一样，并由于 ESM/CommonJS 的逻辑不同，有可能出 BUG
+    */
+    "./impreq/*": {
+      // import in ESM
+      import: "./dist/src/main.module.js",
+      // require in CJS
+      require: "./dist/src/main.require.js",
+      // TypeScript resolution
+      types: "./types/index.d.ts",
+    },
+  },
+  // "typeVersions": exports fallback, 但是用于 ts 的类型导入
+  typeVersions: {
+    "*": {
+      "main.d.ts": ["dist/src/main.d.ts"],
+    },
+  },
+  // 实际 publish 的内容
+  files: ["dist"],
+  // https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces: npm 的 monorepo 支持
+  workspaces: ["xyz", "abc"],
+  dependencies: {
+    // 本地依赖
+    xx: "file:../xx",
+    // github 依赖
+    yy: "github:yy/api",
+  },
+}

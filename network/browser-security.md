@@ -7,6 +7,8 @@
     - [CORS 处理](#cors-处理)
 - [浏览器恶意网站管理](#浏览器恶意网站管理)
 - [内容安全策略(CSP)](#内容安全策略csp)
+  - [CSP nonce](#csp-nonce)
+- [资源完整性(SRI)](#资源完整性sri)
 
 ## **浏览器**同源策略
 
@@ -80,10 +82,10 @@ function fetch(arg) {} //调用数据函数
 
 ```py
 #后端:
-    def fun(req):
-        func = req.GET.get("callback", None)
-        data = ""
-        return HttpResponse("%s(%s)"%(func,data))   #调用前端要求的callback函数
+def fun(req):
+    func = req.GET.get("callback", None)
+    data = ""
+    return HttpResponse("%s(%s)"%(func,data))   #调用前端要求的callback函数
 ```
 
 #### CORS
@@ -92,12 +94,12 @@ Cross-Origin Resource Sharing
 
 ##### 步骤
 
-1. 简单请求无 CORS 需求
-2. 发起跨域请求时, 引入额外的 Origin 头信息指定请求的源.<br>
-   `Origin: http://request.com/`
-3. 服务器检查头信息, 确定是否接收. 请求若被接收, 将返回 Access-Control-Allow-Origin 的头(值与 Origin 相同)<br>
-   `Access-Control-Allow-Origin: http://request.com/`
+1. 简单请求无预检
+2. 浏览器检测到跨域请求时, 浏览器添加额外的`Origin: http://request.com/`头信息指定请求的源.<br>
+  非简单请求发送一次预检请求, 预检成功后才会继续发送请求
+3. 服务器检查头信息, 确定是否接收. 请求若被接收, 需返回`Access-Control-Allow-Origin: http://request.com/`的头(值与 Origin 相同)
 4. 接收响应时, 浏览器检查 ACAO 头的值, 若与请求头中 Origin 的值不匹配, 则禁止该请求
+5. 读取响应头时, 服务器必须传`Access-Control-Expose-Headers: Content-Length,API-Key`, 否则读取请求头时将报错
 
 #### 简单请求
 
@@ -131,4 +133,35 @@ CSP 头允许 S 端配置哪些资源(JavaScript, CSS, Images, etc.)可以被加
 ```
 Content-Security-Policy: allow 'self'; img-src *; media-src qq.com; script-src test.com
 # 浏览器除了信任自身来源外，还可以加载任意域的图片、来自qq.com的媒体文件和来自test.com的脚本，其他的一律拒绝
+```
+
+### CSP nonce
+
+CSP nonce 允许合规的 inline 脚本执行。
+
+1. 只有当 CSP nonce 和 script nonce 一致时，对应的内联脚本才被允许执行
+2. 'strict-dynamic' 模式允许让被信任的脚本插入并放行正常脚本执行
+
+```html
+Content-Security-Policy: script-src 'nonce-5fAifFSghuhdf' 'strict-dynamic'
+<script nonce="5fAifFSghuhdf">
+// ...
+</script>
+```
+
+## 资源完整性(SRI)
+
+为页面引用的资源指定信息摘要，当资源被劫持篡改内容(如运营商流量劫持)时，浏览器校验信息摘要不匹配，将会拒绝代码执行并抛出加载异常
+
+```html
+function getIntegrity() {
+  const hashFuncName = 'sha256';
+  const hash = crypto
+      .createHash(hashFuncName)
+      .update(source, 'utf8')
+      .digest('base64');
+  return hashFuncName + '-' + hash;
+}
+
+<script text="text/javascript" integrity={getIntegrity()}></script>
 ```

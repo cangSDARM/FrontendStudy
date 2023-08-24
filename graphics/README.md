@@ -1,3 +1,4 @@
-- [WebGL](./WebGL/README.md)
 - [SVG](./SVG.md)
-- [Canvas](./Canvas/Canvas.html)
+- [Canvas](./Canvas/README.md)
+- [WebGL](./WebGL/README.md)
+- [WebGPU](./WebGPU/README.md)

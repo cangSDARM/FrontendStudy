@@ -16,11 +16,12 @@
   - [Spy](#spy)
   - [测试自动化](#测试自动化)
   - [例子：Mocha + Chai + Sinon](#例子mocha--chai--sinon)
+- [回归测试](#回归测试)
 - [性能测试](#性能测试)
   - [浏览器解析 JS](#浏览器解析-js)
     - [HAR（HTTP Archive）](#harhttp-archive)
   - [负载测试](#负载测试)
-- [自动化构建](#自动化构建)
+- [混沌工程](#混沌工程)
 
 [前端测试体系简略介绍]https://insights.thoughtworks.cn/frontend-testing/
 
@@ -196,9 +197,9 @@ var Space = function (engine, booster, arm) {
 
 ### 例子：Mocha + Chai + Sinon
 
-- [Mocha](https://github.com/mochajs/mocha) 是 JavaScript 测试框架，可以运行在 Node.js 和浏览器中。Mocha 可以持续运行测试，支持报告，当映射到未捕获异常时转到正确的测试示例
-- [Chai](https://github.com/chaijs/chai) 是一个针对 JavaScript 的 BDD 和 TDD 的断言库，可与任何 JavaScript 测试框架集成
-- [Sinon](https://github.com/sinonjs/sinon) 是一个独立的 JavaScript 测试 spy, stub, mock 库，没有依赖任何单元测试框架工程
+- [Mocha](https://github.com/mochajs/mocha) Mocha 可以持续运行测试，支持报告，当映射到未捕获异常时转到正确的测试示例
+- [Chai](https://github.com/chaijs/chai) 是一个 BDD 和 TDD 的断言库
+- [Sinon](https://github.com/sinonjs/sinon) 是一个独立的 spy, stub, mock 库，没有依赖任何单元测试框架工程
 
 ```js
 //纯Mocha
@@ -211,12 +212,12 @@ var Space = function (engine, booster, arm) {
 //	这里采取的等于判断是==而并非===
 var assert = require("assert");
 describe('Array', function(){
-    describe('#indexOf()', function(){
-        it('should return -1 when the value is not present', function(){
-            assert.equal(-1, [1,2,3].indexOf(5));
-            assert.equal(-1, [1,2,3].indexOf(0));
-        })
+  describe('#indexOf()', function(){
+    it('should return -1 when the value is not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(5));
+      assert.equal(-1, [1,2,3].indexOf(0));
     })
+  })
 });
 //Mocha + Chia
 //	这里只是使用了Chai的 expect 风格(还有Should, Asset，具体参考官网)
@@ -248,6 +249,13 @@ describe("Array#indexOf", function(){
 })
 ```
 
+## 回归测试
+回归是回到以前或欠发达的状态。在软件测试中，回归测试是指确保应用到软件系统的新更改不会无意中破坏以前工作的东西。
+
+视觉回归测试通过比较代码更改前后截取的屏幕截图来检查最终用户看到的差异。
+
+使用Playwright进行视觉回归测试：https://lost-pixel.com/blog/post/playwright-visual-regression-testing
+
 ## 性能测试
 
 [性能测试概述](https://www.cnblogs.com/yanghj010/p/6020986.html)
@@ -258,7 +266,7 @@ describe("Array#indexOf", function(){
 如：
 
 1. Firefox 和 IE 的 dynaTrace AJAX Edition
-2. Chrome 的 Speed Tracer 扩展
+2. Chrome 的 Lighthouse 扩展
 
 #### [HAR](http://www.softwareishard.com/blog/har-12-spec/)（HTTP Archive）
 
@@ -273,19 +281,16 @@ describe("Array#indexOf", function(){
 
 > 相关工具 Apache Bench
 
-## 自动化构建
+## 混沌工程
 
-- [grunt](https://www.gruntjs.net/) 是 js 任务管理工具
+混沌工程师通过应用一些经验探索的原则，来观察系统是如何反应，通过实践对系统有更新的认知以揭露可能设计时未考虑的问题。
 
-优势：出来早 社区成熟 插件全  
-缺点：配置复杂 效率低 (cpu 占用率高)
-
-- [gulp](https://www.gulpjs.com.cn/) 基于流的自动化构建工具
-
-优点：配置简单 效率高 流式工作(一个任务 的输出作为另一个任务的输入) 优点正好是 grunt 缺点  
-缺点：出现晚 插件少
-
-- [webpack](https://www.webpackjs.com/) 模块打包机
-
-优点：模块化  
-缺点：配置复杂
+原则/步骤:
+1. 选择一个假设(需要模拟真实环境，如网络宕机、资源抢占、硬件占用等，即系统变为了混沌状态)
+2. 选择试验的范围(整个系统宕机不是很好)
+3. 明确需要观察的 metric 指标(明确现有系统的负载能力，加钱就能解决的指标不需要考虑)
+4. 通知相关的团队
+5. 执行试验
+6. 分析结果
+7. 增大试验的范围(增加混乱范围，增加系统健壮性)
+8. 自动化

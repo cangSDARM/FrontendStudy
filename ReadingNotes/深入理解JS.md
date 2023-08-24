@@ -6,7 +6,11 @@
   - [类型判断](#类型判断)
   - [void 运算符](#void-运算符)
   - [泛型方法](#泛型方法)
+  - [TypedArray](#typedarray)
+  - [Binary Operators](#binary-operators)
+  - [Blob](#blob)
 - [Tip](#tip)
+    - [FinalizationRegistry](#finalizationregistry)
     - [Object.preventExtensions](#objectpreventextensions)
     - [Object.seal](#objectseal)
     - [RegExp 的/g 死循环](#regexp-的g-死循环)
@@ -63,8 +67,8 @@ let s2 = 'S\u0323\u0307'; // Ṩ, S + 下方点符号 + 上方点符号
 s1 === s2; // 看着一样其实是 false
 s1.normalize() === s2.normalize();  // true (“Unicode 规范化”算法)
 //number------------------------------------------------------------------------
-Math.round(somenum) === (0.5 + somenum) | 0 === ~~(0.5 + somenum) === (0.5 + somenum) << 0;
 const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);
+Number.EPSILON; // the minimum double number
 ```
 
 ### 类型判断
@@ -110,7 +114,97 @@ Wine.prototype.AddAge.call(john, 3); //借助call, apply, bind等实现泛型
 john.age; //54
 ```
 
+### TypedArray
+
+![Typed](../assets/TypedArray.png)
+
+- `ArrayBuffer`是核心对象，是对固定长度的连续内存区域的引用
+- 几乎任何对`ArrayBuffer`的操作，都需要一个视图(TypedArray/DataView)
+- TypedArray 中我们无法`splice`/`concat`，因为是视图，并且 buffer 是固定的、连续的内存区域。我们所能做的就是分配一个零值
+
+### Binary Operators
+- 按位非`~a`  反转操作数的比特位，即0变成1，1变成0。对数值进行按位非操作的结果为`-(a + 1)`
+- 左移`a << b`  将 a 的二进制形式向左移 b(< 32) 比特位，右边用0填充
+- 有符号右移`a >> b`  将 a 的二进制表示向右移 b(< 32) 位，正数/负数左侧用0/1填充
+- 无符号右移`a >>> b` 将 a 的二进制表示向右移 b(< 32) 位，左侧用0填充
+
+```ts
+// simulate Enum
+const Enum = {
+  Ele = 0b1,  // 0001
+  Ele2 = 0b1 << 1,  // 0010
+  Ele3 = 0b1 << 2, // 0100
+  Ele4 = 0b1 << 3, // 0100
+  Ele5 = Enum.Ele | Enum.Ele4, // 0101
+}
+const Con = Enum.Ele5;  // 0101
+Con & Enum.Ele5;  // 0101 & 0101 = 1 true
+Con & Enum.Ele4;  // 0101 & 0100 = 1 true
+
+// round
+Math.round(somenum) === 
+  (0.5 + somenum) | 0 ===
+  ~~(0.5 + somenum) ===
+  (0.5 + somenum) << 0;
+```
+
+### Blob
+
+```js
+const link = document.createElement('a');
+link.download = 'hello.txt';
+
+// 第一个参数必须是一个数组 [...]
+const blob = new Blob(['Hello, world!'], {type: 'text/plain'});
+
+// 从 blob 获取 arrayBuffer
+const buffer = await blob.arrayBuffer();
+// 从 blob 获取 readableStream
+const readableStream = blob.stream();
+
+// Blob 对象是不可改变的(如字符串对象)，但可以从旧的创建新的
+const slicedBlob = blob.slice(0, blob.length, 'text/txt');
+
+// objectURL 形式为 blob:<origin>/<uuid>
+// 如；blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
+link.href = URL.createObjectURL(slicedBlob);
+
+link.click();
+
+// 如果我们创建一个 URL，那么即使我们不再需要 Blob 了，它也会被挂在内存中。因此需要 revoke
+URL.revokeObjectURL(link.href);
+```
+
+```js
+// file 继承自 blob，所以 FileReader 一些方法可以处理 Blob
+const reader = new FileReader();
+reader.readAsDataURL(blob); // 将 Blob 转换为 base64 并调用 onload
+
+reader.onload = function() {
+  // data-url 的形式为 data:[<mediatype>][;base64],<data>
+  // 如：data:text/plain;base64,SGVsbG8sIHdvcmxkIQ==
+  link.href = reader.result; // data url
+  link.click();
+};
+```
+
 ## Tip
+
+#### FinalizationRegistry
+
+```js
+const registry = new FinalizationRegistry(heldValue => {
+  // 当 obj 被垃圾回收时，这里(可能)会执行(依赖于具体引擎实现)
+  console.log(heldValue); // 'some value'
+});
+
+// 监听一个对象被垃圾回收事件
+registry.register(obj, "some value", objToken);
+
+// 取消监听
+// use obj itself as the unregister token (objToken), which is just fine
+registry.unregister(objToken);
+```
 
 #### Object.preventExtensions
 

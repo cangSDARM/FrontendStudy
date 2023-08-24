@@ -1,10 +1,12 @@
+- [Promise, Generator](../ECMA/Promise_Async_Generator.md)
 - [流](./stream.md)
 - [Rxjs](./Rxjs.md)
+
+![data-flow-modals](../assets/asynchronize.png)
 
 // 异步工作流库 (简便处理限制并行，复杂依赖的函数链)
 // https://github.com/caolan/async
 // https://github.com/npm/slide-flow-control (带 use case 的实现 demo)
-
 
 防止事件循环
 

@@ -66,7 +66,6 @@ async function verifyMessage(publicKey) {
 }
 ```
 
-
 ## 加密
 
 ```js

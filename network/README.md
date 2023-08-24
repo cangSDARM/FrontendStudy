@@ -23,10 +23,6 @@
 
 ![guide](../assets/导航时序.png)
 
-#### 服务器名称指示(SNI, Server Name Indication)
-
-TLS 的扩展，允许客户端在握手之初就指明要连接的主机名，以支持单 IP 多站点(多TLS)的情况
-
 #### 应用层协议协商(ALPN, Application Layer Protocol Negotiation)
 
 TLS 的扩展，用于减少通过 TLS 上层协议在 TLS 过程中的往返延迟

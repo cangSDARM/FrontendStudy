@@ -1,30 +1,26 @@
 # WebSocket Learning
 
-<!-- TOC -->
-
-- [协议简介](#协议简介) - [tips:](#tips)
+- [协议简介](#协议简介)
 - [深入理解](#深入理解)
-  - [和 HTTP/TCP 协议比较](#和httptcp协议比较)
+  - [和 HTTP/TCP 协议比较](#和-httptcp-协议比较)
   - [初始握手](#初始握手)
   - [对应头信息](#对应头信息)
   - [消息帧](#消息帧)
   - [关闭握手](#关闭握手)
-  - [WebSocket 安全](#websocket安全)
-  - [WebSocket 的部署](#websocket的部署)
-    - [代理服务器问题](#代理服务器问题)
-  - [非兼容时备用手段](#非兼容时备用手段)
+  - [WebSocket 安全](#websocket-安全)
+  - [WebSocket 的部署](#websocket-的部署)
 - [生命周期](#生命周期)
   - [WebSocket API](#websocket-api)
-    - [<span id="check">支持检查</span>](#支持检查)
+    - [支持检查](#支持检查)
     - [构造链接](#构造链接)
-    - [<span id="onopen">事件：Open</span>](#事件open)
-    - [<span id="onmessage">事件：Message</span>](#事件message)
-    - [<span id="send">方法：send</span>](#方法send)
-    - [<span id="onerror">事件：Error</span>](#事件error)
-    - [<span id="close">方法：close</span>](#方法close)
-    - [<span id="onclose">事件：Close</span>](#事件close)
-    - [<span id="readyState">对象特性：readyState</span>](#对象特性readystate)
-    - [<span id="bufferedAmout">对象特性：bufferedAmout</span>](#对象特性bufferedamout)
+    - [事件：Open](#事件open)
+    - [事件：Message](#事件message)
+    - [方法：send](#方法send)
+    - [事件：Error](#事件error)
+    - [方法：close](#方法close)
+    - [事件：Close](#事件close)
+    - [对象特性：readyState](#对象特性readystate)
+    - [对象特性：bufferedAmount](#对象特性bufferedamount)
 - [相关技术或文档](#相关技术或文档)
 
 <!-- /TOC -->
@@ -60,7 +56,7 @@
 
 ### 初始握手
 
-HTTP/1.1 Only, HTTP/2 不通过HTTP协议握手
+HTTP/1.1 Only, HTTP/2 不通过 HTTP 协议握手
 
 1. 使用普通 http 请求(GET)，携带`Upgrade; Sec-WebSocket-Version; Sec-WebSocket-Key`等必须的头进行初始握手(opening handshake)
 2. 服务器响应`Sec-WebSocket-Accept; 101 Switching Portocols; Upgrade`头
@@ -163,23 +159,18 @@ WebSocket 关闭时，终止连接的端点发送一个数字代码，用于表�
 |      透明      |    ws     |    失败    |                  透明代理服务器不理解 101 响应码                   |
 |      透明      |    wss    |    成功    |              由于 TLS 是加密的, 因此透明代理只会转发               |
 
-### 非兼容时备用手段
-
-1. 浏览器插件: Adobe Flash 技术
-2. Polyfill 库: Kaazing's Websocket, Modernizr's Polyfill
-
 ## 生命周期
 
 ### WebSocket API
 
-| 事件                    | 方法            | 其他                            |
-| ----------------------- | --------------- | ------------------------------- |
-| [onopen](#onopen)       | [send](#send)   | [readyState](#readyState)       |
-| [onmessage](#onmeesage) | [close](#close) | [bufferedAmout](#bufferedAmout) |
-| [onerror](#onerror)     |                 | [支持检查](#check)              |
-| [onclose](#onclose)     |                 |                                 |
+| 事件                      | 方法                | 其他                                    |
+| ------------------------- | ------------------- | --------------------------------------- |
+| [onopen](#事件open)       | [send](#方法send)   | [readyState](#对象特性readystate)       |
+| [onmessage](#事件message) | [close](#方法close) | [bufferedAmount](#对象特性bufferedAmount) |
+| [onerror](#事件error)     |                     | [支持检查](#支持检查)                   |
+| [onclose](#事件close)     |                     |                                         |
 
-#### <span id="check">支持检查</span>
+#### 支持检查
 
 ```js
 if (!window.WebSocket) {
@@ -200,7 +191,7 @@ if (!window.WebSocket) {
 var ws = new WebSocket("ws://www.websocket.org", [protocol lists]);
 ```
 
-#### <span id="onopen">事件：Open</span>
+#### 事件：Open
 
 一旦服务器响应了 WebSocket 请求，则触发 open 事件
 
@@ -211,10 +202,10 @@ ws.onopen = function (e) {
 };
 ```
 
-#### <span id="onmessage">事件：Message</span>
+#### 事件：Message
 
 - 该事件在接收到消息时触发
-- 输出完整消息(例如服务器发送1M数据，则onmessage只会在接收完毕后调用)，Websocket 帧由其他方式处理
+- 输出完整消息(例如服务器发送 1M 数据，则 onmessage 只会在接收完毕后调用)，Websocket 帧由其他方式处理
 - 可以处理：文本数据；Blob(二进制)数据；ArrayBuffer 数据
 
 ```js
@@ -230,7 +221,7 @@ ws.onmessage = function (e) {
 };
 ```
 
-#### <span id="send">方法：send</span>
+#### 方法：send
 
 发送信息给触发了 open 事件的服务器
 
@@ -245,7 +236,7 @@ if (ws.readyState === WebSocket.OPEN) {
 }
 ```
 
-#### <span id="onerror">事件：Error</span>
+#### 事件：Error
 
 - 在响应意外故障时触发
 - 响应后 WebSocket 链接将关闭，触发 close 事件
@@ -257,7 +248,7 @@ ws.onerror = function (e) {
 };
 ```
 
-#### <span id="close">方法：close</span>
+#### 方法：close
 
 - 可以关闭链接或者终止链接尝试
 - 对于已经关闭的链接，该方法什么都不做
@@ -271,7 +262,7 @@ ws.onerror = function (e) {
 ws.close(1000, "reason");
 ```
 
-#### <span id="onclose">事件：Close</span>
+#### 事件：Close
 
 在链接关闭时触发
 
@@ -283,7 +274,7 @@ ws.onclose = function (e) {
 };
 ```
 
-#### <span id="readyState">对象特性：readyState</span>
+#### 对象特性：readyState
 
 |       常量表示       | 取值 |           状态           |
 | :------------------: | :--: | :----------------------: |
@@ -292,7 +283,7 @@ ws.onclose = function (e) {
 |  WebSocket.CLOSING   |  2   |     链接正在关闭握手     |
 |   WebSocket.CLOSED   |  3   |  链接已经关闭，不能打开  |
 
-#### <span id="bufferedAmout">对象特性：bufferedAmout</span>
+#### 对象特性：bufferedAmount
 
 用于检查已经进入发送队列，但尚未发送到服务器的字节数（不包括协议组帧开销或其它缓冲）
 
@@ -300,14 +291,16 @@ ws.onclose = function (e) {
 //10k mak buffer size
 var THRESHOLD = 10240;
 //Send only if the buffer is not full
-if (ws.bufferedAmout < THRESHOLD) {
+if (ws.bufferedAmount < THRESHOLD) {
   ws.send("Data");
 }
 ```
 
 ## 相关技术或文档
 
-[Html WebSocket 权威指南 ©2014 源码](https://github.com/vjwang/WebSocketBook)<br/>
+[Html WebSocket 权威指南 ©2014 源码](https://github.com/vjwang/WebSocketBook)
+
+[WebSocket 子协议](https://www.iana.org/assignments/websocket/websocket.xml)
 
 - XMPP(eXtensible Messaging and Presence Protocol) 可扩展消息与现场处理协议
   - strophe.js an XMPP library for JavaScript

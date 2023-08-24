@@ -15,31 +15,31 @@
 
 ```js
 const logProgress = (res) => {
-    const total = res.headers.get('content-length');
-    let loaded = 0;
-    const reader = res.body.getReader();
-    const stream = new ReadableStream({
-        start(controller) {
-            const push = () => {
-                reader.read().then(({ value, done }) => {
-                    if (done) {
-                        controller.close();
-                        return;
-                    }
-                    loaded += value.length;
-                    if (total === null) {
-                        console.log(`Downloaded ${loaded}`);
-                    } else {
-                        console.log(`Downloaded ${loaded} of ${total} (${(loaded / total * 100).toFixed(2)}%)`);
-                    }
-                    controller.enqueue(value);
-                    push();
-                });
-            };
-            push();
-        }
-    });
-    return new Response(stream, { headers: res.headers });
+  const total = res.headers.get('content-length');
+  let loaded = 0;
+  const reader = res.body.getReader();
+  const stream = new ReadableStream({
+    start(controller) {
+      const push = () => {
+        reader.read().then(({ value, done }) => {
+          if (done) {
+            controller.close();
+            return;
+          }
+          loaded += value.length;
+          if (total === null) {
+            console.log(`Downloaded ${loaded}`);
+          } else {
+            console.log(`Downloaded ${loaded} of ${total} (${(loaded / total * 100).toFixed(2)}%)`);
+          }
+          controller.enqueue(value);
+          push();
+        });
+      };
+      push();
+    }
+  });
+  return new Response(stream, { headers: res.headers });
 };
 fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 ```
@@ -48,19 +48,19 @@ fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 
 ```js
 const logProgress = (res) => {
-    const total = res.headers.get('content-length');
-    let loaded = 0;
-    const [progressStream, returnStream] = res.body.tee();
-    const reader = progressStream.getReader();
-    const log = () => {
-        reader.read().then(({ value, done }) => {
-            if (done) return;
-            // do progress program
-            log();
-        });
-    };
-    log();
-    return new Response(returnStream, { headers: res.headers });
+  const total = res.headers.get('content-length');
+  let loaded = 0;
+  const [progressStream, returnStream] = res.body.tee();
+  const reader = progressStream.getReader();
+  const log = () => {
+    reader.read().then(({ value, done }) => {
+      if (done) return;
+      // do progress program
+      log();
+    });
+  };
+  log();
+  return new Response(returnStream, { headers: res.headers });
 };
 fetch('/foo').then(logProgress).then(res => res.json()).then((data) => { ... });
 ```

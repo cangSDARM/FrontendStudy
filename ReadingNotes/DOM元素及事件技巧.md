@@ -9,6 +9,7 @@
   - [子元素](#子元素)
   - [窗口坐标](#窗口坐标)
 - [节点增删改和移动](#节点增删改和移动)
+- [图片懒加载](#图片懒加载)
 - [指针事件](#指针事件)
   - [鼠标拖放](#鼠标拖放)
   - [setPointerCapture](#setpointercapture)
@@ -16,6 +17,9 @@
   - [Selection 对象](#selection-对象)
   - [input/textarea](#inputtextarea)
   - [Range 对象](#range-对象)
+- [多窗口](#多窗口)
+  - [弹窗](#弹窗)
+  - [iframe 及 postMessage](#iframe-及-postmessage)
 
 ## Favicon
 
@@ -66,7 +70,6 @@ https://realfavicongenerator.net/
 ### 在线和离线事件
 
 [Online/Offline](https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
-
 
 ## CSS 处理
 
@@ -138,6 +141,20 @@ document.elementsFromPoint(x, y); //所有元素
 ```ts
 node.replaceWith(..."nodes or strings"); //替换 node。
 node.remove(); // 移除 node
+```
+
+## 图片懒加载
+
+img 的 src 设置时才会向服务器发起请求加载图片，<br/>
+因此懒加载目的就在于让 img 在可视区域时才获得 src 属性
+
+```jsx
+//首先在DOM节点保存将要加载的属性：
+<img data-img="img/base64:pngxxxx" />   //data-*属性来存储数据
+//之后在可视区域时 参考: (https://juejin.im/post/5be03f4fe51d45053a454e69)，通常使用 getBoundingClientRect/ Intersection Observers 等
+<img src="img/base64:pngxxxx" />    //将data-*换成src属性
+// 现代浏览器设置loading属性即可
+<img src="image.jpg" alt="..." loading="lazy">
 ```
 
 ## 指针事件
@@ -213,3 +230,9 @@ let range = Range();
 range.setStart(p.firstChild, 2);
 range.setEnd(p.firstChild, 4);
 ```
+
+## 多窗口
+
+### [弹窗](https://zh.javascript.info/popup-windows)
+
+### [iframe 及 postMessage](https://zh.javascript.info/cross-window-communication)

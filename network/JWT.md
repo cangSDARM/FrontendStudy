@@ -64,4 +64,4 @@ JWT 仅提供校验，不提供**加密**。因此内容可以自行解析
 
 客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。
 
-此后，客户端每次与服务器通信，都要带上这个 JWT。可以把它放 Cookie 里自动发送，但是这样不能跨域，或者放在 HTTP 请求的头信息 Authorization 字段里面。甚至可以在请求时放进 Body/Params 里
+此后，客户端每次与服务器通信，都要带上这个 JWT。可以把它放 Cookie 里自动发送，但是这样不能跨域，或者放在 HTTP 请求的头信息 Authorization 字段里面(`"Bearer"+jwtStr`)。甚至可以在请求时放进 Body/Params 里
