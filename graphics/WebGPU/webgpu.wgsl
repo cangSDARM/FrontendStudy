@@ -25,7 +25,7 @@ struct VertexOutPut {
 // 绑定到第0个location，的第0个bindGroup
 // 类型是storage(GPUBufferUsage.STORAGE)，功能是read_write(GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST)
 // storage可修改，但只能GPGPU中修改
-// array 在js中依然是一个TypeedArray,只是offset按照array内容去取
+// array 在js中依然是一个TypedArray,只是offset按照array内容去取
 @group(0) @binding(0) var<storage, read_write> data: array<f32>;
 
 // usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
@@ -33,8 +33,8 @@ struct VertexOutPut {
 @group(0) @binding(0) var<uniform> uniformStruct: SomeStruct;
 
 // texture
-// wgl中的texture座标(通常称为UV)是归一化后的[-1,-1]，右上角为(0,0)
-// 纹理的特殊之处在于它们可以被称为采样器的特殊硬件访问。采样器可以在纹理中读取多达16个不同的值，并以一种对许多常见用例有用的方式将它们混合在一起
+// wgl中的texture座标(通常称为UV)是归一化后的[0,1]，左上角为(0,0)
+// 纹理的特殊之处在于它们可以被称为采样器的特殊硬件访问。采样器可以用texture中至多16个不同的值采样
 // texture 有 1d, 2d, 2d-array, 3d, cube, cube-array。类型具体查文档
 @group(0) @binding(1) var ourTexture: texture_2d<f32>;
 

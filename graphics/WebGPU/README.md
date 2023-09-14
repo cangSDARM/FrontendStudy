@@ -70,9 +70,11 @@ const pipeline = device.createRenderPipeline({
     // vertex buffer 配置。vertex buffer 不需要bindingGroup，这是它的平替
     buffers: [
       {
-        arrayStride: 2 * 4, // vec2f, 2 floats, 4 bytes **each**
+        arrayStride: 4 + 2 * 4, // 4 bytes + 2 float * 4 bytes
         attributes: [
-          { shaderLocation: 0, offset: 0, format: "float32x2" }, // position
+          // @location         offset in the data
+          { shaderLocation: 0, offset: 0, format: "unorm8x4" },
+          { shaderLocation: 1, offset: 4, format: "float32x2" },
         ],
       },
     ],
@@ -102,6 +104,8 @@ const renderPassDescriptor = {
   // 在shader中以@location(index)表示
   colorAttachments: [
     {
+      // 表示将此次渲染内容输出的位置
+      view: texture.createView({ baseMipLevel: 1 }),  // 输出到texture的mipmap=1
       // filled color 未渲染时填充色
       clearValue: [0.3, 0.3, 0.3, 1],
       // 指定渲染前clear the texture to the clear value
@@ -121,18 +125,19 @@ const encoder = device.createCommandEncoder({ label: "our encoder" });
 ```js
 // GPU 程序的副作用
 const input = new Float32Array([1, 3, 5]);
-// GPU buffer 缓冲区(缓冲区不能立即从GPU可读，需要另行映射)
+// GPU buffer 缓冲区(缓冲区不能立即从GPU线程可读，需要另行申请)
 const workBuffer = device.createBuffer({
   label: "work buffer",
   size: input.byteLength,
   usage:
     GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST,
 });
-// 申请 GPU buffer 缓冲区 填充 js buffer 数据
+// 申请 GPU 线程的 buffer 填充 js buffer 数据
 // 注意 queue 是懒执行的。只会在 submit 后读取 buffer。因此在 submit 前修改同一 buffer 的动作都会起效
 device.queue.writeBuffer(workBuffer, 0, input);
 
 // 连接此次render pass和缓冲区
+// VertexBuffer/IndexBuffer 不需要bind
 const bindGroup = device.createBindGroup({
   label: "bindGroup for work buffer",
   layout: pipeline.getBindGroupLayout(0),
@@ -168,7 +173,7 @@ const textureData = new Uint8Array([
   // 2. vertex shader: texcoord = vec2f(xy.x, 1.0 - xy.y);
   // 3. fragment shader: texcoord = vec2f(fsInput.texcoord.x, 1.0 - fsInput.texcoord.y);
 ].flat());  // notice the flat function
-const mips = generateMips(textureData, kTextureWidth);  //生成 mipmap
+const mips = generateMips(textureData, kTextureWidth);  //生成 mipmap(自己写)
 const texture = device.createTexture({
   size: [mips[0].width, mips[0].height],
   mipLevelCount: mips.length,
@@ -189,6 +194,18 @@ mips.forEach(({data, width, height}, mipLevel) => {
 });
 // 自己控制的 sampler。处理mipmap, uv插值等
 const sampler = device.createSampler();
+
+// 注意texture需要GPUTextureUsage.RENDER_ATTACHMENT
+// 这是针对writeTexture的高级封装
+device.queue.copyExternalImageToTexture(
+  { source: BitmapOrVideoOrCanvas, flipY: true },
+  { texture: texture },
+  [textureData.width, textureData.height]
+);
+// 这是针对videoframe的高级封装
+// texture类型必须是texture_external
+const texture = device.importExternalTexture({ source: video });
+
 const bindGroup = device.createBindGroup({
   layout: pipeline.getBindGroupLayout(0),
   entries: [
@@ -196,13 +213,6 @@ const bindGroup = device.createBindGroup({
     { binding: 1, resource: texture.createView() },
   ],
 });
-
-// 也可以 Omit bitmaps/writeTexture/createBindGroup，直接用一个 API。WebGPU会内部处理这些
-device.queue.copyExternalImageToTexture(
-  { source: textureData },
-  { texture: texture },
-  [textureData.width, textureData.height]
-);
 ```
 
 ### 渲染 + 读取数据
@@ -222,7 +232,7 @@ pass.setBindGroup(0, bindGroup); // map buffer group
 pass.setVertexBuffer(0, vertexBuffer); //设置 vertexBuffer (@location, buffer)
 pass.setIndexBuffer(indexBuffer, "uint32"); //设置 indexBuffer。indexBuffer用于索引vertexBuffer
 pass.drawIndexed(3, 2); //和 indexed buffer 配合使用
-pass.dispatchWorkgroups(input.length); // call compute shader 3 times
+// pass.dispatchWorkgroups(input.length); // call compute shader 3 times
 pass.draw(3, 2); // call our vertex shader 3 * 2 times (per 2 obj, 3 times)
 // render pass 完成，准备提交
 pass.end();

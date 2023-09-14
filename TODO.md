@@ -1,13 +1,13 @@
 ## Reading List
 
-[可迭代协议](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols)
 [Grid 布局](https://web.dev/learn/css/grid/)
 [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
 [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
-[webassembly](https://wasmbyexample.dev/home.en-us.html#)
-[webAudio](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API)
-[WebCodecs](https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API)
-[TTS](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis)
+[WebAssembly](https://wasmbyexample.dev/home.en-us.html#)
+[Gamepad](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Fullscreen](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)
+[PointerLock](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
+[Wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
 
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
@@ -27,11 +27,13 @@ https://github.com/partykit/partykit/tree/main/packages/partysocket
 
 https://webauthn.wtf/
 
-https://build.intersection.tw/how-to-favicon
-
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
 
 https://github.com/ValdikSS/GoodbyeDPI
+
+https://developer.chrome.com/capabilities/
+
+https://developer.chrome.com/articles/file-system-access/
 
 random distribute https://github.com/ChrisCavs/aimless.js
 
@@ -39,9 +41,9 @@ https://thepalindrome.org/p/matrices-and-graphs
 
 https://www.rfc-editor.org/rfc/rfc9446.txt
 
-https://pudding.cool/2018/02/waveforms/
-
 Color Plate https://github.com/eigenmiao/Rickrack/
+
+https://jimmylin212.github.io/post/0013_exploring_angular_dom_manipulation/
 
 https://zh.javascript.info/bezier-curve
 
@@ -51,27 +53,36 @@ https://zh.javascript.info/js-animation
 
 https://zh.javascript.info/web-components
 
-https://microsoft.github.io/FASTER/
+https://pet2cattle.com/2022/08/docker-container-names-generator
 
-https://developer.mozilla.org/en-US/docs/Games
+https://auto-animate.formkit.com/#usage
 
-https://samwho.dev/hashing/
+https://github.com/baotlake/periodic-table-pro
+
+https://github.com/evrimagaci/periodum
+
+https://github.com/microsoft/FASTER
+
+https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
+
+book https://gameprogrammingpatterns.com/acknowledgements.html
+
+https://gamedevelopment.tutsplus.com/
+
+Hash function quality and speed tests
+https://github.com/rurban/smhasher
+
+https://djhworld.github.io/hyperloglog/
 
 https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 
 https://news.ycombinator.com/item?id=36756504
 
-https://www.gohacking.com/category/how-to-guides/
-
 https://processing.org/examples/
-
-http://www.52shijing.com/lsxx/117317.html
 
 https://github.com/sindresorhus/promise-fun
 
 https://q.shanyue.tech/interview
-
-https://cjting.me/2021/08/07/fourier-transform-and-audio-visualization/
 
 https://css-tricks.com/exploring-the-css-paint-api-image-fragmentation-effect/
 
@@ -113,17 +124,11 @@ https://github.com/veltman/clmystery
 
 Go defer 原理和源码剖析 https://www.cnblogs.com/wanghao72214/p/15544365.html
 
-https://engineering.atspotify.com/2014/02/how-to-shuffle-songs/
-
-https://ruudvanasseldonk.com/2023/an-algorithm-for-shuffling-playlists
-
 https://felixgerschau.com/how-to-make-your-react-app-a-progressive-web-app-pwa/
 
 https://felixgerschau.com/react-hooks-form-validation-typescript/
 
 https://nytimes.github.io/oak-byo-react-prosemirror-redux/
-
-https://github.com/lissy93/web-check
 
 https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
 
@@ -163,8 +168,6 @@ cat memes tarot https://www.pinghatta.com/art-posters
 
 book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
 
-https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm
-
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 聊天内容不经过服务器，可以自己搭建，分享房间号给其他人
@@ -173,8 +176,6 @@ https://getaether.net/
 https://github.com/vasanthv/talk
 
 https://eli.thegreenplace.net/2023/demystifying-tuppers-formula/
-
-https://netflixtechblog.com/migrating-netflix-to-graphql-safely-8e1e4d4f1e72
 
 https://dev.to/documatic/the-art-of-code-review-1lo4
 
@@ -196,9 +197,6 @@ http://www.hackdig.com/06/hack-46619.htm
 book https://pandolia.net/tinyc/
 
 js写ssh https://github.com/CatsAndMice/blog/issues/42
-
-Forking Chrome to render in a terminal
-https://fathy.fr/carbonyl
 
 https://github.com/evanw/float-toy
 
@@ -254,8 +252,6 @@ Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
 桌游太空竞速的设计 https://www.youtube.com/watch?v=JcyyeAww2wc
 
-如何将 exe 反编译成 Python 脚本 https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&mid=2648982698&idx=1&sn=36e8c6a513508e473c7abe5d132f21e2
-
 book https://diveintosystems.org/book/introduction.html
 
 book http://icyfenix.cn/
@@ -284,6 +280,8 @@ https://www.zenrows.com/blog/web-crawler-python
 
 book https://cp-algorithms.com/
 
+https://www.hello-algo.com/chapter_preface/suggestions/
+
 book https://effective-shell.com/
 
 book https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md
@@ -295,8 +293,6 @@ Unity L procedure https://zhuanlan.zhihu.com/p/468185946
 https://github.com/paulirish/trace.cafe/blob/8852ecf43e8dfdbe42551deaf09201b0224a6c11/src/app.js#L19
 
 https://github.com/one-piece-official/ImageFlow/blob/master/src/transtions.js
-
-40+ non-V8 JavaScript implementations https://notes.eatonphil.com/javascript-implementations.html
 
 https://planetscale.com/blog/how-does-database-sharding-work
 
@@ -327,8 +323,6 @@ https://github.com/Pere001/2d-platformer-tutorial-2023#intro
 
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 
-https://www.figma.com/blog/realtime-editing-of-ordered-sequences/
-
 https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-review-of-kmp(knuth-morris-pratt)-algorithm/
 
 https://charliegerard.dev/blog/ultrasonic-payments/
@@ -345,16 +339,13 @@ https://secretgeek.github.io/html_wysiwyg/html.html
 
 https://github.com/lucaong/minisearch
 
-https://hughfenghen.github.io/fe/body-mask-danmaku/#%E5%89%8D%E8%A8%80
+https://hughfenghen.github.io/posts/2020/10/07/sw-ssr/
 
 密码分析(门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
 
 2D Graphics Algorithms https://youtu.be/bfvmPa9eWew?t=146
 
 https://lcamtuf.coredump.cx/photo_basics/
-
-讲点日本不良少年漫画的背景知识
-https://www.gcores.com/articles/157640
 
 神智学研究笔记（三）：《隐秘教义》概述
 https://www.gcores.com/articles/160965
@@ -380,6 +371,12 @@ https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
 
 book https://github.com/heathermiller/dist-prog-book/blob/master/chapter/1/rpc.md
 
+http://erights.org/elib/distrib/pipeline.html
+
+book https://book.mixu.net/distsys/index.html
+
+https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html
+
 https://github.com/simeydotme/pokemon-cards-css
 
 https://www.mcmaster.com/
@@ -402,8 +399,6 @@ https://www.programiz.com/dsa/radix-sort
 sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
-
-cpp conf https://www.youtube.com/playlist?list=PLHTh1InhhwT6c2JNtUiJkaH8YRqzhU7Ag
 
 Creative Writing https://www.youtube.com/watch?v=-6HOdHEeosc&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=2
 
@@ -461,7 +456,7 @@ book https://www.learncpp.com/
 
 大整数设计 https://www.bearssl.org/bigint.html
 
-http://cdsweb.u-strasbg.fr/Dic/iau-spec.html
+https://cds.unistra.fr//Dic/iau-spec.html
 
 book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
@@ -486,8 +481,6 @@ YouTube channels focused on mastering a skill/craft https://news.ycombinator.com
 https://github.com/MaxBittker/broider
 
 book https://themarketplace.guide/
-
-https://www.infoq.cn/article/C4-architecture-model/
 
 https://www.webgamedev.com/
 
@@ -531,6 +524,16 @@ https://blog.amis.com/srp-1f28676aa525
 
 https://greptime.com/blogs/2023-01-12-hidden-control-flow
 
+## AV
+
+main ref book https://webaudioapi.com/book/Web_Audio_API_Boris_Smus_html/ch01.html
+
+https://cjting.me/2021/08/07/fourier-transform-and-audio-visualization/
+
+https://pudding.cool/2018/02/waveforms/
+
+https://hughfenghen.github.io/posts/2023/07/16/webav-0-overview/
+
 ## FP
 
 https://github.com/InceptionCode/Functional-Programming-Exercises
@@ -546,7 +549,7 @@ https://github.com/getify/monio/blob/master/MONADS.md#where-to-learn-more-fp
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-importing-textures.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-memory-layout.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
 
@@ -596,8 +599,6 @@ https://alain.xyz/blog/game-engine-architecture
 
 https://maierfelix.github.io/2020-01-13-webgpu-ray-tracing/
 
-http://erights.org/elib/distrib/pipeline.html
-
 https://www.jezzamon.com/fourier/
 
 https://thebookofshaders.com/?lan=ch
@@ -616,15 +617,27 @@ https://github.com/jinleili/simuverse
 
 https://github.com/jinleili/bevy-in-app
 
-https://github.com/jinleili/wgpu-in-app
-
 ## CRDT
+
+https://sergeiturukin.com/2017/06/26/hybrid-logical-clocks.html
+
+https://jaredforsyth.com/posts/hybrid-logical-clocks/
+
+https://zhuanlan.zhihu.com/p/472119560
 
 https://loro-dev.notion.site/crdt-richtext-Rust-implementation-of-Peritext-and-Fugue-c49ef2a411c0404196170ac8daf066c0
 
 https://www.zxch3n.com/crdt-intro/design-crdt/
 
 https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
+
+https://www.figma.com/blog/realtime-editing-of-ordered-sequences/
+
+https://www.youtube.com/watch?v=M8-WFTjZoA0
+
+https://www.youtube.com/watch?v=x7drE24geUw
+
+[什么是一致性，有哪些一致性（强一致性（线性一致性，顺序一致性以及严格有序一致性）与最终一致性），然后谈谈分布式数据微服务的设计模式，主要是 CQRS 以及 CRDT，对于 SAGA 以及 Event Partition 也简单提及了一些](https://www.bilibili.com/video/BV1G5411Q7EF/)
 
 ## Makefile
 
@@ -654,11 +667,11 @@ https://blog.logrocket.com/es-modules-in-browsers-with-import-maps/
 
 monorepo nx https://www.youtube.com/watch?v=M5NwkRNrpK0
 
+https://blog.bitsrc.io/how-to-develop-microfrontends-using-react-step-by-step-guide-47ebb479cacd
+
 piral tutorial https://www.youtube.com/watch?v=ltTXWEwhSiY&list=PLQ9i8GS-LNXkHE8fbkU4Qwgbak4Rwjbg-
 
 https://blog.bitsrc.io/revolutionizing-micro-frontends-with-webpack-5-module-federation-and-bit-99ff81ceb0
-
-Conf https://www.youtube.com/watch?v=x63PIpqQME8&list=PLQ9i8GS-LNXkJulBBvezBeOVeRJTF8TjY
 
 ## game mod
 
@@ -709,6 +722,14 @@ windbg https://youtu.be/sbRGDEexZH8?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu&t=48
 ## Refs
 
 Use `Url` constructor and `URLSearchParams` for manipulate a url
+
+C4 Modal^(
+   用于描述软件架构的模型
+1. 系统上下文。总览，描述正在构建的软件系统与用户及其他软件系统之间的关系
+2. 容器。将软件系统放大，显示组成该软件系统的容器（应用程序、数据存储、微服务等）以及对应的技术决策、架构
+3. 组件。将单个容器放大（如前端），显示代码库中的真实抽象
+4. 代码。如果有这个必要，可以放大个别组件，以显示该组件的实现方式
+) https://c4modal.com
 
 idempotency Api^(
 (1) should have a idempotency-key, it makes api run "exactly once", regardless what error may occurred
@@ -777,8 +798,6 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 git with proxy^(
    git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
 )
-
-语言语法解析器(无自定义语法解析) https://github.com/tree-sitter/tree-sitter
 
 BrainFuck^(
 https://www.deusinmachina.net/p/weird-ones-30-years-of-brainfuck
@@ -853,28 +872,3 @@ complexity theory
 钢琴
    钢琴键盘上的黑键同时也可以用♯(升)和♭(降)符号来表示。"A♯/B♭"是A和B中间的同一个键
 ) https://learningmusic.ableton.com/zh-Hans/
-
-字符系统^(
-- 字符
-  指字母、数字、标点、表意文字、符号，或其他文本形式的书写“原子”。
-  由统一字符集（Universal Character Set，UCS, 它的非正式的名字
-  是 Unicode）首创，为多种语言中的很多字符开发了一系列标准化的文本名称，
-  它们常用来便捷地命名字符，而且不会与其他字符冲突
-- 字形
-  描述字符的笔画图案或唯一的图形化形状。如果一个字符有多种不同的写法，就有多个字形
-- 编码后的字符
-  分配给字符的唯一数字编号，这样我们就可以操作它了。
-- 代码空间
-  计划用于字符代码值的整数范围。
-- 代码宽度
-  每个（固定大小的）字符代码所用的位数。
-- 字符库
-  特定的工作字符集（全体字符的一个子集）
-- 编码后的字符集
-  组成字符库（从全球的字符中选出若干字符）的已编码字符集，并为每个字符
-  分配代码空间中的一个代码。换句话说，它把 Int 映射为实际的字符。
-- 字符编码方案
-  把 Int 编码成一系列二进制码（并能相应地反向解码）的算法。字符编码方案
-  可用来减少识别字符所需要的数据总量（压缩）、解决传输限制、统一重叠编码字符集
-  有三种主要类型: 固定宽度、可变宽度(无模态)、可变宽度(有模态)。模态指可以通过特殊转义在不同模态间切换，以支持复杂的书写系统(如连笔)
-)

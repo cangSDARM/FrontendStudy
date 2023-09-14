@@ -1,6 +1,7 @@
 - [Promise, Generator](../ECMA/Promise_Async_Generator.md)
 - [流](./stream.md)
 - [Rxjs](./Rxjs.md)
+- [事件溯源模式](./event-sourcing.md)
 
 ![data-flow-modals](../assets/asynchronize.png)
 

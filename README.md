@@ -8,8 +8,9 @@
 <!-- /TOC -->
 
 - [数据处理模式](./DataFlow/README.md)
-- [Graphics 相关](./graphics/README.md)
-- [Network 相关](./network/README.md)
+- [Graphics 相关](./Graphics/README.md)
+- [Network 相关](./Network/README.md)
+- [音视频相关](./Audio&Video/README.md)
 - [前端工程化(工具/环境)相关](./engineering/README.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
@@ -40,6 +41,7 @@
   - https://weizman.github.io/page-js-anti-debug-2/
   - https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-2-abusing-chromium-devtools-scope-pane-b2796c00331d
 - [通过验证码(css:visited)检索你的浏览历史](https://varun.ch/history)
+- [检查网页各种信息](https://github.com/lissy93/web-check)
 
 ## 未分类
 
@@ -50,6 +52,7 @@
 [各种前端框架的基础写法展示](https://component-party.dev/)
 [各种算法结构的基础 Ref](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 [算法可视化](https://algorithm-visualizer.org/)
+[Icon合集](https://icon-sets.iconify.design/)
 [针对 HTTP 的 WireShark, 可以修改 req rep](https://httptoolkit.com/)
 [检查 API 是否 CORS](https://httptoolkit.com/will-it-cors/)
 [在线玩桌游](https://zh-cn.boardgamearena.com/)

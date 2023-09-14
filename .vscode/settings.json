@@ -9,6 +9,8 @@
     "activityBar.activeBorder": "#fbfbfb",
     "activityBar.foreground": "#fafa0f"
   },
+  "editor.formatOnSave": false,
+  "editor.fontLigatures": true,
   "editor.wordWrap": "on",
   "eslint.alwaysShowStatus": true,
   "prettier.trailingComma": "all",

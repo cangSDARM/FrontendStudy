@@ -25,13 +25,15 @@
 
 https://realfavicongenerator.net/
 
+https://build.intersection.tw/how-to-favicon
+
 ```html
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="any" />
 <!-- 32x32;48x48;128x128px, size=any表示icon是任意大小,主要用于糊弄chrome让它用svg; -->
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <!-- type=image表示图像格式,主要用于适配safari让他明白这是svg -->
 <!-- 现代浏览器都应使用svg的favicon,ico用于老旧浏览器兼容 -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <!-- 180x180px, apple-touch-icon用于ios及其他操作系统pwa时 -->
 <link rel="manifest" href="/site.webmanifest" />
 <!-- webmanifest用于安卓 -->
@@ -184,6 +186,7 @@ Referrer: https://zh.javascript.info/selection-range
 所以可以加一步鼠标监听来配合达到
 
 ### Selection 对象
+
 允许读取、添加、删除等选择内容/节点
 
 ```js
@@ -197,11 +200,11 @@ function getSelectedText() {
 }
 // only document 当选择发生变化或开始时
 // workaround: $("div").mouseup
-document.onselectionchange = function() {
-  let selection = document.getSelection();// or window.getSelectText();
+document.onselectionchange = function () {
+  let selection = document.getSelection(); // or window.getSelectText();
   // Selection 对象允许读取、添加、删除等选择内容/节点
 
-  let {anchorNode, anchorOffset, focusNode, focusOffset} = selection;
+  let { anchorNode, anchorOffset, focusNode, focusOffset } = selection;
 
   // anchorNode 和 focusNode 通常是文本节点
   const from = `${anchorNode?.data}, offset ${anchorOffset}`;
@@ -214,16 +217,18 @@ document.onselectionchange = function() {
 ```
 
 ### input/textarea
-有单独的选择API
+
+有单独的选择 API
 
 ```js
-input.selectionStart/selectionEnd/selectionDirection
-input.select()/setSelectionRange()/setRangeText()
-input.onselect
+input.selectionStart / selectionEnd / selectionDirection;
+input.select() / setSelectionRange() / setRangeText();
+input.onselect;
 ```
 
 ### Range 对象
-会包含选择的node，没有直接取文本的。Range允许对 node 选择、复制、删除、插入等
+
+会包含选择的 node，没有直接取文本的。Range 允许对 node 选择、复制、删除、插入等
 
 ```js
 let range = Range();

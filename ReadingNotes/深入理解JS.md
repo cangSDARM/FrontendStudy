@@ -146,6 +146,8 @@ Math.round(somenum) ===
   (0.5 + somenum) | 0 ===
   ~~(0.5 + somenum) ===
   (0.5 + somenum) << 0;
+// floor
+Math.floor(somenum) === somenum | 0;
 ```
 
 ### Blob
