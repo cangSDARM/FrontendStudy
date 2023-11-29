@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "usernamehw.errorlens",
+    "eamodio.gitlens",
+    "wix.vscode-import-cost",
+    "SirTori.indenticator",
+    "yzhang.markdown-all-in-one",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "hbenl.vscode-test-explorer",
+    "Gruntfuggly.todo-tree",
+    "redhat.vscode-xml"
+  ]
+}

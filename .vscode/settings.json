@@ -3,7 +3,8 @@
   "markdown.extension.toc.levels": "2..4",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontSize": 16,
-  "editor.fontFamily": "'Fira Mono for Powerline', 'Fira Code', 'SourceCode Pro' , Consolas, monospace",
+  "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Fira Code', 'SourceCode Pro' , Consolas, monospace",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#294a5b",
     "activityBar.activeBorder": "#fbfbfb",
@@ -38,5 +39,13 @@
   ],
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
   }
 }
