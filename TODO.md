@@ -150,6 +150,22 @@ https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 book https://web.dev/learn/pwa/
 
+https://www.amitmerchant.com/textarea-auto-increase-height/
+
+https://www.redblobgames.com/making-of/draggable/
+
+https://agraphicsguynotes.com/posts/fiber_in_cpp_understanding_the_basics/
+
+https://goodyduru.github.io/os/2023/10/05/ipc-unix-signals.html
+
+https://goodyduru.github.io/os/2023/09/26/ipc-named-pipes.html
+
+https://vitalik.ca/general/2023/08/16/communitynotes.html
+
+https://www.thebyte.com.cn/
+
+https://tonedear.com/
+
 https://scrollbars.matoseb.com/
 
 https://github.com/thecodrr/alfaaz
