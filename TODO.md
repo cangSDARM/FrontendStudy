@@ -53,8 +53,6 @@ https://zh.javascript.info/js-animation
 
 https://zh.javascript.info/web-components
 
-https://pet2cattle.com/2022/08/docker-container-names-generator
-
 https://auto-animate.formkit.com/#usage
 
 https://github.com/baotlake/periodic-table-pro
@@ -81,8 +79,6 @@ https://news.ycombinator.com/item?id=36756504
 https://processing.org/examples/
 
 https://github.com/sindresorhus/promise-fun
-
-https://q.shanyue.tech/interview
 
 https://css-tricks.com/exploring-the-css-paint-api-image-fragmentation-effect/
 
@@ -155,10 +151,6 @@ https://www.amitmerchant.com/textarea-auto-increase-height/
 https://www.redblobgames.com/making-of/draggable/
 
 https://agraphicsguynotes.com/posts/fiber_in_cpp_understanding_the_basics/
-
-https://goodyduru.github.io/os/2023/10/05/ipc-unix-signals.html
-
-https://goodyduru.github.io/os/2023/09/26/ipc-named-pipes.html
 
 https://vitalik.ca/general/2023/08/16/communitynotes.html
 
@@ -813,20 +805,6 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 
 git with proxy^(
    git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
-)
-
-BrainFuck^(
-https://www.deusinmachina.net/p/weird-ones-30-years-of-brainfuck
-image it operate a `short[]` and a hidden index, and this array has 8 rules:
-
-1. `+` Increment the value of the current indexed cell by 1
-2. `-` Decrement the value of the current indexed cell by 1
-3. `>` Move the pointer to the next index
-4. `<` Move the pointer to the previous index
-5. `.` Output the Binary (to Ascii or any format) to the value of the current indexed cell
-6. `,` Input a character and store its Binary value in the current indexed cell
-7. `[` If the value of the current cell is zero, jump to the corresponding `]` code
-8. `]` if the value of the current cell is non-zero, jump back to the corresponding `[` code
 )
 
 格式塔^(

@@ -48,7 +48,6 @@
 [中文开源字体](https://font.gentleflow.tech/)
 [网页性能相关的博客](https://calendar.perfplanet.com/)
 [网页安全相关博客](https://blog.huli.tw/categories/)
-[Node+Typescript 的 esm 依赖问题解决方案: tsup](https://juejin.cn/post/7117673524692516895)
 [各种前端框架的基础写法展示](https://component-party.dev/)
 [各种算法结构的基础 Ref](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 [算法可视化](https://algorithm-visualizer.org/)
