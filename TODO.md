@@ -67,6 +67,10 @@ book https://gameprogrammingpatterns.com/acknowledgements.html
 
 https://gamedevelopment.tutsplus.com/
 
+企业架构 TOGAF https://segmentfault.com/a/1190000019704801
+企业架构建模 https://www.archimatetool.com/
+https://www.opengroup.org/archimate-forum/archimate-overview
+
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
 
@@ -140,8 +144,6 @@ https://roberthodgin.com/
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_packages.html
 
-https://nima101.github.io/io_multiplexing
-
 https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 book https://web.dev/learn/pwa/
@@ -169,8 +171,6 @@ https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 https://kinsta.com/blog/brotli-compression/
 
 https://web.dev/new-responsive/
-
-cat memes tarot https://www.pinghatta.com/art-posters
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
@@ -247,6 +247,18 @@ book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pd
 
 https://interfaces.rauno.me/
 
+https://www.notion.so/blog/sharding-postgres-at-notion
+
+https://aws.amazon.com/cn/what-is/mqtt/
+
+https://aws.amazon.com/cn/what-is/sso/
+
+https://zhuanlan.zhihu.com/p/652308791
+
+https://jihulab.com/linksaas/desktop
+
+https://www.dingmos.com/index.php/archives/23/
+
 book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
 book https://learningsynths.ableton.com/zh-Hans
@@ -274,8 +286,6 @@ https://spacelift.io/blog/container-security
 
 https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
 
-c10k https://zhuanlan.zhihu.com/p/23114695
-
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
@@ -302,7 +312,13 @@ https://github.com/paulirish/trace.cafe/blob/8852ecf43e8dfdbe42551deaf09201b0224
 
 https://github.com/one-piece-official/ImageFlow/blob/master/src/transtions.js
 
-https://planetscale.com/blog/how-does-database-sharding-work
+https://webcontainers.io/
+
+https://lwn.net/Kernel/LDD3/
+
+https://www.cnblogs.com/hueyxu/p/13745029.html
+
+opendrive format https://blog.csdn.net/weixin_44108388/article/details/111303985
 
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
@@ -491,6 +507,12 @@ https://github.com/MaxBittker/broider
 book https://themarketplace.guide/
 
 https://www.webgamedev.com/
+
+https://github.com/satoshi7190/Shinjuku-indoor-threejs-demo
+
+https://www.howtogeek.com/how-to-copy-uncopyable-texts-on-windows/
+
+https://github.com/jianchang512/vocal-separate
 
 Visual explanations of core machine learning concepts
 https://mlu-explain.github.io/
