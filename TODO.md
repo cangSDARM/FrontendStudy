@@ -49,8 +49,6 @@ https://zh.javascript.info/bezier-curve
 
 https://zh.javascript.info/css-animations
 
-https://zh.javascript.info/js-animation
-
 https://zh.javascript.info/web-components
 
 https://pet2cattle.com/2022/08/docker-container-names-generator
@@ -65,7 +63,9 @@ https://github.com/microsoft/FASTER
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
-book https://gameprogrammingpatterns.com/acknowledgements.html
+book https://gameprogrammingpatterns.com/design-patterns-revisited.html
+
+book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-path.html
 
 https://gamedevelopment.tutsplus.com/
 
@@ -141,8 +141,6 @@ https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7
 https://www.smartedu.cn/home/province
 
 https://roberthodgin.com/
-
-book https://exploringjs.com/nodejs-shell-scripting/ch_packages.html
 
 https://nima101.github.io/io_multiplexing
 
@@ -393,6 +391,8 @@ https://www.youtube.com/watch?v=XY0yR6IPbhw
 book https://meatfighter.com/tetromino-computer/
 
 leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
+
+https://serokell.io/blog/introduction-to-free-monads
 
 https://www.programiz.com/dsa/radix-sort
 
