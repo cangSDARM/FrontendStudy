@@ -76,7 +76,7 @@ A function that receives or returns one or more other function values is called 
 
 _functor_ is an "atom data-structure" which supports mapping (precisely: morphism) operations and preserves composition (results still support mapping). Example: Array = functor + other terminologies.
 
-_monad_ is an "atom object" in the fp-world which defines the minimum protocol to communicate with the basic language and the fp world (mappable, composable and immutable). monad based on functor.
+_monad_ is an "atom object" in the fp-world that defines the minimum protocol to communicate with the base language and the fp world (mappable, composable and immutable). monad based on functor.
 
 _tacit programming_, or more commonly: _point-free style_. The term "point" here is referring to a function's parameter input: `[1,2,3,4,5].map( unary( double ) )`, which you cannot see the input flow, it been hidden.
 

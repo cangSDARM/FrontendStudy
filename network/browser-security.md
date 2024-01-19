@@ -23,7 +23,7 @@
    - 配置`document.domain`跨子域(iframe 和父窗口之间)
 2. 同一标签页不同的页面(不同时间、iframe 等)：
    - 配置`window.name`跨域
-3. ifame
+3. iframe
    - 使用`postMessage`
 
 ```js

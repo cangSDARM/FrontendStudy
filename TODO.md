@@ -51,8 +51,6 @@ https://zh.javascript.info/css-animations
 
 https://zh.javascript.info/web-components
 
-https://pet2cattle.com/2022/08/docker-container-names-generator
-
 https://auto-animate.formkit.com/#usage
 
 https://github.com/baotlake/periodic-table-pro
@@ -63,11 +61,16 @@ https://github.com/microsoft/FASTER
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
-book https://gameprogrammingpatterns.com/design-patterns-revisited.html
-
 book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-path.html
 
+book https://gameprogrammingpatterns.com/introduction.html
+https://gpp.tkchu.me/state.html
+
 https://gamedevelopment.tutsplus.com/
+
+企业架构 TOGAF https://segmentfault.com/a/1190000019704801
+企业架构建模 https://www.archimatetool.com/
+https://www.opengroup.org/archimate-forum/archimate-overview
 
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
@@ -81,8 +84,6 @@ https://news.ycombinator.com/item?id=36756504
 https://processing.org/examples/
 
 https://github.com/sindresorhus/promise-fun
-
-https://q.shanyue.tech/interview
 
 https://css-tricks.com/exploring-the-css-paint-api-image-fragmentation-effect/
 
@@ -142,11 +143,21 @@ https://www.smartedu.cn/home/province
 
 https://roberthodgin.com/
 
-https://nima101.github.io/io_multiplexing
-
 https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 book https://web.dev/learn/pwa/
+
+https://www.amitmerchant.com/textarea-auto-increase-height/
+
+https://www.redblobgames.com/making-of/draggable/
+
+https://agraphicsguynotes.com/posts/fiber_in_cpp_understanding_the_basics/
+
+https://vitalik.ca/general/2023/08/16/communitynotes.html
+
+https://www.thebyte.com.cn/
+
+https://tonedear.com/
 
 https://scrollbars.matoseb.com/
 
@@ -159,8 +170,6 @@ https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 https://kinsta.com/blog/brotli-compression/
 
 https://web.dev/new-responsive/
-
-cat memes tarot https://www.pinghatta.com/art-posters
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
@@ -237,6 +246,18 @@ book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pd
 
 https://interfaces.rauno.me/
 
+https://www.notion.so/blog/sharding-postgres-at-notion
+
+https://aws.amazon.com/cn/what-is/mqtt/
+
+https://aws.amazon.com/cn/what-is/sso/
+
+https://zhuanlan.zhihu.com/p/652308791
+
+https://jihulab.com/linksaas/desktop
+
+https://www.dingmos.com/index.php/archives/23/
+
 book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
 book https://learningsynths.ableton.com/zh-Hans
@@ -262,9 +283,11 @@ Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
 https://spacelift.io/blog/container-security
 
-https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
+https://step-saga-examples.pages.dev/v0-dev-reverse-engineer/
 
-c10k https://zhuanlan.zhihu.com/p/23114695
+https://justinjaffray.com/a-charming-algorithm-for-count-distinct/
+
+https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
@@ -292,7 +315,13 @@ https://github.com/paulirish/trace.cafe/blob/8852ecf43e8dfdbe42551deaf09201b0224
 
 https://github.com/one-piece-official/ImageFlow/blob/master/src/transtions.js
 
-https://planetscale.com/blog/how-does-database-sharding-work
+https://webcontainers.io/
+
+https://lwn.net/Kernel/LDD3/
+
+https://www.cnblogs.com/hueyxu/p/13745029.html
+
+opendrive format https://blog.csdn.net/weixin_44108388/article/details/111303985
 
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
@@ -338,6 +367,8 @@ https://secretgeek.github.io/html_wysiwyg/html.html
 https://github.com/lucaong/minisearch
 
 https://hughfenghen.github.io/posts/2020/10/07/sw-ssr/
+
+https://hughfenghen.github.io/posts/2023/10/06/webcodecs-new-era-for-media-on-the-web/
 
 密码分析(门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
 
@@ -483,6 +514,12 @@ https://github.com/MaxBittker/broider
 book https://themarketplace.guide/
 
 https://www.webgamedev.com/
+
+https://github.com/satoshi7190/Shinjuku-indoor-threejs-demo
+
+https://www.howtogeek.com/how-to-copy-uncopyable-texts-on-windows/
+
+https://github.com/jianchang512/vocal-separate
 
 Visual explanations of core machine learning concepts
 https://mlu-explain.github.io/
@@ -797,20 +834,6 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 
 git with proxy^(
    git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
-)
-
-BrainFuck^(
-https://www.deusinmachina.net/p/weird-ones-30-years-of-brainfuck
-image it operate a `short[]` and a hidden index, and this array has 8 rules:
-
-1. `+` Increment the value of the current indexed cell by 1
-2. `-` Decrement the value of the current indexed cell by 1
-3. `>` Move the pointer to the next index
-4. `<` Move the pointer to the previous index
-5. `.` Output the Binary (to Ascii or any format) to the value of the current indexed cell
-6. `,` Input a character and store its Binary value in the current indexed cell
-7. `[` If the value of the current cell is zero, jump to the corresponding `]` code
-8. `]` if the value of the current cell is non-zero, jump back to the corresponding `[` code
 )
 
 格式塔^(

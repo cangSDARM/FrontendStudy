@@ -10,13 +10,20 @@
     - [数据耦合](#数据耦合)
     - [无耦合](#无耦合)
   - [依赖注入](#依赖注入)
+  - [代码覆盖率](#代码覆盖率)
+    - [语句覆盖(StatementCoverage) or 行覆盖(LineCoverage) or 基本块覆盖(BasicBlockCoverage)](#语句覆盖statementcoverage-or-行覆盖linecoverage-or-基本块覆盖basicblockcoverage)
+    - [判定覆盖(DecisionCoverage) or 分支覆盖(BranchCoverage) or 边界覆盖(All-EdgesCoverage) or 基本路径覆盖(BasicPathCoverage) or 判定路径覆盖(Decision-Decision-Path)](#判定覆盖decisioncoverage-or-分支覆盖branchcoverage-or-边界覆盖all-edgescoverage-or-基本路径覆盖basicpathcoverage-or-判定路径覆盖decision-decision-path)
+    - [条件覆盖(ConditionCoverage)](#条件覆盖conditioncoverage)
+    - [路径覆盖(PathCoverage) or 断言覆盖(PredicateCoverage)](#路径覆盖pathcoverage-or-断言覆盖predicatecoverage)
 - [单元测试](#单元测试)
   - [原则](#原则)
   - [Mock 和 Stub](#mock-和-stub)
   - [Spy](#spy)
   - [测试自动化](#测试自动化)
   - [例子：Mocha + Chai + Sinon](#例子mocha--chai--sinon)
+- [集成测试](#集成测试)
 - [回归测试](#回归测试)
+- [端到端测试](#端到端测试)
 - [性能测试](#性能测试)
   - [浏览器解析 JS](#浏览器解析-js)
     - [HAR（HTTP Archive）](#harhttp-archive)
@@ -165,6 +172,104 @@ var Space = function (engine, booster, arm) {
 };
 ```
 
+### 代码覆盖率
+
+用于度量被测代码中的逻辑考虑是否周全
+
+#### 语句覆盖(StatementCoverage) or 行覆盖(LineCoverage) or 基本块覆盖(BasicBlockCoverage)
+
+度量被测代码中每个可执行语句是否被执行到了。**只统计能够执行的代码被执行了多少行。**
+
+例子(测试已经 100%覆盖):
+
+```js
+function foo(a, b) {
+  return a / b;
+}
+
+test("StatementCoverage", () => {
+  foo(10, 5);
+});
+```
+
+是最弱的覆盖。未考虑代码逻辑问题(如除零)
+
+#### 判定覆盖(DecisionCoverage) or 分支覆盖(BranchCoverage) or 边界覆盖(All-EdgesCoverage) or 基本路径覆盖(BasicPathCoverage) or 判定路径覆盖(Decision-Decision-Path)
+
+它度量程序中每一个判定的分支是否都被测试到了。**只需要考虑每个分支的判定结果**
+
+例子(测试已经 100%覆盖):
+
+```js
+function foo(a, b) {
+  // 判定
+  if (a < 10 || b < 10) {
+    return 0; // 分支一
+  } else {
+    return 1; // 分支二
+  }
+}
+
+test("DecisionCoverage", () => {
+  foo(5, 1); // 分支一
+  foo(15, 15); // 分支二
+});
+```
+
+未考虑判定条件的覆盖，容易写出忽略条件短路的测试
+
+#### 条件覆盖(ConditionCoverage)
+
+它度量判定中的每个子表达式结果 true 和 false 是否被测试到了。**只需要考虑每个分支判断条件的结果，忽略组合结果。**
+
+例子(测试已经 100%覆盖):
+
+```js
+function foo(a, b) {
+  // 判定
+  if (a < 10 || b < 10) {
+    return 0; // 分支一
+  } else {
+    return 1; // 分支二
+  }
+}
+
+test("DecisionCoverage", () => {
+  foo(1, 15); // 分支一
+  foo(15, 1); // 分支一
+});
+```
+
+没有考虑组合结果完整性，容易写出如例子中只覆盖分支一的测试
+
+#### 路径覆盖(PathCoverage) or 断言覆盖(PredicateCoverage)
+
+它度量了是否函数的每一个分支都被执行了。**需要将所有可能的分支都执行，有多个分支嵌套时，需要对多个分支进行排列组合。**
+
+例子(测试已经 100%覆盖):
+
+```js
+function foo(a, b) {
+  let ret = 0;
+  if (a < 10) {
+    ret += 1;
+  }
+  if (b < 10) {
+    ret += 2;
+  }
+  return ret;
+}
+
+test("DecisionCoverage", () => {
+  foo(1, 1);
+  foo(1, 15);
+  foo(15, 1);
+  foo(15, 15);
+});
+```
+
+最强的覆盖。但测试内容随着分支的数量指数级别增加
+
 ## 单元测试
 
 ### 原则
@@ -175,7 +280,6 @@ var Space = function (engine, booster, arm) {
 4. 测试用例: 必须和代码保持同步, 且按照规范所定义
 5. 正向测试: 对正确用例的输入, 应该有正确的输出
 6. 负向测试: 对于传入的非期望的用例, 应该有良好的处理
-7. 代码覆盖率: 指单元测试中, =(执行代码/非执行代码行数)\*100%
 
 ### Mock 和 Stub
 
@@ -249,12 +353,25 @@ describe("Array#indexOf", function(){
 })
 ```
 
+## 集成测试
+
+集成测试是集成多个单元进行测试，组合到一起是否冲突。
+
+在不同的测试上下文中有不同的定义，在前端测试通常是指测试多个单元组件到一起的组件。
+
 ## 回归测试
+
 回归是回到以前或欠发达的状态。在软件测试中，回归测试是指确保应用到软件系统的新更改不会无意中破坏以前工作的东西。
 
 视觉回归测试通过比较代码更改前后截取的屏幕截图来检查最终用户看到的差异。
 
-使用Playwright进行视觉回归测试：https://lost-pixel.com/blog/post/playwright-visual-regression-testing
+使用 Playwright 进行视觉回归测试：https://lost-pixel.com/blog/post/playwright-visual-regression-testing
+
+## 端到端测试
+
+端到端测试是指从用户角度去测试。
+
+在前端测试中通常是指测试网页在不同浏览器的沙盒中的差异性。
 
 ## 性能测试
 
@@ -286,6 +403,7 @@ describe("Array#indexOf", function(){
 混沌工程师通过应用一些经验探索的原则，来观察系统是如何反应，通过实践对系统有更新的认知以揭露可能设计时未考虑的问题。
 
 原则/步骤:
+
 1. 选择一个假设(需要模拟真实环境，如网络宕机、资源抢占、硬件占用等，即系统变为了混沌状态)
 2. 选择试验的范围(整个系统宕机不是很好)
 3. 明确需要观察的 metric 指标(明确现有系统的负载能力，加钱就能解决的指标不需要考虑)
