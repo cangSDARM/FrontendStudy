@@ -63,7 +63,8 @@ https://github.com/microsoft/FASTER
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
-book https://gameprogrammingpatterns.com/acknowledgements.html
+book https://gameprogrammingpatterns.com/introduction.html
+https://gpp.tkchu.me/state.html
 
 https://gamedevelopment.tutsplus.com/
 
@@ -284,6 +285,10 @@ Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
 https://spacelift.io/blog/container-security
 
+https://step-saga-examples.pages.dev/v0-dev-reverse-engineer/
+
+https://justinjaffray.com/a-charming-algorithm-for-count-distinct/
+
 https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
@@ -364,6 +369,8 @@ https://secretgeek.github.io/html_wysiwyg/html.html
 https://github.com/lucaong/minisearch
 
 https://hughfenghen.github.io/posts/2020/10/07/sw-ssr/
+
+https://hughfenghen.github.io/posts/2023/10/06/webcodecs-new-era-for-media-on-the-web/
 
 密码分析(门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
 

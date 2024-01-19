@@ -8,15 +8,16 @@
 <!-- /TOC -->
 
 - [数据处理模式](./DataFlow/README.md)
-- [Graphics 相关](./Graphics/README.md)
-- [Network 相关](./Network/README.md)
-- [音视频相关](./Audio&Video/README.md)
+- [Graphics 相关](./graphics/README.md)
+- [Network 相关](./network/README.md)
+- [音视频相关](./audio&video/README.md)
 - [前端工程化(工具/环境)相关](./engineering/README.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
 - [WebCrypto](./crypto.md)
 - [Renderer Patterns](./renderer.md)
 - [函数式](./functional.md)
+- [测试](./test.md)
 
 [参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
 
