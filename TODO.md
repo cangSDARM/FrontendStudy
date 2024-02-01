@@ -64,7 +64,7 @@ https://github.com/microsoft/FASTER
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
 book https://gameprogrammingpatterns.com/introduction.html
-https://gpp.tkchu.me/state.html
+https://gpp.tkchu.me/double-buffer.html
 
 https://gamedevelopment.tutsplus.com/
 
@@ -145,7 +145,7 @@ https://roberthodgin.com/
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_packages.html
 
-https://www.youtube.com/watch?v=sGTRmPiXD4Y
+libuv https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 book https://web.dev/learn/pwa/
 
@@ -431,7 +431,11 @@ sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
-Creative Writing https://www.youtube.com/watch?v=-6HOdHEeosc&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=2
+Creative Writing https://www.youtube.com/watch?v=jrIogch5DBU&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=5
+
+https://mp.weixin.qq.com/s/3_LNM62zoHaJsmvAryujEw
+
+https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
 
 Audio adventures in Rust: UI with Actix, WebView, and React
 https://www.youtube.com/watch?v=vmvq9jKBlGc
@@ -802,15 +806,6 @@ rewrite-refactor-reinvent^(
 
 precise clock: https://codepen.io/smashingmag/pen/BaYVLMj
 
-Chinese-coordinate-system^(
-international standard: WGS-84(World Geodetic System, 84 is last modified date 1984)
-chinese standard: GCJ-02(based on WGS-84 and uses an obfuscation algorithm, which adds random offsets to both the latitude and longitude)
-baidu's private algorithm: BD-09(based on GCJ-02, to protect Baidu's data so that competitors couldn't easily duplicate)
-Open source implementations:
-https://github.com/googollee/eviltransform
-https://github.com/wandergis/coordtransform
-)
-
 fork bomb^(`A{ A|A& };A`, it's a shell script, `A` call itself twice in parallel. so it create too many processes hangs up CPU, and crash system.
 unix can use `ulimit -u` for limit single user can use process numbers
 ) https://www.youtube.com/watch?v=nB_s79lHSVs
@@ -833,7 +828,8 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 )
 
 git with proxy^(
-   git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
+   http:               git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
+   ssh need a config:  ProxyCommand connect -S 127.0.0.1:1080 %h %p
 )
 
 格式塔^(

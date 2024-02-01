@@ -151,6 +151,12 @@ function interactive() {
   canvas.addEventListener("keydown", keyDown);
   canvas.addEventListener("keyup", keyUp);
 }
+
+function winPos2Canvas(e) {
+  const bbox = canvas.getBoundingClientRect();
+
+  return { x: e.clientX - bbox.left * (canvas.width / bbox.width), y: e.clientY - bbox.top * (canvas.height / bbox.height )};
+}
 ```
 
 ### 预渲染
