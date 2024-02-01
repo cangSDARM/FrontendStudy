@@ -3,7 +3,7 @@
 {
   /**
   const midash = require('midash')
- 
+  
   // 实际上是通过 main 字段来找到入口文件，等同于该引用
   const midash = require('midash/dist/index.js')
   */
@@ -53,10 +53,18 @@
   files: ["dist"],
   // https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces: npm 的 monorepo 支持
   workspaces: ["xyz", "abc"],
+  // 命令行支持
+  bin: {
+    xx:  "./script/bin.mjs",
+  },
   dependencies: {
     // 本地依赖
     xx: "file:../xx",
     // github 依赖
     yy: "github:yy/api",
+    // 版本号可以为范围
+    zz: "1.2.0-2.2.0",
+    // 还可以为x
+    zzz: "1.2.x",
   },
 }

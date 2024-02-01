@@ -49,8 +49,6 @@ https://zh.javascript.info/bezier-curve
 
 https://zh.javascript.info/css-animations
 
-https://zh.javascript.info/js-animation
-
 https://zh.javascript.info/web-components
 
 https://auto-animate.formkit.com/#usage
@@ -62,6 +60,8 @@ https://github.com/evrimagaci/periodum
 https://github.com/microsoft/FASTER
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
+
+book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-path.html
 
 book https://gameprogrammingpatterns.com/introduction.html
 https://gpp.tkchu.me/double-buffer.html
@@ -424,6 +424,8 @@ https://www.youtube.com/watch?v=XY0yR6IPbhw
 book https://meatfighter.com/tetromino-computer/
 
 leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
+
+https://serokell.io/blog/introduction-to-free-monads
 
 https://www.programiz.com/dsa/radix-sort
 

@@ -20,7 +20,7 @@ An *Order*(Comparable) is a binary relation ≤ on a set S. note: `<S, ≤>`
 
 An order `<S, ≤>` is *Total Order* iff for every a and b in S
 
-if a and b arent comparable in `<S, ≤>`, note: `a ‖ b`
+if a and b aren't comparable in `<S, ≤>`, note: `a ‖ b`
 
 An *Upper Bound* of in `P ⊆ S`, is a v in S that's `a ≤ v` to every a in P.
 
