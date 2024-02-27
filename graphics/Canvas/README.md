@@ -4,7 +4,7 @@
   - [动画](#动画)
   - [互动](#互动)
   - [预渲染](#预渲染)
-  - [双缓冲(支持 webworker)](#双缓冲支持-webworker)
+  - [多缓冲(支持 webworker)](#多缓冲支持-webworker)
   - [获取局部图像数据并修改](#获取局部图像数据并修改)
   - [生成 Canvas 的快照](#生成-canvas-的快照)
 - [样例](#样例)
@@ -43,7 +43,7 @@ if (canvas.getContext) {
   ctx.lineTo(20, 20); // line (connected point)
   ctx.closePath(); // 连接最后一个点和第一个点
   ctx.stroke(); // 填充线, 或者用 fill 填充封闭图形
-  ctx.clip(); // 使用该path组成一个mask，之后的内容在path圈定范围内的才会画上去(clip应该用save/restore保存上下文后再变动)
+  ctx.clip(); // 使用该path组成一个mask，之后的内容在path圈定范围内的才会画上去，如实现图像遮罩(用save/restore更改上下文or图层)
 
   const rect = new Path2D(); // Path对象, 方便管理Path, 而且可以用svg的path
   rect.arc(100, 35, 25, 0, 2 * Math.PI); // 也包含常规context画path的工具
@@ -56,7 +56,7 @@ if (canvas.getContext) {
   const textMetrics = ctx.measureText("Text"); //获取文字在canvas上渲染后可能的信息(width,height,位置信息等)
 
   // 画图
-  ctx.drawImage(image); //可以设置图片的拉伸(指定宽度、长度即可), 裁切(指定裁切位置和长宽)
+  ctx.drawImage(imgCanvasVideo); //可以设置图片的拉伸(指定宽度、长度即可), 裁切(指定裁切位置和长宽)
   ctx.imageSmoothingEnabled = true; //图片拉伸时是否平滑
 
   // canvas上下文转换
@@ -119,21 +119,41 @@ function dprSolve(ctx) {
 动画就是每次循环的时候 paint 改动到的内容
 
 ```ts
+/* 注意：动画应该以相同的速度播放，无论用户帧率是多少
+
+      帧率 =  1000 / delta
+
+              像素           像素      delta     秒
+    每帧速度 (-----) = 速度 (-----) x -------- (----)
+              帧            秒        1000     帧
+
+*/
 function animation(canvas) {
   // 1. clean moving part. **Render screen differences only, not the whole new state**
-  canvas.clearRect(0, 0, canvas.width, canvas.height);
-  canvas.width = canvas.width; //也可以清除canvas
-  // 1.1 trailing effect
-  canvas.fillStyle = "rgba(255, 255, 255, 0.3)"; //more transparent longer trailing
-  canvas.fillRect(0, 0, canvas.width, canvas.height);
+  canvas.clearRect(0, 0, renderSize.w, renderSize.h);
+  canvas.width = canvas.width; //清除整个 canvas
+  canvas.clip();  // 使用 clip 裁剪 mask 也可以
   // 2. save previous state
   canvas.save();
   // 3. draw the animated contents
-  canvas.fillRect();
+  draw();
   // 4. restore state
   canvas.restore();
   // 5. trigger next frame
   window.requestAnimationFrame(animation);
+}
+
+// 视差滚动
+// 原理：保存状态、平移坐标系、绘制对应层次物体、恢复状态，继续下一层次。由远及近，从慢到快
+function parallax(canvas) {
+  canvas.save();
+  canvas.translate(-BgOffset, 0);
+  drawBg();
+  canvas.restore();
+  
+  canvas.translate(-PlayerOffset, 0);
+  canvas.translate(-UiOffset, 0);
+  // ...
 }
 ```
 
@@ -155,7 +175,10 @@ function interactive() {
 function winPos2Canvas(e) {
   const bbox = canvas.getBoundingClientRect();
 
-  return { x: e.clientX - bbox.left * (canvas.width / bbox.width), y: e.clientY - bbox.top * (canvas.height / bbox.height )};
+  return {
+    x: e.clientX - bbox.left * (canvas.width / bbox.width),
+    y: e.clientY - bbox.top * (canvas.height / bbox.height),
+  };
 }
 ```
 
@@ -181,7 +204,9 @@ function prerendering() {
 }
 ```
 
-### 双缓冲(支持 webworker)
+### 多缓冲(支持 webworker)
+
+Canvas 元素内置双缓冲，每次渲染都使用自己的缓冲是有害的，但复杂场景多缓冲是有益的
 
 > https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
 

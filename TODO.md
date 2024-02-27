@@ -638,6 +638,8 @@ https://webgpu.github.io/webgpu-samples/samples/helloTriangle
 
 https://compute.toys/list/0
 
+https://zhuanlan.zhihu.com/p/266491528
+
 https://alain.xyz/blog/game-engine-architecture
 
 https://maierfelix.github.io/2020-01-13-webgpu-ray-tracing/
@@ -827,11 +829,6 @@ it helps 1) your supervisor effectively advocate for you, 2) your coworkers unde
 媒体会觉得自己很多流量没有卖出最高价，广告主越来越多，产生竞价广告
 竞价广告中每一次广告展示都按照收益最高的原则来决策，逐渐发展成了「流量交易」，多方博弈形成了 RTB(real time bidding，实时竞价)这样的交易方式，形成了程序化广告交易
 程序化广告交易和股票交易等实时交易的场景都非常类似，都是存在一个交易场（ADX）, 买方（广告主, Demand）和卖方（媒体, Supplier），各自在其中实时的做买卖决策。唯一一个重要的区别是，对于媒体来说，没有择时的机会，流量来了只能立刻卖出去，没有办法攒起来。
-)
-
-git with proxy^(
-   http:               git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
-   ssh need a config:  ProxyCommand connect -S 127.0.0.1:1080 %h %p
 )
 
 格式塔^(
