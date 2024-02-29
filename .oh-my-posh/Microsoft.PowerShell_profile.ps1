@@ -23,4 +23,5 @@ Set-PSReadLineKeyHandler -Key DownArrow -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
 }
 
+# 设置中文编码
 [system.console]::outputencoding=[system.text.encoding]::getencoding(65001)

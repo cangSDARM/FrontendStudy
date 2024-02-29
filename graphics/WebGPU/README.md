@@ -5,6 +5,7 @@
   - [映射 Texture/Sampler](#映射-texturesampler)
   - [渲染 + 读取数据](#渲染--读取数据)
 - [Trivia](#trivia)
+  - [计算字节偏移数](#计算字节偏移数)
   - [Mipmap](#mipmap)
   - [Format](#format)
   - [Coordinates](#coordinates)
@@ -42,12 +43,16 @@ const presentationFormat = navigator.gpu.getPreferredCanvasFormat();
 context.configure({
   device,
   format: presentationFormat,
+  // premultiplied: 实现 alpha。通过：所有颜色乘以 renderPassDescriptor 的 alpha 值(必须小于该值, js/wgsl 中处理都可)
+  alphaMode: "opaque" | "premultiplied",
 });
 ```
 
 ### 准备软件环境
 
-Shader 函数：类似于 js 中的 forEach 函数。Vertex 是对每次渲染过程调用生成顶点(光栅化后 GPU 丢弃不需要的渲染的 pixel)；Fragment 对光栅化后的每个像素做迭代生成(通常是颜色/或者是深度图)
+Shader 函数：类似于 js 中的 forEach 函数。
+Vertex 是对每次渲染过程调用生成顶点(光栅化后 GPU 丢弃不需要的渲染的 pixel)；
+Fragment 对光栅化后的每个像素做迭代生成(通常是颜色/或者是深度图)
 
 渲染画布尺寸：WebGPU 的空间是裁剪的标准化空间(长宽都是[-1,1])
 
@@ -85,10 +90,18 @@ const pipeline = device.createRenderPipeline({
     entryPoint: "fs",
     // 指定渲染的格式。在shader中以@location(index)表示
     targets: [{ format: presentationFormat }],
+    // blend 颜色 operation((src * srcFactor),  (dst * dstFactor))
+    // src 指将要画的内容，dst 指已经画了的内容
+    // 具体例子：https://webgpufundamentals.org/webgpu/lessons/webgpu-transparency.html
+    blend: {},
+    // 重写可重写的 wgsl 属性
+    constants: {
+      red: 1,
+    },
   },
   primitive: {
     // GPU 绘制格式。默认光栅化为 三角形(还有 line/line-strip/point/point-list/triangle-strip)
-    topology: "triangle-list"
+    topology: "triangle-list",
   },
   /* GPGPU的设置
   compute: {
@@ -105,11 +118,11 @@ const renderPassDescriptor = {
   colorAttachments: [
     {
       // 表示将此次渲染内容输出的位置
-      view: texture.createView({ baseMipLevel: 1 }),  // 输出到texture的mipmap=1
+      view: texture.createView({ baseMipLevel: 1 }), // 输出到texture的mipmap=1
       // filled color 未渲染时填充色
       clearValue: [0.3, 0.3, 0.3, 1],
-      // 指定渲染前clear the texture to the clear value
-      loadOp: "clear",
+      // 指定渲染前的行为
+      loadOp: "clear" | "load",
       // 存储或丢弃渲染结果
       storeOp: "store",
     },
@@ -121,6 +134,8 @@ const encoder = device.createCommandEncoder({ label: "our encoder" });
 ```
 
 ### 映射数据
+
+这部分的复杂很大程度上都是在计算字节的偏移
 
 ```js
 // GPU 程序的副作用
@@ -137,7 +152,7 @@ const workBuffer = device.createBuffer({
 device.queue.writeBuffer(workBuffer, 0, input);
 
 // 连接此次render pass和缓冲区
-// VertexBuffer/IndexBuffer 不需要bind
+// VertexBuffer/IndexBuffer 不需要bind，在 createRenderPipeline 里配置
 const bindGroup = device.createBindGroup({
   label: "bindGroup for work buffer",
   layout: pipeline.getBindGroupLayout(0),
@@ -157,9 +172,9 @@ const resultBuffer = device.createBuffer({
 Texture 就是特殊的 Uint8Array 的 storage buffer，步骤类似，但是接口不同
 
 ```js
-const _ = [255,   0,   0, 255];  // red
-const y = [255, 255,   0, 255];  // yellow
-const b = [  0,   0, 255, 255];  // blue
+const _ = [255, 0, 0, 255]; // red
+const y = [255, 255, 0, 255]; // yellow
+const b = [0, 0, 255, 255]; // blue
 // 由于Texture的原点和canvas的座标原点不在一个位置，通常Texture需要翻转以适应Canvas
 const textureData = new Uint8Array([
   // 1. 手动翻转
@@ -172,16 +187,17 @@ const textureData = new Uint8Array([
   b, _, _, _, _,
   // 2. vertex shader: texcoord = vec2f(xy.x, 1.0 - xy.y);
   // 3. fragment shader: texcoord = vec2f(fsInput.texcoord.x, 1.0 - fsInput.texcoord.y);
-].flat());  // notice the flat function
-const mips = generateMips(textureData, kTextureWidth);  //生成 mipmap(自己写)
+].flat()); // notice the flat function
+const mips = generateMips(textureData, kTextureWidth); //生成 mipmap(自己写)
+// 注意仅仅定义了texture，但没有写数据
 const texture = device.createTexture({
   size: [mips[0].width, mips[0].height],
   mipLevelCount: mips.length,
-  format: 'rgba8unorm',
+  format: "rgba8unorm",
   usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST,
 });
-mips.forEach(({data, width, height}, mipLevel) => {
-  // 写入所有的mipmapData
+mips.forEach(({ data, width, height }, mipLevel) => {
+  // 写入所有的 mipmap -> 之前定义的 texture
   device.queue.writeTexture(
     // mipLevel 配合 mipLevelCount，WebGPU 才会正确处理mipmap
     { texture, mipLevel },
@@ -195,15 +211,16 @@ mips.forEach(({data, width, height}, mipLevel) => {
 // 自己控制的 sampler。处理mipmap, uv插值等
 const sampler = device.createSampler();
 
-// 注意texture需要GPUTextureUsage.RENDER_ATTACHMENT
-// 这是针对writeTexture的高级封装
+const bitmap = window.createImageBitmap(await fetch().blob(), { colorSpaceConversion: "none", });
+// 注意 texture 需要 GPUTextureUsage.RENDER_ATTACHMENT
+// 这是针对 writeTexture 的高级封装，会帮你处理各种情况：multiplyAlpha、flipY 等
 device.queue.copyExternalImageToTexture(
-  { source: BitmapOrVideoOrCanvas, flipY: true },
+  { source: bitmap || orVideoOrCanvas, flipY: true },
   { texture: texture },
-  [textureData.width, textureData.height]
+  [textureData.width, textureData.height],
 );
-// 这是针对videoframe的高级封装
-// texture类型必须是texture_external
+// 这是针对 videoframe 的高级封装，不需要 create 和 write
+// texture 类型必须是 texture_external
 const texture = device.importExternalTexture({ source: video });
 
 const bindGroup = device.createBindGroup({
@@ -226,14 +243,15 @@ renderPassDescriptor.colorAttachments[0].view = context
 
 // 连接render pass(源码)，并调用
 const pass = encoder.beginRenderPass(renderPassDescriptor);
-pass.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight, 0, 1);  //可以不调用，默认就是这样。但可以改
+pass.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight, 0, 1); //可以不调用，默认就是这样。但可以改
 pass.setPipeline(pipeline);
 pass.setBindGroup(0, bindGroup); // map buffer group
 pass.setVertexBuffer(0, vertexBuffer); //设置 vertexBuffer (@location, buffer)
 pass.setIndexBuffer(indexBuffer, "uint32"); //设置 indexBuffer。indexBuffer用于索引vertexBuffer
 pass.drawIndexed(3, 2); //和 indexed buffer 配合使用
 // pass.dispatchWorkgroups(input.length); // call compute shader 3 times
-pass.draw(3, 2); // call our vertex shader 3 * 2 times (per 2 obj, 3 times)
+pass.draw(3, 2); // call our vertex shader 3 * 2 times (per 2 vs, 3 times)
+pass.draw(6); // end 前 draw 的都会保留
 // render pass 完成，准备提交
 pass.end();
 
@@ -257,11 +275,15 @@ console.log("result", result);
 
 ## Trivia
 
+### 计算字节偏移数
+
+https://webgpufundamentals.org/webgpu/lessons/resources/wgsl-offset-computer.html
+
 ### Mipmap
 
 因为 Texture UV 是浮点数，而 pixel 是整数，因此在采样 UV 颜色生成 pixel 时，会[产生闪烁](https://webgpufundamentals.org/webgpu/lessons/webgpu-textures.html#:~:text=minFilter)。解决方法就是使用较小的 Texture 去处理(颜色已经人为混合，更为集中单一，因此采样后混合的颜色*看上去*不会闪烁)
 
-Mipmap 生成过程：用纹理创建一个更小的纹理，每个维度都是一半大小，四舍五入。然后用第一个原始纹理的混合颜色填充较小的纹理。重复这个过程，直到得到1x1的纹理。如：假设有一个5x7的纹理。首先在每个维度上除以2，然后四舍五入得到一个2x3的纹理。重复，直到得到1x1的纹理。
+Mipmap 生成过程：用纹理创建一个更小的纹理，每个维度都是一半大小，四舍五入。然后用第一个原始纹理的混合颜色填充较小的纹理。重复这个过程，直到得到 1x1 的纹理。如：假设有一个 5x7 的纹理。首先在每个维度上除以 2，然后四舍五入得到一个 2x3 的纹理。重复，直到得到 1x1 的纹理。
 
 而 Mipmap 也有新问题。当处于特定的显示规格尺寸不上不下，Mipmap 不能取大的也不能取小的时，GPU 就需要混合两个 Mipmap。因此有 linear/nearest 的采样区分。Nearest 的在混合时点的变化突然，有锯齿，但是仅用采样 1 UV 性能高；Linear 的在混合时变化有模糊感，看着更为自然，但是需要采样 8 UV 性能更差(3d 时需要 16 UV)
 

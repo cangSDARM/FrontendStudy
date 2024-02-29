@@ -127,8 +127,6 @@ Go defer 原理和源码剖析 https://www.cnblogs.com/wanghao72214/p/15544365.h
 
 https://felixgerschau.com/how-to-make-your-react-app-a-progressive-web-app-pwa/
 
-https://felixgerschau.com/react-hooks-form-validation-typescript/
-
 https://nytimes.github.io/oak-byo-react-prosemirror-redux/
 
 https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
@@ -149,15 +147,13 @@ libuv https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 book https://web.dev/learn/pwa/
 
-https://www.amitmerchant.com/textarea-auto-increase-height/
-
 https://www.redblobgames.com/making-of/draggable/
 
 https://agraphicsguynotes.com/posts/fiber_in_cpp_understanding_the_basics/
 
 https://vitalik.ca/general/2023/08/16/communitynotes.html
 
-https://www.thebyte.com.cn/
+book https://www.thebyte.com.cn/
 
 https://tonedear.com/
 
@@ -185,6 +181,10 @@ https://getaether.net/
 https://github.com/vasanthv/talk
 
 https://eli.thegreenplace.net/2023/demystifying-tuppers-formula/
+
+https://ptrchm.com/posts/base32-explained/
+
+https://github.com/anderspitman/SirTunnel
 
 https://dev.to/documatic/the-art-of-code-review-1lo4
 
@@ -254,7 +254,7 @@ https://aws.amazon.com/cn/what-is/mqtt/
 
 https://aws.amazon.com/cn/what-is/sso/
 
-https://zhuanlan.zhihu.com/p/652308791
+ipc https://zhuanlan.zhihu.com/p/652308791
 
 https://jihulab.com/linksaas/desktop
 
@@ -435,8 +435,6 @@ v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
 Creative Writing https://www.youtube.com/watch?v=jrIogch5DBU&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=5
 
-https://mp.weixin.qq.com/s/3_LNM62zoHaJsmvAryujEw
-
 https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
 
 Audio adventures in Rust: UI with Actix, WebView, and React
@@ -465,8 +463,6 @@ https://github.com/chaitin/safeline
 book statistical https://bookdown.org/rdpeng/advstatcomp/introduction.html
 
 book https://microsoft.github.io/code-with-engineering-playbook/agile-development/
-
-https://meticulous.ai/blog/mocking-a-javascript-class-with-jest-two-ways-to-make-it-easier/
 
 https://github.com/rust-lang/rust/issues/93740
 
@@ -522,8 +518,6 @@ book https://themarketplace.guide/
 https://www.webgamedev.com/
 
 https://github.com/satoshi7190/Shinjuku-indoor-threejs-demo
-
-https://www.howtogeek.com/how-to-copy-uncopyable-texts-on-windows/
 
 https://github.com/jianchang512/vocal-separate
 
@@ -592,7 +586,7 @@ https://github.com/getify/monio/blob/master/MONADS.md#where-to-learn-more-fp
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-memory-layout.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-copying-data.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
 
@@ -697,6 +691,8 @@ book https://seisman.github.io/how-to-write-makefile/overview.html
 程序化广告交易更多细节及涉及平台：https://blog.hubspot.com/marketing/real-time-bidding
 
 ## bluetooth
+
+https://blog.csdn.net/eyeofangel/article/details/87890418
 
 https://grack.com/blog/2022/12/01/hacking-bluetooth-to-brew-coffee-on-github-actions-part-1/
 
