@@ -23,6 +23,15 @@ git filter-repo --name-callback 'return name.replace(b\"xxxx\", b\"yyy\")' --for
 git filter-repo --invert-paths --path <FILE_PATH> --force
 ```
 
+本地 git 内容删除
+
+```bash
+# 删除所有没在 git 追踪的
+git clean -xfd
+# 删除某个特殊文件的更改
+git checkout -- FILE
+```
+
 删除本地提交记录，强制同步远程
 
 ```bash

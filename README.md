@@ -41,6 +41,7 @@
   - https://nocilol.me/archives/lab/check-browser-devtools-open/
   - https://weizman.github.io/page-js-anti-debug-2/
   - https://medium.com/@weizmangal/javascript-anti-debugging-some-next-level-sh-t-part-2-abusing-chromium-devtools-scope-pane-b2796c00331d
+  - https://hughfenghen.github.io/posts/2023/12/23/web-spy/
 - [通过验证码(css:visited)检索你的浏览历史](https://varun.ch/history)
 - [检查网页各种信息](https://github.com/lissy93/web-check)
 

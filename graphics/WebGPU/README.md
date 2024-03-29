@@ -25,9 +25,10 @@ https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
 const adapter = await navigator.gpu?.requestAdapter();
 // adapter通过device来通用化GPU接口
 // 这里参数会告诉你GPU的bindGroup限制、Texture限制、StorageBuffer限制等
-const device = await adapter?.requestDevice();
+// adapter feat/limit check list: https://webgpureport.org/
+const device = await adapter?.requestDevice({ requiredLimits: {}, requiredFeatures: [] });
 if (!device) {
-  fail("need a browser that supports WebGPU");
+  fail("need a browser that supports required WebGPU");
   return;
 }
 device.lost.then(() => {
@@ -137,6 +138,8 @@ const encoder = device.createCommandEncoder({ label: "our encoder" });
 
 这部分的复杂很大程度上都是在计算字节的偏移
 
+Buffer 和 Texture 有一堆接口来互相映射，可以简单假设这俩是一个东西
+
 ```js
 // GPU 程序的副作用
 const input = new Float32Array([1, 3, 5]);
@@ -164,6 +167,15 @@ const resultBuffer = device.createBuffer({
   label: "result buffer",
   size: input.byteLength,
   usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST,
+});
+// 映射js buffer 到缓冲区。writerBuffer 可以在之后可写(用于GPGPU)
+// await writerBuffer.mapAsync(GPUMapMode.WRITE);
+// new Float32Array(buffer.getMappedRange(0, buffer.size)).set([1, 2, 3, 4]);
+// buffer.unmap();
+const writerBuffer = device.createBuffer({
+  size: 16,
+  usage: GPUBufferUsage.UNIFORM,
+  mappedAtCreation: true,
 });
 ```
 
@@ -255,7 +267,7 @@ pass.draw(6); // end 前 draw 的都会保留
 // render pass 完成，准备提交
 pass.end();
 
-// 告诉GPU完成后需要读取数据
+// 告诉GPU完成后需要从 workBuffer 读取数据到 resultBuffer
 encoder.copyBufferToBuffer(workBuffer, 0, resultBuffer, 0, resultBuffer.size);
 
 // 编译设置完成

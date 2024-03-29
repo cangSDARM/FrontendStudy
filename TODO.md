@@ -252,13 +252,11 @@ https://www.notion.so/blog/sharding-postgres-at-notion
 
 https://aws.amazon.com/cn/what-is/mqtt/
 
-https://aws.amazon.com/cn/what-is/sso/
-
 ipc https://zhuanlan.zhihu.com/p/652308791
 
 https://jihulab.com/linksaas/desktop
 
-https://www.dingmos.com/index.php/archives/23/
+slab allocator https://www.dingmos.com/index.php/archives/23/
 
 book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
@@ -321,12 +319,16 @@ https://webcontainers.io/
 
 https://lwn.net/Kernel/LDD3/
 
-https://www.cnblogs.com/hueyxu/p/13745029.html
+wait queue https://www.cnblogs.com/hueyxu/p/13745029.html
 
 opendrive format https://blog.csdn.net/weixin_44108388/article/details/111303985
 
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
+
+https://mp.weixin.qq.com/s/dD-aPhnynOqSC3MUYLjeAA
+
+https://www.writesoftwarewell.com/content-security-policy/
 
 controls the APIs provided by the browser https://pagure.io/JShelter/webextension/tree/main
 
@@ -450,6 +452,14 @@ https://abhinavsarkar.net/posts/implementing-co-1/
 
 https://www.khanacademy.org/computing/pixar
 
+https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
+
+https://linuxiac.com/how-to-set-up-web-based-ssh/
+
+https://github.com/hughfenghen/opfs-tools
+
+https://rsdoctor.dev/zh/
+
 https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html
 
 https://mortoray.com/finding-neighbours-in-a-hex-map/
@@ -488,8 +498,6 @@ https://thesephist.com/posts/lua/
 book https://www.learncpp.com/
 
 大整数设计 https://www.bearssl.org/bigint.html
-
-https://cds.unistra.fr//Dic/iau-spec.html
 
 book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
 
@@ -586,7 +594,7 @@ https://github.com/getify/monio/blob/master/MONADS.md#where-to-learn-more-fp
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-copying-data.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-wgsl.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
 
@@ -727,6 +735,8 @@ https://github.com/YJDoc2/8086-emulator-web
 linux x86+nasm tutorial https://0xax.github.io/asm_1/
 
 win32 x86+nasm tutorial https://sonictk.github.io/asm_tutorial/
+
+http://www.egr.unlv.edu/~ed/x86.html
 
 https://www.deusinmachina.net/p/the-basics-of-arm64-assembly
 
