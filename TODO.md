@@ -529,6 +529,8 @@ https://github.com/satoshi7190/Shinjuku-indoor-threejs-demo
 
 https://github.com/jianchang512/vocal-separate
 
+https://www.zxch3n.com/tidy/tidy/
+
 Visual explanations of core machine learning concepts
 https://mlu-explain.github.io/
 
@@ -561,8 +563,6 @@ https://brevzin.github.io/c++/2023/01/02/rust-cpp-format/
 https://www.construct.net/en/blogs/ashleys-blog-2/rts-devlog-beat-lag-1607
 
 https://marioslab.io/posts/rendering-like-its-1996/dos-nostalgia/
-
-Windows Subsystem for Android on win10 https://github.com/cinit/WSAPatch/blob/main/README_zhs.md
 
 SRP  —  更健全的登入及資料傳輸保護協議
 https://blog.amis.com/srp-1f28676aa525
@@ -673,10 +673,6 @@ https://jaredforsyth.com/posts/hybrid-logical-clocks/
 https://zhuanlan.zhihu.com/p/472119560
 
 https://loro-dev.notion.site/crdt-richtext-Rust-implementation-of-Peritext-and-Fugue-c49ef2a411c0404196170ac8daf066c0
-
-https://www.zxch3n.com/crdt-intro/design-crdt/
-
-https://www.zhoulujun.cn/html/webfront/engineer/Architecture/8564.html
 
 https://www.figma.com/blog/realtime-editing-of-ordered-sequences/
 
