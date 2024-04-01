@@ -666,12 +666,6 @@ https://github.com/jinleili/bevy-in-app
 
 ## CRDT
 
-https://sergeiturukin.com/2017/06/26/hybrid-logical-clocks.html
-
-https://jaredforsyth.com/posts/hybrid-logical-clocks/
-
-https://zhuanlan.zhihu.com/p/472119560
-
 https://loro-dev.notion.site/crdt-richtext-Rust-implementation-of-Peritext-and-Fugue-c49ef2a411c0404196170ac8daf066c0
 
 https://www.figma.com/blog/realtime-editing-of-ordered-sequences/
