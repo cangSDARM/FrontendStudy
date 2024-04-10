@@ -39,11 +39,7 @@ random distribute https://github.com/ChrisCavs/aimless.js
 
 https://thepalindrome.org/p/matrices-and-graphs
 
-https://www.rfc-editor.org/rfc/rfc9446.txt
-
 Color Plate https://github.com/eigenmiao/Rickrack/
-
-https://jimmylin212.github.io/post/0013_exploring_angular_dom_manipulation/
 
 https://zh.javascript.info/bezier-curve
 
@@ -54,7 +50,6 @@ https://zh.javascript.info/web-components
 https://auto-animate.formkit.com/#usage
 
 https://github.com/baotlake/periodic-table-pro
-
 https://github.com/evrimagaci/periodum
 
 https://github.com/microsoft/FASTER
@@ -76,6 +71,16 @@ Hash function quality and speed tests
 https://github.com/rurban/smhasher
 
 https://djhworld.github.io/hyperloglog/
+https://hzhu212.github.io/posts/365f8e92/
+http://content.research.neustar.biz/blog/hll.html
+https://www.cnblogs.com/linguanh/p/10460421.html
+https://zhuanlan.zhihu.com/p/58519480
+https://github.com/clarkduvall/hyperloglog
+
+https://djharper.dev/post/2019/05/21/i-dont-know-how-cpus-work-so-i-simulated-one-in-code/
+
+Steganography
+https://github.com/djhworld/steg
 
 https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 
@@ -102,6 +107,8 @@ https://refactoring.guru/design-patterns
 https://red3d.com/cwr/boids/
 
 https://blog.acolyer.org/
+
+http://imzc.me/dev/2016/11/30/write-d-ts-files/
 
 https://www.patterns.dev/posts
 
@@ -136,8 +143,6 @@ http://fms.komkon.org/EMUL8/HOWTO.html
 https://borretti.me/article/type-systems-memory-safety
 
 https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7adb2e
-
-https://www.smartedu.cn/home/province
 
 https://roberthodgin.com/
 
@@ -186,8 +191,6 @@ https://ptrchm.com/posts/base32-explained/
 
 https://github.com/anderspitman/SirTunnel
 
-https://dev.to/documatic/the-art-of-code-review-1lo4
-
 https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ecdc744d/thesis/ctufit-thesis.pdf
 
 根据身高计算椅子高度、桌子高度、屏幕高度
@@ -224,10 +227,9 @@ book https://moderncss.dev/topics/
 
 book https://www.atlassian.com/agile
 
-ebpf https://coolshell.cn/articles/22320.html
-
+ebpf
+https://coolshell.cn/articles/22320.html
 book https://github.com/lizrice/ebpf-beginners
-
 https://blog.cloudnativefolks.org/ebpf-for-cybersecurity-part-1
 
 https://betterprogramming.pub/a-visual-guide-to-sed-a7a8abd2f675
@@ -285,8 +287,6 @@ https://spacelift.io/blog/container-security
 
 https://step-saga-examples.pages.dev/v0-dev-reverse-engineer/
 
-https://justinjaffray.com/a-charming-algorithm-for-count-distinct/
-
 https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
@@ -326,8 +326,6 @@ opendrive format https://blog.csdn.net/weixin_44108388/article/details/111303985
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
 
-https://mp.weixin.qq.com/s/dD-aPhnynOqSC3MUYLjeAA
-
 https://www.writesoftwarewell.com/content-security-policy/
 
 controls the APIs provided by the browser https://pagure.io/JShelter/webextension/tree/main
@@ -359,8 +357,6 @@ https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-revi
 https://charliegerard.dev/blog/ultrasonic-payments/
 
 packing problem https://erich-friedman.github.io/packing/
-
-RFID intro https://lmark.cc/archives/f746fa7f.html
 
 https://github.com/JuliaPlots/UnicodePlots.jl
 
@@ -666,15 +662,11 @@ https://github.com/jinleili/bevy-in-app
 
 ## CRDT
 
-https://loro-dev.notion.site/crdt-richtext-Rust-implementation-of-Peritext-and-Fugue-c49ef2a411c0404196170ac8daf066c0
-
 https://www.figma.com/blog/realtime-editing-of-ordered-sequences/
 
 https://www.youtube.com/watch?v=M8-WFTjZoA0
 
 https://www.youtube.com/watch?v=x7drE24geUw
-
-[什么是一致性，有哪些一致性（强一致性（线性一致性，顺序一致性以及严格有序一致性）与最终一致性），然后谈谈分布式数据微服务的设计模式，主要是 CQRS 以及 CRDT，对于 SAGA 以及 Event Partition 也简单提及了一些](https://www.bilibili.com/video/BV1G5411Q7EF/)
 
 ## Makefile
 
@@ -739,6 +731,9 @@ cheat engine https://www.youtube.com/@intigriti/videos
 C/C++ Memory Hacking — External Signature/Pattern Scanning Tutorial https://www.youtube.com/watch?v=l7SgbLmO0L0
 
 逻辑电路在线模拟 https://logiclights.vercel.app/
+
+Dll inject mineswipper
+https://lmark.cc/archives/c2bf18f6.html
 
 ida https://www.youtube.com/watch?v=thyK3VaA1GE&list=PLKwUZp9HwWoDDBPvoapdbJ1rdofowT67z&index=2
 

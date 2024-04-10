@@ -24,7 +24,7 @@ Conflict-free Replicated Data Types
 
 不考虑:
 
-- 共识性 Consensus: Pick one of the changes to apply, and throw others
+- _共识性 Consensus_: Pick one of the changes to apply, and throw others
 
 ## Math: Order Theory
 
