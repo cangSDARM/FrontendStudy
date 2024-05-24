@@ -25,11 +25,17 @@ https://www.youtube.com/watch?v=SPll1Rxl_Es
 
 https://github.com/partykit/partykit/tree/main/packages/partysocket
 
+https://mrkaran.dev/posts/travel-tailscale/
+
+https://blog.daveallie.com/ulid-primary-keys/
+
 https://webauthn.wtf/
 
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
 
 https://github.com/ValdikSS/GoodbyeDPI
+
+http://www.dayanzai.me/inno-setup-patch-update.html
 
 https://developer.chrome.com/capabilities/
 
@@ -56,7 +62,15 @@ https://github.com/microsoft/FASTER
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-path.html
+book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
+
+https://www.longluo.me/blog/2024/04/16/2024-alibaba-global-mathematics-competition-qualifying-round/
+
+https://www.gibbard.me/using_git_offline/
+
+https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html
+
+https://github.com/ByteByteGoHq/system-design-101
 
 book https://gameprogrammingpatterns.com/introduction.html
 https://gpp.tkchu.me/double-buffer.html
@@ -90,7 +104,10 @@ https://processing.org/examples/
 
 https://github.com/sindresorhus/promise-fun
 
-https://css-tricks.com/exploring-the-css-paint-api-image-fragmentation-effect/
+worklet
+https://www.jianshu.com/p/e2cdc78ff47c
+
+https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 
 https://blog.logrocket.com/online-radio-server-pure-node-js/
 
@@ -138,6 +155,10 @@ https://nytimes.github.io/oak-byo-react-prosemirror-redux/
 
 https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
 
+https://dallas.lu/how-to-fake-the-timezone-of-a-git-commit/
+
+https://joshcollinsworth.com/blog/antiquated-react
+
 http://fms.komkon.org/EMUL8/HOWTO.html
 
 https://borretti.me/article/type-systems-memory-safety
@@ -146,7 +167,7 @@ https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7
 
 https://roberthodgin.com/
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_packages.html
+book https://exploringjs.com/nodejs-shell-scripting/ch_npm-overview.html
 
 libuv https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
@@ -336,7 +357,15 @@ https://defensivecss.dev/tip/flexbox-wrapping/
 
 book https://github.com/AllenDowney/ThinkDSP
 
+https://www.kenneth-truyers.net/2016/05/27/writing-custom-eslint-rules
+
 https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
+
+https://betterprogramming.pub/typescript-with-go-rust-errors-no-try-catch-heresy-da0e43ce5f78
+
+https://github.com/astoilkov/main-thread-scheduling
+
+https://github.com/xianzou/blog/issues/17
 
 book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
 

@@ -36,11 +36,14 @@
     */
     "./impreq/*": {
       // import in ESM
-      import: "./dist/src/main.module.js",
+      "import": "./dist/src/main.module.js",
       // require in CJS
-      require: "./dist/src/main.require.js",
+      "require": "./dist/src/main.require.js",
       // TypeScript resolution
-      types: "./types/index.d.ts",
+      "types": "./types/index.d.ts",
+      // NODE_ENV=dev or prod
+      "development": "./dist/src/main.dev.js",
+      "production": "./dist/src/main.prod.js"
     },
   },
   // "typeVersions": exports fallback, 但是用于 ts 的类型导入
@@ -55,6 +58,7 @@
   workspaces: ["xyz", "abc"],
   // 命令行支持
   bin: {
+    // 如果 xx === package.name，则可以写成 bin: "./bin.mjs"
     xx:  "./script/bin.mjs",
   },
   dependencies: {

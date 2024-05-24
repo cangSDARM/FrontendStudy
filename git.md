@@ -15,6 +15,7 @@ python -m pip install --user git-filter-repo
 ```bash
 git filter-repo --name-callback 'return name.replace(b\"xxxx\", b\"yyy\")' --force
 # --email-callback eta
+git push --set-upstream git@github.com:xxx/yyy.git master --force
 ```
 
 删除文件历史记录
@@ -52,4 +53,10 @@ git -c "http.proxy=socks5://127.0.0.1:1080" clone https://github.com/xx/yy.git
 
 # ssh need a config
 ProxyCommand connect -S 127.0.0.1:1080 %h %p
+```
+
+大小写问题
+
+```bash
+git mv -f file.tsx File.tsx
 ```
