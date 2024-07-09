@@ -128,22 +128,20 @@ const {
   finished,
 } = require("node:stream");
 
-const safeWrite = (stream, content) => {
-  if (!content instanceof Buffer)
-    return Promise.reject("recommending you send raw buffer to write");
+const safeWrite = (stream: PassThrough, content: Buffer) => {
+  if (!content instanceof Buffer) return Promise.reject('recommending you send raw buffer to write');
   if (content.length >= stream.writableHighWaterMark)
-    return Promise.reject("content too long to write, you should split it");
+    return Promise.reject('content too long to write, you should split it');
 
-  return new Promise((res, rej) => {
-    if (stream.writable)
-      return rej("stream has been destroyed, errored or closed");
+  return new Promise((resolve, reject) => {
+    if (!stream.writable) return reject('stream has been destroyed, errored or closed');
 
     const res = stream.write(content);
     if (res) resolve();
     // 返回false时
     // (内部buffer已到high watermark)应该等待drain事件，等stream清空内部buffer
     // 此时如果再写会导致内存过高
-    else stream.once("drain", resolve);
+    else stream.once('drain', resolve);
   });
 };
 stream.end(chunk); //最后一次写入。完成后触发 finish 事件，并且之后不允许 write

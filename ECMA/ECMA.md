@@ -132,6 +132,9 @@ var [foo, [[bar], baz]] = ([1, [[2], 3]][
 
 ```js
 let [{ age }] = [{ age: 8, name: "xx" }, "深圳", [1, 2, 3]];
+
+let a;
+({ a = '1' } = { a: 1 }); //outer brackets are required
 ```
 
 #### for-of 中解构

@@ -51,6 +51,8 @@ function foo() {
 //Array------------------------------------------------------------------------
 arr.splice(1, 2)    //remove 2 elements begin at index 1, (safely and anyIndexing)
 arr.copyWithin(1, 2, 3) //move something in index [2, 3) to [1, 3-(2-1))
+// map、reduce、filter、forEach 等高阶函数沿着数组的索引键遍历。empty array 没有索引键
+Array.from({ length: 2 })  //create non-empty array
 //Reg------------------------------------------------------------------------
 /abc/   //加载时编译
 new RegExp('abc')   //运行时编译
