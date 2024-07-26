@@ -60,6 +60,12 @@ https://github.com/evrimagaci/periodum
 
 https://github.com/microsoft/FASTER
 
+https://www.archdaily.cn/cn/784175/zhe-xie-fang-ge-zhi-ceng-jing-bei-yong-yu-she-ji-chao-ji-ma-li
+
+https://github.com/DirtyHairy/async-mutex
+
+https://tonsky.me/blog/unicode/
+
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
@@ -71,6 +77,8 @@ https://www.gibbard.me/using_git_offline/
 https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html
 
 https://github.com/ByteByteGoHq/system-design-101
+
+https://cblgh.org/trustnet/
 
 book https://gameprogrammingpatterns.com/introduction.html
 https://gpp.tkchu.me/double-buffer.html
@@ -479,11 +487,19 @@ https://www.khanacademy.org/computing/pixar
 
 https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
 
-https://linuxiac.com/how-to-set-up-web-based-ssh/
-
 https://github.com/hughfenghen/opfs-tools
 
+https://zilliz.com/blog?tag=39&page=2
+
 https://rsdoctor.dev/zh/
+
+https://blog.partykit.io/posts/using-vectorize-to-build-search/
+
+https://www.andreinc.net/2024/04/24/from-the-circle-to-epicycles
+
+https://github.com/k2-fsa/sherpa-onnx
+
+simplify boolean test https://testing.googleblog.com/2024/04/isbooleantoolongandcomplex.html
 
 https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html
 

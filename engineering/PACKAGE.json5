@@ -63,12 +63,17 @@
   },
   dependencies: {
     // 本地依赖
-    xx: "file:../xx",
+    aa: "file:../xx",
     // github 依赖
-    yy: "github:yy/api",
+    bb: "github:yy/api",
+    // 自建git的分支，支持ssh/http/https
+    bb1: "git+{protocol}://{user}@{hostname}:{project owner}/{project}.git#{branch name}",
+    bb2: "git+ssh://git@gitlab.xxx:2324/user/repo.git#relase",
+    // tag
+    bb3: "git+https://username:password@git.example.com/path/reposity#1.0.0",
     // 版本号可以为范围
-    zz: "1.2.0-2.2.0",
+    dd: "1.2.0-2.2.0",
     // 还可以为x
-    zzz: "1.2.x",
+    cc: "1.2.x",
   },
 }

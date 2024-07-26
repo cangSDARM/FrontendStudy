@@ -1,4 +1,5 @@
 Server-Sent Events
+
 - [例子](#例子)
 - [Post SSE](#post-sse)
 
@@ -78,15 +79,16 @@ class SSE {
   }
 
   // 由于消息是流，因此不确定有多少分割的内容(但后端每次发送的消息必须是完整的)
+  // parse 参考：https://www.npmjs.com/package/eventsource-parser
   dispatch(value?: string) {
     if (!value) return;
 
     value.split("\n\n").forEach((val) => {
-      const dataIdx = val.lastIndexOf("data");
+      const dataIdx = val.lastIndexOf("\ndata: ");
       let event = "",
         data = "";
 
-      event = val.substring(0, dataIdx - 1);
+      event = val.substring(0, dataIdx);
       data = val.substring(dataIdx);
 
       if (event) {
