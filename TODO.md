@@ -64,17 +64,11 @@ https://www.archdaily.cn/cn/784175/zhe-xie-fang-ge-zhi-ceng-jing-bei-yong-yu-she
 
 https://github.com/DirtyHairy/async-mutex
 
-https://tonsky.me/blog/unicode/
-
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
 
 https://www.longluo.me/blog/2024/04/16/2024-alibaba-global-mathematics-competition-qualifying-round/
-
-https://www.gibbard.me/using_git_offline/
-
-https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html
 
 https://github.com/ByteByteGoHq/system-design-101
 
@@ -129,11 +123,15 @@ https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 
 https://refactoring.guru/design-patterns
 
+https://swtch.com/~rsc/regexp/regexp4.html
+
+https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F
+
+https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
+
 https://red3d.com/cwr/boids/
 
 https://blog.acolyer.org/
-
-http://imzc.me/dev/2016/11/30/write-d-ts-files/
 
 https://www.patterns.dev/posts
 
@@ -164,8 +162,6 @@ https://nytimes.github.io/oak-byo-react-prosemirror-redux/
 https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
 
 https://dallas.lu/how-to-fake-the-timezone-of-a-git-commit/
-
-https://joshcollinsworth.com/blog/antiquated-react
 
 http://fms.komkon.org/EMUL8/HOWTO.html
 
@@ -361,7 +357,7 @@ controls the APIs provided by the browser https://pagure.io/JShelter/webextensio
 
 Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
-https://defensivecss.dev/tip/flexbox-wrapping/
+https://defensivecss.dev/tip/image-compressed/
 
 book https://github.com/AllenDowney/ThinkDSP
 
@@ -373,6 +369,7 @@ https://betterprogramming.pub/typescript-with-go-rust-errors-no-try-catch-heresy
 
 https://github.com/astoilkov/main-thread-scheduling
 
+self hosting unpkg
 https://github.com/xianzou/blog/issues/17
 
 book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-101-in-rust
@@ -381,13 +378,11 @@ https://gruebelinchen.wordpress.com/2023/06/06/demystifying-trait-generics-in-ru
 
 https://cohenarthur.github.io/2023/06/05/rust-derives.html
 
-https://github.com/weaviate/healthsearch-demo
-
 https://maciej.codes/2022-06-09-local-async.html
 
-https://github.com/Pere001/2d-platformer-tutorial-2023#intro
+https://github.com/weaviate/healthsearch-demo
 
-https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
+https://github.com/Pere001/2d-platformer-tutorial-2023#intro
 
 https://joel.is-a.dev/2022-01-06--find-the-shortest-palindrome-an-intensive-review-of-kmp(knuth-morris-pratt)-algorithm/
 
@@ -426,6 +421,8 @@ https://github.com/steadylearner/Rust-Full-Stack/blob/master/blog/posts/Rust/How
 go concurrency https://github.com/sourcegraph/conc
 
 https://garden.bradwoods.io/notes/css/3d
+
+https://pillser.com/engineering/2024-06-10-website-without-404s
 
 https://github.com/google/cdc-file-transfer
 

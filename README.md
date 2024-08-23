@@ -48,7 +48,7 @@
 ## 未分类
 
 [What is? Backend 101](https://aws.amazon.com/cn/what-is)
-[中文开源字体](https://font.gentleflow.tech/)
+[中文开源字体](https://font.gentleflow.tech/)(https://wangchujiang.com/free-font/)
 [网页性能相关的博客](https://calendar.perfplanet.com/)
 [网页安全相关博客](https://blog.huli.tw/categories/)
 [各种前端框架的基础写法展示](https://component-party.dev/)
