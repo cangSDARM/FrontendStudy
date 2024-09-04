@@ -459,6 +459,12 @@ leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e
 
 https://serokell.io/blog/introduction-to-free-monads
 
+驱动开发 https://blog.csdn.net/qq_44814825/article/details/129107911
+
+https://blog.shalvah.me/posts/an-exploration-of-vector-search
+
+https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
+
 https://www.programiz.com/dsa/radix-sort
 
 sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
@@ -701,6 +707,8 @@ book https://google.github.io/tour-of-wgsl/
 https://github.com/jinleili/simuverse
 
 https://github.com/jinleili/bevy-in-app
+
+https://github.com/kanition/pbrtbook?tab=readme-ov-file
 
 ## CRDT
 
