@@ -57,9 +57,6 @@ Array.from({ length: 2 })  //create non-empty array
 /abc/   //加载时编译
 new RegExp('abc')   //运行时编译
 //使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
-//string------------------------------------------------------------------------
-'abc'.slice(-2, -2)   //写负数会 加上字符串的长度 再slice。没法处理四字节字符
-Array.from('😂😅').slice(0, 1).join('');  //依赖于字符串的可迭代特性（新特性）所以可以正确处理四字符
 //number------------------------------------------------------------------------
 const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);
 Number.EPSILON; // the minimum double number

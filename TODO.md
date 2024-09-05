@@ -27,8 +27,6 @@ https://github.com/partykit/partykit/tree/main/packages/partysocket
 
 https://mrkaran.dev/posts/travel-tailscale/
 
-https://blog.daveallie.com/ulid-primary-keys/
-
 https://webauthn.wtf/
 
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
