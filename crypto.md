@@ -7,6 +7,7 @@
 - [另外支持](#另外支持)
 
 ## 硬件随机
+
 ```js
 const twentyBytes = crypto.getRandomValues(new Uint8Array(20));
 ```
@@ -26,12 +27,8 @@ async function digestMessage(message) {
 
 ```js
 const encoder = new TextEncoder();
-const message = encoder.encode('Hello world!');
-let signature = await window.crypto.subtle.sign(
-  "HMAC",
-  privateKey,
-  message
-);
+const message = encoder.encode("Hello world!");
+let signature = await window.crypto.subtle.sign("HMAC", privateKey, message);
 ```
 
 ## 摘要
@@ -73,13 +70,13 @@ const key = await crypto.subtle.generateKey(
   // The algorithm is AES in CBC mode, with a key length
   // of 256 bits.
   {
-    name: 'AES-CBC',
-    length: 256
+    name: "AES-CBC",
+    length: 256,
   },
   // Allow extracting the key material (see below).
   true,
   // Restrict usage of this key to encryption.
-  ['encrypt']
+  ["encrypt"]
 );
 
 // AES-CBC requires a 128-bit initialization vector (iv).
@@ -87,15 +84,15 @@ const iv = crypto.getRandomValues(new Uint8Array(16));
 
 // This is the plaintext:
 const encoder = new TextEncoder();
-const message = encoder.encode('Hello world!');
+const message = encoder.encode("Hello world!");
 
 // Finally, encrypt the plaintext, and obtain the ciphertext.
 const ciphertext = await crypto.subtle.encrypt(
   // The algorithm is still AES-CBC. In addition, the
   // 128-bit initialization vector must be specified.
   {
-    name: 'AES-CBC',
-    iv
+    name: "AES-CBC",
+    iv,
   },
   // The encryption key. This must be an AES-CBC key,
   // otherwise, this function will reject.
@@ -106,4 +103,5 @@ const ciphertext = await crypto.subtle.encrypt(
 ```
 
 ## 另外支持
-密钥派生(deriveKey)、密钥导入/导出(importKey/exportKey)、密钥Wrap/Unwrap(wrapKey/unwrapKey)
+
+密钥派生(deriveKey)、密钥导入/导出(importKey/exportKey)、密钥 Wrap/Unwrap(wrapKey/unwrapKey)

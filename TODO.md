@@ -96,8 +96,6 @@ https://djharper.dev/post/2019/05/21/i-dont-know-how-cpus-work-so-i-simulated-on
 Steganography
 https://github.com/djhworld/steg
 
-https://masteringbackend.com/hubs/system-design/system-design-fundamentals
-
 https://news.ycombinator.com/item?id=36756504
 
 https://processing.org/examples/
@@ -168,6 +166,8 @@ https://borretti.me/article/type-systems-memory-safety
 https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7adb2e
 
 https://roberthodgin.com/
+
+https://bjornlu.com/blog/hot-module-replacement-is-easy
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_npm-overview.html
 
@@ -277,7 +277,7 @@ https://www.notion.so/blog/sharding-postgres-at-notion
 
 https://aws.amazon.com/cn/what-is/mqtt/
 
-ipc https://zhuanlan.zhihu.com/p/652308791
+从 Comlink 谈谈 IPC 抽象封装 https://zhuanlan.zhihu.com/p/652308791
 
 https://jihulab.com/linksaas/desktop
 
@@ -286,8 +286,6 @@ slab allocator https://www.dingmos.com/index.php/archives/23/
 book https://learningmusic.ableton.com/zh-Hans/chords/major-triads.html
 
 book https://learningsynths.ableton.com/zh-Hans
-
-node modules https://www.youtube.com/playlist?list=PLCiGw8i6Nhvo08rQd9J7e19ToKMCJVKaM
 
 rust streams https://rust-lang.github.io/async-book/05_streams/01_chapter.html
 https://www.qovery.com/blog/a-guided-tour-of-streams-in-rust
@@ -358,8 +356,6 @@ Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 https://defensivecss.dev/tip/image-compressed/
 
 book https://github.com/AllenDowney/ThinkDSP
-
-https://www.kenneth-truyers.net/2016/05/27/writing-custom-eslint-rules
 
 https://ctf.re//windows/kernel/pcie/tutorial/2023/02/14/pcie-part-1/
 
@@ -711,10 +707,6 @@ https://github.com/kanition/pbrtbook?tab=readme-ov-file
 ## CRDT
 
 https://www.figma.com/blog/realtime-editing-of-ordered-sequences/
-
-https://www.youtube.com/watch?v=M8-WFTjZoA0
-
-https://www.youtube.com/watch?v=x7drE24geUw
 
 ## Makefile
 
