@@ -25,6 +25,8 @@ https://www.youtube.com/watch?v=SPll1Rxl_Es
 
 https://github.com/partykit/partykit/tree/main/packages/partysocket
 
+https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
+
 https://mrkaran.dev/posts/travel-tailscale/
 
 https://webauthn.wtf/
@@ -80,6 +82,8 @@ https://gamedevelopment.tutsplus.com/
 企业架构 TOGAF https://segmentfault.com/a/1190000019704801
 企业架构建模 https://www.archimatetool.com/
 https://www.opengroup.org/archimate-forum/archimate-overview
+
+https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
@@ -141,6 +145,11 @@ https://book.hacktricks.xyz/welcome/getting-started-in-hacking
 
 http://algorithmicbotany.org/papers/#abop
 
+正交路由选路算法
+https://blog.csdn.net/li_canhui/article/details/6798380
+https://blog.csdn.net/rc826/article/details/84539450
+https://github.com/AngelinaT-t/OCR
+
 Virtual Display Drivers Knowledge Base
 https://github.com/pavlobu/deskreen/discussions/86
 
@@ -151,13 +160,13 @@ https://github.com/veltman/clmystery
 
 Go defer 原理和源码剖析 https://www.cnblogs.com/wanghao72214/p/15544365.html
 
+PWA
+https://web.dev/learn/pwa/
 https://felixgerschau.com/how-to-make-your-react-app-a-progressive-web-app-pwa/
 
 https://nytimes.github.io/oak-byo-react-prosemirror-redux/
 
 https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
-
-https://dallas.lu/how-to-fake-the-timezone-of-a-git-commit/
 
 http://fms.komkon.org/EMUL8/HOWTO.html
 
@@ -169,11 +178,13 @@ https://roberthodgin.com/
 
 https://bjornlu.com/blog/hot-module-replacement-is-easy
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_npm-overview.html
+book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-path.html
+
+CSSStyleSheet
+https://segmentfault.com/a/1190000018194545
+https://juejin.cn/post/6844904002509864967
 
 libuv https://www.youtube.com/watch?v=sGTRmPiXD4Y
-
-book https://web.dev/learn/pwa/
 
 https://www.redblobgames.com/making-of/draggable/
 
@@ -191,8 +202,6 @@ https://github.com/thecodrr/alfaaz
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
-https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
-
 https://kinsta.com/blog/brotli-compression/
 
 https://web.dev/new-responsive/
@@ -208,20 +217,13 @@ https://chitchatter.im/
 https://getaether.net/
 https://github.com/vasanthv/talk
 
-https://eli.thegreenplace.net/2023/demystifying-tuppers-formula/
-
 https://ptrchm.com/posts/base32-explained/
 
 https://github.com/anderspitman/SirTunnel
 
 https://github.com/dqbd/ts-math-evaluate/blob/c7e71ed156ba0349e658ae805684cf46ecdc744d/thesis/ctufit-thesis.pdf
 
-根据身高计算椅子高度、桌子高度、屏幕高度
-https://www.ergotron.com/zh-cn/%E5%B7%A5%E5%85%B7/%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E8%A7%84%E5%88%92%E5%99%A8
-
 https://github.com/openai-translator/openai-translator/tree/main/src-tauri
-
-密码学基础及SSL/TLS协议 https://catbro666.github.io/posts/e92ef4b4/
 
 https://continuation.passing.style/blog/quantum-interpreter-cps.html
 
@@ -231,7 +233,8 @@ http://www.hackdig.com/06/hack-46619.htm
 
 book https://pandolia.net/tinyc/
 
-js写ssh https://github.com/CatsAndMice/blog/issues/42
+shell实现自动输入密码 使用管道命令echo '密码' | sudo -S 命令
+node-ssh
 
 https://github.com/evanw/float-toy
 
@@ -306,9 +309,9 @@ Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
 https://spacelift.io/blog/container-security
 
-https://step-saga-examples.pages.dev/v0-dev-reverse-engineer/
-
 https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
+
+https://jakearchibald.com/2024/garbage-collection-and-closures/
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
@@ -390,20 +393,23 @@ book https://google.github.io/comprehensive-rust/
 
 https://secretgeek.github.io/html_wysiwyg/html.html
 
+https://noyaml.com/
+
 https://github.com/lucaong/minisearch
 
 https://hughfenghen.github.io/posts/2020/10/07/sw-ssr/
 
 https://hughfenghen.github.io/posts/2023/10/06/webcodecs-new-era-for-media-on-the-web/
 
-密码分析(门禁卡破解) https://zhuanlan.zhihu.com/p/465900396
+密码学
+https://catbro666.github.io/posts/e92ef4b4/
+https://zhuanlan.zhihu.com/p/465900396
+https://zhuanlan.zhihu.com/p/465894109
+https://zhuanlan.zhihu.com/p/468424693
 
 2D Graphics Algorithms https://youtu.be/bfvmPa9eWew?t=146
 
 https://lcamtuf.coredump.cx/photo_basics/
-
-神智学研究笔记（三）：《隐秘教义》概述
-https://www.gcores.com/articles/160965
 
 韩版《传奇2》源码分析与 Unity 重制（二）：客户端启动与交互流程
 https://www.gcores.com/articles/163577
@@ -453,9 +459,19 @@ leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e
 
 https://serokell.io/blog/introduction-to-free-monads
 
+架构 https://nekonull.me/posts/ruankao-architect/
+
+https://jvns.ca/blog/2024/01/26/inside-git/
+
 驱动开发 https://blog.csdn.net/qq_44814825/article/details/129107911
 
+https://github.com/Flomp/wanderer
+
+https://www.jbernier.com/p?id=nodejs-stream-async-iterator
+
 https://blog.shalvah.me/posts/an-exploration-of-vector-search
+
+handle pdf https://github.com/Stirling-Tools/Stirling-PDF
 
 https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
 
@@ -563,6 +579,13 @@ book https://themarketplace.guide/
 
 https://www.webgamedev.com/
 
+无人机控制协议 MavLink
+https://www.cnblogs.com/xkxf/p/12240346.html
+
+https://tomhazledine.com/cosine-similarity/
+
+https://design.ros2.org/articles/ros_on_dds.html
+
 https://github.com/satoshi7190/Shinjuku-indoor-threejs-demo
 
 https://github.com/jianchang512/vocal-separate
@@ -588,7 +611,7 @@ Music Theory Tools https://muted.io/cheat-sheet/
 
 https://citw.dev/tutorial/create-your-own-compiler
 
-https://iucompilercourse.github.io/tutorial-web-page/
+book https://iucompilercourse.github.io/tutorial-web-page/
 
 https://pixelparmesan.com/fundamentals-of-isometric-pixel-art/
 

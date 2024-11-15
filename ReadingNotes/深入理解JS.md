@@ -49,13 +49,14 @@ function foo() {
 
 ```js
 //Array------------------------------------------------------------------------
-arr.splice(1, 2)    //remove 2 elements begin at index 1, (safely and anyIndexing)
-arr.copyWithin(1, 2, 3) //move something in index [2, 3) to [1, 3-(2-1))
+arr.splice(1, 2); // remove 2 elements begin at index 1, (safely and anyIndexing)
+arr.copyWithin(1, 2, 3); // move something in index [2, 3) to [1, 3-(2-1))
 // map、reduce、filter、forEach 等高阶函数沿着数组的索引键遍历。empty array 没有索引键
-Array.from({ length: 2 })  //create non-empty array
+Array.from({ length: 2 });  //create non-empty array
 //Reg------------------------------------------------------------------------
-/abc/   //加载时编译
-new RegExp('abc')   //运行时编译
+/abc/;   // 加载时编译
+new RegExp('abc');   // 运行时编译
+str.replace(/(.*)and/, '$1but'); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
 //使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
 //number------------------------------------------------------------------------
 const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);

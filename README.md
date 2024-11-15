@@ -59,3 +59,4 @@
 [检查 API 是否 CORS](https://httptoolkit.com/will-it-cors/)
 [在线玩桌游](https://zh-cn.boardgamearena.com/)
 [健身](https://github.com/workout-lol/workout-lol)
+[生成ASCII字符画](https://meatfighter.com/ascii-silhouettify/)
