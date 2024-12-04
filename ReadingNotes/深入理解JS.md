@@ -6,6 +6,7 @@
   - [类型判断](#类型判断)
   - [void 运算符](#void-运算符)
   - [泛型方法](#泛型方法)
+  - [模块](#模块)
   - [TypedArray](#typedarray)
   - [Binary Operators](#binary-operators)
   - [Blob](#blob)
@@ -104,6 +105,13 @@ var Wine = Object.create(Object, {
 var john = { age: 51 };
 Wine.prototype.AddAge.call(john, 3); //借助call, apply, bind等实现泛型
 john.age; //54
+```
+
+### 模块
+
+```ts
+export * from 'antd';
+export { Modal } from './Modal'; // reexport 的 具名导出 优先级比 * 高
 ```
 
 ### TypedArray

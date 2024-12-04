@@ -60,3 +60,10 @@ ProxyCommand connect -S 127.0.0.1:1080 %h %p
 ```bash
 git mv -f file.tsx File.tsx
 ```
+
+强制更新tag
+
+```bash
+git tag v1 --force
+git push origin v1 --force
+```

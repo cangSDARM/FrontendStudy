@@ -1,3 +1,15 @@
+- [基础](#基础)
+- [BLE](#ble)
+  - [协议栈](#协议栈)
+    - [GAP](#gap)
+    - [GATT](#gatt)
+  - [过程](#过程)
+    - [广播 Advertise](#广播-advertise)
+    - [扫描请求响应 Scan Request/Response](#扫描请求响应-scan-requestresponse)
+    - [状态切换](#状态切换)
+  - [sample](#sample)
+- [WebBluetooth](#webbluetooth)
+
 ## 基础
 
 每个蓝牙设备要么是“中央设备”(Central device)或“外围设备”(Peripheral)
@@ -39,7 +51,7 @@ BLE(Bluetooth Low Energy) 是一种现代规范，除了使用的无线频段相
 ┌────────────────────────────────────────────────┐
 │               Application                      │
 ├───────────────────────────┬────────────────────┤
-│   GAP Role/Sec Profiles   │   GATT Profiles    │  配置文件
+│   GAP Role/Sec Profiles   │   GATT Profiles    │  配置文件(实现对应服务需要的service集合, 如HID over GATT Profile)
 ├───────────────────────────┴────────────────────┤
 │ Host                                           │
 │  ┌─────────────────────┬───────────────────────┤
@@ -73,8 +85,22 @@ GATT 规定了对应的结构
 
 在 GATT 的支持下，我们不再谈论中央设备和外围设备，而是客户端(中央设备)和服务器(外围设备)
 
-每个服务器都提供一个或多个服务(service)，每项服务都有一个或多个特性(characteristic)，每个特性都有一个可以读取或写入的值(value)，每个值都是一个字节数组。
-每个服务和特性都有一个唯一的 UUID，长度为 16 位或 128 位。严格的说，16 位 UUID 是为官方标准保留的，但几乎没有人遵循这一规则。
+每个服务器都提供一个或多个服务(service)，每项服务都有一个或多个特性(characteristic)，每个特性都有一个可以读取或写入的值(value)以及对应属性/权限(properties)，每个值都是一个字节数组。
+
+每个服务和特性都有一个唯一的 UUID，长度为 128 位，但有两种组成方式：
+
+- 128 bit 全自定义
+- 16 位组成：基地址(0000XXXX-0000-1000-8000-00805F9B34FB) + 16 UUID(XXXX) = 128 UUID
+  - _严格的说，16 位 UUID 是为官方标准保留的，但几乎没有人遵循这一规则。_
+  - 有一些[已定义的 UUID](https://www.bluetooth.com/specifications/assigned-numbers/)，以及[对应使用说明](https://www.bluetooth.com/specifications/specs/gatt-specification-supplement-5/)
+
+可选属性：
+
+- Read
+- Write
+- Notify
+- Write with no Response
+- Indicate (aka Notify with Response)
 
 ### 过程
 
@@ -131,29 +157,41 @@ GATT 规定了对应的结构
 
 ![ble states](/assets/ble-states.png)
 
-从机 sample
+### sample
 
 ```py
 from ubluetooth import BLE
 from machine import Pin
 
+ble = BLE()
+ble.active(True)
 led = Pin(2, Pin.OUT)
+led.on()
+
 adv_data = b'\x02\x01\x05\x05\x09\x42\x69\x62\x69'
 resp_data = b'\x06\xFF\x41\x42\x43\x44\x45'
 
-ble = BLE()
-ble.active(True)
-led.on()
+char1 = (ubluetooth.UUID(0x9902), ubluetooth.FLAG_READ | ubluetooth.FLAG_NOTIFY)
+char2 = (ubluetooth.UUID(0x9903), ubluetooth.FLAG_READ | ubluetooth.FLAG_WRITE)
+service = (ubluetooth.UUID(0x9901), (char1, char2)) # service
+
+ble.gatts_register_services((service)) # register service into gatts
+
 # transfer: 就绪态 -> 广播态
 ble.gap_advertise(100, adv_data = adv_data, resp_data = resp_data) # advertise
 
 def ble_irq(event, data): # ble interrupter
-    if event == 1: # connected
-        led.off()
-    elif event == 2: # disconnected，连接态 -> 广播态
-        # retransfer: 就绪态 -> 广播态
-        ble.gap_advertise(100, adv_data = adv_data, resp_data = resp_data) # advertise
-        led.on()
+  if event == 1: # connected
+    led.off()
+  elif event == 2: # disconnected，连接态 -> 广播态
+    # retransfer: 就绪态 -> 广播态
+    ble.gap_advertise(100, adv_data = adv_data, resp_data = resp_data) # advertise
+    led.on()
+  elif event == 3: # write
+    conn_handle, char_handle = data
+    inp_buffer = ble.gatts_read(char_handle)
+    ble.gatts_write(char_handle, inp_buffer)
+    ble.gatts_notify(0, char_handle, b'Message')
 
 ble.irq(ble_irq)
 ```
