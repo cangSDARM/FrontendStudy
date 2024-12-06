@@ -163,7 +163,7 @@ BLE 的广播和数据发送都是用的同样的封包格式
 | 不可连接非定向 | 用于信标、传感器 | 正常广播包 |    否    |  不支持  |
 |  可扫描非定向  |        /         | 正常广播包 |    否    |   支持   |
 
-##### PDU
+##### PDU (Legacy)
 
 ```
 ▢ Header 报头
@@ -200,6 +200,14 @@ BLE 的广播和数据发送都是用的同样的封包格式
        ║            ╚ 长度：内容为 Type长 + Data长 = 1 + N
        ╚ advertiser's public address if TxAdd=1, or a random address
 ```
+
+##### PDU
+
+- 结构和 Legacy 相同
+- 新 PDU 允许最多 63 Bytes 的 Header，255 Bytes 的 Payload
+- 广播时仅广播 Header，在收到扫描请求后，仅发送一次 Payload
+- 广播允许在 Payload 未发送完成时，链式发送 Payload
+- 允许在未转变为 Service 时，直接响应其他 Client 的广播信号，完成多设备同时连接(Connectionless)
 
 #### 扫描请求响应 Scan Request/Response
 
