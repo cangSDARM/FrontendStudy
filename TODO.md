@@ -150,6 +150,8 @@ https://blog.csdn.net/li_canhui/article/details/6798380
 https://blog.csdn.net/rc826/article/details/84539450
 https://github.com/AngelinaT-t/OCR
 
+https://wyag-zh.hanyujie.xyz/
+
 Virtual Display Drivers Knowledge Base
 https://github.com/pavlobu/deskreen/discussions/86
 
@@ -232,9 +234,6 @@ https://embedded.fm/blog/2023/5/19/embedded-skills-tree
 http://www.hackdig.com/06/hack-46619.htm
 
 book https://pandolia.net/tinyc/
-
-shell实现自动输入密码 使用管道命令echo '密码' | sudo -S 命令
-node-ssh
 
 https://github.com/evanw/float-toy
 
@@ -944,3 +943,7 @@ complexity theory
 钢琴
    钢琴键盘上的黑键同时也可以用♯(升)和♭(降)符号来表示。"A♯/B♭"是A和B中间的同一个键
 ) https://learningmusic.ableton.com/zh-Hans/
+
+shell实现自动输入密码^(
+   使用管道命令echo '密码' | sudo -S 命令
+)

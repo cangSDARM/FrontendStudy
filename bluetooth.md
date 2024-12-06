@@ -4,9 +4,10 @@
     - [GAP](#gap)
     - [GATT](#gatt)
   - [过程](#过程)
+    - [状态切换](#状态切换)
+    - [数据包格式](#数据包格式)
     - [广播 Advertise](#广播-advertise)
     - [扫描请求响应 Scan Request/Response](#扫描请求响应-scan-requestresponse)
-    - [状态切换](#状态切换)
   - [sample](#sample)
 - [WebBluetooth](#webbluetooth)
 
@@ -44,6 +45,8 @@
 BLE(Bluetooth Low Energy) 是一种现代规范，除了使用的无线频段相同外，它和旧的蓝牙规范几乎没有任何关系
 工作频段: 2400 Mhz ~ 2480 Mhz，0 - 39 个信道，每个信道 2Mhz，
 其中 37 (2402 MHz)、38 (2426 MHz)、39 (2480 MHz) 为广播信道 (Advertising Channel)，其余依次为数据信道 (Data Channel)
+
+在每次传输后(~3ms, 15mW)，主从机都可以 sleep，因此非常省电
 
 ### 协议栈
 
@@ -104,31 +107,52 @@ GATT 规定了对应的结构
 
 ### 过程
 
+#### 状态切换
+
+![ble states](/assets/ble-states.png)
+
+#### 数据包格式
+
+BLE 的广播和数据发送都是用的同样的封包格式
+
+```
+一个 Link Layer 包
+ ▢ 最长为 265 Bytes(如果有 LE Data Packet Length Extension, 否则为 41 Bytes)
+ ▢ 传输 251 Bytes 数据时，耗费 2120μs (265 bytes * 8 bits / byte * 1 Mbps)
+
+    1 Byte        4 Bytes      2 Bytes        0 - 255 Bytes (or 31 Bytes)        3 Bytes
+  ╭────┴─────┬───────┴────────┬───┴────┬─────────────────┴─────────────────────┬─────┴───╮
+  ┌──────────┬────────────────┬────────┬───────────────────────────────────────┬─────────┐
+  │ Preamble │ Access Address │ Header │   Encrypted Link Layer Data Payload   │   CRC   │
+  └──────────┴────────────────┴────────┴───────────────────────────────────────┴─────────┘
+                              ╰─────────────────────┬──────────────────────────╯
+                                        Protocol Data Unit (PDU)
+
+▢ Preamble 前导
+  - 是一个 1 Byte 的交替序列。不是 01010101 就是 10101010，取决于接入地址的第一个比特。
+    - 若接入地址的第一个比特为 0：01010101
+    - 若接入地址的第一个比特为 1：10101010
+  - 接收侧可以根据前导的无线信号强度来配置自动增益控制
+▢ Access Address 接入地址
+  - 广播接入地址固定为 0x8E89BED6
+  - 数据接入地址为随机数，不同的连接有不同的值。在连接建立之后的两个设备间使用
+  - 满足以下要求
+    1. 数据接入地址不能超过 6 个连续的“0”或“1”。
+    2. 数据接入地址的值不能与广播接入地址相同。
+    3. 数据接入地址的 4 个字节的值必须互补相同。
+    4. 数据接入地址不能有超 24 次的比特翻转(比特 0 到 1 或 1 到 0，称为 1 次比特翻转)。
+    5. 数据接入地址的最后 6 个比特需要至少两次的比特翻转。
+  - 符合上面条件的有效随机数据接入地址大概有 231 个
+▢ PDU 协议数据单元
+  - 根据是广播还是数据发送的结构和内容都有所调整
+▢ CRC 数据校验
+  - BLE采用的是24位CRC校验。CRC对报头、长度和数据进行计算。24位CRC的生成多项式如下
+    CRC = x^24 + x^10 + x^9 + x^6 + x^4 + x^3 + x^1 + x^0
+```
+
 #### 广播 Advertise
 
 从机 -> 主机
-
-```
-一个数据包
- ▢ 最长为 37 Bytes，开头 6 Bytes 为 MAC 地址，31 字节为数据
- ▢ 37 Bytes 如果没用完，系统自动补零
-
-       6 Bytes                                         31 Bytes
- ╭──────┴──────┬──────────────────────────────────────────┴──────────────────────────────────────────────╮
- ┌─────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────────┐
- │ MAC Address │   AD Structure   │   AD Structure   │   AD Structure   │   AD Structure   │   ... ...   │
- └─────────────┴──────────────────┴──────────────────┴──────────────────┴──────────────────┴─────────────┘
-
-一个 AD Structure
-
-  1 Byte   1 Byte    N Bytes
- ┌───────┬────────┬────────────┐
- │  Len  │  Type  │  Data ...  │
- └───────┴────────┴────────────┘
-   ║         ║         ╚ 内容
-   ║         ╚  类型：[Ref](https://www.bluetooth.com/specifications/assigned-numbers/)
-   ╚ 长度：内容为 Type长 + Data长 = 1 + N
-```
 
 广播类型
 
@@ -138,6 +162,44 @@ GATT 规定了对应的结构
 |   可连接定向   | 已配对的快速响应 | 定向广播包 | 指定设备 |  不支持  |
 | 不可连接非定向 | 用于信标、传感器 | 正常广播包 |    否    |  不支持  |
 |  可扫描非定向  |        /         | 正常广播包 |    否    |   支持   |
+
+##### PDU
+
+```
+▢ Header 报头
+
+    4 bits    1 bit  1 bit   1 bit  1 bit     6 bits     2 bits
+  ╭────┴─────┬──┴──┬───┴───┬───┴───┬───┴───┬─────┴──────┬───┴───╮
+  ┌──────────┬─────┬───────┬───────┬───────┬────────────┬───────┐
+  │ PDU type │ RFU │ ChSel │ TxAdd │ RxAdd │   Length   │  RFU  │
+  └──────────┴─────┴───────┴───────┴───────┴────────────┴───────┘
+       ║        ║      ║       ║       ║         ║          ╚ Reserved for future use
+       ║        ║      ║       ║       ║         ╚ Payload length (可以包括后一个 RFU，长度扩展为 8 bits)
+       ║        ║      ║       ║       ╚ 0 if the target’s address is public, 1 if random
+       ║        ║      ║       ╚ 0 if address is public, 1 if random
+       ║        ║      ╚ 1 if LE Channel Selection Algorithm #2 is supported
+       ║        ╚ Reserved for future use
+       ╚ [Ref](https://www.bluetooth.com/specifications/assigned-numbers/)
+
+▢ Payload 载荷
+ ▢ 最长为 37 Bytes，开头 6 Bytes 为 MAC 地址，31 字节为数据
+ ▢ 37 Bytes 如果没用完，系统自动补零
+
+       6 Bytes                                         31 Bytes
+ ╭──────┴──────┬──────────────────────────────────────────┴──────────────────────────────────────────────╮
+ ┌─────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬─────────────┐
+ │    AdvA     │   AD Structure   │   AD Structure   │   AD Structure   │   AD Structure   │   ... ...   │
+ └─────────────┴──────────────────┴──────────────────┴──────────────────┴──────────────────┴─────────────┘
+       ║                ║
+       ║          1 Byte   1 Byte    N Bytes
+       ║        ┌───────┬────────┬────────────┐
+       ║        │  Len  │  Type  │  Data ...  │
+       ║        └───────┴────────┴────────────┘
+       ║            ║        ║         ╚ 内容
+       ║            ║        ╚  类型：[Ref](https://www.bluetooth.com/specifications/assigned-numbers/)
+       ║            ╚ 长度：内容为 Type长 + Data长 = 1 + N
+       ╚ advertiser's public address if TxAdd=1, or a random address
+```
 
 #### 扫描请求响应 Scan Request/Response
 
@@ -152,10 +214,6 @@ GATT 规定了对应的结构
 格式和广播数据一样
 
 是非必须的，可以作为广播的数据补充
-
-#### 状态切换
-
-![ble states](/assets/ble-states.png)
 
 ### sample
 
