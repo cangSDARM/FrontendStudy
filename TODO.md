@@ -60,7 +60,7 @@ https://github.com/evrimagaci/periodum
 
 https://github.com/microsoft/FASTER
 
-https://www.archdaily.cn/cn/784175/zhe-xie-fang-ge-zhi-ceng-jing-bei-yong-yu-she-ji-chao-ji-ma-li
+https://www.archdaily.cn/
 
 https://github.com/DirtyHairy/async-mutex
 
@@ -157,9 +157,6 @@ https://github.com/pavlobu/deskreen/discussions/86
 
 android games download https://pdalife.to/android/
 
-The Command Line Murders
-https://github.com/veltman/clmystery
-
 Go defer 原理和源码剖析 https://www.cnblogs.com/wanghao72214/p/15544365.html
 
 PWA
@@ -218,8 +215,6 @@ https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 https://chitchatter.im/
 https://getaether.net/
 https://github.com/vasanthv/talk
-
-https://ptrchm.com/posts/base32-explained/
 
 https://github.com/anderspitman/SirTunnel
 
@@ -309,8 +304,6 @@ Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 https://spacelift.io/blog/container-security
 
 https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
-
-https://jakearchibald.com/2024/garbage-collection-and-closures/
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
@@ -421,8 +414,6 @@ go concurrency https://github.com/sourcegraph/conc
 
 https://garden.bradwoods.io/notes/css/3d
 
-https://pillser.com/engineering/2024-06-10-website-without-404s
-
 https://github.com/google/cdc-file-transfer
 
 层次分析法AHP https://blog.csdn.net/qq_41686130/article/details/122081827
@@ -432,8 +423,6 @@ make a language https://arzg.github.io/lang/
 https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
 
 book https://github.com/heathermiller/dist-prog-book/blob/master/chapter/1/rpc.md
-
-http://erights.org/elib/distrib/pipeline.html
 
 book https://book.mixu.net/distsys/index.html
 
@@ -502,8 +491,6 @@ https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
 https://github.com/hughfenghen/opfs-tools
 
 https://zilliz.com/blog?tag=39&page=2
-
-https://rsdoctor.dev/zh/
 
 https://blog.partykit.io/posts/using-vectorize-to-build-search/
 
@@ -744,13 +731,9 @@ book https://seisman.github.io/how-to-write-makefile/overview.html
 
 ## bluetooth
 
-https://blog.csdn.net/eyeofangel/article/details/87890418
-
 https://grack.com/blog/2022/12/01/hacking-bluetooth-to-brew-coffee-on-github-actions-part-1/
 
 https://medium.com/@charlie.d.anderson/how-to-get-the-bluetooth-host-controller-interface-logs-from-a-modern-android-phone-d23bde00b9fa
-
-https://www.cnblogs.com/iini/p/12334646.html
 
 https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial
 

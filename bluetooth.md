@@ -8,6 +8,7 @@
     - [数据包格式](#数据包格式)
     - [广播 Advertise](#广播-advertise)
     - [扫描请求响应 Scan Request/Response](#扫描请求响应-scan-requestresponse)
+    - [数据传递](#数据传递)
   - [sample](#sample)
 - [WebBluetooth](#webbluetooth)
 
@@ -88,22 +89,33 @@ GATT 规定了对应的结构
 
 在 GATT 的支持下，我们不再谈论中央设备和外围设备，而是客户端(中央设备)和服务器(外围设备)
 
-每个服务器都提供一个或多个服务(service)，每项服务都有一个或多个特性(characteristic)，每个特性都有一个可以读取或写入的值(value)以及对应属性/权限(properties)，每个值都是一个字节数组。
+蓝牙数据按照表组织，每行包含 `UUID(2 Octets) Type(2 or 16 Octets) Value(0 - 512 Octets) Permissions`，称为 attribute
 
-每个服务和特性都有一个唯一的 UUID，长度为 128 位，但有两种组成方式：
+按照逻辑组织，分层分为(服务和特性是特殊的 attribute):
+
+- 服务(service): 可包含多个特性
+  - 特性(characteristic)
+    - 声明条目 (declaration attribute): 就是每个特性的分界符, Value 包含对应特性的 ATT 命令权限
+    - 值条目 (value attribute)
+    - 描述符条目 (descriptor attribute): 额外描述信息，可选，零个或多个
+      - 特殊的描述符 CCCD
+        - 当 CCCD 使能的情况下，server 可以随时 notify 或 indicate 数据给 client
+        - 当 CCCD 禁止的时候，哪怕 server 有数据，它也不能 notify 或者 indicate 给 client
+        - 而当特性具有 notify 或者 indicate 操作功能时，蓝牙规范要求必须为其添加 CCCD attribute
+
+每个 attribute 都有一个唯一的 UUID，长度为 128 位，但有两种组成方式:
 
 - 128 bit 全自定义
 - 16 位组成：基地址(0000XXXX-0000-1000-8000-00805F9B34FB) + 16 UUID(XXXX) = 128 UUID
   - _严格的说，16 位 UUID 是为官方标准保留的，但几乎没有人遵循这一规则。_
   - 有一些[已定义的 UUID](https://www.bluetooth.com/specifications/assigned-numbers/)，以及[对应使用说明](https://www.bluetooth.com/specifications/specs/gatt-specification-supplement-5/)
 
-可选属性：
+Permissions 按照不同实现所占空间不一，通常讨论的有如下四种:
 
-- Read
-- Write
-- Notify
-- Write with no Response
-- Indicate (aka Notify with Response)
+- Open，直接可以读或者写
+- No Access，禁止读或者写
+- Authentication，需要配对才能读或者写，由于配对有多种类型，因此 authentication 又衍生多种子类型，比如带不带 MITM，有没有 LESC Authorization
+- Signed，签名后才能读或者写
 
 ### 过程
 
@@ -112,6 +124,8 @@ GATT 规定了对应的结构
 ![ble states](/assets/ble-states.png)
 
 #### 数据包格式
+
+https://interrupt.memfault.com/blog/ble-throughput-primer
 
 BLE 的广播和数据发送都是用的同样的封包格式
 
@@ -201,7 +215,7 @@ BLE 的广播和数据发送都是用的同样的封包格式
        ╚ advertiser's public address if TxAdd=1, or a random address
 ```
 
-##### PDU
+##### PDU (Extended)
 
 - 结构和 Legacy 相同
 - 新 PDU 允许最多 63 Bytes 的 Header，255 Bytes 的 Payload
@@ -222,6 +236,18 @@ BLE 的广播和数据发送都是用的同样的封包格式
 格式和广播数据一样
 
 是非必须的，可以作为广播的数据补充
+
+#### 数据传递
+
+ATT 所有 PDU 都是“必达”的，即发送后会立马等 ACK 信息，如果收到了 ACK 包，服务器认为命令完成；否则将会一直重传该命令直到超时导致 BLE 连接断开
+
+ATT 命令权限包括
+
+- Read
+- Write
+- Notify
+- Write with no Response
+- Indicate (aka Notify with Response)
 
 ### sample
 
