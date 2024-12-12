@@ -29,7 +29,12 @@ https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
 https://mrkaran.dev/posts/travel-tailscale/
 
-https://webauthn.wtf/
+Authentications
+https://webauthn.wtf/how-it-works/basics
+https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
+https://auth.wiki/zh
+https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
+https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F
 
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
 
@@ -124,10 +129,6 @@ https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 https://refactoring.guru/design-patterns
 
 https://swtch.com/~rsc/regexp/regexp4.html
-
-https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F
-
-https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 
 https://red3d.com/cwr/boids/
 
@@ -416,6 +417,9 @@ https://garden.bradwoods.io/notes/css/3d
 
 https://github.com/google/cdc-file-transfer
 
+字符串相似度
+https://zhuanlan.zhihu.com/p/91645988
+
 层次分析法AHP https://blog.csdn.net/qq_41686130/article/details/122081827
 
 make a language https://arzg.github.io/lang/
@@ -460,8 +464,6 @@ https://www.jbernier.com/p?id=nodejs-stream-async-iterator
 https://blog.shalvah.me/posts/an-exploration-of-vector-search
 
 handle pdf https://github.com/Stirling-Tools/Stirling-PDF
-
-https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
 
 https://www.programiz.com/dsa/radix-sort
 
@@ -539,7 +541,7 @@ book https://www.learncpp.com/
 
 大整数设计 https://www.bearssl.org/bigint.html
 
-book https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
+book https://swisskyrepo.github.io/PayloadsAllTheThings/
 
 book 消息传递接口 https://mpitutorial.com/tutorials/
 
