@@ -30,13 +30,14 @@ https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 https://mrkaran.dev/posts/travel-tailscale/
 
 Authentications
-https://webauthn.wtf/how-it-works/basics
 https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
 https://auth.wiki/zh
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F
 
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
+
+https://dev.to/ifourtechnolab/how-to-use-web-workers-in-reactjs-a-step-by-step-guide-2oo1
 
 https://github.com/ValdikSS/GoodbyeDPI
 
