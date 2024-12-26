@@ -75,8 +75,6 @@ https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
 
-https://www.longluo.me/blog/2024/04/16/2024-alibaba-global-mathematics-competition-qualifying-round/
-
 https://github.com/ByteByteGoHq/system-design-101
 
 https://cblgh.org/trustnet/
@@ -114,6 +112,7 @@ https://processing.org/examples/
 https://github.com/sindresorhus/promise-fun
 
 worklet
+https://developer.mozilla.org/en-US/docs/Web/API/Worklet
 https://www.jianshu.com/p/e2cdc78ff47c
 
 https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
@@ -124,7 +123,7 @@ https://blog.danieljanus.pl/2023/07/20/iterating-trees/
 
 https://andreasbm.github.io/web-skills/
 
-https://github.com/cli-guidelines/cli-guidelines/blob/main/content/_index.md
+https://github.com/cli-guidelines/cli-guidelines/blob/main/content/_index.md#philosophy-philosophy
 
 https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 
