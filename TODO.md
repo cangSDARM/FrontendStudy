@@ -35,6 +35,7 @@ https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
 https://auth.wiki/zh
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F
+https://thecopenhagenbook.com/
 
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
 
@@ -55,6 +56,9 @@ https://thepalindrome.org/p/matrices-and-graphs
 Color Plate https://github.com/eigenmiao/Rickrack/
 
 https://zh.javascript.info/bezier-curve
+
+字节前端监控实践
+https://juejin.cn/post/7195496297150709821
 
 https://zh.javascript.info/css-animations
 
@@ -99,8 +103,6 @@ http://content.research.neustar.biz/blog/hll.html
 https://www.cnblogs.com/linguanh/p/10460421.html
 https://zhuanlan.zhihu.com/p/58519480
 https://github.com/clarkduvall/hyperloglog
-
-https://djharper.dev/post/2019/05/21/i-dont-know-how-cpus-work-so-i-simulated-one-in-code/
 
 Steganography
 https://github.com/djhworld/steg
@@ -561,6 +563,8 @@ sim (series) game ui design https://news.ycombinator.com/item?id=34573406
 the recommendation of lecture series https://news.ycombinator.com/item?id=34591291
 
 YouTube channels focused on mastering a skill/craft https://news.ycombinator.com/item?id=34666777
+
+https://www.pixelstech.net/article/1677580861-Why-is-single-threaded-Redis-so-fast
 
 https://github.com/MaxBittker/broider
 
