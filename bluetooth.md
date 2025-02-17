@@ -11,6 +11,8 @@
     - [数据传递](#数据传递)
   - [sample](#sample)
 - [WebBluetooth](#webbluetooth)
+- [调试](#调试)
+  - [android](#android)
 
 ## 基础
 
@@ -315,3 +317,15 @@ characteristic.addEventListener("characteristicvaluechanged", (e) => {
 characteristic.startNotifications();
 characteristic.stopNotifications();
 ```
+
+## 调试
+
+### android
+
+1. 启用开发者模式
+2. Enable Bluetooth HCI snoop log
+3. Enable USB Debugging
+4. Toggle bluetooth on and off. (Log enabled, 但用户不可访问)
+5. `adb bugreport filename`生成一个 bug 报告，它将在当前目录中创建 filename.zip
+6. 在这个 zip 文件中，在 FS/data/log/bt 目录下有 btsnoop_hci.log 文件
+7. 用 Wireshark 打开该文件检查流量

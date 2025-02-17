@@ -1,28 +1,26 @@
-# [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
-
-<!-- TOC -->
-
-- [Limitation](#limitation)
-- [Common Interface](#common-interface)
-- [Without separate file](#without-separate-file)
-- [Broadcast Channel](#broadcast-channel)
-
-<!-- /TOC -->
+- [Basic](#basic)
+  - [限制](#限制)
+  - [Common Interface](#common-interface)
+  - [Without separate file](#without-separate-file)
+- [特殊 Worker](#特殊-worker)
+  - [Broadcast Channel](#broadcast-channel)
+  - [ServiceWorker](#serviceworker)
+  - [SharedWorker](#sharedworker)
+  - [Worklet](#worklet)
+    - [Paint Worklet](#paint-worklet)
+    - [Animation Worklet](#animation-worklet)
+    - [Layout Worklet](#layout-worklet)
 
 现代浏览器的 JavaScript**多线程环境**
 
-有
-
-- [Broadcast Channel](#broadcast-channel)
-- [ServiceWorker](#serviceworker)
-- [SharedWorker](#sharedworker)
+## Basic
 
 > 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**<br>
 > 数据的交互方式为**传递副本**，而不是直接共享数据<br>
 > workers 运行在另一个全局上下文(self)中, 如tab、window、iframe、worker等<br>
 > [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
 
-### Limitation
+### 限制
 
 - 同源限制
 - 无法使用 window / DOM / parent
@@ -33,7 +31,7 @@
 
 ```js
 // 创建 worker
-const worker = new Worker("work.js"); //构造函数采用 Worker 脚本的名称
+const worker = new Worker(new URL("./worker", import.meta.url)); //构造函数采用 Worker 脚本的名称
 // 进程间交互
 // 1. 向其他进程推送消息
 // postMessage每次发消息都会序列化内容,如果数据量大时会产生性能问题. 参考[1](https://stackoverflow.com/questions/23237611/converting-javascript-2d-arrays-to-arraybuffer); [2](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
@@ -79,7 +77,9 @@ const useWorker = () => {
 const worker = useWorker();
 ```
 
-## Broadcast Channel
+## 特殊 Worker
+
+### Broadcast Channel
 
 用于实现多个上下文间的单对多通信(`postMessage`是点对点)
 
@@ -98,14 +98,14 @@ bc.onmessageerror = function (e) {
 bc.postMessage('hello');
 ```
 
-## ServiceWorker
+### ServiceWorker
 
 - 监听 event、fetchProxy 和 Cache 处理
   - [Part1, VanillaJS](https://ithelp.ithome.com.tw/articles/10216819)
   - [Part2, React](https://juejin.im/post/6881616183158636552)
   - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)
 
-## SharedWorker
+### SharedWorker
 
 通常用于辅助监听`Websocket`, 以减轻服务器压力
 
@@ -144,3 +144,13 @@ self.onconnect = function (e) {
 };
 const broadcast = (msg) => pool.forEach((port) => port.postMessage(msg));
 ```
+
+### Worklet
+
+与浏览器的渲染管道挂钩，能够对浏览器的渲染过程（例如样式和布局）进行低级访问
+
+#### Paint Worklet
+
+#### Animation Worklet
+
+#### Layout Worklet

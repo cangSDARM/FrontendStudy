@@ -57,8 +57,6 @@ Color Plate https://github.com/eigenmiao/Rickrack/
 
 https://zh.javascript.info/bezier-curve
 
-字节前端监控实践
-https://juejin.cn/post/7195496297150709821
 
 https://zh.javascript.info/css-animations
 
@@ -76,8 +74,6 @@ https://www.archdaily.cn/
 https://github.com/DirtyHairy/async-mutex
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
-
-book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
 
 https://github.com/ByteByteGoHq/system-design-101
 
@@ -97,6 +93,7 @@ https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
 
+hyperloglog
 https://djhworld.github.io/hyperloglog/
 https://hzhu212.github.io/posts/365f8e92/
 http://content.research.neustar.biz/blog/hll.html
@@ -118,8 +115,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/Worklet
 https://www.jianshu.com/p/e2cdc78ff47c
 
 https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
-
-https://blog.logrocket.com/online-radio-server-pure-node-js/
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
 
@@ -274,8 +269,6 @@ book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pd
 
 https://interfaces.rauno.me/
 
-https://www.notion.so/blog/sharding-postgres-at-notion
-
 https://aws.amazon.com/cn/what-is/mqtt/
 
 从 Comlink 谈谈 IPC 抽象封装 https://zhuanlan.zhihu.com/p/652308791
@@ -298,8 +291,6 @@ Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 book https://diveintosystems.org/book/introduction.html
 
 book http://icyfenix.cn/
-
-https://law-cn-ai.vercel.app/
 
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
@@ -737,10 +728,6 @@ book https://seisman.github.io/how-to-write-makefile/overview.html
 程序化广告交易更多细节及涉及平台：https://blog.hubspot.com/marketing/real-time-bidding
 
 ## bluetooth
-
-https://grack.com/blog/2022/12/01/hacking-bluetooth-to-brew-coffee-on-github-actions-part-1/
-
-https://medium.com/@charlie.d.anderson/how-to-get-the-bluetooth-host-controller-interface-logs-from-a-modern-android-phone-d23bde00b9fa
 
 https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial
 

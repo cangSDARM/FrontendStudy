@@ -20,8 +20,6 @@
 - [函数式](./functional.md)
 - [测试](./test.md)
 
-[参考资料](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
-
 ## 废弃或提案
 
 > 这里放的是未归类的废弃或提案。有分类的应于对应条目查看
@@ -37,7 +35,6 @@
 ## 黑魔法
 
 - [异步构造函数](https://www.blackglory.me/async-constructor/)
-- [自定义 URL 打开本地程序](https://www.lefer.cn/posts/12763/)
 - 检测 Devtools 是否被打开
   - https://nocilol.me/archives/lab/check-browser-devtools-open/
   - https://weizman.github.io/page-js-anti-debug-2/
@@ -59,5 +56,6 @@
 [针对 HTTP 的 WireShark, 可以修改 req rep](https://httptoolkit.com/)
 [检查 API 是否 CORS](https://httptoolkit.com/will-it-cors/)
 [在线玩桌游](https://zh-cn.boardgamearena.com/)
+[在线词源学](https://www.etymonline.com/cn)
 [健身](https://github.com/workout-lol/workout-lol)
 [生成ASCII字符画](https://meatfighter.com/ascii-silhouettify/)
