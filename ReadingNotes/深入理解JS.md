@@ -53,14 +53,15 @@ function foo() {
 arr.splice(1, 2); // remove 2 elements begin at index 1, (safely and anyIndexing)
 arr.copyWithin(1, 2, 3); // move something in index [2, 3) to [1, 3-(2-1))
 // map、reduce、filter、forEach 等高阶函数沿着数组的索引键遍历。empty array 没有索引键
-Array.from({ length: 2 });  //create non-empty array
+Array.from({ length: 2 }); //create non-empty array
 //Reg------------------------------------------------------------------------
-/abc/;   // 加载时编译
-new RegExp('abc');   // 运行时编译
-str.replace(/(.*)and/, '$1but'); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
+/abc/; // 加载时编译
+new RegExp("abc"); // 运行时编译
+str.replace(/(.*)and/, "$1but"); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
 //使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
 //number------------------------------------------------------------------------
-const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);
+const clamp = (num: number, min: number, max: number) =>
+  Math.min(Math.max(num, min), max);
 Number.EPSILON; // the minimum double number
 ```
 
@@ -110,8 +111,8 @@ john.age; //54
 ### 模块
 
 ```ts
-export * from 'antd';
-export { Modal } from './Modal'; // reexport 的 具名导出 优先级比 * 高
+export * from "antd";
+export { Modal } from "./Modal"; // reexport 的 具名导出 优先级比 * 高
 ```
 
 ### TypedArray
@@ -130,17 +131,60 @@ export { Modal } from './Modal'; // reexport 的 具名导出 优先级比 * 高
 - 无符号右移`a >>> b` 将 a 的二进制表示向右移 b(< 32) 位，左侧用 0 填充
 
 ```ts
-// simulate Enum
-const Enum = {
-  Ele = 0b1, // 0001
-  Ele2 = 0b1 << 1, // 0010
-  Ele3 = 0b1 << 2, // 0100
-  Ele4 = 0b1 << 3, // 0100
-  Ele5 = Enum.Ele | Enum.Ele4, // 0101
-};
-const Con = Enum.Ele5; // 0101
-Con & Enum.Ele5; // 0101 & 0101 = 1 true
-Con & Enum.Ele4; // 0101 & 0100 = 1 true
+class Permission {
+  public static Mask1 = 1 << 0; // 0001
+  public static Mask2 = 1 << 1; // 0010
+  public static Mask3 = 1 << 2; // 0100
+  public static Mask4 = 1 << 3; // 1000
+  public static Ele5 = Permission.Mask3 | Permission.Mask1; // 0101
+
+  // 存储目前的权限状态
+  private flag;
+
+  // 重新设置权限
+  public setPermission(permission) {
+    flag = permission;
+  }
+
+  /** 添加一项或多项权限
+   * 如果flag变量没有permission，则“|”完后flag对应的位的值为1如果已经有permission，则“|”完后值不会变，对应位还是1
+   */
+  public enable(permission) {
+    flag |= permission;
+  }
+
+  /** 删除一项或多项权限
+   * 先对permission进行取反则permission原来非0的那一位变为0，然后使用“&”运算后如果flag变量非0的那一位变为0，则意味着flag变量不包含permission
+   */
+  public disable(permission) {
+    flag &= ~permission;
+  }
+
+  /** 是否拥某些权限
+   * 如果flag变量里包含permission，则“&”完后flag对应的位的值为1，因为permission的定义保证了只有一位非0，其他位都为0，所以如果是包含的话进行“&”运算后值不为0，该位上的值为此permission的所在位上的值，不包含的话值为0
+   */
+  public isAllow(permission) {
+    return (flag & permission) == permission;
+  }
+
+  // 是否禁用了某些权限
+  public isNotAllow(permission) {
+    return (flag & permission) == 0;
+  }
+
+  // 是否仅仅拥有某些权限
+  public isOnlyAllow(permission) {
+    return flag == permission;
+  }
+}
+
+const permission = Permission.Ele5; // 0101
+permission & Permission.Mask5; // 0101 & 0101 = 1 true
+permission & Permission.Mask3; // 0101 & 0100 = 1 true
+
+if (permission.isAllow(NewPermission.ALLOW_UPDATE | ALLOW_DELETE)) {
+  //...
+}
 
 // round
 Math.round(somenum) === 

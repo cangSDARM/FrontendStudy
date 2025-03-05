@@ -149,6 +149,7 @@ https://blog.csdn.net/li_canhui/article/details/6798380
 https://blog.csdn.net/rc826/article/details/84539450
 https://github.com/AngelinaT-t/OCR
 
+自己动手写 git
 https://wyag-zh.hanyujie.xyz/
 
 Virtual Display Drivers Knowledge Base
@@ -472,6 +473,10 @@ https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
 Audio adventures in Rust: UI with Actix, WebView, and React
 https://www.youtube.com/watch?v=vmvq9jKBlGc
 
+https://github.com/liumengniu/majiang
+
+https://github.com/ForrestKnight/open-source-cs
+
 https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
 https://blog.hirnschall.net/flow-simulation-js/
@@ -793,6 +798,8 @@ https://neil-fox.github.io/Reverse-Engineering-Obfuscated-Code/
 https://www.x86matthew.com/view_post?id=selfdebug
 
 windbg https://youtu.be/sbRGDEexZH8?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu&t=482
+
+https://0xinfection.github.io/reversing/
 
 ## Refs
 
