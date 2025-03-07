@@ -57,6 +57,19 @@ Color Plate https://github.com/eigenmiao/Rickrack/
 
 https://zh.javascript.info/bezier-curve
 
+Otel 监控
+字节前端监控实践 https://juejin.cn/post/7195496297150709821
+https://thenewstack.io/instrumenting-a-react-app-using-opentelemetry/
+https://github.com/sandy2008/react-otel-observability
+https://cloud.tencent.com/document/product/1463/106260
+
+https://daief.tech/post/electron-file-association/
+
+Electron 网络请求拦截和响应处理 https://www.bytezonex.com/archives/Qa8KgdUg.html
+
+Electron 自定义协议
+https://zhuanlan.zhihu.com/p/268816158
+https://juejin.cn/post/7088967562775494670
 
 https://zh.javascript.info/css-animations
 
@@ -177,7 +190,9 @@ https://roberthodgin.com/
 
 https://bjornlu.com/blog/hot-module-replacement-is-easy
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-path.html
+book https://exploringjs.com/js/book/ch_regexps.html
+
+book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
 
 CSSStyleSheet
 https://segmentfault.com/a/1190000018194545
