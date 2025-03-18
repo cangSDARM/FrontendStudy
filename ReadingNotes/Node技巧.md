@@ -5,6 +5,9 @@
   - [规范化](#规范化)
   - [连接路径](#连接路径)
   - [Glob](#glob)
+  - [AppRootPath](#approotpath)
+- [Process](#process)
+  - [spawn](#spawn)
 
 ## fs
 
@@ -17,10 +20,12 @@ if (require.main === module) {
 }
 
 // ESM
-if (import.meta.url.startsWith('file:')) { // (A)
-// 如果我们确信我们的代码总是在本地运行，我们可以省略 A 中的检查
+if (import.meta.url.startsWith("file:")) {
+  // (A)
+  // 如果我们确信我们的代码总是在本地运行，我们可以省略 A 中的检查
   const modulePath = url.fileURLToPath(import.meta.url);
-  if (process.argv[1] === modulePath) { // (B)
+  if (process.argv[1] === modulePath) {
+    // (B)
     // Main ESM module
   }
 }
@@ -86,14 +91,14 @@ path.win32.join("dir", "C:\\Users"); // 'dir\\C:\\Users'
 
 - 没有通配符的必须精确匹配。包括路径分隔符
   - `minimatch('/dir/file.txt', 'dir/file.txt') // false`
-- 通配符星号（ * ）匹配任何路径段或段的一部分
+- 通配符星号（ \* ）匹配任何路径段或段的一部分
   - `minimatch('/tmp/file.txt', '/*/file.txt') // true`
   - `minimatch('/dir/file.txt', '/dir/*.txt') // true`
   - 星号与“点文件”不匹配。如果我们想要匹配这些，我们必须在星号前面加上一个点
     - `minimatch('.gitignore', '*') // false`
     - `minimatch('/tmp/.log/events.txt', '/tmp/*/events.txt') // false`
     - `minimatch('.gitignore', '.*') // true`
-- 双星号（ ** ）匹配零个或多个段
+- 双星号（ \*\* ）匹配零个或多个段
   - `minimatch('/file.txt', '/**/file.txt') // true`
   - `minimatch('/dir/sub/file.txt', '/**/file.txt') // true`
   - 双星号和星号一样，不匹配“点文件”路径段
@@ -108,3 +113,55 @@ path.win32.join("dir", "C:\\Users"); // 'dir\\C:\\Users'
     - 零开头的不会自动去零
       - `minimatch('file1.txt', 'file{01..12}.txt') // false`
       - `minimatch('file01.txt', 'file{01..12}.txt') // true`
+
+### AppRootPath
+
+```ts
+let rootPathCache: string | undefined;
+/** a fixer for as local dependency */
+export const fromAppRootPath = !rootPathCache
+  ? (filename: string = "") => {
+      // https://segmentfault.com/q/1010000007564141
+      const localDir = path.resolve(
+        __dirname.replace(/(.*)dist(.*)/giu, "$1dist"),
+        ".."
+      );
+      const remoteDir = require("app-root-path").path;
+      const projectDir = process.env.INIT_CWD; // 使用 INIT_CWD 是为了防止本地调用 npm 文件路径 bug
+
+      // 判断当前环境调用者是否在本地，是就用 projectDir，否则使用 remoteDir
+      rootPathCache =
+        remoteDir === localDir
+          ? path.join(projectDir, filename)
+          : path.join(remoteDir, filename);
+
+      return rootPathCache;
+    }
+  : (filename = "") => path.join(rootPathCache, filename);
+```
+
+## Process
+
+### spawn
+
+```ts
+const spawnProcess = (command: string, args: readonly string[]) => {
+  const process = spawn(command, args, {
+    shell: true,
+    stdio: "inherit",
+  });
+
+  process.on("error", error);
+  process.stderr?.on("error", error);
+
+  return {
+    process,
+    awaitClose: async () =>
+      new Promise<{ code: number | null; signal: NodeJS.Signals | null }>(
+        (r) => {
+          process.on("close", (code, signal) => r({ code, signal }));
+        }
+      ),
+  };
+};
+```

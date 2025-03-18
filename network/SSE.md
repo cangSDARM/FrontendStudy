@@ -62,85 +62,161 @@ SSE 只支持 Get 请求，但现代浏览器的 fetch 请求默认支持流，�
 前端:
 
 ```ts
-// 模拟event-source
-type SSECallback = ((e: CustomEvent) => void) | null;
-class SSE {
-  private target = new EventTarget();
-  private allEvent = "__all__";
-  private index = -1;
+import { AxiosInstance } from "axios";
+type SSECallback<D = any> = ((e: CustomEvent<D>) => void) | null;
+/** internal event types
+ *
+ * @returns [chunk, miss, error]
+ */
+const SSEEvents = Object.seal({
+  chunk: Symbol("__chunk__").toString(),
+  miss: Symbol("__miss__").toString(),
+  error: Symbol("__err__").toString(),
+});
 
-  addEventListener(
-    type: string,
-    callback: SSECallback,
-    options?: boolean | AddEventListenerOptions,
-  ) {
-    // @ts-ignore
-    this.target.addEventListener(type, callback, options);
-  }
+/** SSE: Server-Sent Event */
+export const postSSEFactory =
+  (instance: AxiosInstance) =>
+  <B extends any = any>(
+    url: string,
+    body?: B,
+    options?: Omit<RequestInit, "body" | "method">
+  ) => {
+    let target = new EventTarget(),
+      index = -1,
+      closed = false;
 
-  // 由于消息是流，因此不确定有多少分割的内容(但后端每次发送的消息必须是完整的)
-  // parse 参考：https://www.npmjs.com/package/eventsource-parser
-  dispatch(value?: string) {
-    if (!value) return;
+    function addEventListener(
+      type: string,
+      callback: SSECallback,
+      options?: boolean | AddEventListenerOptions
+    ) {
+      // @ts-ignore
+      target.addEventListener(type, callback, options);
+    }
 
-    value.split("\n\n").forEach((val) => {
-      const dataIdx = val.lastIndexOf("\ndata: ");
-      let event = "",
-        data = "";
+    /** **internal use only** */
+    function dispatchChunk(value?: string) {
+      index += 1;
+      target.dispatchEvent(
+        new CustomEvent(SSEEvents.chunk, { detail: { index, value } })
+      );
+    }
 
-      event = val.substring(0, dataIdx);
-      data = val.substring(dataIdx);
+    /** **internal use only**
+     *
+     * FIXME: use https://www.npmjs.com/package/eventsource-parser Instead of writing it self
+     */
+    function dispatch(value?: string) {
+      if (!value || closed) return;
 
-      if (event) {
-        data = data.replace("data: ", "").trim();
-        event = event.replace("event: ", "").trim();
-        this.target.dispatchEvent(
-          new CustomEvent(event, { detail: JSON.parse(data) }),
-        );
-      } else {
-        // means it's missing event
+      value.split("\n\n").forEach((val) => {
+        if (val.trim() === "") return;
+        try {
+          const dataIdx = val.lastIndexOf("\ndata: ");
+          let event = "",
+            data = "";
+
+          event = val.substring(0, dataIdx);
+          data = val.substring(dataIdx);
+
+          if (event) {
+            data = data.replace("data: ", "").trim();
+            event = event.replace("event: ", "").trim();
+            target.dispatchEvent(
+              new CustomEvent(event, { detail: JSON.parse(data) })
+            );
+          } else {
+            data = event.replace("data: ", "").trim();
+            target.dispatchEvent(
+              new CustomEvent(SSEEvents.miss, { detail: JSON.parse(data) })
+            );
+          }
+        } catch (e) {
+          target.dispatchEvent(
+            new CustomEvent(SSEEvents.error, { detail: { error: e, raw: val } })
+          );
+        }
+      });
+      dispatchChunk(value);
+    }
+
+    function close() {
+      target.dispatchEvent(new Event("close"));
+      target = new EventTarget();
+      index = -1;
+      closed = true;
+    }
+
+    const { headers = {}, ...restOptions } = options || {};
+    fetch(instance.getUri({ url: url }), {
+      method: "POST",
+      headers: {
+        ...headers,
+        "Content-Type": "application/json",
+      },
+      body: body ? JSON.stringify(body) : undefined,
+      ...restOptions,
+    }).then(async (response) => {
+      const reader = response
+        .body!.pipeThrough(new TextDecoderStream())
+        .getReader();
+      while (true) {
+        const { value, done } = await reader.read();
+        dispatch(value);
+
+        if (done) {
+          close();
+          break;
+        }
       }
     });
-    this.target.dispatchEvent(
-      new CustomEvent(this.allEvent, { detail: value }),
-    );
-  }
 
-  onmessage(
-    callback: SSECallback,
-    options?: boolean | AddEventListenerOptions,
-  ) {
-    this.addEventListener(this.allEvent, callback, options);
-  }
+    return {
+      addEventListener,
+      close,
+      events: SSEEvents,
+      onclose(
+        callback: SSECallback<undefined>,
+        options?: boolean | AddEventListenerOptions
+      ) {
+        addEventListener("close", callback, options);
+      },
+      /** all "error" goes there
+       *
+       * the `event.detail` is the error self
+       */
+      onError(
+        callback: SSECallback<unknown>,
+        options?: boolean | AddEventListenerOptions
+      ) {
+        addEventListener(SSEEvents.error, callback, options);
+      },
+      /** all "no event" message goes there */
+      onMiss(
+        callback: SSECallback,
+        options?: boolean | AddEventListenerOptions
+      ) {
+        addEventListener(SSEEvents.miss, callback, options);
+      },
+      /** Since a message is a flow, it is uncertain how much segmented content there is (but the message sent by the back end must be complete each time)
+       *
+       * the "chunk" meas the number of times received
+       *
+       * this event dispatched *after* the chunk been parsed and all valid infos been dispatched
+       *
+       * the `event.detail` the received raw value and the index of chunks
+       */
+      onChunk(
+        callback: SSECallback<{ value: string; index: number }>,
+        options?: boolean | AddEventListenerOptions
+      ) {
+        addEventListener(SSEEvents.chunk, callback, options);
+      },
+    };
+  };
 
-  onclose(callback: SSECallback, options?: boolean | AddEventListenerOptions) {
-    this.addEventListener("close", callback);
-  }
-
-  close() {
-    this.target.dispatchEvent(new Event("close"));
-    this.target = new EventTarget();
-    this.index = -1;
-  }
-}
-const event = new SSE();
-fetch("/sse", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({}),
-}).then(async (response) => {
-  const reader = response
-    .body!.pipeThrough(new TextDecoderStream())
-    .getReader();
-  while (true) {
-    const { value, done } = await reader.read();
-    event.dispatch(value);
-
-    if (done) break;
-  }
-});
+export type PostSSEController = ReturnType<typeof postSSEFactory>;
 ```
 
 后端:
