@@ -17,7 +17,13 @@ https://csvbase.com/blog/13
 
 https://ogp.me/
 
+https://tc39.es/proposal-temporal/docs
+
+https://www.joshwcomeau.com/css/backdrop-filter/
+
 https://easonchang.com/posts/hygen-generate-new-post
+
+https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb484495b442599e35e9a404
 
 https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-animations/
 
@@ -80,6 +86,14 @@ https://auto-animate.formkit.com/#usage
 https://github.com/baotlake/periodic-table-pro
 https://github.com/evrimagaci/periodum
 
+https://taxodium.ink/setup-blog-color-scheme.html
+
+https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
+
+https://juejin.cn/post/7221551421833314360
+
+https://dev.to/thekashey/sidecar-for-a-code-splitting-1o8g
+
 https://github.com/microsoft/FASTER
 
 https://www.archdaily.cn/
@@ -113,6 +127,8 @@ http://content.research.neustar.biz/blog/hll.html
 https://www.cnblogs.com/linguanh/p/10460421.html
 https://zhuanlan.zhihu.com/p/58519480
 https://github.com/clarkduvall/hyperloglog
+
+https://zhuanlan.zhihu.com/p/271186546
 
 Steganography
 https://github.com/djhworld/steg
@@ -164,6 +180,10 @@ https://github.com/AngelinaT-t/OCR
 
 自己动手写 git
 https://wyag-zh.hanyujie.xyz/
+
+https://batteryuniversity.com/articles
+
+https://learning-guide.gitbook.io/system-design-interview
 
 Virtual Display Drivers Knowledge Base
 https://github.com/pavlobu/deskreen/discussions/86
@@ -346,12 +366,20 @@ https://webcontainers.io/
 
 https://lwn.net/Kernel/LDD3/
 
-wait queue https://www.cnblogs.com/hueyxu/p/13745029.html
-
 opendrive format https://blog.csdn.net/weixin_44108388/article/details/111303985
 
 数据可视化的各种图形，给出详细的解释和示例
 https://datavizproject.com/
+
+https://zh2ja.whoops.space/
+
+《软件设计哲学》笔记
+https://www.16elt.com/2024/09/25/first-book-of-byte-sized-tech/index.html
+
+https://learn.yjs.dev/
+
+向量嵌入
+https://www.elastic.co/cn/what-is/vector-embedding
 
 https://www.writesoftwarewell.com/content-security-policy/
 
@@ -484,6 +512,8 @@ v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 Creative Writing https://www.youtube.com/watch?v=jrIogch5DBU&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=5
 
 https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
+
+https://spacexcode.com/blog/pure-css-grid-line/
 
 Audio adventures in Rust: UI with Actix, WebView, and React
 https://www.youtube.com/watch?v=vmvq9jKBlGc
