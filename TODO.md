@@ -242,7 +242,8 @@ https://web.dev/new-responsive/
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
 
-book Wireless sensing http://tns.thss.tsinghua.edu.cn/wst/
+Wireless sensing
+http://tns.thss.tsinghua.edu.cn/wst/
 
 https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 

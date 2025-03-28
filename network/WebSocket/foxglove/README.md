@@ -4,7 +4,7 @@
 
 ```jsx
 import React from "react";
-import { GvizProvider, GvizContext } from "@";
+import { FoxgloveSocketProvider, FoxgloveContext } from "@";
 import { toast, Button } from "antd";
 
 const Connect = () => {
@@ -44,14 +44,14 @@ const Display = () => {
   const [jsonData, setJsonData] = React.useState(undefined);
 
   React.useEffect(() => {
-    GvizContext.sub.topicsSync(sortedTopics => {
+    FoxgloveContext.sub.topicsSync(sortedTopics => {
       // console.log("Topic", state);
       setTopics(sortedTopics);
     });
   }, []);
 
   React.useEffect(() => {
-    const subscribeByIdDebounced = GvizContext.sub.messagesByIdSync(panelId, messages => {
+    const subscribeByIdDebounced = FoxgloveContext.sub.messagesByIdSync(panelId, messages => {
       // console.log("Json", messages);
       if (!messages) {
         return;
@@ -68,7 +68,7 @@ const Display = () => {
     <React.Fragment>
       <Button
         onClick={() => {
-          GvizContext.sub.update({
+          FoxgloveContext.sub.update({
             id: panelId,
             payloads: [{ topic: "xxx" }],
           });
@@ -78,7 +78,7 @@ const Display = () => {
       </Button>
       <Button
         onClick={() => {
-          GvizContext.sub.update({
+          FoxgloveContext.sub.update({
             id: panelId,
             payloads: [{ topic: "xxx" }],
           });
@@ -88,7 +88,7 @@ const Display = () => {
       </Button>
       <Button
         onClick={() => {
-          GvizContext.sub.cleanById(panelId);
+          FoxgloveContext.sub.cleanById(panelId);
         }}
       >
         取消订阅全部
@@ -105,7 +105,7 @@ const Publish = () => {
     <>
       <Button
         onClick={() => {
-          const result = GvizContext.pub.register({ topic: "example", schemaName: "exampleSchema" });
+          const result = FoxgloveContext.pub.register({ topic: "example", schemaName: "exampleSchema" });
 
           if (result.canPublish) {
             setPublisher(result);
@@ -159,7 +159,7 @@ const Converter = () => {
       <Button
         onClick={() => {
           // Automatic conversion after setting
-          GvizContext.convert.set(subConverter);
+          FoxgloveContext.convert.set(subConverter);
         }}
       >
         add subscribe converter
@@ -167,15 +167,15 @@ const Converter = () => {
       <Button
         onClick={() => {
           // Automatic conversion after setting
-          GvizContext.convert.set(pubConverter);
+          FoxgloveContext.convert.set(pubConverter);
         }}
       >
         add publish converter
       </Button>
       <Button
         onClick={() => {
-          GvizContext.convert.clean(subConverter.fromSchemaName);
-          GvizContext.convert.clean(pubConverter.topic);
+          FoxgloveContext.convert.clean(subConverter.fromSchemaName);
+          FoxgloveContext.convert.clean(pubConverter.topic);
         }}
       >
         remove converter
@@ -186,12 +186,12 @@ const Converter = () => {
 
 const App = () => {
   return (
-    <GvizProvider toast={toast}>
+    <FoxgloveSocketProvider toast={toast}>
       <Connect />
       <Display />
       <Publish />
       <Converter />
-    </GvizProvider>
+    </FoxgloveSocketProvider>
   );
 };
 ```

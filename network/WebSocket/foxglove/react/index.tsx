@@ -6,9 +6,9 @@ import { RosDatatypes } from "@/utils/rosDatatypesToMessageDefinition";
 import { PlayerCapabilities } from "@/sources/players/capabilities";
 
 export { usePlayerSelection } from "./PlayerSelectionContext";
-export { default as GvizProvider } from "./Provider";
+export { default as FoxgloveSocketProvider } from "./Provider";
 
-export const GvizContext = {
+export const FoxgloveContext = {
   sub: {
     update: MessagePipelineStore.setSubscriptions,
     cleanById: (id: string) => MessagePipelineStore.setSubscriptions({ id, payloads: [] }),

@@ -1,6 +1,6 @@
 import * as base64 from "@protobufjs/base64";
 import { parseChannel, ParsedChannel } from "@/utils/mcap";
-import { Channel, ChannelId } from "@gviz/ws-manage";
+import { Channel, ChannelId } from "@foxglove/protocol";
 import { v4 as uuidv4 } from "uuid";
 import { MessageDefinition } from "@foxglove/message-definition";
 import { textEncoder } from "./MessageWriter";

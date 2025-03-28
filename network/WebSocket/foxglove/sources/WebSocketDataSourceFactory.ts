@@ -1,15 +1,15 @@
 import { IDataSourceFactory, DataSourceFactoryInitializeArgs } from "@/react/PlayerSelectionContext";
-import GvizWebSocketPlayer from "@/sources/players/WebSocketPlayer";
+import WebSocketPlayer from "@/sources/players/WebSocketPlayer";
 import { Player } from "@/sources/players/types";
 
-export default class GvizWebSocketDataSourceFactory implements IDataSourceFactory {
+export default class WebSocketDataSourceFactory implements IDataSourceFactory {
   public protocol: IDataSourceFactory["protocol"] = "websocket";
-  public id = "gviz-websocket";
+  public id = "foxglove-websocket";
   public type: IDataSourceFactory["type"] = "remote";
-  public displayName = "Gviz WebSocket";
+  public displayName = "Foxglove WebSocket";
   public iconName: IDataSourceFactory["iconName"] = "Flow";
   public description =
-    "Connect to a ROS 2, or custom system using the Gviz WebSocket protocol. For ROS systems, be sure to first install the foxglove_bridge ROS package.";
+    "Connect to a ROS 2, or custom system using the Foxglove WebSocket protocol. For ROS systems, be sure to first install the foxglove_bridge ROS package.";
   public docsLinks = [
     {
       label: "ROS 2",
@@ -48,7 +48,7 @@ export default class GvizWebSocketDataSourceFactory implements IDataSourceFactor
       throw Error("require a params.url in args!", { cause: args });
     }
 
-    return new GvizWebSocketPlayer({
+    return new WebSocketPlayer({
       url,
       sourceId: this.id,
     });

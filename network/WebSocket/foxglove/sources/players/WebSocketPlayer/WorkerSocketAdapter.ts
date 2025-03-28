@@ -1,4 +1,4 @@
-import { IWebSocket } from "@gviz/ws-manage";
+import { IWebSocket } from "@foxglove/protocol";
 
 import { FromWorkerMessage, ToWorkerMessage } from "./worker";
 

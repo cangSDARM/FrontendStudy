@@ -1,10 +1,10 @@
 import React from "react";
 import { IDataSourceFactory } from "@/react/PlayerSelectionContext";
-import GvizWebSocketDataSourceFactory from "@/sources/WebSocketDataSourceFactory";
+import WebSocketDataSourceFactory from "@/sources/WebSocketDataSourceFactory";
 import PlayerManager from "@/react/PlayerManager";
 import { acquireLock } from "@/utils/spinLock";
 
-const dataSources: IDataSourceFactory[] = [new GvizWebSocketDataSourceFactory()];
+const dataSources: IDataSourceFactory[] = [new WebSocketDataSourceFactory()];
 const consoleToast = {
   warn: console.warn,
   error: console.error,

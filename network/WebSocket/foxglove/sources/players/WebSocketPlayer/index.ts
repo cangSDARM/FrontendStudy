@@ -28,7 +28,7 @@ import rosDatatypesToMessageDefinition from "@/utils/rosDatatypesToMessageDefini
 import {
   Channel,
   ClientChannel,
-  GvizClient,
+  FoxgloveClient,
   SUPPORTED_SUBPROTOCOLS,
   ServerCapability,
   SubscriptionId,
@@ -89,12 +89,12 @@ type MessageDefinitionMap = Map<string, MessageDefinition>;
  */
 const CURRENT_FRAME_MAXIMUM_SIZE_BYTES = 400 * 1024 * 1024;
 
-export default class GvizWebSocketPlayer implements Player {
+export default class WebSocketPlayer implements Player {
   readonly #sourceId: string;
 
   #url: string; // WebSocket URL.
   #name: string;
-  #client?: GvizClient; // The client when we're connected.
+  #client?: FoxgloveClient; // The client when we're connected.
   #id: string = uuidv4(); // Unique ID for this player session.
   #supportedEncodings?: string[];
   /** Whether the player has been completely closed using close(). */
@@ -168,7 +168,7 @@ export default class GvizWebSocketPlayer implements Player {
       return;
     }
     if (this.#client != undefined) {
-      throw new Error(`Attempted to open a second Gviz WebSocket connection`);
+      throw new Error(`Attempted to open a second Foxglove WebSocket connection`);
     }
     log.info(`Opening connection to ${this.#url}`);
 
@@ -179,7 +179,7 @@ export default class GvizWebSocketPlayer implements Player {
       this.#client?.close();
     }, 10000);
 
-    this.#client = new GvizClient({
+    this.#client = new FoxgloveClient({
       ws:
         typeof Worker !== "undefined"
           ? new WorkerSocketAdapter(this.#url, SUPPORTED_SUBPROTOCOLS)
@@ -359,7 +359,7 @@ export default class GvizWebSocketPlayer implements Player {
     });
 
     this.#client.on("status", event => {
-      const msg = `GvizWebSocket: ${event.message}`;
+      const msg = `FoxgloveWebSocket: ${event.message}`;
       const problem: PlayerProblem = {
         message: event.message,
         severity: "warn",
@@ -947,10 +947,10 @@ export default class GvizWebSocketPlayer implements Player {
 
   public setParameter(key: string, value: ParameterValue): void {
     if (!this.#client) {
-      throw new Error(`Attempted to set parameters without a valid Gviz WebSocket connection`);
+      throw new Error(`Attempted to set parameters without a valid Foxglove WebSocket connection`);
     }
 
-    log.debug(`GvizWebSocketPlayer.setParameter(key=${key}, value=${value})`);
+    log.debug(`WebSocketPlayer.setParameter(key=${key}, value=${value})`);
     const isByteArray = value instanceof Uint8Array;
     const paramValueToSent = isByteArray ? btoa(textDecoder.decode(value)) : value;
     this.#client.setParameters(
@@ -971,7 +971,7 @@ export default class GvizWebSocketPlayer implements Player {
 
   public publish({ topic, msg }: PublishPayload): void {
     if (!this.#client) {
-      throw new Error(`Attempted to publish without a valid Gviz WebSocket connection`);
+      throw new Error(`Attempted to publish without a valid Foxglove WebSocket connection`);
     }
 
     const clientChannel = this.#publicationsByTopic.get(topic);
@@ -990,11 +990,11 @@ export default class GvizWebSocketPlayer implements Player {
 
   public async callService(serviceName: string, request: unknown): Promise<unknown> {
     if (!this.#client) {
-      throw new Error(`Attempted to call service ${serviceName} without a valid Gviz WebSocket connection.`);
+      throw new Error(`Attempted to call service ${serviceName} without a valid Foxglove WebSocket connection.`);
     }
 
     if (request == undefined || typeof request !== "object") {
-      throw new Error("GvizWebSocketPlayer#callService request must be an object.");
+      throw new Error("WebSocketPlayer#callService request must be an object.");
     }
 
     const resolvedService = this.#servicesByName.get(serviceName);
@@ -1030,9 +1030,9 @@ export default class GvizWebSocketPlayer implements Player {
 
   public async fetchAsset(uri: string): Promise<Asset> {
     if (!this.#client) {
-      throw new Error(`Attempted to fetch assset ${uri} without a valid Gviz WebSocket connection.`);
+      throw new Error(`Attempted to fetch assset ${uri} without a valid Foxglove WebSocket connection.`);
     } else if (!this.#caliber.judge(ServerCapability.assets, "server")) {
-      throw new Error(`Fetching assets (${uri}) is not supported for GvizWebSocketPlayer`);
+      throw new Error(`Fetching assets (${uri}) is not supported for WebSocketPlayer`);
     }
 
     let promise = this.#fetchedAssets.get(uri);
