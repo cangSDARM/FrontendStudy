@@ -12,6 +12,15 @@
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
 
+Beacon API
+https://blog.csdn.net/weixin_34025151/article/details/87956599
+
+DI
+https://www.cnblogs.com/front-end-ralph/p/5208045.html
+https://www.cnblogs.com/leoo2sk/archive/2009/06/17/di-and-ioc.html
+https://blog.csdn.net/nongshuqiner/article/details/78792174
+https://segmentfault.com/a/1190000016928319
+
 https://json-ld.org/
 https://csvbase.com/blog/13
 
@@ -35,6 +44,11 @@ https://github.com/partykit/partykit/tree/main/packages/partysocket
 https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
 https://mrkaran.dev/posts/travel-tailscale/
+
+UUID/GUID
+https://blog.csdn.net/lizongti/article/details/109000359
+https://betterexplained.com/articles/the-quick-guide-to-guids/
+https://blog.csdn.net/u010120164/article/details/53924647
 
 Authentications
 https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
@@ -91,8 +105,6 @@ https://taxodium.ink/setup-blog-color-scheme.html
 https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 
 https://juejin.cn/post/7221551421833314360
-
-https://dev.to/thekashey/sidecar-for-a-code-splitting-1o8g
 
 https://github.com/microsoft/FASTER
 
@@ -208,11 +220,12 @@ https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7
 
 https://roberthodgin.com/
 
-https://bjornlu.com/blog/hot-module-replacement-is-easy
+HMR
+https://youtu.be/e5M_5jKPaL4
 
 book https://exploringjs.com/js/book/ch_regexps.html
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-file-system.html
+book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-child-process.html
 
 CSSStyleSheet
 https://segmentfault.com/a/1190000018194545
