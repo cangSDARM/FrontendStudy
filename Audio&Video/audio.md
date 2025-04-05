@@ -1,11 +1,46 @@
 - [Basic](#basic)
-- [Advanced](#advanced)
-  - [Intro: Modular](#intro-modular)
-  - [Source Node](#source-node)
-  - [Modification Node](#modification-node)
-    - [音量(音高增益模块)](#音量音高增益模块)
+  - [采集](#采集)
+- [WebAudio](#webaudio)
+  - [Basic](#basic-1)
+  - [Advanced](#advanced)
+    - [Intro: Modular](#intro-modular)
+    - [Source Node](#source-node)
+    - [Modification Node](#modification-node)
 
 ## Basic
+
+### 采集
+
+```txt
+         次声波         可听声波          超声波
+听觉范围  -------┴--------------------┴----------→ F(Hz, 振荡次数/每秒)
+              20Hz                 2kHz
+发声范围             └------------┘
+                   85Hz       1100Hz
+```
+
+音频模拟信号三要素：音调(频率的快慢)、音量(频率的幅度)、音色(谐波)
+
+要将一段音频模拟信号转换为数字信号，包含如下三个步骤：
+
+1. Sampling(采样)
+   - 定义声道数，按照声道数接受多声道的信号
+   - 定义采样率(采样速率, Hz)，按照采样率采样
+2. Quantization(量化)
+   - 定义位深(采样可舍入大小, bit), 按照位深进行采样数据的舍入
+3. Coding(编码)
+   - 定义大小端，音频通常为小端存储
+
+采集完后的即为 PCM(Pulse Code Modulation, 用数字表示的采样模拟信号) 流，
+其`PCM 码率 = 位深 * 采样率 * 声道数`
+
+或添加 WAV Header：
+
+![WAV Header](/assets/wav-header.png)
+
+## WebAudio
+
+### Basic
 
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
 
@@ -99,9 +134,9 @@ const Audio = ({
 };
 ```
 
-## Advanced
+### Advanced
 
-### Intro: Modular
+#### Intro: Modular
 
 WebAudio API 以模块形式组合(如调整音高以音高模块实现)，类似于现实的调音
 ![audio-modular-synth](../assets/audio-modular-synth.png)
@@ -132,7 +167,7 @@ function connectNode(curNode, preNode, nextNode) {
 }
 ```
 
-### Source Node
+#### Source Node
 
 ```js
 // 和Graphics的设计类似，需要一个context去操作Audio
@@ -150,9 +185,9 @@ function playSound(soundBuffer, time = 0) {
 }
 ```
 
-### Modification Node
+#### Modification Node
 
-#### 音量(音高增益模块)
+##### 音量(音高增益模块)
 
 ```js
 var gainNode = new GainNode(context); // 通过 GainNode 实现
