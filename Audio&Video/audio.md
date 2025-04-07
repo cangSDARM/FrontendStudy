@@ -1,5 +1,8 @@
 - [Basic](#basic)
   - [采集](#采集)
+  - [编解码](#编解码)
+    - [压缩](#压缩)
+    - [编码器](#编码器)
 - [WebAudio](#webaudio)
   - [Basic](#basic-1)
   - [Advanced](#advanced)
@@ -38,6 +41,29 @@
 
 ![WAV Header](/assets/wav-header.png)
 
+### 编解码
+
+#### 压缩
+
+因为录制的音频 PCM 可能包含人类听觉范围外的声音，以及一些干扰声音(遮蔽)，
+因此 PCM 大多数时候都需要经过有损压缩。
+
+遮蔽包含
+
+- 频域遮蔽
+  - 一个强纯音会掩蔽在其附近同时发声的弱纯音，这种特性称为频域掩蔽
+  - ![freq-masking](/assets/freq-masking.jpg)
+- 时域遮蔽
+  - 掩蔽效应发生在掩蔽声与被掩蔽声不同时出现时，又称异时掩蔽
+  - 假设一个很响的声音后面紧跟着一个很弱的声音，而时间差在 200ms 之内，弱音就很难听到，相反在弱音后紧跟着一个很强的音，而时间在 50ms 之内，弱音也是很难听到
+  - ![time-masking](/assets/time-masking.jpg)
+
+#### 编码器
+
+![encoders](/assets/audio-encoders.png)
+
+![bitrate](/assets/audio-encoders-bitrate.png)
+
 ## WebAudio
 
 ### Basic
@@ -65,7 +91,7 @@ const Audio = ({
         const audioTester = document.createElement("audio");
         if (audioTester.canPlayType(s.type) == "probably") {
           // or "maybe" (until playback is actually attempted)
-          audioRef.current = new Audio(s.src);  // return a HTMLMediaElement
+          audioRef.current = new Audio(s.src); // return a HTMLMediaElement
         }
       });
     }
