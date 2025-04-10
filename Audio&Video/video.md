@@ -7,6 +7,11 @@
 - [传输](#传输)
 - [播放](#播放)
 - [编解码格式](#编解码格式)
+  - [H.264](#h264)
+    - [组帧 GOP](#组帧-gop)
+    - [DTS \& PTS](#dts--pts)
+    - [SPS \& PPS](#sps--pps)
+    - [视频花屏/绿屏](#视频花屏绿屏)
 
 ## 采集
 
@@ -24,22 +29,23 @@ Y 代表明度(方便兼容黑白电视)，UV 表示色彩及饱和度。
 但实际上仅仅是 RGB 的经验权重转换结果
 
 由于人对亮度敏感，对色彩不敏感
-因此常见的保存格式有
+因此常见的[保存格式](https://fourcc.org/yuv.php)有
 
 - YUV(4:4:4)
   - 同行 4 个像素存储 4 个 Y, 4 个 U, 4 个 V
 - YUV422(4:2:2)
+  - 大小是 RGB 的 2/3
   - 同行 4 个像素存储 4 个 Y, 2 个 U, 2 个 V(每两个相邻像素，一个丢弃 V，一个丢弃 U)
 - YUV420(4:2:0)
-  - *最普遍支持格式*
+  - _最普遍支持格式_，大小是 RGB 的 1/2
   - 由于每行相邻两个像素与下一行同位置的两个像素色彩差异不大
   - 两行 8 个像素存储 8 个 Y, 2 个 U, 2 个 V(同行两个像素只保留一个 U 数据，下一行只保留一个 V 数据)
   - 存储格式
     - ![yuv420-stored](/assets/yuv420-stored.png)
     - 都是先存 Y 分量，再处理 UV 分量
     - planar 平面模式
-      - I420(先存U)：YYYYYYYY UU VV
-      - YV12(先存V)：YYYYYYYY VV UU
+      - I420(先存 U)：YYYYYYYY UU VV
+      - YV12(先存 V)：YYYYYYYY VV UU
     - packed 打包模式
       - NV12(UV)：YYYYYYYY UV UV
       - NV21(VU)：YYYYYYYY VU VU
@@ -86,3 +92,67 @@ B = Y + 1.773Cb
 ## 播放
 
 ## 编解码格式
+
+### H.264
+
+也称为 MPEG-4 AVC。
+显著优点是压缩比可达到 1/100。
+
+[常用经验码率](https://doc.shengwang.cn/doc/cloud-recording/restful/api/reference#%E5%B8%B8%E7%94%A8%E8%A7%86%E9%A2%91%E5%B1%9E%E6%80%A7)
+
+H.264 的功能分两层：VCL 和 NAL
+
+- VCL(Video Coding Layer)：视频编码层，负责的是视频内容的处理，重点在编解码算法
+- NAL(Network Abstraction Layer)：网络抽象层，负责将编码后的数据以网络要求的格式进行打包和传输
+
+#### 组帧 GOP
+
+Group Of Pictures。
+压缩多帧不变的图像区域到同一参考图片，即可理解为按照视频帧的相关性进行了分组。
+
+GOP 将视频编码为三种帧：
+
+- I 帧(Intra-coded Picture, 帧内编码图像帧/关键帧)
+  - 不参考其他图像帧，只利用本帧的信息进行编码
+  - IDR 帧(Instantaneous Decoding Refresh, 及时解码刷新)
+    - IDR 帧是 I 帧的一种
+    - 出现时代表这是一个全新的序列，解码器可以清除掉之前所有的关键帧
+- P 帧(Predictive-coded Picture, 预测编码图像帧)
+  - 利用之前的 I 帧或 P 帧，采用运动预测的方式进行帧间预测编码
+- B 帧(Bidirectional-predictive-coded Picture, 双向预测编码图像帧)
+  - 提供最高的压缩比，它既需要之前的帧(I 帧或 P 帧)，也需要后来的帧(P 帧)，采用运动预测的方式进行帧间双向预测编码
+  - _直播没有 B 帧_(不可能等到下一帧再解码，延迟不可接受)
+
+则 GOP 代表两个 IDR 帧之间的间隔(经验上说，可以代表 I 帧间距离)，P 帧间距离称为 Reference
+
+编码器通常会先确定好 GOP，再确定 I/P 中间的 B 帧数(H.264 默认 3 个 B 帧)，然后算出 P 帧数编码
+
+#### DTS & PTS
+
+由于先到来的 B 帧无法立即解码，需要等待它依赖的后面的 I、P 帧先解码完成，因此播放时间与解码时间并不一致
+
+- DTS(Decoding Time Stamp, 解码时间戳)
+- PTS(Presentation Time Stamp, 显示时间戳)
+
+用于编码器指导推流/播放器行为。推流/解码时使用 DTS，显示时使用 PTS
+
+通常在没有 B 帧的情况下，DTS 和 PTS 的顺序应该是一样的
+
+#### SPS & PPS
+
+SPS(Sequence Parameter Set, 序列参数集)，保存着关于组帧的规格参数(如关键帧数目，图像尺寸，编码模式等)
+
+PPS(Picture Parameter Set, 图像参数集)，保存着关于帧图像的编码参数(如熵编码模式、切片分割类型、初始量化参数、色度量化参数等)
+
+H.264 流开头，必定出现序列：SPS 帧 →PPS 帧 →IDR 帧 →其余帧，否则将解码异常。
+在码流中间也可能出现该序列(参数变动、需要中间解码)
+
+#### 视频花屏/绿屏
+
+- 丢失 I 帧
+  - 需丢弃一整个 GOP
+- Metadata 变化
+  - 如果必须丢帧，必须丢弃一整个 GOP
+- 硬件编解码的兼容性
+- 颜色格式不一致
+  - 视频流中的颜色格式需要在推流和播放两端保持一致
