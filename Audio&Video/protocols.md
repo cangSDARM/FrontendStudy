@@ -64,12 +64,14 @@ Real Time Messaging Protocol
 5. 传输过程中，双方可以发送控制命令，如播放(play)、暂停(pause)等
 6. 断开连接
 
+![数据格式](/assets/rtmp-format.png)
+
 ## HTTP-FLV
 
 即将音视频数据封装成 FLV，然后通过 HTTP 协议传输给客户端。
 客户端像解析 FLV 格式一样去解析流，从而达到播放的目的
 
-和文件下载不同的是，流的长度可能不确定长度，因此一般是基于 HTTP Chunked 协议实现。
+和文件下载不同的是，流的长度可能不确定长度，因此一般是基于`Transfer-Encoding: Chunked`实现。
 和 HTTP-FLV 类似的，还有 HTTP-TS 或 HTTP-MP3。
 TS 主要应用于广播电视领域，MP3 主要应用于音频领域
 
