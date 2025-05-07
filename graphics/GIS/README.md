@@ -6,6 +6,11 @@
 - [使用 Gis](#使用-gis)
 - [Gis Data](#gis-data)
   - [地形 Terrain](#地形-terrain)
+  - [影像 Imagery](#影像-imagery)
+- [编程语言](#编程语言)
+  - [Js](#js)
+    - [Openlayers](#openlayers)
+    - [Cesium](#cesium)
 
 ## Coordinate Systems
 
@@ -86,7 +91,7 @@ ArcGIS 定义了 WKID 作为坐标参考系统的标识。
   - `UTM(Universal Transverse Mercator)`: 通用横轴墨卡托投影
     - 坐标基于 WGS-84
     - 可以使得地图在投影时不至于拉伸变形
-    - 大部分的卫星影像和局部地图资料常采用 UTM 投影。但块的大小不一，不适合网页显示。
+    - 大部分的卫星影像和局部地图资料常采用 UTM 投影。但块的大小不一，不适合网页显示
   - `Pseudo-Mercator(EPSG:3857)`: 伪墨卡托投影，也称为 Spherical Mercator/Web Mercator
     - 基于墨卡托投影，可以把 WGS-84 投影到正方形
     - GCJ-02 保证投影后的线性单调性，因此可以直接用
@@ -111,10 +116,13 @@ https://cesium.com/ 操作 gis 的库(SASS)，通常给 js 用
 ## Gis Data
 
 - Vector
-  - 使用离散的数据集合将地图抽象为几何图形。如 GeoJson、gis shape file 格式
+  - 使用离散的数据集合将地图抽象为几何图形。如 GeoJson、shpfile、topojson 格式
   - 类似于 SVG + 属性信息 + 投影信息
 - Raster: 对地图划分 Cell，对每个 Cell 进行具体的实测或抽象建模。
   - 类似于 BMP + 投影信息
+- 3D Tiles(瓦片)
+  - 在 gltf 的基础上，加入了分层 LOD 的概念，专门为流式传输和渲染海量 3D 地理空间数据而设计
+  - 定义了一种数据分层结构和一组切片格式
 
 Gis 分层定义了地图的元素
 
@@ -150,3 +158,19 @@ Gis 存储通常放在 database 里，所以 sql 非常重要。Gis 扩展了 sq
      - 不规则(irregular): 单元格可以具有任意形状和大小。如 GIS 中的不规则三角网(TIN)。三角网通常使用 Delaunay 切分方法
      - 层次(hierarchical): 多层规则或不规则切分。如四叉树(规则)
 
+存储格式
+
+- Small Terrain 基于 Heightmap 的地形(仅有法线数据)，中等分辨率
+- STK World Terrain 基于 TIN 的地形(包含其他可以供 Shader 渲染的)，高分辨率
+
+### 影像 Imagery
+
+## 编程语言
+
+### Js
+
+#### Openlayers
+
+基于 prototype.js 的 2.5D 地图
+
+#### [Cesium](./Cesium.md)

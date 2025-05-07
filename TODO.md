@@ -12,9 +12,6 @@
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
 
-Beacon API
-https://blog.csdn.net/weixin_34025151/article/details/87956599
-
 DI
 https://www.cnblogs.com/front-end-ralph/p/5208045.html
 https://www.cnblogs.com/leoo2sk/archive/2009/06/17/di-and-ioc.html
