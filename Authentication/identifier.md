@@ -2,6 +2,7 @@
   - [UUIDv4](#uuidv4)
   - [UUIDv7](#uuidv7)
   - [ULID](#ulid)
+- [Snowflake](#snowflake)
 
 ## UUID
 
@@ -61,3 +62,40 @@ Universally Unique Lexicographically Sortable Identifier, 民间提案
 ```
 
 ULID 的单调性由算法保证。在同一毫秒内生成的将是单调递增的
+
+## Snowflake
+
+和 UUIDv7 类似，但不是随机的
+
+共 64 bit，全局唯一且趋势递增(不是严格单调递增)
+
+```
+符号位      worker id, 10 bit, 对应每台机器分配一个 id(最大1024)
+  |         |
+  0 129012 1f 129408242424424
+     |                     |
+  时间戳(毫秒), 41 bit    序列号, 12 bit, 保证在同一亚秒内(此时是毫秒)生成的 uuid 也是唯一的(递增++)
+```
+
+```java
+public synchronized long generate() {
+  long currentMill = timeService.getCurrentMills();
+  if (waitToTolerateTimeDifferenceIfNeed(currentMill)) {  // 保证多机器的时间递增(否则等待几毫秒)
+    currentMill = timeService.getCurrentMills();
+  }
+  if (lastMill == currentMill) {
+    sequence = sequence = (sequence + 1) & SEQUENCE_MASK; // sequence 生成(超过 12bit 回 0)
+    if (0L == sequence) {
+      currentMill = waitUtilNetTime(currentMill);
+    }
+  } else {
+    vibrateSequenceOffset(MAX_SEQUENCE_OFFSET);
+    // sequence 震荡 生成 0 1 2 ..MAX_SEQUENCE_OFFSET 0 1 2..MAX_SEQUENCE_OFFSET
+    sequence = sequenceOffset; // 保证 在 id % MAX_SEQUENCE_OFFSET 的时候，不会一直生成 0
+  }
+  lastMill = currentMill;
+
+  currentMill = (currentMill - EPOCH); // 减去需要的时间起点，不然 long 的 塞不进 41 bit
+  return currentMill << TIMESTAMP_SHIFT_BITS | getWorkerId() << WORKER_SHIFT_BITS | sequence;
+}
+```

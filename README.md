@@ -15,7 +15,6 @@
 - [前端工程化(工具/环境)相关](./engineering/README.md)
 - [各种存储方案](./storages.md)
 - [xPath](./xpath.md)
-- [WebCrypto](./crypto.md)
 - [Renderer Patterns](./renderer.md)
 - [函数式](./functional.md)
 - [测试](./test.md)

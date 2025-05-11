@@ -69,18 +69,6 @@ const degrees = {
   la: Cesium.Math.toDegrees(carto.latitude),
   height: carto.height,
 };
-const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-handler.setInputAction((evt) => {
-  // 屏幕 -> 笛卡尔
-  const mousePosInCesiumWorld = viewer.scene.globe.pick(
-    viewer.camera.getPickRay(evt.position),
-    viewer.scene,
-  );
-}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-const posAtScreen = Cesium.SceneTransforms.wgs84ToWindowCoordinates(
-  viewer.scene,
-  cartesian,
-); // 笛卡尔 -> 屏幕
 // Cesium.Matrix3: 描述旋转变换
 // Cesium.Matrix4: 描述旋转+平移变换
 // Cesium.Quaternion: 描述围绕某个向量旋转变换
@@ -193,6 +181,28 @@ const entity = new Cesium.Entity({
 });
 
 viewer.entities.add(entity);
+
+// 棋盘效果
+entity.ellipse.material = new Cesium.CheckerboardMaterialProperty({
+  evenColor: Cesium.Color.WHITE,
+  oddColor: Cesium.Color.BLACK,
+  // 奇偶交替的频次
+  repeat: new Cesium.Cartesian2(6, 4),
+});
+// 网格效果
+entity.ellipse.material = new Cesium.GridMaterialProperty({
+  color: Cesium.Color.YELLOW, // 线条颜色和背景色
+  cellAlpha: 0, // 背景色透明度
+  lineCount: new Cesium.Cartesian2(8, 8), // 线条条数
+  lineThickness: new Cesium.Cartesian2(5, 5), // 线条粗细
+  lineOffset: new Cesium.Cartesian2(10, 10), // 线条偏移量
+});
+// 折线轮廓
+entity.polyline.material = new Cesium.PolylineOutlineMaterialProperty({
+  color: Cesium.Color.ORANGE,
+  outlineWidth: 5,
+  outlineColor: Cesium.Color.BLACK,
+});
 ```
 
 #### Primitive
@@ -232,41 +242,124 @@ new Cesium.ParticleSystem({
 也是 Primitive
 
 ```js
-const tileset = await Cesium.Cesium3DTileset.fromUrl(
-  "/3dtiles/tileset.json",
-  {
-    show: true,
-    // 为摄像机或 CPU 拾取启用碰撞
-    enableCollision: true,
-    // 否使用其子边界体积的并集来剔除平铺
-    cullWithChildrenBounds: true,
-    // 设置基础屏幕空间误差，用于控制加载时的细节层次
-    skipLevelOfDetail: true,
-    immediatelyLoadDesiredLevelOfDetail: true,
-    baseScreenSpaceError: 1024,
-    skipScreenSpaceErrorFactor: 16,
-    // 瓦片加载的屏幕空间误差，默认16，值越小精度越高，开销越大
-    maximumScreenSpaceError: 32,
-    // 启用动态屏幕空间误差，根据相机的速度调整瓦片加载策略
-    dynamicScreenSpaceError: true,
-    dynamicScreenSpaceErrorDensity: 0.002,
-    dynamicScreenSpaceErrorFactor: 4,
-    // 跳过中间级别瓦片，直接加载低分辨率瓦片以加快初始加载速度
-    skipLevels: 2,
-    // 当摄像机正在飞行时，在摄像机的飞行目的地预加载切片
-    preloadFlightDestinations: true,
-    // 优先加载叶子节点
-    preferLeaves: true,
-  },
-);
+const tileset = await Cesium.Cesium3DTileset.fromUrl("/3dtiles/tileset.json", {
+  show: true,
+  // 为摄像机或 CPU 拾取启用碰撞
+  enableCollision: true,
+  // 否使用其子边界体积的并集来剔除平铺
+  cullWithChildrenBounds: true,
+  // 设置基础屏幕空间误差，用于控制加载时的细节层次
+  skipLevelOfDetail: true,
+  immediatelyLoadDesiredLevelOfDetail: true,
+  baseScreenSpaceError: 1024,
+  skipScreenSpaceErrorFactor: 16,
+  // 瓦片加载的屏幕空间误差，默认16，值越小精度越高，开销越大
+  maximumScreenSpaceError: 32,
+  // 启用动态屏幕空间误差，根据相机的速度调整瓦片加载策略
+  dynamicScreenSpaceError: true,
+  dynamicScreenSpaceErrorDensity: 0.002,
+  dynamicScreenSpaceErrorFactor: 4,
+  // 跳过中间级别瓦片，直接加载低分辨率瓦片以加快初始加载速度
+  skipLevels: 2,
+  // 当摄像机正在飞行时，在摄像机的飞行目的地预加载切片
+  preloadFlightDestinations: true,
+  // 优先加载叶子节点
+  preferLeaves: true,
+});
 viewer.scene.primitives.add(tileset);
+
+// 贴地
+const heightOffset = -70; // 调整模型的高度偏移
+const boundingSphere = tileset.boundingSphere;
+const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
+const surface = Cesium.Cartesian3.fromRadians(
+  cartographic.longitude,
+  cartographic.latitude,
+  0.0,
+);
+const offset = Cesium.Cartesian3.fromRadians(
+  cartographic.longitude,
+  cartographic.latitude,
+  heightOffset,
+);
+const translation = Cesium.Cartesian3.subtract(
+  offset,
+  surface,
+  new Cesium.Cartesian3(),
+);
+tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation); // 用于转换图块集的根图块
 ```
 
 ## 交互
 
-鼠标点击位置参考 [坐标和摄像机](#坐标和摄像机)
-
 ```js
+// 配置视图倾斜事件
+viewer.scene.screenSpaceCameraController.tiltEventTypes = [
+  // 鼠标右键拖动时触发视图的倾斜操作
+  Cesium.CameraEventType.RIGHT_DRAG,
+  // 双指触摸时触发视图的倾斜操作
+  Cesium.CameraEventType.PINCH,
+  // 按住 Ctrl 键的同时，鼠标左键拖动时触发视图的倾斜操作
+  {
+    eventType: Cesium.CameraEventType.LEFT_DRAG,
+    mofifier: Cesium.KeyboardEventModifier.CTRL,
+  },
+  // 按住 Ctrl 键的同时，鼠标右键拖动时触发视图的倾斜操作
+  {
+    eventType: Cesium.CameraEventType.RIGHT_DRAG,
+    mofifier: Cesium.KeyboardEventModifier.CTRL,
+  },
+];
+// 配置视图缩放事件
+viewer.scene.screenSpaceCameraController.zoomEventTypes = [
+  // 按住滚轮中键可以缩放
+  Cesium.CameraEventType.MIDDLE_DRAG,
+  // 滚动滚轮中键可以缩放
+  Cesium.CameraEventType.WHEEL,
+  // 手指可缩放
+  Cesium.CameraEventType.PINCH,
+];
+
+// 场景渲染
+viewer.scene.preUpdate.addEventListener(callbackFunc);
+viewer.scene.postUpdate.removeEventListener(callbackFunc);
+viewer.scene.preRender.removeEventListener(callbackFunc);
+viewer.scene.postRender.addEventListener(callbackFunc);
+
+// 屏幕交互
+const posAtScreen = Cesium.SceneTransforms.wgs84ToWindowCoordinates(
+  viewer.scene,
+  cartesian,
+);
+// 鼠标交互
+const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+handler.setInputAction((e: any) => {
+  // 屏幕 -> 笛卡尔
+  const mousePosInCesiumWorld = viewer.scene.globe.pick(
+    viewer.camera.getPickRay(evt.position),
+    viewer.scene,
+  );
+
+  let pick = viewer.scene.pick(e.endPosition); // 最顶部
+  pick = viewer.scene.drillPick(); // 所有东西
+
+  // 如果没有拾取到对象
+  if (!Cesium.defined(pick)) return;
+
+  // 重置上一次拾取模型的颜色
+  if (Cesium.defined(pickModel)) {
+    pickModel.color = Cesium.Color.WHITE;
+  }
+  pick.color = Cesium.Color.ORANGE;
+  pickModel = pick;
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+// 键盘交互
+viewer.clock.onTick.addEventListener((_e) => {
+  if (flags.moveBackward) {
+    camera.moveBackward(moveRate);
+  }
+});
+
 // 一个Callback的包裹，主要用于动态 Entity 的属性
 new Cesium.CallbackProperty(() => {
   num += 0.002;
@@ -285,4 +378,15 @@ new Cesium.CallbackProperty(() => {
     });
   }
 }, false);
+
+// 拾取
+viewer.selectedEntityChanged.addEventListener((entity) => {
+  console.log(entity);
+});
+// 镜头跟踪视角
+viewer.trackedEntity = entity;
+// 需要双击才能触发
+viewer.trackedEntityChanged.addEventListener((entity) => {
+  console.log(entity);
+});
 ```
