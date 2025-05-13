@@ -9,6 +9,8 @@
 [PointerLock](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
 [Wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
 
+https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
+
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
 
@@ -130,8 +132,7 @@ Hash function quality and speed tests
 https://github.com/rurban/smhasher
 
 hyperloglog
-https://djhworld.github.io/hyperloglog/
-https://hzhu212.github.io/posts/365f8e92/
+https://hzhu212.github.io/posts/365f8e92
 http://content.research.neustar.biz/blog/hll.html
 https://www.cnblogs.com/linguanh/p/10460421.html
 https://zhuanlan.zhihu.com/p/58519480

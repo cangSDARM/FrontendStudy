@@ -26,7 +26,8 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 参考资料<br>
 
-> [博客|WebRTC 介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)
+> [博客|WebRTC 介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)<br>
+> [PeerJs|简化RTCConnection的管理(offer/answer)](https://peerjs.com/)
 
 ## 重要名词
 
