@@ -2,7 +2,7 @@ import React from "react";
 import Peer from "peerjs";
 import { DefaultPeerId, getPeerContext } from "./context";
 
-const WebRTCPeerProvider: React.FC<
+const RTCPeerProvider: React.FC<
   React.PropsWithChildren<{
     id?: string;
     onIceSelect: (id: string) => Promise<string>;
@@ -58,4 +58,4 @@ const WebRTCPeerProvider: React.FC<
   );
 };
 
-export default WebRTCPeerProvider;
+export default RTCPeerProvider;

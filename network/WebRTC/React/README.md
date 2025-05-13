@@ -1,8 +1,8 @@
 ## usage
 
 ```jsx
-<WebRTCPeerProvider onIceSelect={() => fetch('/api/ice')}>
-  <WebRTCConnProvider id="room1">
+<RTCPeerProvider onIceSelect={() => fetch('/api/ice')}>
+  <RTCConnProvider id="room1">
     {() => {
       const conn = useWebRTCConn("room1");
 
@@ -12,9 +12,9 @@
 
       return <></>;
     }}
-  </WebRTCConnProvider>
+  </RTCConnProvider>
 
-  <WebRTCConnProvider id="room2">
+  <RTCConnProvider id="room2">
     {() => {
       const conn = useWebRTCConn("room2");
 
@@ -24,12 +24,11 @@
 
       return <></>;
     }}
-  </WebRTCConnProvider>
+  </RTCConnProvider>
 
   <>
     {() => {
       const peer = useWebRTCPeer();
-      const context = getConnContext(peer, "room3");
       const conn = React.useRef();
 
       React.useEffect(() => {
@@ -37,8 +36,8 @@
         console.log(conn); // room3 connection
       }, [conn]);
 
-      return <context.Provider value={{ conn: conn.current, connected: true }}></context.Provider>;
+      return <></>;
     }}
   </>
-</WebRTCPeerProvider>
+</RTCPeerProvider>
 ```

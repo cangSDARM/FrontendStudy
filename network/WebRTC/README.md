@@ -9,7 +9,7 @@
 - [建立媒体会话](#建立媒体会话)
   - [建立 WebRTC 会话](#建立-webrtc-会话)
   - [通过 offer 和 answer 交换 SDP 描述符](#通过-offer-和-answer-交换-sdp-描述符)
-  - [通过 ICE 框架建立 NAT/防火墙穿越的连接](#通过-ice-框架建立-nat防火墙穿越的连接)
+  - [通过 ICE 建立 NAT/防火墙穿越的连接](#通过-ice-建立-nat防火墙穿越的连接)
 - [通过 RTCDataChannel 来传输任意数据](#通过-rtcdatachannel-来传输任意数据)
 
 <!-- /TOC -->
@@ -26,8 +26,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 参考资料<br>
 
-> [博客|WebRTC 介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)<br>
-> [PeerJs|简化RTCConnection的管理(offer/answer)](https://peerjs.com/)
+> [博客|WebRTC 介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)<br> > [PeerJs|简化 RTCConnection 的管理(offer/answer)](https://peerjs.com/)
 
 ## 重要名词
 
@@ -46,8 +45,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 
 **ICE(Interactive Connectivity Establishment)**
 
-> 交互式链接技术。允许实时对等端发现对方并且开启、维持彼此连接的框架<br/>
-> [参考](https://webrtc.org.cn/three-things-about-ice/)
+> 交互式链接技术。允许实时对等端发现对方并且开启、维持彼此连接的框架<br/> > [参考](https://webrtc.org.cn/three-things-about-ice/)
 
 **STUN(Session Traversal Utilities for NAT)**
 
@@ -58,7 +56,7 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 **TURN 服务器(Traversal Using Relays around NAT 服务器)**
 
 > TURN 服务器用于中间人转播消息，对双方透明<br >
-> 两端向同一 TURN 中继服务器请求并建立连接，TURN 负责填充 NAT 所需的 Ip 和端口号，并转发 UDP / TCP 信息到 NAT，实现 NAT 穿透
+> 两端向同一 TURN 中继服务器请求并建立连接，TURN 负责填充 NAT 所需的 Ip 和端口号，并转发 UDP / TCP 信息到 NAT，实现 NAT 穿透<br> > [Coturn 服务](https://zhuanlan.zhihu.com/p/636276243)
 
 ### 应用层协议
 
@@ -99,9 +97,11 @@ WebRTC 仅提供了流传输时的逻辑，其上的编码、数据加密等需�
 
 ### 建立 WebRTC 会话
 
+![rtc-establish](/assets/webrtc_establish.jpg)
+
 1. 获取本地媒体
    - `MediaStream()`(包含多个同步的`MediaStreamTrack`)
-2. 建立信令通道 *(可选)*，及对等链接
+2. 建立信令通道 _(可选)_，及对等链接
 3. 在浏览器和对等终端建立链接
    - **意指不通过服务器，而是直接在两个终端之间建立链接。每一对浏览器都需要一个对等链接才能加入会议**
    - 建立此链接需要一个新的`RTCPeerConnection`对象
@@ -135,14 +135,35 @@ WebRTC 仅提供了流传输时的逻辑，其上的编码、数据加密等需�
 | **9**. 接收到乙的 answer 信令后，将其中乙的 SDP 描述符提取出来，调用 setRemoteDescripttion()方法交给自己的 PC 实例 |                                                                                                                  |
 |                                                  **10**. 完成连接                                                  |                                                 **10**. 完成连接                                                 |
 
-### 通过 ICE 框架建立 NAT/防火墙穿越的连接
+### 通过 ICE 建立 NAT/防火墙穿越的连接
 
-> WebRTC 使用 ICE 框架来获得这个外界可以直接访问的地址，在创立 PC 的时候可以将 ICE 服务器的地址传递进去
+> WebRTC 使用 ICE(Interactive Connectivity Establishment) 技术<br>
+> 用以获得外界可以直接访问的地址，在创立 PC 的时候可以将 ICE 服务器的地址传递进去
 
-1. 甲、乙各创建配置了 ICE 服务器的 PC 实例，并为其添加`onicecandidate`事件回调
-2. 当网络候选可用时，将会调用`onicecandidate`函数
-3. 在回调函数内部，甲或乙将网络候选的消息封装在 ICE Candidate 信令中，通过信令服务器中转，传递给对方
+1. 甲、乙各创建配置了 ICE 服务器的 PC 实例
+2. 当网络候选可用时，将会调用`onicecandidate`(失败时触发`icecandidateerror`)
+3. 在回调内部，甲或乙将网络候选的消息封装在 ICE Candidate 信令中，通过信令服务器中转，传递给对方
 4. 甲或乙接收到对方通过信令服务器中转所发送过来 ICE Candidate 信令时，将其解析并获得网络候选，将其通过 PC 实例的`addIceCandidate()`方法加入到 PC 实例中
+
+[测试 ICE 是否正常工作](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/)
+
+[注意 Google 的 STUN 要求有数据流(减少请求数)，否则会报 701](https://www.webrtc-developers.com/oups-i-got-an-ice-error-701)
+
+candidate 的属性
+
+- foundation: 用于标志和区分来自同一个 stun 的不同的候选者,ID 标识
+- icegroupid: ICE 的组 ID
+- type: 协议类型
+  - `host`: 本机 HOST
+  - `srflx`(server reflexive candidate): STUN
+  - `relay`: TURN
+  - `prflx`: PEER
+- priority: 优先级
+- ip: ip 地址
+- port: 端口
+- generation x: 表明当前是第几代的候选
+- ufrag xxxx: 分配的用户名标识
+- network-cost xxx: 网卡标识
 
 ## 通过 RTCDataChannel 来传输任意数据
 

@@ -4,7 +4,7 @@ import { getConnContext, DefaultPeerId } from "./context";
 import { useWebRTCPeer } from "./hooks";
 import { useListeners } from "./listeners";
 
-const WebRTCConnProvider: React.FC<
+const RTCConnProvider: React.FC<
   React.PropsWithChildren<{
     id: string;
     onConnOpen?: (conn: DataConnection) => void;
@@ -82,4 +82,4 @@ const WebRTCConnProvider: React.FC<
   );
 };
 
-export default WebRTCConnProvider;
+export default RTCConnProvider;
