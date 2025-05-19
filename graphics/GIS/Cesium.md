@@ -270,7 +270,7 @@ viewer.scene.primitives.add(tileset);
 
 // 贴地
 const heightOffset = -70; // 调整模型的高度偏移
-const boundingSphere = tileset.boundingSphere;
+const boundingSphere = tileset.boundingSphere; // tileset 的碰撞体
 const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
 const surface = Cesium.Cartesian3.fromRadians(
   cartographic.longitude,
@@ -288,6 +288,19 @@ const translation = Cesium.Cartesian3.subtract(
   new Cesium.Cartesian3(),
 );
 tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation); // 用于转换图块集的根图块
+
+// 条件符号化渲染
+const properties = tileset.properties;
+if (Cesium.defined(properties) && Cesium.defined(properties.Height)) {
+  tileset.style = new Cesium.Cesium3DTileStyle({
+    color: {
+      conditions: [
+        ["${Height} >= 83", "color('red', 0.5)"],
+        ["true", "color('blue')"],
+      ],
+    },
+  });
+}
 ```
 
 ## 交互

@@ -22,6 +22,7 @@
     - [对象特性：readyState](#对象特性readystate)
     - [对象特性：bufferedAmount](#对象特性bufferedamount)
 - [相关技术或文档](#相关技术或文档)
+  - [常见问题](#常见问题)
 
 <!-- /TOC -->
 
@@ -311,3 +312,9 @@ if (ws.bufferedAmount < THRESHOLD) {
   - noVNC VNC client using H5
   - RFB(Remote Framebuffer) 远程帧缓冲
 - AMQP(Advanced Message Queueing Protocol) 高级消息队列协议
+
+### 常见问题
+
+1. 客户端心跳: WebSocket 是长连接，但时间长了会导致服务器“假设”客户端断开；客户端也“认为”服务器断开了。因此虽然正常情况下，应该由**服务器定义心跳连接**，但业务上经常还是会实现 C/S 双端的心跳检测
+2. 数据压力: WebSocket 没有消息的背压处理机制。当 message 来的比处理快的时候，会导致 C 端出现响应变慢的情况。应正确尝试丢弃数据或中断旧处理，或尝试使用[WebSocketStream](https://developer.mozilla.org/en-US/docs/Web/API/WebSocketStream)解决
+3. 弱网数据丢失: 是前两者综合的结果，应分别应对处理
