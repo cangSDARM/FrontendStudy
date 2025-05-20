@@ -12,6 +12,7 @@
     - [Primitive](#primitive)
     - [Particle](#particle)
     - [3D Tile](#3d-tile)
+  - [其他](#其他)
 - [交互](#交互)
 
 Cesium 是用于 Web 的 GIS SASS 服务，需要注册才能用
@@ -302,6 +303,23 @@ if (Cesium.defined(properties) && Cesium.defined(properties.Height)) {
   });
 }
 ```
+
+### 其他
+
+- 轨迹数据
+  - CZML: JSON 格式，Cesium 定义的专为描述随时间变化的动态对象
+    - Cesium.CZMLDataSource
+  - KML/KMZ: XML 格式，支持描述轨迹(Track)和时间戳(通过 gx:timeSpan 或 gx:when 标签)
+    - Cesium.KmlDataSource
+  - GeoJSON: 本身不支持时间，但可通过自定义属性(如 time、interval)附加时间信息
+    - Cesium.DataSource
+- 气象数据
+  - NetCDF/HDF5: 二进制格式
+  - GRIB(Gridded Binary): 气象数据专用格式，如天气预报
+  - 使用 Cesium.NetworkStatus 或 Cesium.GeoTIFF 解析，并以影像形式加载
+- 其他自定义
+  - CSV/JSON/Protobuf, 都可以
+  - 使用 Cesium.DataSource 解析
 
 ## 交互
 
