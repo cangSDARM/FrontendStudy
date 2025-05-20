@@ -167,3 +167,25 @@ class JsViewer {
     globalThis.alert(e.toString());
   }
 })();
+
+/**
+ * 
+
+> js -> native
+
+call warped function
+
+```js
+window.nativeBridgeCall({ data });
+```
+
+> native -> js
+
+call exported function
+
+```js
+window.resolvePromise(promiseId, data, error);
+```
+
+More Info: http://igomobile.de/2017/03/06/wkwebview-return-a-value-from-native-code-to-javascript/
+*/
