@@ -2,12 +2,14 @@
 
 [两个数组去重](./distinct.ts)
 
-[数组/Map转树](./mapToTree.ts)
+[数组/Map 转树](./mapToTree.ts)
 
 [插入大容量的日志](./insertChunk.ts)
 
 [有条件随机](./shuffe.ts)
 
-[AntdDateRangePicker修复(禁止自动切换前后段)](./antdDatePicker.tsx)
+[AntdDateRangePicker 修复(禁止自动切换前后段)](./antdDatePicker.tsx)
 
-[仿照chrome的ctrl-f搜索内容](./ChromeCtrlF.tsx)
+[仿照 chrome 的 ctrl-f 搜索内容](./ChromeCtrlF.tsx)
+
+[在 React 外部强制刷新 React 组件](./ReactSlot.tsx)

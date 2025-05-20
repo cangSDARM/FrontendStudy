@@ -131,6 +131,8 @@ https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
 
+https://pavel-romanov.com/building-semaphore-and-mutex-in-nodejs
+
 hyperloglog
 https://hzhu212.github.io/posts/365f8e92
 http://content.research.neustar.biz/blog/hll.html
@@ -168,6 +170,8 @@ https://refactoring.guru/design-patterns
 https://swtch.com/~rsc/regexp/regexp4.html
 
 https://red3d.com/cwr/boids/
+
+https://blog.kaciras.com/article/23/icanalyzer-development-log
 
 https://blog.acolyer.org/
 
