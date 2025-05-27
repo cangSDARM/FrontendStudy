@@ -9,11 +9,10 @@
 - [例子](#例子)
   - [基于事件的流](#基于事件的流)
   - [BYOB](#byob)
-  - [BYOB](#byob-1)
 
 ## 核心概念
 
-数据出自**可读流**；进入**可写流**
+数据出自**可读流**: 进入**可写流**
 
 **转换流**: 包含一个可写流和一个可读流。用于将可写流转换为可读流
 
@@ -276,30 +275,5 @@ const readableByteStream = new ReadableStream({
 const reader = readableByteStream.getReader({ mode: "byob" });
 const buffer = new Uint8Array(10); // (A)
 const firstChunk = await reader.read(buffer); // (B)
-console.log(firstChunk);
-```
-
-### BYOB
-
-Bring Your Own Buffer。自己控制缓冲区
-
-```ts
-import { promisify } from "node:util";
-import { randomFill } from "node:crypto";
-const asyncRandomFill = promisify(randomFill);
-
-const readableByteStream = new ReadableStream({
-  type: "bytes", // 此模式下，enqueue的chunk必须是ArrayBufferViews
-  async pull(controller) {
-    // byob 可以通过 Request/Response 的形式推送数据，也可以通过常规的 enqueue/close 推送
-    const byobRequest = controller.byobRequest;
-    await asyncRandomFill(byobRequest.view); // 填充 view
-    byobRequest.respond(byobRequest.view.byteLength); // 触发接受
-  },
-});
-
-const buffer = new Uint8Array(10); // 在 (A) 后不可读
-const reader = readableByteStream.getReader({ mode: "byob" });
-const firstChunk = await reader.read(buffer); // (A)
 console.log(firstChunk);
 ```
