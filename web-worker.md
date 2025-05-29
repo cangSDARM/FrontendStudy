@@ -3,10 +3,11 @@
   - [Common Interface](#common-interface)
   - [Without separate file](#without-separate-file)
 - [特殊 Worker](#特殊-worker)
-  - [Broadcast Channel](#broadcast-channel)
   - [ServiceWorker](#serviceworker)
+  - [Broadcast Channel](#broadcast-channel)
   - [SharedWorker](#sharedworker)
   - [Worklet](#worklet)
+    - [Audio Worklet](#audio-worklet)
     - [Paint Worklet](#paint-worklet)
     - [Animation Worklet](#animation-worklet)
     - [Layout Worklet](#layout-worklet)
@@ -34,7 +35,8 @@
 const worker = new Worker(new URL("./worker", import.meta.url)); //构造函数采用 Worker 脚本的名称
 // 进程间交互
 // 1. 向其他进程推送消息
-// postMessage每次发消息都会序列化内容,如果数据量大时会产生性能问题. 参考[1](https://stackoverflow.com/questions/23237611/converting-javascript-2d-arrays-to-arraybuffer); [2](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
+// postMessage每次发消息都会序列化内容,如果数据量大时会产生性能问题. 
+// 参考: https://stackoverflow.com/questions/23237611/converting-javascript-2d-arrays-to-arraybuffer
 const buffer = new ArrayBuffer(1);
 worker.postMessage({ data: buffer }, [buffer]);
 // 2. 监听其他进程来的消息
@@ -44,7 +46,7 @@ worker.onmessage = function (event) {
 // 错误处理(主进程中处理)
 worker.onerror = function (event) {
   console.log(
-    "该事件不会冒泡并且可以被取消；为了防止触发默认动作，worker 可以调用错误事件的 preventDefault()方法",
+    "该事件不会冒泡但可以被取消. 为了防止触发默认动作，worker 可以调用错误事件的 preventDefault()方法",
   );
   console.log(event.message, event.filename, event.lineno);
 };
@@ -79,13 +81,33 @@ const worker = useWorker();
 
 ## 特殊 Worker
 
-### Broadcast Channel
+### ServiceWorker
 
-用于实现多个上下文间的单对多通信(`postMessage`是点对点)
-
-但仅能用于同源的情况(跨域时还是得用`postMessage`)
+- 监听 event、fetchProxy 和 Cache 处理
+  - [Part1, VanillaJS](https://ithelp.ithome.com.tw/articles/10216819)
+  - [Part2, React](https://juejin.im/post/6881616183158636552)
+  - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)
 
 ```js
+navigator.serviceWorker.register('/service-worker.js');
+
+// service-worker.js
+// Install 
+self.addEventListener('install', function(event) {});
+// Activate 
+self.addEventListener('activate', function(event) {});
+// Listen for network requests from the main document
+self.addEventListener('fetch', function(event) {});
+```
+
+### Broadcast Channel
+
+用于实现多个上下文(窗口、标签页、frame 或者 iframe)的通信
+
+但仅能用于同源的情况
+
+```js
+// 只要提供同样的channel name就行
 const bc = new BroadcastChannel("test_channel");
 // 每个上下文都可以通过 postMessage 传入数据
 bc.onmessage = function (e) {
@@ -96,14 +118,8 @@ bc.onmessageerror = function (e) {
 };
 // 广播给其他监听了的上下文
 bc.postMessage('hello');
+bc.close();
 ```
-
-### ServiceWorker
-
-- 监听 event、fetchProxy 和 Cache 处理
-  - [Part1, VanillaJS](https://ithelp.ithome.com.tw/articles/10216819)
-  - [Part2, React](https://juejin.im/post/6881616183158636552)
-  - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)
 
 ### SharedWorker
 
@@ -147,9 +163,38 @@ const broadcast = (msg) => pool.forEach((port) => port.postMessage(msg));
 
 ### Worklet
 
-与浏览器的渲染管道挂钩，能够对浏览器的渲染过程（例如样式和布局）进行低级访问
+能够对浏览器的特定过程(例如样式和布局)进行低级访问
+
+#### Audio Worklet
 
 #### Paint Worklet
+
+用于程序化生成
+
+```js
+CSS.paintWorklet.addModule('paint-worklet.js');
+
+// paint-worklet.js
+registerPaint('myGradient', class {
+  paint(ctx, size, properties) {
+    // api 和 canvas 的一致
+    var gradient = ctx.createLinearGradient(0, 0, 0, size.height / 3);
+
+    gradient.addColorStop(0, "black");
+    gradient.addColorStop(0.7, "rgb(210, 210, 210)");
+    gradient.addColorStop(0.8, "rgb(230, 230, 230)");
+    gradient.addColorStop(1, "white");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, size.width, size.height / 3);
+  }
+});
+
+// css
+div {
+  background-image: paint(myGradient);
+}
+```
 
 #### Animation Worklet
 

@@ -44,11 +44,6 @@ https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
 https://mrkaran.dev/posts/travel-tailscale/
 
-UUID/GUID
-https://blog.csdn.net/lizongti/article/details/109000359
-https://betterexplained.com/articles/the-quick-guide-to-guids/
-https://blog.csdn.net/u010120164/article/details/53924647
-
 Authentications
 https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
 https://auth.wiki/zh
@@ -84,7 +79,7 @@ https://cloud.tencent.com/document/product/1463/106260
 
 https://daief.tech/post/electron-file-association/
 
-Electron 网络请求拦截和响应处理 https://www.bytezonex.com/archives/Qa8KgdUg.html
+Electron 网络请求拦截和响应处理 https://juejin.cn/post/7208108117836873784
 
 Electron 自定义协议
 https://zhuanlan.zhihu.com/p/268816158
@@ -103,6 +98,7 @@ https://taxodium.ink/setup-blog-color-scheme.html
 
 https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 
+ts moduleResolution 总结
 https://juejin.cn/post/7221551421833314360
 
 https://github.com/microsoft/FASTER
@@ -151,10 +147,6 @@ https://processing.org/examples/
 
 https://github.com/sindresorhus/promise-fun
 
-worklet
-https://developer.mozilla.org/en-US/docs/Web/API/Worklet
-https://www.jianshu.com/p/e2cdc78ff47c
-
 https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
@@ -172,6 +164,12 @@ https://swtch.com/~rsc/regexp/regexp4.html
 https://red3d.com/cwr/boids/
 
 https://blog.kaciras.com/article/23/icanalyzer-development-log
+
+webp
+https://www.cnblogs.com/cr330326/p/12809418.html
+https://blog.michealwayne.cn/2021/02/06/notes/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91webp%E9%9A%8F%E6%89%8B%E8%AE%B0/
+https://blog.kaciras.com/article/24/analyze-WebP-encode-options
+https://github.com/deepkolos/awebp
 
 https://blog.acolyer.org/
 

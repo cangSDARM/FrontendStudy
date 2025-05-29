@@ -1,6 +1,7 @@
 - [UUID](#uuid)
   - [UUIDv4](#uuidv4)
   - [UUIDv7](#uuidv7)
+  - [GUID](#guid)
   - [ULID](#ulid)
 - [Snowflake](#snowflake)
 
@@ -46,6 +47,10 @@ v7 的好处在于, 他是单调递增的。可以做索引和排序
  |
 前 36bit 固定为对应的的时间戳(精度为秒)
 ```
+
+### GUID
+
+特指微软对 UUID 标准的实现
 
 ### ULID
 
