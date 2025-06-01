@@ -151,6 +151,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
 
+Changelog
+https://github.com/conventional-changelog/conventional-changelog
+https://github.com/conventional-changelog/standard-version
+
+
 https://andreasbm.github.io/web-skills/
 
 https://github.com/cli-guidelines/cli-guidelines/blob/main/content/_index.md#philosophy-philosophy

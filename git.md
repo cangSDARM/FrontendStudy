@@ -58,6 +58,8 @@ ProxyCommand connect -S 127.0.0.1:1080 %h %p
 大小写问题
 
 ```bash
+git config core.ignorecase false
+
 git mv -f file.tsx File.tsx
 ```
 

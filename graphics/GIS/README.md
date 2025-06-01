@@ -7,6 +7,10 @@
 - [Gis Data](#gis-data)
   - [地形 Terrain](#地形-terrain)
   - [影像 Imagery](#影像-imagery)
+    - [3D Tiles](#3d-tiles)
+  - [数据下载和处理](#数据下载和处理)
+    - [下载](#下载)
+    - [处理](#处理)
 - [编程语言](#编程语言)
   - [Js](#js)
     - [Openlayers](#openlayers)
@@ -163,7 +167,42 @@ Gis 存储通常放在 database 里，所以 sql 非常重要。Gis 扩展了 sq
 - Small Terrain 基于 Heightmap 的地形(仅有法线数据)，中等分辨率
 - STK World Terrain 基于 TIN 的地形(包含其他可以供 Shader 渲染的)，高分辨率
 
+常用处理
+
+- 分析
+  - 等高线分析
+  - 坡度分析
+  - 坡向分析
+  - 地形挖方分析
+- 处理
+  - 夸张(Exaggeration)
+  - 采样(Sampler)
+  - 裁剪(Clipping)
+  - 三角网(Wireframe)
+
 ### 影像 Imagery
+
+#### 3D Tiles
+
+在 glTF 基础上，加入了分层 LOD，专门为流式传输和渲染 3D 地理空间数据而设计
+
+瓦片集(Tileset)由一组瓦片(Tile)按照空间数据结构(树状)组织，包含：
+
+- 描述的 JSON 文件
+- 批处理 3D 模型(Batched 3D Model, .b3dm): 异构模型。例如带纹理的地形和表面，3D 建筑内外部，大型模型
+- 实例化 3D 模型(Instanced 3D Model, .i3dm): 树木、风车、螺栓等
+- 点云(Point Cloud, .pnts): 大量的点
+- 复合(Composite, .cmpt)
+
+### 数据下载和处理
+
+#### 下载
+
+地理空间数据云、BIGMAP、太乐地图、图新地球LocaSpace Viewer、奥维互动地图、91地图助手、水经注、Global Mapper、SRTM DATA
+
+#### 处理
+
+CesiumLab、gdal2srtmtiles、github/ahuarte47/cesium-terrain-builder
 
 ## 编程语言
 
