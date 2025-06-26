@@ -1,0 +1,49 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.17.4
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Wed Jun 25 14:59:53 2025"
+  rime_version: 1.13.1
+patch:
+  "style/hover_type": semi_hilite
+
+  "style/display_tray_icon": false
+  "style/horizontal": true #横排显示
+
+  "style/font_point": 14 #字体大小
+  "style/label_font_point": 14
+  "style/inline_preedit": true # 嵌入式候选窗单行显示
+  "style/layout/corner_radius": 8 #圆角幅度
+  "style/layout/hilited_corner_radius": 6
+  "style/layout/hilite_padding_x": 6
+  "style/layout/hilite_padding_y": 4
+  "style/layout/hilite_spacing": 10 # 序号和候选字之间的间隔
+  "style/layout/margin_x": 8 #候选字左右边距
+  "style/layout/margin_y": 7 #候选字上下边距
+  "style/layout/spacing": 16 #不知道干嘛的，在weasel下好像没有效果
+  "style/layout/candidate_spacing": 16 # 候选字间隔
+  "style/layout/round_corner": 2 #候选字背景色块圆角幅度
+  "style/layout/border_width": 2
+  "style/layout/shadow_radius": 10
+  "style/layout/shadow_offset_x": 0
+  "style/layout/shadow_offset_y": 4
+  "style/color_scheme": microsoft
+
+preset_color_schemes:
+  microsoft:
+    name: "Microsoft Pinyin"
+    author: Unknown
+    color_format: rgba
+    shadow_color: 0x2600000F #整体阴影
+    label_color: 0x5b5b5b #预选编号
+    text_color: 0x191919 #文字颜色
+    back_color: 0xF9F9F9 #候选框 背景色
+    border_color: 0xeeeeee #候选框 边框颜色
+    candidate_text_color: 0x191919 #未候选字颜色
+    hilited_shadow_color: 0x26000000 #编码背景块阴影颜色（inline predict模式无效）
+    hilited_label_color: 0x0067c0 #已选择编号颜色
+    hilited_text_color: 0xF9f9f9 #已选择字 文字颜色
+    hilited_back_color: 0xf9f9f9 #已选择字 背景色
+    hilited_candidate_text_color: 0x292929 #候选字颜色
+    hilited_candidate_back_color: 0xafafaf #候选字背景色
+    hilited_candidate_shadow_color: 0x2600000F

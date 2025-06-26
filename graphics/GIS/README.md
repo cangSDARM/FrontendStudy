@@ -208,6 +208,9 @@ CesiumLab、gdal2srtmtiles、github/ahuarte47/cesium-terrain-builder
 
 ### Js
 
+- gcoord 地理坐标转换
+- @deck.gl 2维地图(分层数据)的显示
+
 #### Openlayers
 
 基于 prototype.js 的 2.5D 地图

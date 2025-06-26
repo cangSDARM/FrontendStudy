@@ -1,0 +1,24 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.17.4
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Wed Jun 25 14:59:43 2025"
+  rime_version: 1.13.1
+patch:
+  "key_binder/bindings/+":
+    - { accept: comma, send: Page_Up, when: paging }
+    - { accept: period, send: Page_Down, when: has_menu }
+    - { when: always, send: commit_code, accept: Shift+space } # 切换中英
+  schema_list:
+    - { schema: rime_ice }
+  ascii_composer/switch_key/Shift_L: noop
+  menu/page_size: 8
+  switches/reset: 1
+
+  switcher:
+    caption: 「方案选单」
+    hotkeys:
+      # - F4
+      - Control+grave
+      # - Control+Shift+grave
+      # - Alt+grave
