@@ -6,6 +6,7 @@
 
 - [Http](./http.md)
 - [WebSocket](./WebSocket/README.md)
+  - [SocketIo](./SocketIo/README.md)
 - [WebRTC](./WebRTC/README.md)
 - [Server-Sent-Event](./SSE.md)
 - [Comet](./Comet.md)
