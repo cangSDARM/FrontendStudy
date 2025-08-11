@@ -14,12 +14,6 @@ https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
 
-DI
-https://www.cnblogs.com/front-end-ralph/p/5208045.html
-https://www.cnblogs.com/leoo2sk/archive/2009/06/17/di-and-ioc.html
-https://blog.csdn.net/nongshuqiner/article/details/78792174
-https://segmentfault.com/a/1190000016928319
-
 https://json-ld.org/
 https://csvbase.com/blog/13
 
@@ -52,8 +46,6 @@ https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-cl
 https://thecopenhagenbook.com/
 
 https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
-
-https://dev.to/ifourtechnolab/how-to-use-web-workers-in-reactjs-a-step-by-step-guide-2oo1
 
 https://github.com/ValdikSS/GoodbyeDPI
 
@@ -149,7 +141,15 @@ https://github.com/sindresorhus/promise-fun
 
 https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 
+https://github.com/sdl60660/river-runner/tree/main
+
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
+
+TTS
+https://jsdev.space/tts-sentence-reader/
+
+Audio: ultrasound
+https://halcy.de/blog/2025/06/27/transmitting-data-via-ultrasound-without-any-special-equipment/
 
 Changelog
 https://github.com/conventional-changelog/conventional-changelog
