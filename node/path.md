@@ -1,54 +1,8 @@
-- [流](#流)
-- [fs](#fs)
-  - [检查入口文件](#检查入口文件)
-  - [文本读取](#文本读取)
-- [path](#path)
-  - [解析](#解析)
-  - [规范化](#规范化)
-  - [连接路径](#连接路径)
-  - [Glob](#glob)
-  - [AppRootPath](#approotpath)
-- [Process](#process)
-  - [spawn](#spawn)
-
-## [流](/DataFlow/stream.md)
-
-## fs
-
-- "l"开头的函数通常操作符号链接: `fs.lchmodSync`
-- "f"开头的函数通常管理文件描述符: `fs.fstatSync`
-
-### 检查入口文件
-
-```js
-// CJS
-if (require.main === module) {
-  // Main CommonJS module
-}
-
-// ESM
-if (import.meta.url.startsWith("file:")) {
-  // (A)
-  // 如果我们确信我们的代码总是在本地运行，我们可以省略 A 中的检查
-  const modulePath = url.fileURLToPath(import.meta.url);
-  if (process.argv[1] === modulePath) {
-    // (B)
-    // Main ESM module
-  }
-}
-```
-
-### 文本读取
-
-```js
-// 将字符串按行分割
-const RE_SPLIT_AFTER_EOL = /(?<=\r?\n)/;
-function splitLinesWithEols(str) {
-  return str.split(RE_SPLIT_AFTER_EOL);
-}
-```
-
-## path
+- [解析](#解析)
+- [规范化](#规范化)
+- [连接路径](#连接路径)
+- [Glob](#glob)
+- [AppRootPath](#approotpath)
 
 ### 解析
 
@@ -155,30 +109,4 @@ export const fromAppRootPath = !rootPathCache
       return rootPathCache;
     }
   : (filename = "") => path.join(rootPathCache, filename);
-```
-
-## Process
-
-### spawn
-
-```ts
-const spawnProcess = (command: string, args: readonly string[]) => {
-  const process = spawn(command, args, {
-    shell: true,
-    stdio: "inherit",
-  });
-
-  process.on("error", error);
-  process.stderr?.on("error", error);
-
-  return {
-    process,
-    awaitClose: async () =>
-      new Promise<{ code: number | null; signal: NodeJS.Signals | null }>(
-        (r) => {
-          process.on("close", (code, signal) => r({ code, signal }));
-        }
-      ),
-  };
-};
 ```

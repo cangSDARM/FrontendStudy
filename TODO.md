@@ -36,7 +36,7 @@ https://github.com/partykit/partykit/tree/main/packages/partysocket
 
 https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
-https://mrkaran.dev/posts/travel-tailscale/
+https://blog.l3zc.com/2025/04/tailscale-setup-recap/
 
 Authentications
 https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
@@ -44,8 +44,6 @@ https://auth.wiki/zh
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth
 https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F
 https://thecopenhagenbook.com/
-
-https://www.digitalocean.com/community/tutorials/how-to-scale-node-js-applications-with-clustering
 
 https://github.com/ValdikSS/GoodbyeDPI
 
@@ -120,6 +118,10 @@ Hash function quality and speed tests
 https://github.com/rurban/smhasher
 
 https://pavel-romanov.com/building-semaphore-and-mutex-in-nodejs
+
+https://llimllib.github.io/bloomfilter-tutorial/zh_CN/
+
+https://zoom.earth/
 
 hyperloglog
 https://hzhu212.github.io/posts/365f8e92
@@ -616,8 +618,6 @@ book https://thecomputersciencebook.com/book/computer-architecture/
 How to Create Cool Bounce Effects Using a Loop  https://www.youtube.com/watch?v=BRR7x-uLoWE
 
 Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
-
-https://snyk.io/blog/node-js-multithreading-with-worker-threads/
 
 sim (series) game ui design https://news.ycombinator.com/item?id=34573406
 
