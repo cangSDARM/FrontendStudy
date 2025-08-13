@@ -84,8 +84,6 @@ https://auto-animate.formkit.com/#usage
 https://github.com/baotlake/periodic-table-pro
 https://github.com/evrimagaci/periodum
 
-https://taxodium.ink/setup-blog-color-scheme.html
-
 https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 
 ts moduleResolution 总结
@@ -133,7 +131,7 @@ https://github.com/clarkduvall/hyperloglog
 https://zhuanlan.zhihu.com/p/271186546
 
 Steganography
-https://github.com/djhworld/steg
+https://rgxy.github.io/ctf/2016/11/29/introduction_to_stereo.html
 
 https://news.ycombinator.com/item?id=36756504
 
@@ -146,9 +144,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 https://github.com/sdl60660/river-runner/tree/main
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
-
-TTS
-https://jsdev.space/tts-sentence-reader/
 
 Audio: ultrasound
 https://halcy.de/blog/2025/06/27/transmitting-data-via-ultrasound-without-any-special-equipment/
@@ -233,7 +228,7 @@ https://youtu.be/e5M_5jKPaL4
 
 book https://exploringjs.com/js/book/ch_regexps.html
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_nodejs-child-process.html
+book https://exploringjs.com/nodejs-shell-scripting/ch_installing-packages.html
 
 CSSStyleSheet
 https://segmentfault.com/a/1190000018194545
@@ -287,8 +282,6 @@ http://www.hackdig.com/06/hack-46619.htm
 
 book https://pandolia.net/tinyc/
 
-https://github.com/evanw/float-toy
-
 Stanford CS Curriculum : Stanford
 https://docs.google.com/spreadsheets/d/1zfw8nPvJeewxcFUBpKUKmAVE8PjnJI7H0CKimdQXxr0/htmlview
 
@@ -315,7 +308,7 @@ book Linux工具教程 https://linuxtools-rst.readthedocs.io/zh_CN/latest/
 
 book https://github.com/huangz1990/real-world-haskell-cn
 
-fast sin cos calculate http://www.longluo.me/blog/2023/06/07/CORDIC-algorithm/
+fast sin cos calculate https://www.longluo.me/blog/cordic/
 
 监控平台，需要自己搭建，类似于 sentry https://github.com/highlight/highlight
 
@@ -443,10 +436,6 @@ packing problem https://erich-friedman.github.io/packing/
 https://github.com/JuliaPlots/UnicodePlots.jl
 
 book https://google.github.io/comprehensive-rust/
-
-https://secretgeek.github.io/html_wysiwyg/html.html
-
-https://noyaml.com/
 
 https://github.com/lucaong/minisearch
 
@@ -592,8 +581,6 @@ build 8-bit computer https://www.youtube.com/watch?v=kRlSFm519Bo&list=PLowKtXNTB
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
-https://github.com/kochrt/qr-designer
-
 https://onevariable.com/blog/phase-locked-state-machines/
 
 Programming Languages: Application and Interpretation
@@ -676,8 +663,6 @@ https://blog.youmu.moe/posts/finding-nice-md5s-using-rust/
 https://brevzin.github.io/c++/2023/01/02/rust-cpp-format/
 
 https://www.construct.net/en/blogs/ashleys-blog-2/rts-devlog-beat-lag-1607
-
-https://marioslab.io/posts/rendering-like-its-1996/dos-nostalgia/
 
 SRP  —  更健全的登入及資料傳輸保護協議
 https://blog.amis.com/srp-1f28676aa525

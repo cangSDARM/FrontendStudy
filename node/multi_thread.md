@@ -1,16 +1,19 @@
-- [Process](#process)
+- [Child Process](#child-process)
   - [spawn](#spawn)
+  - [多个 process 间转发消息](#多个-process-间转发消息)
 - [Cluster](#cluster)
   - [进程守护](#进程守护)
   - [进程间通讯](#进程间通讯)
   - [负载均衡策略](#负载均衡策略)
 - [Worker Threads](#worker-threads)
 
-## Process
+## Child Process
 
 ### spawn
 
 ```ts
+import { spawn } from "node:child_process";
+
 const spawnProcess = (command: string, args: readonly string[]) => {
   const process = spawn(command, args, {
     shell: true,
@@ -24,12 +27,53 @@ const spawnProcess = (command: string, args: readonly string[]) => {
     process,
     awaitClose: async () =>
       new Promise<{ code: number | null; signal: NodeJS.Signals | null }>(
-        (r) => {
-          process.on("close", (code, signal) => r({ code, signal }));
+        (solve, reject) => {
+          process.once("exit", (code, signal) => {
+            if (code === 0) solve({ code, signal });
+            else reject({ code, signal });
+          });
+          process.once("error", reject);
         },
       ),
   };
 };
+```
+
+### 多个 process 间转发消息
+
+使用 stdio 来转发
+
+```js
+const echo = spawn(
+  // (A)
+  `echo cherry && echo apple && echo banana`,
+  {
+    stdio: ["ignore", "pipe", "inherit"],
+    shell: true,
+  },
+);
+const sort = spawn(
+  // (B)
+  `sort`,
+  {
+    stdio: ["pipe", "pipe", "inherit"],
+    shell: true,
+  },
+);
+
+//==== Transferring chunks from echo.stdout to sort.stdin ====
+const echoOut = Readable.toWeb(echo.stdout.setEncoding("utf-8"));
+const sortIn = Writable.toWeb(sort.stdin);
+
+const sortInWriter = sortIn.getWriter();
+try {
+  for await (const chunk of echoOut) {
+    // (C)
+    await sortInWriter.write(chunk);
+  }
+} finally {
+  sortInWriter.close();
+}
 ```
 
 ## Cluster
