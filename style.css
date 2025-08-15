@@ -153,3 +153,12 @@ a:link {
   /* light mode 下 color 用 black, dark mode 下 color 用 white */
   color: light-dark(black, white);
 }
+/** 或者使用 计算相对颜色 */
+.element {
+  --color: white;
+  --darken: -255;
+
+  color: rgb(
+    from var(--color) calc(r + var(--darken)) calc(g + var(--darken)) calc(b + var(--darken))
+  ); /* result = rgb(0, 0, 0). 支持所有颜色空间 */
+}

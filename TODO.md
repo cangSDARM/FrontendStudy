@@ -110,6 +110,13 @@ https://gamedevelopment.tutsplus.com/
 企业架构建模 https://www.archimatetool.com/
 https://www.opengroup.org/archimate-forum/archimate-overview
 
+https://www.ducktyped.org/p/why-is-it-called-a-cloud-if-its-not
+
+https://github.com/brucefan1983/CUDA-Programming
+
+https://www.chipstrat.com/p/gpu-networking-basics-part-1
+
+
 https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 
 Hash function quality and speed tests
