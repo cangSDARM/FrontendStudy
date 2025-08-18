@@ -118,15 +118,19 @@ const complement =
     !predicate(...args);
 complement(Boolean)(false);
 
+const compose = (...fn) => fn.length === 0 ? (arg) => arg : fn.reduce((a, b) => (arg) => a(b(arg)));
+const h = compose(curry(add)(1), curry(plus)(2)); // h(x) = g(f(x))
+h(2); // => (2 + 1) * 2 === 6
+
 const transduce = 
   (trans, accel, init, input) =>
   input.reduce((acc, cur)
     => accel(acc, trans(cur)),
     init
   );
-const transformer = pipe(curry(add)(1), filter(isEven));
-const accelerator = (a, b) => a.push(b);
 const initial = [];
 const input = [1, 2, 3];
+const accelerator = (acc, b) => acc.push(b);
+const transformer = pipe(curry(add)(1), filter(isEven));
 transduce(transformer, accelerator, initial, input);  // [2,4]
 ```

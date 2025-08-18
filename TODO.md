@@ -8,6 +8,7 @@
 [Fullscreen](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)
 [PointerLock](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
 [Wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
+[单个字内置多种颜色](https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/)
 
 https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
 
@@ -21,20 +22,14 @@ https://ogp.me/
 
 https://tc39.es/proposal-temporal/docs
 
+frosted glass
 https://www.joshwcomeau.com/css/backdrop-filter/
-
-https://easonchang.com/posts/hygen-generate-new-post
 
 https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb484495b442599e35e9a404
 
 https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-animations/
 
-Have a better developer experience using code generators
-https://www.youtube.com/watch?v=SPll1Rxl_Es
-
 https://github.com/partykit/partykit/tree/main/packages/partysocket
-
-https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/
 
 https://blog.l3zc.com/2025/04/tailscale-setup-recap/
 
@@ -110,8 +105,6 @@ https://gamedevelopment.tutsplus.com/
 企业架构建模 https://www.archimatetool.com/
 https://www.opengroup.org/archimate-forum/archimate-overview
 
-https://www.ducktyped.org/p/why-is-it-called-a-cloud-if-its-not
-
 https://github.com/brucefan1983/CUDA-Programming
 
 https://www.chipstrat.com/p/gpu-networking-basics-part-1
@@ -135,6 +128,7 @@ https://www.cnblogs.com/linguanh/p/10460421.html
 https://zhuanlan.zhihu.com/p/58519480
 https://github.com/clarkduvall/hyperloglog
 
+基数估计算法
 https://zhuanlan.zhihu.com/p/271186546
 
 Steganography
@@ -173,8 +167,6 @@ https://swtch.com/~rsc/regexp/regexp4.html
 
 https://red3d.com/cwr/boids/
 
-https://blog.kaciras.com/article/23/icanalyzer-development-log
-
 webp
 https://www.cnblogs.com/cr330326/p/12809418.html
 https://blog.michealwayne.cn/2021/02/06/notes/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91webp%E9%9A%8F%E6%89%8B%E8%AE%B0/
@@ -183,7 +175,7 @@ https://github.com/deepkolos/awebp
 
 https://blog.acolyer.org/
 
-https://www.patterns.dev/posts
+https://www.patterns.dev/
 
 https://proofwiki.org/wiki/Main_Page
 
@@ -233,7 +225,7 @@ https://roberthodgin.com/
 HMR
 https://youtu.be/e5M_5jKPaL4
 
-book https://exploringjs.com/js/book/ch_regexps.html
+book https://exploringjs.com/js/book/ch_dates.html
 
 book https://exploringjs.com/nodejs-shell-scripting/ch_installing-packages.html
 

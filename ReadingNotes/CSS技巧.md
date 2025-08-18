@@ -1,42 +1,25 @@
 <!-- TOC -->
 
 - [CSS3 中的新规则](#css3-中的新规则)
-  - [自定义变量](#自定义变量)
   - [访问节点属性](#访问节点属性)
   - [单位](#单位)
-  - [新的伪类](#新的伪类)
+  - [伪类](#伪类)
     - [子级匹配选择器](#子级匹配选择器)
-  - [容器查询](#容器查询)
+  - [条件查询](#条件查询)
+    - [父容器尺寸](#父容器尺寸)
+    - [CSS 语法查询](#css-语法查询)
   - [元素形状](#元素形状)
     - [圆角](#圆角)
     - [半圆、多边形](#半圆多边形)
     - [内凹图形](#内凹图形)
   - [文字排版](#文字排版)
     - [文字环绕](#文字环绕)
+  - [主题](#主题)
 - [其他注意事项](#其他注意事项)
 
 <!-- /TOC -->
 
 ## CSS3 中的新规则
-
-[更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)
-
-### 自定义变量
-
-> [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)
-
-1. 一个元素上没有定义自定义属性，该自定义属性的值会继承其父元素
-
-```css
-div {
-  /*定义*/
-  --div-color: #555;
-}
-span {
-  /*使用*/
-  color: var(--div-color);
-}
-```
 
 ### 访问节点属性
 
@@ -98,19 +81,26 @@ html {
 }
 ```
 
-### 新的伪类
+### 伪类
 
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Selectors)
 
 ```css
-:root {};   /*匹配文档树的根元素。对于 HTML 来说，:root 表示 <html> 元素，除了优先级更高之外，与 html 选择器相同*/
-:defined {}; /*表示任何已定义的元素。这包括任何浏览器内置的标准元素以及已成功定义的自定义元素 (例如通过 CustomElementRegistry.define() 方法)*/
-:default {};    /*表示一组相关元素中的默认表单元素。如: button, input, option*/
-:empty {};  /*代表没有子元素的元素。子元素只可以是元素节点或文本（包括空格）*/
-:first-of-type {};  /*选择在父元素中第一个出现的元素，而不管其在兄弟内的位置如何*/
-:focus-within {};   /*元素自身或者它的某个后代匹配:focus伪类*/
-:indeterminate {};  /*表示状态不确定的表单元素*/
-:is(div, span, p, ul); /*和 div,span,p,ul {} 一样，但是这样可以组合更为复杂的样式*/
+:root {
+} /*匹配文档树的根元素。对于 HTML 来说，:root 表示 <html> 元素，除了优先级更高之外，与 html 选择器相同*/
+:defined {
+} /*表示任何已定义的元素。这包括任何浏览器内置的标准元素以及已成功定义的自定义元素 (例如通过 CustomElementRegistry.define() 方法)*/
+:default {
+} /*表示一组相关元素中的默认表单元素。如: button, input, option*/
+:empty {
+} /*代表没有子元素的元素。子元素只可以是元素节点或文本（包括空格）*/
+:first-of-type {
+} /*选择在父元素中第一个出现的元素，而不管其在兄弟内的位置如何*/
+:focus-within {
+} /*元素自身或者它的某个后代匹配:focus伪类*/
+:indeterminate {
+} /*表示状态不确定的表单元素*/
+:is(div, span, p, ul) ; /*和 div,span,p,ul {} 一样，但是这样可以组合更为复杂的样式*/
 ```
 
 #### 子级匹配选择器
@@ -126,13 +116,15 @@ parent:has(child) {
 }
 ```
 
-### 容器查询
+### 条件查询
+
+#### 父容器尺寸
 
 支持查询父容器大小来实现响应式
 
 ```css
 parent {
-  container-type: inline-size;  /*现在只有这个可用*/
+  container-type: inline-size; /*现在只有这个可用*/
   container-name: Cont;
 }
 
@@ -140,8 +132,19 @@ parent {
 /* name 写了只能用于表明的 container */
 @container Cont (size condition) {
   /*内部的元素及可方便设置*/
-  .child-cls {}
-  #child-id {}
+  .child-cls {
+  }
+  #child-id {
+  }
+}
+```
+
+#### CSS 语法查询
+
+```css
+/* 检测css语法支持情况, 判断的css语法有效则执行内部css */
+@supports (transform-origin: 5%) {
+  /* specific rules */
 }
 ```
 
@@ -203,6 +206,43 @@ img {
   shape-margin: 2px;
   /* shape 边缘 alpha 的阈值 */
   shape-image-threshold: 0.7;
+}
+```
+
+### 主题
+
+```css
+.element {
+  color-scheme: light;
+}
+/** 使用 media-query */
+@media (prefers-color-scheme: light) {
+  .element {
+    color: black;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .element {
+    color: white;
+  }
+}
+/** 或者使用 light-dark */
+.element {
+  /* fallback 的颜色，当用户浏览器不支持 color: light-dark(black, white); 时，回退到这个颜色 */
+  color: black;
+  /* light mode 下 color 用 black, dark mode 下 color 用 white */
+  color: light-dark(black, white);
+}
+/** 或者使用 计算相对颜色 */
+.element {
+  --color: white;
+  --darken: -255;
+
+  color: rgb(
+    from var(--color) calc(r + var(--darken)) calc(g + var(--darken)) calc(
+        b + var(--darken)
+      )
+  ); /* result = rgb(0, 0, 0). 支持所有颜色空间 */
 }
 ```
 

@@ -3,6 +3,7 @@
   - [在线和离线事件](#在线和离线事件)
 - [CSS 处理](#css-处理)
   - [媒体查询](#媒体查询)
+  - [keyframe 动画](#keyframe-动画)
 - [检查/搜索元素](#检查搜索元素)
   - [父元素](#父元素)
   - [当前元素](#当前元素)
@@ -83,6 +84,25 @@ style.cssText; //对整个 "style" 进行替换
 
 ```js
 window.matchMedia("(min-width: 500px)").addListener(Callback);
+```
+
+### keyframe 动画
+
+```js
+var element = document.querySelector(".animate-me");
+var keyframes = [
+  { transform: "rotate(0)", easing: "ease-out" },
+  { transform: "rotate(180deg)", easing: "ease-out" },
+  { transform: "rotate(0)" },
+];
+var animation = element.animate(keyframes, {
+  duration: 700,
+  easing: "ease-out",
+});
+animation.playbackRate = 2;
+animation.finished.then(() => {
+  console.log(element.getAnimations());
+});
 ```
 
 ## 检查/搜索元素

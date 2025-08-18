@@ -73,11 +73,6 @@ div[id="id"] {
   right: 30px;
 }
 
-/* 父元素的样式（仅在子元素有 target 样式时生效） */
-.parent:has(> p.truncated) {
-  max-width: 0;
-}
-
 /* [attribute~='value'] */
 [class~="text"] {
   /*class="value another else"*/
@@ -126,39 +121,13 @@ a:link {
   src: url("Sansation_Light.ttf"), url("Sansation_Light.eot"); /* IE9 */
 }
 
-/* 检测css语法支持情况, 判断的css语法有效则执行内部css */
-@supports (transform-origin: 5%) {
-  /* specific rules */
+/** 自定义变量 */
+/** 一个元素上没有定义自定义属性，该自定义属性的值会继承其父元素 */
+div {
+  /*定义*/
+  --div-color: #555;
 }
-
-/** 主题 */
-.element {
-  color-scheme: light;
-}
-/** 使用 media-query */
-@media (prefers-color-scheme: light) {
-  .element {
-    color: black;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .element {
-    color: white;
-  }
-}
-/** 或者使用 light-dark */
-.element {
-  /* fallback 的颜色，当用户浏览器不支持 color: light-dark(black, white); 时，回退到这个颜色 */
-  color: black;
-  /* light mode 下 color 用 black, dark mode 下 color 用 white */
-  color: light-dark(black, white);
-}
-/** 或者使用 计算相对颜色 */
-.element {
-  --color: white;
-  --darken: -255;
-
-  color: rgb(
-    from var(--color) calc(r + var(--darken)) calc(g + var(--darken)) calc(b + var(--darken))
-  ); /* result = rgb(0, 0, 0). 支持所有颜色空间 */
+span {
+  /*使用*/
+  color: var(--div-color);
 }

@@ -10,11 +10,16 @@
   - [TypedArray](#typedarray)
   - [Binary Operators](#binary-operators)
   - [Blob](#blob)
+  - [Regex](#regex)
+    - [RegExp 的/g 死循环](#regexp-的g-死循环)
+    - [差交并补集](#差交并补集)
+    - [扩展 unicode 支持](#扩展-unicode-支持)
+    - [断言](#断言)
+    - [内联标识符](#内联标识符)
 - [Tip](#tip)
     - [FinalizationRegistry](#finalizationregistry)
     - [Object.preventExtensions](#objectpreventextensions)
     - [Object.seal](#objectseal)
-    - [RegExp 的/g 死循环](#regexp-的g-死循环)
     - [尾调用优化](#尾调用优化)
     - [自定义 JSON 格式](#自定义-json-格式)
 
@@ -54,11 +59,6 @@ arr.splice(1, 2); // remove 2 elements begin at index 1, (safely and anyIndexing
 arr.copyWithin(1, 2, 3); // move something in index [2, 3) to [1, 3-(2-1))
 // map、reduce、filter、forEach 等高阶函数沿着数组的索引键遍历。empty array 没有索引键
 Array.from({ length: 2 }); //create non-empty array
-//Reg------------------------------------------------------------------------
-/abc/; // 加载时编译
-new RegExp("abc"); // 运行时编译
-str.replace(/(.*)and/, "$1but"); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
-//使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
 //number------------------------------------------------------------------------
 const clamp = (num: number, min: number, max: number) =>
   Math.min(Math.max(num, min), max);
@@ -187,10 +187,8 @@ if (permission.isAllow(NewPermission.ALLOW_UPDATE | ALLOW_DELETE)) {
 }
 
 // round
-Math.round(somenum) === 
-  (0.5 + somenum) | 0 ===
-  ~~(0.5 + somenum) ===
-  (0.5 + somenum) << 0;
+(Math.round(somenum) === 0.5 + somenum) |
+  ((0 === ~~(0.5 + somenum)) === (0.5 + somenum) << 0);
 // floor
 Math.floor(somenum) === (somenum | 0);
 // euclideanModulo。保持符号位不变的取余
@@ -237,6 +235,90 @@ reader.onload = function () {
 };
 ```
 
+### Regex
+
+```js
+/abc/; // 加载时编译
+new RegExp("abc"); // 运行时编译
+str.replace(/(.*)and/, "$1but"); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
+//使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
+```
+
+#### RegExp 的/g 死循环
+
+```js
+while(/a/g.test('baabaa')) count++;     //dead loop
+while(/a/g.exec('abasbs')) count--;     //dead loop
+//解决办法:
+let reg = /a/g; //将reg提取出来
+while(reg.test() || reg.exec())
+```
+
+#### 差交并补集
+
+要启用字符类的集合操作，必须能够嵌套它们。当标志符 `/v` 时，我们可以额外嵌套字符类
+
+```js
+// 差集
+/[\w--[a-g]]$/v.test("h");
+/[\p{Number}--[0-9]]$/v.test('٣');
+/[\w--a]$/v.test('b');
+
+// 交集
+/[\p{ASCII}&&\p{Letter}]/v.test('D');
+/[\p{Script=Arabic}&&\p{Number}]$/v.test('٣');
+
+// 并集
+/[\p{Emoji_Keycap_Sequence}[a-z]]+$/v.test('a2️⃣c');
+
+// 补集
+/[\P{Letter}]/v.test("1");
+```
+
+#### [扩展 unicode 支持](./字符系统.md)
+
+#### 断言
+
+```js
+// 前向断言
+// regex(?=«pattern»)
+// 仅当 pattern 满足时，匹配 regex
+'abcX def'.match(/[a-z]+(?=X)/g); // abc
+
+// 取反的前向断言
+// regex(?!«pattern»)
+// 当 pattern 满足时，则匹配 regex
+'abcX def'.match(/[a-z]+(?!X)/g); // [abc, def]
+
+// 后向断言
+// (?<=«pattern»)regex
+// 仅当 pattern 满足时，匹配 regex
+'Xabc def'.match(/(?<=X)[a-z]+/g); // abc
+
+// 取反的后向断言
+// (?<!«pattern»)regex
+// 当 pattern 满足时，则匹配 regex
+'Xabc def'.match(/(?<!X)[a-z]+/g); // bc def
+```
+
+#### 内联标识符
+
+只有 `i, m, s` 支持
+
+```js
+// (?«flags»:regex)
+// 激活标识
+
+/^x(?i:HELLO)x$/.test('xHELLOx'); // true
+/^x(?i:HELLO)x$/.test('xhellox'); // true
+
+// (?-«flags»:regex)
+// 取消标识
+
+/^x(?-i:HELLO)x$/i.test('XHELLOX'); // true
+/^x(?-i:HELLO)x$/i.test('XhelloX'); // false
+```
+
 ## Tip
 
 #### FinalizationRegistry
@@ -272,16 +354,6 @@ var obj = Object.create({}, { foo: { value: 1, enumerable: false } });
 Object.seal(obj); //使得无法修改obj的属性(可迭代, 可写, 可配置)
 Object.isSeled(obj); //true
 obj.foo = "b"; //可以修改值
-```
-
-#### RegExp 的/g 死循环
-
-```js
-while(/a/g.test('baabaa')) count++;     //dead loop
-while(/a/g.exec('abasbs')) count--;     //dead loop
-//解决办法:
-let reg = /a/g; //将reg提取出来
-while(reg.test() || reg.exec())
 ```
 
 #### 尾调用优化

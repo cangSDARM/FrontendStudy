@@ -18,8 +18,7 @@
 
 > 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**<br>
 > 数据的交互方式为**传递副本**，而不是直接共享数据<br>
-> workers 运行在另一个全局上下文(self)中, 如tab、window、iframe、worker等<br>
-> [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
+> workers 运行在另一个全局上下文(self)中, 如 tab、window、iframe、worker 等<br> > [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
 
 ### 限制
 
@@ -35,7 +34,7 @@
 const worker = new Worker(new URL("./worker", import.meta.url)); //构造函数采用 Worker 脚本的名称
 // 进程间交互
 // 1. 向其他进程推送消息
-// postMessage每次发消息都会序列化内容,如果数据量大时会产生性能问题. 
+// postMessage每次发消息都会序列化内容,如果数据量大时会产生性能问题.
 // 参考: https://stackoverflow.com/questions/23237611/converting-javascript-2d-arrays-to-arraybuffer
 const buffer = new ArrayBuffer(1);
 worker.postMessage({ data: buffer }, [buffer]);
@@ -89,15 +88,15 @@ const worker = useWorker();
   - [Part3, Workbox](https://developers.google.cn/web/tools/workbox)
 
 ```js
-navigator.serviceWorker.register('/service-worker.js');
+navigator.serviceWorker.register("/service-worker.js");
 
 // service-worker.js
-// Install 
-self.addEventListener('install', function(event) {});
-// Activate 
-self.addEventListener('activate', function(event) {});
+// Install
+self.addEventListener("install", function (event) {});
+// Activate
+self.addEventListener("activate", function (event) {});
 // Listen for network requests from the main document
-self.addEventListener('fetch', function(event) {});
+self.addEventListener("fetch", function (event) {});
 ```
 
 ### Broadcast Channel
@@ -117,7 +116,7 @@ bc.onmessageerror = function (e) {
   console.warn("error:", e);
 };
 // 广播给其他监听了的上下文
-bc.postMessage('hello');
+bc.postMessage("hello");
 bc.close();
 ```
 
@@ -135,7 +134,7 @@ let worker = new SharedWorker("worker.js"); // 将执行的脚本 URL 的 DOMStr
 // page 通过 port 发送消息
 worker.port.postMessage("哼哼");
 // page 通过 port 接收消息
-worker.port.addEventListener('message', (e) => console.log(e.data));
+worker.port.addEventListener("message", (e) => console.log(e.data));
 // 通过 addEventListener 添加的 message event, 需要手动 start
 worker.port.start();
 window.addEventListener("beforeunload", () => {
@@ -144,7 +143,7 @@ window.addEventListener("beforeunload", () => {
 
 // worker.js
 const pool = [];
-self.onconnect = function (e) {
+self.addEventListener("connect", (e) => {
   // 这里的 port 就是 page.js 的 port
   const port = e.ports[0];
 
@@ -157,7 +156,7 @@ self.onconnect = function (e) {
       pool.splice(index, 1);
     }
   };
-};
+});
 const broadcast = (msg) => pool.forEach((port) => port.postMessage(msg));
 ```
 
