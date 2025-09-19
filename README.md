@@ -61,4 +61,5 @@
 [健身](https://github.com/workout-lol/workout-lol)
 [生成ASCII字符画](https://meatfighter.com/ascii-silhouettify/)
 [乐高生成可转动的日心模型](https://marian42.de/article/orrery/)
+[矩阵计算](https://matrixcalc.org/zh-CN/)
 https://magicui.design/docs

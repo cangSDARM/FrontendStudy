@@ -143,6 +143,7 @@ parent {
 
 ```css
 /* 检测css语法支持情况, 判断的css语法有效则执行内部css */
+/* 但不会提高对应语法的优先级，需要自行解决 */
 @supports (transform-origin: 5%) {
   /* specific rules */
 }

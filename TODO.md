@@ -109,6 +109,23 @@ https://github.com/brucefan1983/CUDA-Programming
 
 https://www.chipstrat.com/p/gpu-networking-basics-part-1
 
+https://theodoruszq.wordpress.com/2025/09/06/%e7%8b%ac%e7%ab%8b%e6%95%b0%e5%ad%97%e9%9f%b3%e4%b9%90%e4%bd%9c%e8%80%85-independent-digital-musician/
+
+https://kube.io/blog/liquid-glass-css-svg/
+
+https://github.com/AmyangXYZ/PoPo
+
+https://juejin.cn/post/7294907512444239935
+
+https://www.gatesnotes.com/meet-bill/source-code/reader/microsoft-original-source-code
+
+https://github.com/gordonhart/atlasof.space
+
+https://serial.xywml.com/
+
+https://jrsinclair.com/articles/2025/joy-of-immutable-data-recursion-pure-functions-javascript-mazes/
+
+book https://ghislainfourny.github.io/big-data-textbook/
 
 https://masteringbackend.com/hubs/system-design/system-design-fundamentals
 
@@ -225,9 +242,9 @@ https://roberthodgin.com/
 HMR
 https://youtu.be/e5M_5jKPaL4
 
-book https://exploringjs.com/js/book/ch_dates.html
-
 book https://exploringjs.com/nodejs-shell-scripting/ch_installing-packages.html
+
+https://github.com/Gar-b-age/CookLikeHOC
 
 CSSStyleSheet
 https://segmentfault.com/a/1190000018194545
@@ -468,7 +485,13 @@ https://github.com/google/cdc-file-transfer
 字符串相似度
 https://zhuanlan.zhihu.com/p/91645988
 
-层次分析法AHP https://blog.csdn.net/qq_41686130/article/details/122081827
+层次分析法AHP 
+https://blog.csdn.net/qq_41686130/article/details/122081827
+https://blob.wenxiaobai.com/article/182abba2-d072-d51b-648b-030a43069b9f
+https://spssau.com/helps/weights/ahp.html
+https://berkcanekici.github.io/ahp-analyzer/
+https://github.com/berkcanekici/ahp-analyzer/blob/master/assets/scripts/functions.js
+https://blog.csdn.net/mmm_jsw/article/details/84863416
 
 make a language https://arzg.github.io/lang/
 
@@ -798,6 +821,8 @@ piral tutorial https://www.youtube.com/watch?v=ltTXWEwhSiY&list=PLQ9i8GS-LNXkHE8
 https://blog.bitsrc.io/revolutionizing-micro-frontends-with-webpack-5-module-federation-and-bit-99ff81ceb0
 
 ## game mod
+
+dynamic code instrumentation toolkit https://frida.re/docs/home/
 
 NAND to teris https://www.nand2tetris.org/
 

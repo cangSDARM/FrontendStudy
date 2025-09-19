@@ -10,12 +10,14 @@
   - [TypedArray](#typedarray)
   - [Binary Operators](#binary-operators)
   - [Blob](#blob)
+  - [Date](#date)
   - [Regex](#regex)
     - [RegExp 的/g 死循环](#regexp-的g-死循环)
     - [差交并补集](#差交并补集)
     - [扩展 unicode 支持](#扩展-unicode-支持)
     - [断言](#断言)
     - [内联标识符](#内联标识符)
+    - [捕获替换](#捕获替换)
 - [Tip](#tip)
     - [FinalizationRegistry](#finalizationregistry)
     - [Object.preventExtensions](#objectpreventextensions)
@@ -235,6 +237,26 @@ reader.onload = function () {
 };
 ```
 
+### Date
+
+由于设计问题，方法有对应的时区问题。每个方法的时区都不尽相同
+
+- Use UTC-based operations whenever possible
+- Use Z or a time offset when parsing strings
+
+```js
+//Without Z: Input is January 27 (implicitly in the Europe/Paris time zone), output is January 26 (in UTC).
+new Date("2077-01-27T00:00").toISOString();
+//'2077-01-26T23:00:00.000Z'
+
+// With Z: Input is January 27, output is January 27.
+new Date("2077-01-27T00:00Z").toISOString();
+//'2077-01-27T00:00:00.000Z'
+
+// 时间可以比较（默认转为timestamp后比较）
+assert.equal(new Date("1972-05-03") < new Date("2001-12-23"), true);
+```
+
 ### Regex
 
 ```js
@@ -261,15 +283,15 @@ while(reg.test() || reg.exec())
 ```js
 // 差集
 /[\w--[a-g]]$/v.test("h");
-/[\p{Number}--[0-9]]$/v.test('٣');
-/[\w--a]$/v.test('b');
+/[\p{Number}--[0-9]]$/v.test("٣");
+/[\w--a]$/v.test("b");
 
 // 交集
-/[\p{ASCII}&&\p{Letter}]/v.test('D');
-/[\p{Script=Arabic}&&\p{Number}]$/v.test('٣');
+/[\p{ASCII}&&\p{Letter}]/v.test("D");
+/[\p{Script=Arabic}&&\p{Number}]$/v.test("٣");
 
 // 并集
-/[\p{Emoji_Keycap_Sequence}[a-z]]+$/v.test('a2️⃣c');
+/[\p{Emoji_Keycap_Sequence}[a-z]]+$/v.test("a2️⃣c");
 
 // 补集
 /[\P{Letter}]/v.test("1");
@@ -283,22 +305,22 @@ while(reg.test() || reg.exec())
 // 前向断言
 // regex(?=«pattern»)
 // 仅当 pattern 满足时，匹配 regex
-'abcX def'.match(/[a-z]+(?=X)/g); // abc
+"abcX def".match(/[a-z]+(?=X)/g); // abc
 
 // 取反的前向断言
 // regex(?!«pattern»)
 // 当 pattern 满足时，则匹配 regex
-'abcX def'.match(/[a-z]+(?!X)/g); // [abc, def]
+"abcX def".match(/[a-z]+(?!X)/g); // [abc, def]
 
 // 后向断言
 // (?<=«pattern»)regex
 // 仅当 pattern 满足时，匹配 regex
-'Xabc def'.match(/(?<=X)[a-z]+/g); // abc
+"Xabc def".match(/(?<=X)[a-z]+/g); // abc
 
 // 取反的后向断言
 // (?<!«pattern»)regex
 // 当 pattern 满足时，则匹配 regex
-'Xabc def'.match(/(?<!X)[a-z]+/g); // bc def
+"Xabc def".match(/(?<!X)[a-z]+/g); // bc def
 ```
 
 #### 内联标识符
@@ -309,14 +331,29 @@ while(reg.test() || reg.exec())
 // (?«flags»:regex)
 // 激活标识
 
-/^x(?i:HELLO)x$/.test('xHELLOx'); // true
-/^x(?i:HELLO)x$/.test('xhellox'); // true
+/^x(?i:HELLO)x$/.test("xHELLOx"); // true
+/^x(?i:HELLO)x$/.test("xhellox"); // true
 
 // (?-«flags»:regex)
 // 取消标识
 
-/^x(?-i:HELLO)x$/i.test('XHELLOX'); // true
-/^x(?-i:HELLO)x$/i.test('XhelloX'); // false
+/^x(?-i:HELLO)x$/i.test("XHELLOX"); // true
+/^x(?-i:HELLO)x$/i.test("XhelloX"); // false
+```
+
+#### 捕获替换
+
+```js
+// $$       $ 符号
+// $&       匹配后的内容
+// $`       匹配内容前面的字符(*贪婪)
+// $'       匹配内容后面的字符(*贪婪)
+// $<name>  匹配组
+
+"+0a1 a2".replace("a", "|$`$&|"); // +0|+0a|1 a2
+"+0a1 a2".replace("a", "|$&$'|"); // +0|a1 a2|1 a2
+"+0a1 a2".replace(/(a)(1)/, "|$2$1|"); // +0|1a| a2
+"+0a1 a2".replace(/(?<a>a)(?<n>1)/, "|$<n>$<a>|"); // +0|1a| a2
 ```
 
 ## Tip
