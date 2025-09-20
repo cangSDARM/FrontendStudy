@@ -60,12 +60,14 @@ struct VertexInput {
     @location(0) vertBuffer: VertexBuffer,
 }
 
-// Vertex 对每次渲染过程调用生成顶点，光栅化后 GPU 丢弃不需要的渲染的 pixel
+// Vertex 对每次渲染过程调用生成顶点
+// 当完成一次最小的图元装配要求后，进行光栅化，GPU 丢弃不需要的渲染的 pixel 后
+// 流转至 Fragment
 @stage(vertex) fn v_main(
     // 可以展开写，不需要写 struct
     vert: VertexInput
 ) -> VertexOutPut {
-    // WebGPU的座标空间是归一化后的[-1, 1] (和笛卡尔座标一样)
+    // Vertex 的座标空间是归一化后的[-1, 1] (和笛卡尔座标一样)
     // var == variable; let == const
     var pos = array<vec2f, 3>(
         vec2f( 0.0,  0.5),  // top center
@@ -85,6 +87,7 @@ struct VertexInput {
 }
 
 // Fragment 对每个"可能的 pixel"(对被遮盖不可见的也会处理，除非开启深度测试)调用
+// "pixel" 的位置就由 @builtin(position) 定义
 @fragment fn f_main(
     fsInput: VertexOutPut
 ) -> 

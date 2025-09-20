@@ -51,9 +51,21 @@ context.configure({
 
 ### 准备软件环境
 
-Shader 函数：类似于 js 中的 forEach 函数。
-Vertex 是对每次渲染过程调用生成顶点(光栅化后 GPU 丢弃不需要的渲染的 pixel)；
+Shader 函数：类似于 js 中的 forEach 函数。<br/>
+Vertex 是对每次渲染过程调用生成顶点(光栅化后 GPU 丢弃不需要的渲染的 pixel)；<br/>
+当完成一次最小的图元装配要求后，进行光栅化<br/>
 Fragment 对光栅化后的每个像素做迭代生成(通常是颜色/或者是深度图)
+
+```
+次数并不完全准确。但大致比例是一致的
+|          |   |v_main|               |               |            |f_main|f_main|
+|          |   |v_main| -(primitive)> | Rasterization | -(z-test)> |f_main|f_main|
+|          |   |v_main|     check     |               |            |f_main|f_main|...
+| instance | ->
+|          |   |v_main|               |               |            |f_main|f_main|
+|          |   |v_main| -(primitive)> | Rasterization | -(z-test)> |f_main|f_main|
+|          |   |v_main|     check     |               |            |f_main|f_main|...
+```
 
 渲染画布尺寸：WebGPU 的空间是裁剪的标准化空间(长宽都是[-1,1])
 
@@ -63,7 +75,15 @@ const module = device.createShaderModule({
   label: "some label",
   code: "WGSL (WebGPU Shading Language), based On Vulkan SPIR-V Standard",
 });
-
+// 相当于自定义的 vertex 数据
+const instanceBufferDesc = {
+  arrayStride: 4 + 2 * 4, // 4 bytes + 2 floats, 4 bytes each
+  stepMode: 'instance',  // 表明这个是 per instance 的数据
+  attributes: [
+    { shaderLocation: 1, offset: 0, format: 'unorm8x4' },
+    { shaderLocation: 2, offset: 4, format: 'float32x2' },
+  ]
+};
 // pipeline用于连接硬件和软件
 const pipeline = device.createRenderPipeline({
   label: "some label",
@@ -83,6 +103,7 @@ const pipeline = device.createRenderPipeline({
           { shaderLocation: 1, offset: 4, format: "float32x2" },
         ],
       },
+      instanceBufferDesc,
     ],
   },
   fragment: {
@@ -259,10 +280,10 @@ pass.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight, 0, 1); //可以�
 pass.setPipeline(pipeline);
 pass.setBindGroup(0, bindGroup); // map buffer group
 pass.setVertexBuffer(0, vertexBuffer); //设置 vertexBuffer (@location, buffer)
-pass.setIndexBuffer(indexBuffer, "uint32"); //设置 indexBuffer。indexBuffer用于索引vertexBuffer
-pass.drawIndexed(3, 2); //和 indexed buffer 配合使用
+pass.setIndexBuffer(indexBuffer, "uint32"); //设置 indexBuffer
+pass.drawIndexed(3, 2); //和 indexed buffer 配合使用。每次提取一个索引，每 3 次完成一个三角形
 // pass.dispatchWorkgroups(input.length); // call compute shader 3 times
-pass.draw(3, 2); // call our vertex shader 3 * 2 times (per 2 vs, 3 times)
+pass.draw(3, 2); // call our vertex shader 3vertex * 2instance times
 pass.draw(6); // end 前 draw 的都会保留
 // render pass 完成，准备提交
 pass.end();

@@ -780,6 +780,8 @@ book https://jinleili.github.io/learn-wgpu-zh/beginner/tutorial1-window
 
 book https://sotrh.github.io/learn-wgpu/
 
+book https://jinleili.github.io/lern-wgpu-zh/
+
 book https://google.github.io/tour-of-wgsl/
 
 https://github.com/jinleili/simuverse
