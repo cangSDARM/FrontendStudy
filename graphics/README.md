@@ -4,6 +4,7 @@
   - [GIS](./GIS/README.md)
   - [Threejs](./Threejs/README.md)
 - [WebGPU](./WebGPU/README.md)
+- [光照](./lights.md)
 
 [动画 timing 函数的实现](https://zh.javascript.info/js-animation)
 
