@@ -24,7 +24,7 @@ Capital means its absolute path, otherwase be relative coordinate
 |    Q    |    quadratic to     |                      (x1 y1 x y)+                      |                              [Quadratic Bézier curve](#quadratic-bézier-curve)                              |
 |    T    |   smooth curve to   |                         (x y)+                         |                                        Smooth Quadratic Bézier curve                                        |
 |    A    |   elliptical arc    | (rx ry x-axis-rotation large-arc-flag sweep-flag x y)+ |                                           [Elliptical Arc](#arc)                                            |
-|    R    | Catmull-Rom crve to |                      (x1 y1 x y)+                      | [Catmull-Rom](<(http://en.wikipedia.org/wiki/Catmull%E2%80%93Rom_spline#Catmull.E2.80.93Rom_spline)>) Curve |
+|    R    | Catmull-Rom curve to |                      (x1 y1 x y)+                      | [Catmull-Rom](<(http://en.wikipedia.org/wiki/Catmull%E2%80%93Rom_spline#Catmull.E2.80.93Rom_spline)>) Curve |
 
 ### Cubic Bézier curve
 
@@ -33,7 +33,7 @@ Sample
 ```html
 <!-- M20 20 , Start Point -->
 <!-- C60 80, 140, 80, 180 20
-    Left Controll Point, Right Controll Point, End Point -->
+    Left Control Point, Right Control Point, End Point -->
 <path d="M20 20 C60 80, 140 80, 180 20" stroke="#fff" fill="none"></path>
 ```
 

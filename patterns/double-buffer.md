@@ -7,6 +7,8 @@
 - 需要防止请求状态的外部代码知道内部的工作方式
 - 需要读取状态，而且不想等着修改完成
 
+> 当前状态为读准备，下一状态为写准备
+
 ```typescript
 class Framebuffer {
   constructor(private WIDTH: number, private HEIGHT: number) {

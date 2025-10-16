@@ -61,6 +61,12 @@
     // 如果 xx === package.name，则可以写成 bin: "./bin.mjs"
     xx:  "./script/bin.mjs",
   },
+  scripts: {
+    /* Pre 和 Post 可以用于任意的 scripts */
+    hello: "echo hello",
+    prehello: "echo Before",
+    posthello: "echo After",
+  },
   dependencies: {
     // 本地依赖
     aa: "file:../xx",

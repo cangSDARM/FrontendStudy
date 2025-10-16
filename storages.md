@@ -72,10 +72,10 @@ sessionStorage.clear();
 
 may should try to use library. native one is not so friendly
 
-[对应的 API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)<br/>
 [简要说明](https://zh.javascript.info/indexeddb)<br/>
 [dexie](https://dexie.org/)<br/>
 [rxdb](https://rxdb.info/)<br/>
+[idb](https://github.com/jakearchibald/idb)<br/>
 
 ## CacheStorage
 

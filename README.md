@@ -43,6 +43,7 @@
   - https://hughfenghen.github.io/posts/2023/12/23/web-spy/
 - [通过验证码(css:visited)检索你的浏览历史](https://varun.ch/history)
 - [检查网页各种信息](https://github.com/lissy93/web-check)
+- [webkit scrollbar定制](https://juejin.cn/post/7139049177656819749)
 
 ## 未分类
 

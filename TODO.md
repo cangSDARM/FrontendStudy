@@ -15,7 +15,6 @@ https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
 
-https://json-ld.org/
 https://csvbase.com/blog/13
 
 https://ogp.me/
@@ -43,6 +42,11 @@ https://thecopenhagenbook.com/
 https://github.com/ValdikSS/GoodbyeDPI
 
 http://www.dayanzai.me/inno-setup-patch-update.html
+
+https://primer.prooftrading.com
+
+FMEA (失效模式和分析)
+https://blogs.csdn.net/weixin_44280696/article/details/133255295
 
 https://developer.chrome.com/capabilities/
 
@@ -81,6 +85,13 @@ https://github.com/evrimagaci/periodum
 
 https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 
+中文排版
+https://www.w3.org/TR/clreq/#h_inline
+
+换行最小锯齿方法
+https://en.wikipedia.org/wiki/Knuth%E2%80%93Plass_line-breaking_algorithm
+https://news.ycombinator.com/item?id=1134342
+
 ts moduleResolution 总结
 https://juejin.cn/post/7221551421833314360
 
@@ -97,7 +108,7 @@ https://github.com/ByteByteGoHq/system-design-101
 https://cblgh.org/trustnet/
 
 book https://gameprogrammingpatterns.com/introduction.html
-https://gpp.tkchu.me/double-buffer.html
+https://gpp.tkchu.me/update-method.html
 
 https://gamedevelopment.tutsplus.com/
 
@@ -242,7 +253,7 @@ https://roberthodgin.com/
 HMR
 https://youtu.be/e5M_5jKPaL4
 
-book https://exploringjs.com/nodejs-shell-scripting/ch_installing-packages.html
+book https://exploringjs.com/deep-js/ch_about-book.html
 
 https://github.com/Gar-b-age/CookLikeHOC
 
