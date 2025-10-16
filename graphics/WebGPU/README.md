@@ -6,7 +6,6 @@
   - [渲染 + 读取数据](#渲染--读取数据)
 - [Trivia](#trivia)
   - [计算字节偏移数](#计算字节偏移数)
-  - [Mipmap](#mipmap)
   - [Format](#format)
   - [Coordinates](#coordinates)
   - [Stride](#stride)
@@ -311,16 +310,6 @@ console.log("result", result);
 ### 计算字节偏移数
 
 https://webgpufundamentals.org/webgpu/lessons/resources/wgsl-offset-computer.html
-
-### Mipmap
-
-因为 Texture UV 是浮点数，而 pixel 是整数，因此在采样 UV 颜色生成 pixel 时，会[产生闪烁](https://webgpufundamentals.org/webgpu/lessons/webgpu-textures.html#:~:text=minFilter)。解决方法就是使用较小的 Texture 去处理(颜色已经人为混合，更为集中单一，因此采样后混合的颜色*看上去*不会闪烁)
-
-Mipmap 生成过程：用纹理创建一个更小的纹理，每个维度都是一半大小，四舍五入。然后用第一个原始纹理的混合颜色填充较小的纹理。重复这个过程，直到得到 1x1 的纹理。如：假设有一个 5x7 的纹理。首先在每个维度上除以 2，然后四舍五入得到一个 2x3 的纹理。重复，直到得到 1x1 的纹理。
-
-而 Mipmap 也有新问题。当处于特定的显示规格尺寸不上不下，Mipmap 不能取大的也不能取小的时，GPU 就需要混合两个 Mipmap。因此有 linear/nearest 的采样区分。Nearest 的在混合时点的变化突然，有锯齿，但是仅用采样 1 UV 性能高；Linear 的在混合时变化有模糊感，看着更为自然，但是需要采样 8 UV 性能更差(3d 时需要 16 UV)
-
-![webgpu-mipmapfilter](../../assets/wgpu-mipmapfilter.png)
 
 ### Format
 
