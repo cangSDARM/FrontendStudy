@@ -125,6 +125,20 @@ export { Modal } from "./Modal"; // reexport 的 具名导出 优先级比 * 高
 - 几乎任何对`ArrayBuffer`的操作，都需要一个视图(TypedArray/DataView)
 - TypedArray 中我们无法`splice`/`concat`，因为是视图，并且 buffer 是固定的、连续的内存区域。我们所能做的就是分配一个零值
 
+```ts
+function str2ArrayBuffer(str: string) {
+  const len = Array.from(str).length;
+  const buffer = new ArrayBuffer(len);
+  const view = new Uint8Array(buffer);
+
+  for (let i = 0; i < len; i++) {
+    view[i] = str.codePointAt(i)!;
+  }
+
+  return buffer;
+}
+```
+
 ### Binary Operators
 
 - 按位非`~a` 反转操作数的比特位，即 0 变成 1，1 变成 0。对数值进行按位非操作的结果为`-(a + 1)`

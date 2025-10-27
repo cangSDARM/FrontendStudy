@@ -103,18 +103,12 @@ https://github.com/DirtyHairy/async-mutex
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
-https://github.com/ByteByteGoHq/system-design-101
-
 https://cblgh.org/trustnet/
 
 book https://gameprogrammingpatterns.com/introduction.html
 https://gpp.tkchu.me/update-method.html
 
 https://gamedevelopment.tutsplus.com/
-
-企业架构 TOGAF https://segmentfault.com/a/1190000019704801
-企业架构建模 https://www.archimatetool.com/
-https://www.opengroup.org/archimate-forum/archimate-overview
 
 https://github.com/brucefan1983/CUDA-Programming
 
@@ -134,11 +128,20 @@ https://github.com/gordonhart/atlasof.space
 
 https://serial.xywml.com/
 
-https://jrsinclair.com/articles/2025/joy-of-immutable-data-recursion-pure-functions-javascript-mazes/
-
 book https://ghislainfourny.github.io/big-data-textbook/
 
-https://masteringbackend.com/hubs/system-design/system-design-fundamentals
+Typescript 类型实现中国象棋
+https://zhuanlan.zhihu.com/p/426966480
+
+超分辨率
+https://blog.csdn.net/weixin_43507744/article/details/124692025
+
+https://andrewchilds.com/posts/building-a-t1d-smartwatch-from-scratch
+
+OODA 循环
+https://zhuanlan.zhihu.com/p/32582858815
+
+https://www.cnblogs.com/bonelee/p/11497565.html
 
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
@@ -209,23 +212,59 @@ https://proofwiki.org/wiki/Main_Page
 
 https://origami.kosmulski.org/blog/2022-10-23-fujimoto-books-public-domain
 
+https://ramsayleung.github.io/zh/post/2025/%E5%85%B3%E4%BA%8E%E7%A0%B4%E8%A7%A3%E5%8A%A0%E6%8B%BF%E5%A4%A7%E8%88%AA%E7%A9%BA%E9%A3%9E%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%99%90%E5%88%B6%E7%9A%84%E4%B8%80%E4%BB%B6%E5%B0%8F%E4%BA%8B/
+
 https://news.ycombinator.com/item?id=36853931
 
 https://book.hacktricks.xyz/welcome/getting-started-in-hacking
 
 http://algorithmicbotany.org/papers/#abop
 
+GeoHash
+https://segmentfault.com/a/1190000042971576
+
+空间数据结构(四叉树/八叉树/BVH树/BSP树/k-d树) 
+https://www.cnblogs.com/KillerAery/p/10878367.html
+
+Google S2
+https://zhuanlan.zhihu.com/p/611457995
+
+R Tree
+https://zhuanlan.zhihu.com/p/691639641
+
 正交路由选路算法
 https://blog.csdn.net/li_canhui/article/details/6798380
 https://blog.csdn.net/rc826/article/details/84539450
 https://github.com/AngelinaT-t/OCR
 
+https://www.dacast.com/blog/streaming-protocols/
+
 自己动手写 git
 https://wyag-zh.hanyujie.xyz/
 
+https://jvns.ca/blog/2024/01/26/inside-git/
+
 https://batteryuniversity.com/articles
 
-https://learning-guide.gitbook.io/system-design-interview
+System Design
+https://github.com/ByteByteGoHq/system-design-101
+https://masteringbackend.com/hubs/system-design/system-design-fundamentals
+https://learning-guide.gitbook.io/system-design-interview/xi-tong-she-ji-mian-shi-nei-mu-zhi-nan-di-er-juan/chapter-03-google-maps
+http://icyfenix.cn/
+https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html
+
+企业架构 TOGAF https://segmentfault.com/a/1190000019704801
+企业架构建模 https://www.archimatetool.com/
+https://www.opengroup.org/archimate-forum/archimate-overview
+
+Distributed systems
+https://github.com/heathermiller/dist-prog-book/blob/master/chapter/1/rpc.md
+https://book.mixu.net/distsys/index.html
+https://www.thebyte.com.cn/
+
+架构 https://nekonull.me/posts/ruankao-architect/
+
+book https://thecomputersciencebook.com/book/computer-architecture/
 
 Virtual Display Drivers Knowledge Base
 https://github.com/pavlobu/deskreen/discussions/86
@@ -253,7 +292,7 @@ https://roberthodgin.com/
 HMR
 https://youtu.be/e5M_5jKPaL4
 
-book https://exploringjs.com/deep-js/ch_about-book.html
+book https://exploringjs.com/deep-js/ch_copying-objects-and-arrays.html
 
 https://github.com/Gar-b-age/CookLikeHOC
 
@@ -268,8 +307,6 @@ https://www.redblobgames.com/making-of/draggable/
 https://agraphicsguynotes.com/posts/fiber_in_cpp_understanding_the_basics/
 
 https://vitalik.ca/general/2023/08/16/communitynotes.html
-
-book https://www.thebyte.com.cn/
 
 https://tonedear.com/
 
@@ -365,10 +402,6 @@ https://www.qovery.com/blog/a-guided-tour-of-streams-in-rust
 Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
 桌游太空竞速的设计 https://www.youtube.com/watch?v=JcyyeAww2wc
-
-book https://diveintosystems.org/book/introduction.html
-
-book http://icyfenix.cn/
 
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
@@ -508,12 +541,6 @@ make a language https://arzg.github.io/lang/
 
 https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
 
-book https://github.com/heathermiller/dist-prog-book/blob/master/chapter/1/rpc.md
-
-book https://book.mixu.net/distsys/index.html
-
-https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html
-
 https://github.com/simeydotme/pokemon-cards-css
 
 https://www.mcmaster.com/
@@ -532,10 +559,6 @@ book https://meatfighter.com/tetromino-computer/
 leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
 
 https://serokell.io/blog/introduction-to-free-monads
-
-架构 https://nekonull.me/posts/ruankao-architect/
-
-https://jvns.ca/blog/2024/01/26/inside-git/
 
 驱动开发 https://blog.csdn.net/qq_44814825/article/details/129107911
 
@@ -630,8 +653,6 @@ book https://www.learncpp.com/
 book https://swisskyrepo.github.io/PayloadsAllTheThings/
 
 book 消息传递接口 https://mpitutorial.com/tutorials/
-
-book https://thecomputersciencebook.com/book/computer-architecture/
 
 包含了最常用的10种Web安全漏洞，供练习者破解 https://github.com/juice-shop/juice-shop
 
@@ -891,14 +912,6 @@ https://0xinfection.github.io/reversing/
 ## Refs
 
 Use `Url` constructor and `URLSearchParams` for manipulate a url
-
-C4 Modal^(
-   用于描述软件架构的模型
-1. 系统上下文。总览，描述正在构建的软件系统与用户及其他软件系统之间的关系
-2. 容器。将软件系统放大，显示组成该软件系统的容器（应用程序、数据存储、微服务等）以及对应的技术决策、架构
-3. 组件。将单个容器放大（如前端），显示代码库中的真实抽象
-4. 代码。如果有这个必要，可以放大个别组件，以显示该组件的实现方式
-) https://c4modal.com
 
 idempotency Api^(
 (1) should have a idempotency-key, it makes api run "exactly once", regardless what error may occurred

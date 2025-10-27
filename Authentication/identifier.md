@@ -4,6 +4,7 @@
   - [GUID](#guid)
   - [ULID](#ulid)
 - [Snowflake](#snowflake)
+- [ShortURL](#shorturl)
 
 ## UUID
 
@@ -100,7 +101,14 @@ public synchronized long generate() {
   }
   lastMill = currentMill;
 
-  currentMill = (currentMill - EPOCH); // 减去需要的时间起点，不然 long 的 塞不进 41 bit
+  currentMill = (currentMill - EPOCH); // 减去需要的时间起点，不然 long 的 塞不进 41 bit (最长工作69年)
   return currentMill << TIMESTAMP_SHIFT_BITS | getWorkerId() << WORKER_SHIFT_BITS | sequence;
 }
 ```
+
+## ShortURL
+
+1. 长 URL 通过唯一 id 生成器，生成唯一*数字 ID*
+2. 通过 Base62 (只包含 0-9,a-z,A-Z) 映射为短 URL
+
+> 因此短 URL 的长度通常无法固定
