@@ -131,3 +131,20 @@ span {
   /*使用*/
   color: var(--div-color);
 }
+
+/** 
+colors
+
+= In oklch() color space, we can grayscale a color by setting the chroma to 0
+
+**/
+span {
+  /** mix color with certain percentage
+  color-mix(method, color1 percentage, color2 percentage)
+  */
+  color: color-mix(in srgb, --primary, black 10%);
+  /** relative color
+  color-function (from origin ch1 ch2 ch3 / alpha)
+  */
+  color: oklch(from --primary l c calc(h + 90) / 1.0); /* contrast color */
+}

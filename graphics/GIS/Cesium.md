@@ -77,6 +77,8 @@ const degrees = {
 
 ### Geocode
 
+将地址转换为地理坐标
+
 ```js
 // Cesium 默认采用的是 Bing 地图服务来实现地理编码(GeoCode)的功能
 const geocode = new CustomGeoCoder();

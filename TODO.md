@@ -5,8 +5,6 @@
 [WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 [WebAssembly](https://wasmbyexample.dev/home.en-us.html#)
 [Gamepad](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
-[Fullscreen](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)
-[PointerLock](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API)
 [Wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
 [单个字内置多种颜色](https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/)
 
@@ -99,7 +97,9 @@ https://github.com/microsoft/FASTER
 
 https://www.archdaily.cn/
 
-https://github.com/DirtyHairy/async-mutex
+https://karboosx.net/post/4eZxhBon/building-a-simple-search-engine-that-actually-works
+
+https://pavel-romanov.com/building-semaphore-and-mutex-in-nodejs
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
@@ -141,12 +141,11 @@ https://andrewchilds.com/posts/building-a-t1d-smartwatch-from-scratch
 OODA 循环
 https://zhuanlan.zhihu.com/p/32582858815
 
+B+ Tree
 https://www.cnblogs.com/bonelee/p/11497565.html
 
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
-
-https://pavel-romanov.com/building-semaphore-and-mutex-in-nodejs
 
 https://llimllib.github.io/bloomfilter-tutorial/zh_CN/
 
@@ -176,9 +175,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 https://github.com/sdl60660/river-runner/tree/main
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
-
-Audio: ultrasound
-https://halcy.de/blog/2025/06/27/transmitting-data-via-ultrasound-without-any-special-equipment/
 
 Changelog
 https://github.com/conventional-changelog/conventional-changelog
@@ -216,6 +212,8 @@ https://ramsayleung.github.io/zh/post/2025/%E5%85%B3%E4%BA%8E%E7%A0%B4%E8%A7%A3%
 
 https://news.ycombinator.com/item?id=36853931
 
+https://random.tastemaker.design/
+
 https://book.hacktricks.xyz/welcome/getting-started-in-hacking
 
 http://algorithmicbotany.org/papers/#abop
@@ -240,8 +238,6 @@ https://github.com/AngelinaT-t/OCR
 https://www.dacast.com/blog/streaming-protocols/
 
 自己动手写 git
-https://wyag-zh.hanyujie.xyz/
-
 https://jvns.ca/blog/2024/01/26/inside-git/
 
 https://batteryuniversity.com/articles
@@ -249,7 +245,7 @@ https://batteryuniversity.com/articles
 System Design
 https://github.com/ByteByteGoHq/system-design-101
 https://masteringbackend.com/hubs/system-design/system-design-fundamentals
-https://learning-guide.gitbook.io/system-design-interview/xi-tong-she-ji-mian-shi-nei-mu-zhi-nan-di-er-juan/chapter-03-google-maps
+https://learning-guide.gitbook.io/system-design-interview/xi-tong-she-ji-mian-shi-nei-mu-zhi-nan-di-er-juan/chapter-04-distributed-message-queue
 http://icyfenix.cn/
 https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html
 
@@ -292,7 +288,7 @@ https://roberthodgin.com/
 HMR
 https://youtu.be/e5M_5jKPaL4
 
-book https://exploringjs.com/deep-js/ch_copying-objects-and-arrays.html
+book https://exploringjs.com/deep-js/ch_property-attributes-intro.html
 
 https://github.com/Gar-b-age/CookLikeHOC
 
@@ -529,14 +525,6 @@ https://github.com/google/cdc-file-transfer
 字符串相似度
 https://zhuanlan.zhihu.com/p/91645988
 
-层次分析法AHP 
-https://blog.csdn.net/qq_41686130/article/details/122081827
-https://blob.wenxiaobai.com/article/182abba2-d072-d51b-648b-030a43069b9f
-https://spssau.com/helps/weights/ahp.html
-https://berkcanekici.github.io/ahp-analyzer/
-https://github.com/berkcanekici/ahp-analyzer/blob/master/assets/scripts/functions.js
-https://blog.csdn.net/mmm_jsw/article/details/84863416
-
 make a language https://arzg.github.io/lang/
 
 https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
@@ -564,8 +552,6 @@ https://serokell.io/blog/introduction-to-free-monads
 
 https://github.com/Flomp/wanderer
 
-https://www.jbernier.com/p?id=nodejs-stream-async-iterator
-
 https://blog.shalvah.me/posts/an-exploration-of-vector-search
 
 handle pdf https://github.com/Stirling-Tools/Stirling-PDF
@@ -575,8 +561,6 @@ https://www.programiz.com/dsa/radix-sort
 sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
-
-Creative Writing https://www.youtube.com/watch?v=jrIogch5DBU&list=PLSH_xM-KC3Zv-79sVZTTj-YA6IAqh8qeQ&index=5
 
 https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
 
@@ -753,6 +737,8 @@ main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-wgsl.html
 https://carmencincotti.com/2022-05-16/rasterization/
 
 https://www.xyzw.io/posts/backend-gpu-p1/
+
+https://toji.dev/webgpu-gltf-case-study/
 
 webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-diagram.html
 

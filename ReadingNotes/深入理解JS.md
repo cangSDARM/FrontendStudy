@@ -8,6 +8,8 @@
   - [泛型方法](#泛型方法)
   - [模块](#模块)
   - [TypedArray](#typedarray)
+  - [SharedArrayBuffer](#sharedarraybuffer)
+    - [Atomics](#atomics)
   - [Binary Operators](#binary-operators)
   - [Blob](#blob)
   - [Date](#date)
@@ -125,18 +127,39 @@ export { Modal } from "./Modal"; // reexport 的 具名导出 优先级比 * 高
 - 几乎任何对`ArrayBuffer`的操作，都需要一个视图(TypedArray/DataView)
 - TypedArray 中我们无法`splice`/`concat`，因为是视图，并且 buffer 是固定的、连续的内存区域。我们所能做的就是分配一个零值
 
-```ts
-function str2ArrayBuffer(str: string) {
-  const len = Array.from(str).length;
-  const buffer = new ArrayBuffer(len);
-  const view = new Uint8Array(buffer);
+### SharedArrayBuffer
 
-  for (let i = 0; i < len; i++) {
-    view[i] = str.codePointAt(i)!;
-  }
+- 普通的 js primitive 数据(如`string`, `ArrayBuffer`)是 transferable 的, 但 clone 了
+- 只有`SharedArrayBuffer`是共享同一片内存。也因此在多进程环境下, js 也有竞态条件需要处理
 
-  return buffer;
+```js
+const sharedBuffer = new SharedArrayBuffer(10);
+
+const workers = Array.from({ length: 2 }).map(() => new Worker('worker.js'));
+workers.forEach((worker, workerId) => 
+  worker.postMessage({ workerData: sharedBuffer, workerId });
+);
+
+// worker
+self.onmessage = ({ data: { workerData, workerId } }) => {
+  const typedArray = new Int8Array(workerData);
+  typedArray[0] = workerId;
+  console.dir({ workerId, value: typedArray[0] });
 }
+```
+
+#### [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
+
+注意，现在 js 库的 Mutex/Semaphore 实现都是通过自己维护队列实现，不是真的多线程信号量
+
+```diff
+const typedArray = new Int8Array(workerData);
+- typedArray[0] = workerId;
+- console.dir({ workerId, value: typedArray[0] });
++ // Two Atomic Operation (store, load)
++ Atomics.store(typedArray, 0, workerId);
++ const value = Atomics.load(typedArray, 0);
++ console.dir({ workerId, value });
 ```
 
 ### Binary Operators
