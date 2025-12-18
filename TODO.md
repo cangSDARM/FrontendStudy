@@ -68,6 +68,8 @@ https://daief.tech/post/electron-file-association/
 
 Electron 网络请求拦截和响应处理 https://juejin.cn/post/7208108117836873784
 
+Electron remote https://juejin.cn/post/6844903908393877518
+
 Electron 自定义协议
 https://zhuanlan.zhihu.com/p/268816158
 https://juejin.cn/post/7088967562775494670
@@ -120,6 +122,7 @@ https://kube.io/blog/liquid-glass-css-svg/
 
 https://github.com/AmyangXYZ/PoPo
 
+编译uniapp
 https://juejin.cn/post/7294907512444239935
 
 https://www.gatesnotes.com/meet-bill/source-code/reader/microsoft-original-source-code
@@ -137,9 +140,6 @@ https://zhuanlan.zhihu.com/p/426966480
 https://blog.csdn.net/weixin_43507744/article/details/124692025
 
 https://andrewchilds.com/posts/building-a-t1d-smartwatch-from-scratch
-
-OODA 循环
-https://zhuanlan.zhihu.com/p/32582858815
 
 B+ Tree
 https://www.cnblogs.com/bonelee/p/11497565.html
@@ -184,8 +184,6 @@ https://betweentwobrackets.com/data-graphics-and-colour-vision/
 
 https://andreasbm.github.io/web-skills/
 
-https://github.com/cli-guidelines/cli-guidelines/blob/main/content/_index.md#philosophy-philosophy
-
 https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 
 https://refactoring.guru/design-patterns
@@ -193,6 +191,8 @@ https://refactoring.guru/design-patterns
 https://swtch.com/~rsc/regexp/regexp4.html
 
 https://red3d.com/cwr/boids/
+
+https://mjpclab.net/web-binary-media-programming/canvas-and-its-context.html
 
 webp
 https://www.cnblogs.com/cr330326/p/12809418.html
@@ -382,8 +382,6 @@ https://interfaces.rauno.me/
 
 https://aws.amazon.com/cn/what-is/mqtt/
 
-从 Comlink 谈谈 IPC 抽象封装 https://zhuanlan.zhihu.com/p/652308791
-
 https://jihulab.com/linksaas/desktop
 
 slab allocator https://www.dingmos.com/index.php/archives/23/
@@ -428,6 +426,10 @@ book https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md
 book https://learngenomics.dev/docs/biological-foundations/cells-genomes-dna-chromosomes/
 
 Unity L procedure https://zhuanlan.zhihu.com/p/468185946
+
+https://github.com/w-okada/image-analyze-workers
+
+https://www.humanlayer.dev/blog/writing-a-good-claude-md
 
 https://github.com/paulirish/trace.cafe/blob/8852ecf43e8dfdbe42551deaf09201b0224a6c11/src/app.js#L19
 
@@ -522,12 +524,7 @@ https://garden.bradwoods.io/notes/css/3d
 
 https://github.com/google/cdc-file-transfer
 
-字符串相似度
-https://zhuanlan.zhihu.com/p/91645988
-
 make a language https://arzg.github.io/lang/
-
-https://www.cnblogs.com/Zjmainstay/p/regexp-lookaround.html
 
 https://github.com/simeydotme/pokemon-cards-css
 
@@ -650,8 +647,6 @@ the recommendation of lecture series https://news.ycombinator.com/item?id=345912
 
 YouTube channels focused on mastering a skill/craft https://news.ycombinator.com/item?id=34666777
 
-https://www.pixelstech.net/article/1677580861-Why-is-single-threaded-Redis-so-fast
-
 https://github.com/MaxBittker/broider
 
 book https://themarketplace.guide/
@@ -661,7 +656,7 @@ https://www.webgamedev.com/
 无人机控制协议 MavLink
 https://www.cnblogs.com/xkxf/p/12240346.html
 
-https://tomhazledine.com/cosine-similarity/
+https://tomhazledine.com/assessing-search-quality/
 
 https://design.ros2.org/articles/ros_on_dds.html
 
@@ -1016,4 +1011,23 @@ complexity theory
 
 shell实现自动输入密码^(
    使用管道命令echo '密码' | sudo -S 命令
+)
+
+循环^(
+   OODA循环  
+   ┌------->--------┐
+   |Observe   Orient|
+   |观察         判断|
+   ↑                ↓
+   |Act       Decide|
+   |行动         决策|
+   └-------<--------┘ 强调决策
+   PDCA循环
+   ┌------->--------┐
+   |Plan          Do|
+   |计划         执行|
+   ↑                ↓
+   |Action     Check|
+   |纠正         检查|
+   └-------<--------┘ 强调总结经验
 )

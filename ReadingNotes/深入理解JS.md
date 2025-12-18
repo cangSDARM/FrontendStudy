@@ -347,7 +347,10 @@ while(reg.test() || reg.exec())
 // 取反的前向断言
 // regex(?!«pattern»)
 // 当 pattern 满足时，则匹配 regex
-"abcX def".match(/[a-z]+(?!X)/g); // [abc, def]
+"abcX def".match(/[A-z]+(?!X)[A-z]/g); // [abc, def]
+// 注意 断言并不消耗字符，因此必须抽出[A-z]给regex判断。否则+直接贪婪匹配全部
+// 等价于
+"abcX def".match(/[A-z]+[A-z](?<!X)/g);
 
 // 后向断言
 // (?<=«pattern»)regex

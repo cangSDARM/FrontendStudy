@@ -115,6 +115,7 @@ p1, p5 -> fulfilled -> 其then压进microtask -> [p2, p6]
 ```
 
 ### Thenable
+
 Thenable 对象可以用`Promise.resolve(thenable)`转换为 Promise 对象
 
 ```js
