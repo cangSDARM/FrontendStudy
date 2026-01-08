@@ -2,13 +2,14 @@
 // 基本数字类型：f32 / f, u32 / u, i32 / i, f16 / h
 // 基本向量类型：vec2<num> / vec2f, vec3, vec4
 // 基本矩阵类型：mat2x2<num> / mat2x2u, mat2x3, mat2x4, mat3x2, mat3x3, mat3x4, mat4x2, mat4x3, mat4x4
+// 内置函数 https://webgpufundamentals.org/webgpu/lessons/webgpu-wgsl-function-reference.html
 
 struct VertexOutPut {
     // position 强制被插值为 @interpolate(perspective, center)
-    @builtin(position) position: vec4f;
+    @builtin(position) position: vec4f,
     // 除了 position 外的信息，在 vertex 后都会被插值生成额外信息给 fragment。称为 Inter-Stage Variables。
     // Inter-Stage 的都需要用@location修饰(依次+1)
-    @location(0) color: vec4f;
+    @location(0) color: vec4f,
     /*
     插值配置：@interpolate(type, sample)
         插值方法：
@@ -22,7 +23,7 @@ struct VertexOutPut {
     如果是 integer 类型，则插值方法必须是 flat.
     If you set the interpolation type to flat, the value passed to the fragment shader is the value of the inter-stage variable for the first vertex in that triangle.
     */
-    @location(1) texcoord: vec2f;
+    @location(1) texcoord: vec2f,
 }
 
 // 可重写的，用于隔离 wgsl 和 js
@@ -32,7 +33,7 @@ override red: f32 = 0.0;
 // 绑定到第0个location，的第0个bindGroup
 // 类型是storage(GPUBufferUsage.STORAGE)，功能是read_write(GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST)
 // storage可修改，但只能GPGPU中修改
-// array 在js中依然是一个TypedArray,只是offset按照array内容去取
+// array 在js中依然是一个TypedArray,只是offset按照array内容去取(只有最后一个group才能是不定长的)
 @group(0) @binding(0) var<storage, read_write> data: array<f32>;
 
 // usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
@@ -51,7 +52,7 @@ override red: f32 = 0.0;
 
 struct VertexInput {
     // 可以被 IndexBuffer 改变 (GPUBufferUsage.INDEX)
-    @builtin(vertex_index) vertexIndex : u32,
+    @builtin(vertex_index) vertexIndex: u32,
     // draw 的第二个参数。vertex 会 per instanceIndex per vertexIndex drawn
     @builtin(instance_index) instanceIndex: u32,
     // GPUBufferUsage.VERTEX
@@ -70,9 +71,9 @@ struct VertexInput {
     // Vertex 的座标空间是归一化后的[-1, 1] (和笛卡尔座标一样)
     // var == variable; let == const
     var pos = array<vec2f, 3>(
-        vec2f( 0.0,  0.5),  // top center
-        vec2f(-0.5, -0.5),  // bottom left
-        vec2f( 0.5, -0.5)   // bottom right
+        vec2f(0.0, 0.5), // top center
+        vec2f(- 0.5, - 0.5), // bottom left
+        vec2f(0.5, - 0.5) // bottom right
     );
     var color = array<vec4f, 3>(
         vec4f(1, 0, 0, 1), // red
@@ -82,7 +83,7 @@ struct VertexInput {
     var vsOutput: VertexOutPut;
     vsOutput.position = vec4f(pos[vertexIndex], 0.0, 1.0);
     vsOutput.color = color[vertexIndex];
-    
+
     return vsOutput;
 }
 
@@ -109,4 +110,51 @@ struct VertexInput {
 
     // 没有三元运算，select = (a, b, cond) => cond ? a : b;
     return select(red, cyan, checker) * sampling;
+}
+
+fn function(a: f32) -> bool {
+    let a = array<f32, 5>;
+    // let == js' const
+    var count = arrayLength(&a);
+    // var == js' let
+
+    // wgsl uniq control flows
+    var k = 0;
+    loop {
+        // loop
+        k++;
+        if (k % 2 == 1) continue;
+
+        break if (k >= 5);
+        // break if
+
+        continuing {
+            // continue goes here
+        }
+    }
+
+    let x = 1;
+    // switch 仅支持 u32 和 i32 类型的变量，并且各分支的匹配值必须是常量。
+    switch x {
+        case 0 : {  // 冒号是可选的
+            a = 1;
+        }
+        default {  // 默认分支不需要出现在最后
+            a = 2;
+        }
+        case 1, 2, {  // 可以使用多个选择值
+            a = 3;
+        }
+        case 3, {  // 尾随逗号也是可选的
+            a = 4;
+        }
+        case 4 {
+            a = 5;
+        }
+    }
+
+    k++; // 递增是语句，不返回值
+    k += 1; // +=, -= 也是语句
+
+    _ = vec2f();    // _ 是个特殊变量，可以赋值给它，来让某些东西看起来被使用了，但实际上并不使用它
 }

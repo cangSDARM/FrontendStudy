@@ -727,7 +727,7 @@ https://github.com/getify/monio/blob/master/MONADS.md#where-to-learn-more-fp
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-wgsl.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-importing-textures.html
 
 https://carmencincotti.com/2022-05-16/rasterization/
 
@@ -740,8 +740,6 @@ webgl debug https://webgl2fundamentals.org/webgl/lessons/resources/webgl-state-d
 https://www.vertexshaderart.com/
 
 https://surma.dev/things/webgpu/
-
-https://wickedengine.net/2017/06/05/should-we-get-rid-of-vertex-buffers/
 
 https://www.yosoygames.com.ar/wp/2018/03/vertex-formats-part-2-fetch-vs-pull/
 

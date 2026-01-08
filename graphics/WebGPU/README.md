@@ -92,7 +92,7 @@ const pipeline = device.createRenderPipeline({
     module,
     // vertex shader的入口函数
     entryPoint: "vs",
-    // vertex buffer 配置。vertex buffer 不需要bindingGroup，这是它的平替
+    // VertexBuffer 配置。VertexBuffer 不需要bindingGroup，这是它的平替
     buffers: [
       {
         arrayStride: 4 + 2 * 4, // 4 bytes + 2 float * 4 bytes

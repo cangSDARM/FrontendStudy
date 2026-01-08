@@ -2,7 +2,7 @@
 
 射频识别(Radio Frequency IDentification，缩写：RFID)是一种**无线**通信技术，使用了这个技术的“卡”都能称为**RFID 卡**
 
-场通信(英语：Near-field communication，NFC)，是一套通信协议
+近场通信(英语：Near-field communication，NFC)，是一套通信协议
 
 |          |                                  RFID                                   |    NFC    |
 | :------: | :---------------------------------------------------------------------: | :-------: |
