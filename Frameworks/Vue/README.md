@@ -9,7 +9,7 @@
   - [插槽](#插槽)
 - [必装](#必装)
   - [Route](#route)
-  - [Vuex](#vuex)
+  - [Pinia](#pinia)
 - [其它](#其它)
 
 <!-- /TOC -->
@@ -316,90 +316,9 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {});
 ```
 
-### Vuex
+### Pinia
 
-**`Component` -Dispatch-> `Actions` -Commit-> `Mutation` -Mutate-> `State` -Render-> `Component`**<br>
-
-- 和 Vue 一样，有“响应式缺陷”。使用`Vue.set, Vue.delate`解决 <!--挺傻逼的。不如React直接装个api来得好-->
-
-> install
-
-```js
-1. npm install vuex
-2. src/store/index.js
-  import Vuex from "vuex";
-  import Vue from "vue";
-  Vue.use(Vuex);
-  const store = new Vuex.Store({
-
-  });
-  export default store;
-3. src/main.js
-  import store from './store';
-  new Vue({
-  	store,
-  }).$mount("#app");
-```
-
-> store
-
-```js
-const store = new Vuex.Store({
-  state: {}, //default state
-  mutations: {
-    //reduce, synchronous
-    changeState: (state, payload) => {
-      //payload === Redux.action
-      state.xx = xx;
-    },
-  },
-  actions: {
-    //reduce, asynchronous
-    update: (context, payload) => {
-      //context == store
-      //axios in there.
-      context.commit("update"); //do mutate
-
-      return new Promise.resolve("callback");
-    },
-  },
-  getters: {
-    //computed
-    get: (state) => {
-      return state.xx.filter((s) => s.id > 1);
-    },
-    getinget: (state, getters, rootState) => {
-      //rootState, for modules
-      return getters.get.length;
-    },
-  },
-  modules: {
-    //combineReducers
-    mod: {
-      state: {}, //this.$store.mod.xx
-      mutations: {}, //this.$store.commit('')
-      actions: {}, //private for each module
-      getters: {}, //this.$store.getter.xx
-      moudules: {},
-    },
-  },
-});
-```
-
-> use
-
-```js
-<div>{{$store.state.xx}}</div>
-<div>{{$store.getters.get}}</div>
-
-export default{ computed: { //other self computed, ...mapState({ count:
-state=>state.count, count: 'count', //same as last line withSelfData(state){
-//使用 `this` 获取局部状态，必须使用常规函数 return state.count +
-this.localCount } }) }, methods: { dispatched: ()=>{ //can but not recommended
-//this.$store.commit('changeState', {args}); //action this.$store.dispatch({
-type: 'changeActions', data: args, }).then(r=>console.log(r)); //mutate
-this.$store.commit({ type: 'changeState', data: args }) } } }
-```
+vue3 实际上并不需要什么"全局状态管理"。Pinia 只是沿袭罢了，可以直接在 vue 外使用 ref/reactive 来管理全局状态。
 
 ## 其它
 

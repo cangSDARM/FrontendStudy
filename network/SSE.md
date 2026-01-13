@@ -149,6 +149,7 @@ export const postSSEFactory =
     }
 
     const { headers = {}, ...restOptions } = options || {};
+    // TODO: handle reconnect as normal SSE
     fetch(instance.getUri({ url: url }), {
       method: "POST",
       headers: {

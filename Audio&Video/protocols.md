@@ -105,7 +105,7 @@ DASH 多用于 MPEG 格式，称为 MPEG-DASH
 
 直接将流传递给 Web 的播放器，浏览器调度
 
-缺点: 不支持 B 帧和 AAC 音频
+缺点: 不支持 B 帧和 AAC 音频(用 ffmpeg.js 解决)
 
 ## MSS
 

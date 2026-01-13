@@ -10,6 +10,9 @@
 
 https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
 
+Grid Lanes
+https://webkit.org/blog/17660/introducing-css-grid-lanes/
+
 [Autofill Issue](https://github.com/facebook/react/issues/1159)
 https://react-hook-form.com/
 
@@ -75,8 +78,6 @@ https://zhuanlan.zhihu.com/p/268816158
 https://juejin.cn/post/7088967562775494670
 
 https://zh.javascript.info/css-animations
-
-https://zh.javascript.info/web-components
 
 https://auto-animate.formkit.com/#usage
 
@@ -175,10 +176,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 https://github.com/sdl60660/river-runner/tree/main
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
-
-Changelog
-https://github.com/conventional-changelog/conventional-changelog
-https://github.com/conventional-changelog/standard-version
 
 https://betweentwobrackets.com/data-graphics-and-colour-vision/
 
@@ -399,7 +396,7 @@ Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
-代码的坏味道和重构 https://dunwu.github.io/blog/pages/d86872/
+代码的坏味道和重构 https://dunwu.github.io/blog/pages/b14a7acd/
 
 https://spacelift.io/blog/container-security
 
@@ -450,9 +447,6 @@ https://zh2ja.whoops.space/
 https://www.16elt.com/2024/09/25/first-book-of-byte-sized-tech/index.html
 
 https://learn.yjs.dev/
-
-向量嵌入
-https://www.elastic.co/cn/what-is/vector-embedding
 
 https://www.writesoftwarewell.com/content-security-policy/
 
@@ -511,8 +505,8 @@ https://zhuanlan.zhihu.com/p/468424693
 
 https://lcamtuf.coredump.cx/photo_basics/
 
-韩版《传奇2》源码分析与 Unity 重制（二）：客户端启动与交互流程
-https://www.gcores.com/articles/163577
+韩版《传奇2》源码分析与 Unity 重制（一）：服务端 TCP 状态管理
+https://www.gcores.com/articles/163304
 
 book https://two-wrongs.com/statistical-process-control-a-practitioners-guide
 
@@ -549,8 +543,6 @@ https://serokell.io/blog/introduction-to-free-monads
 
 https://github.com/Flomp/wanderer
 
-https://blog.shalvah.me/posts/an-exploration-of-vector-search
-
 handle pdf https://github.com/Stirling-Tools/Stirling-PDF
 
 https://www.programiz.com/dsa/radix-sort
@@ -558,6 +550,9 @@ https://www.programiz.com/dsa/radix-sort
 sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
+
+ZipBomb (离谱压缩率的文件)
+https://www.bamsoftware.com/hacks/zipbomb/
 
 https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
 
@@ -584,7 +579,12 @@ https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
 
 https://github.com/hughfenghen/opfs-tools
 
+Vector Search 101
 https://zilliz.com/blog?tag=39&page=2
+https://blog.shalvah.me/posts/an-exploration-of-vector-search
+
+向量嵌入
+https://www.elastic.co/cn/what-is/vector-embedding
 
 https://blog.partykit.io/posts/using-vectorize-to-build-search/
 
