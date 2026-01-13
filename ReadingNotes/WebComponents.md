@@ -1,4 +1,5 @@
 - [Custom Event](#custom-event)
+- [Constructable Stylesheets](#constructable-stylesheets)
 - [Custom Elements](#custom-elements)
   - [Autonomous custom elements](#autonomous-custom-elements)
   - [Customized built-in elements](#customized-built-in-elements)
@@ -6,7 +7,6 @@
   - [事件](#事件)
 - [Template](#template)
   - [With Slots](#with-slots)
-- [CSSStyleSheet](#cssstylesheet)
 
 ## Custom Event
 
@@ -25,6 +25,32 @@ target.addEventListener(
 
 // 只有 detail 是有效的载荷，其他属性都会被忽略
 target.dispatchEvent(new CustomEvent("eventName", { detail: "data" }));
+```
+
+## Constructable Stylesheets
+
+即让 CSS 可以像类一样管理
+
+`CSSStyleSheet` 对象是 index-based 管理的，因此需要自己注意哪条 rule 对应哪个 index
+
+```js
+const sheet = new CSSStyleSheet();
+// replace all rules
+sheet.replaceSync("a { color: red; }");
+// add a rule
+sheet.insertRule("* { background-color: blue; }", 0);
+// delete a rule
+sheet.deleteRule(0);
+
+const rules = sheet.cssRules;
+for (const rule of rules) {
+  rule.selectorText; // 即 css selector (一样的string)
+  rule.style; // 即 style 对象
+}
+
+// 注册 or shadowRoot.adoptedStyleSheets
+// adoptedStyleSheets 被假定在 Document.styleSheets 中的样式表之后
+document.adoptedStyleSheets.push(sheet);
 ```
 
 ## Custom Elements
@@ -214,5 +240,3 @@ API:
   </slot>
 </>
 ```
-
-## CSSStyleSheet

@@ -287,12 +287,6 @@ https://youtu.be/e5M_5jKPaL4
 
 book https://exploringjs.com/deep-js/ch_property-attributes-intro.html
 
-https://github.com/Gar-b-age/CookLikeHOC
-
-CSSStyleSheet
-https://segmentfault.com/a/1190000018194545
-https://juejin.cn/post/6844904002509864967
-
 libuv https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
 https://www.redblobgames.com/making-of/draggable/
