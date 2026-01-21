@@ -2,11 +2,9 @@
 
 [Grid 布局](https://web.dev/learn/css/grid/)
 [混合模式，mix-blend/background-blend/isolation/filter](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode)
-[WebComponent](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 [WebAssembly](https://wasmbyexample.dev/home.en-us.html#)
 [Gamepad](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
 [Wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
-[单个字内置多种颜色](https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/)
 
 https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
 
@@ -86,12 +84,29 @@ https://github.com/evrimagaci/periodum
 
 https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 
+文字排版
+https://juejin.cn/post/6971673576017494053
+https://paddywang.github.io/demo/list/css/baseline_line-height.html
+https://drafts.csswg.org/css-fonts-5/#font-metrics-override-desc
+
 中文排版
 https://www.w3.org/TR/clreq/#h_inline
+
+中文点阵字库介绍 https://blog.csdn.net/comwise/article/details/16892765
+
+文字换行
+https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 换行最小锯齿方法
 https://en.wikipedia.org/wiki/Knuth%E2%80%93Plass_line-breaking_algorithm
 https://news.ycombinator.com/item?id=1134342
+
+https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
+
+Count Multi-language Words
+https://github.com/thecodrr/alfaaz
+
+https://github.com/JuliaPlots/UnicodePlots.jl
 
 ts moduleResolution 总结
 https://juejin.cn/post/7221551421833314360
@@ -189,7 +204,7 @@ https://swtch.com/~rsc/regexp/regexp4.html
 
 https://red3d.com/cwr/boids/
 
-https://mjpclab.net/web-binary-media-programming/canvas-and-its-context.html
+https://mjpclab.net/web-binary-media-programming/media-stream-and-track-intro.html
 
 webp
 https://www.cnblogs.com/cr330326/p/12809418.html
@@ -231,8 +246,6 @@ https://zhuanlan.zhihu.com/p/691639641
 https://blog.csdn.net/li_canhui/article/details/6798380
 https://blog.csdn.net/rc826/article/details/84539450
 https://github.com/AngelinaT-t/OCR
-
-https://www.dacast.com/blog/streaming-protocols/
 
 自己动手写 git
 https://jvns.ca/blog/2024/01/26/inside-git/
@@ -282,10 +295,10 @@ https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7
 
 https://roberthodgin.com/
 
+https://marending.dev/notes/visual-testing/
+
 HMR
 https://youtu.be/e5M_5jKPaL4
-
-book https://exploringjs.com/deep-js/ch_property-attributes-intro.html
 
 libuv https://www.youtube.com/watch?v=sGTRmPiXD4Y
 
@@ -299,8 +312,6 @@ https://tonedear.com/
 
 https://scrollbars.matoseb.com/
 
-https://github.com/thecodrr/alfaaz
-
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
 https://kinsta.com/blog/brotli-compression/
@@ -311,8 +322,6 @@ https://web.dev/new-responsive/
 
 Wireless sensing
 http://tns.thss.tsinghua.edu.cn/wst/
-
-https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 
 聊天内容不经过服务器，可以自己搭建，分享房间号给其他人
 https://chitchatter.im/
@@ -331,8 +340,6 @@ https://embedded.fm/blog/2023/5/19/embedded-skills-tree
 
 http://www.hackdig.com/06/hack-46619.htm
 
-book https://pandolia.net/tinyc/
-
 Stanford CS Curriculum : Stanford
 https://docs.google.com/spreadsheets/d/1zfw8nPvJeewxcFUBpKUKmAVE8PjnJI7H0CKimdQXxr0/htmlview
 
@@ -341,8 +348,6 @@ book https://rustwasm.github.io/docs/book/introduction.html
 https://color.adobe.com/create/color-wheel
 
 http://chuquan.me/2020/03/22/ios-certificate-principle/
-
-中文点阵字库介绍 https://blog.csdn.net/comwise/article/details/16892765
 
 book https://moderncss.dev/topics/
 
@@ -397,8 +402,6 @@ https://spacelift.io/blog/container-security
 https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
 
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
-
-https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
 
@@ -479,8 +482,6 @@ https://charliegerard.dev/blog/ultrasonic-payments/
 
 packing problem https://erich-friedman.github.io/packing/
 
-https://github.com/JuliaPlots/UnicodePlots.jl
-
 book https://google.github.io/comprehensive-rust/
 
 https://github.com/lucaong/minisearch
@@ -512,13 +513,11 @@ https://garden.bradwoods.io/notes/css/3d
 
 https://github.com/google/cdc-file-transfer
 
-make a language https://arzg.github.io/lang/
-
 https://github.com/simeydotme/pokemon-cards-css
 
 https://www.mcmaster.com/
 
-[password and its md5](https://www.passwordrandom.com/most-popular-passwords)
+password and its md5 https://www.passwordrandom.com/most-popular-passwords
 
 https://danpalmer.me/2020-05-18-board-game-design/
 
@@ -527,11 +526,7 @@ https://www.iqengine.org/sigmf
 A Practical Introduction to Derive Macros in Rust
 https://www.youtube.com/watch?v=XY0yR6IPbhw
 
-book https://meatfighter.com/tetromino-computer/
-
 leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e6%8f%90%e5%8d%87%e4%b8%93%e9%a2%98
-
-https://serokell.io/blog/introduction-to-free-monads
 
 驱动开发 https://blog.csdn.net/qq_44814825/article/details/129107911
 
@@ -545,12 +540,7 @@ sort alg https://www.youtube.com/watch?v=2y3IK1l6PI4
 
 v8 https://www.youtube.com/watch?v=qFoFKLI3O8w
 
-ZipBomb (离谱压缩率的文件)
-https://www.bamsoftware.com/hacks/zipbomb/
-
 https://codersblock.com/blog/the-surprising-things-that-css-can-animate/
-
-https://spacexcode.com/blog/pure-css-grid-line/
 
 Audio adventures in Rust: UI with Actix, WebView, and React
 https://www.youtube.com/watch?v=vmvq9jKBlGc
@@ -564,8 +554,6 @@ https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 https://blog.hirnschall.net/flow-simulation-js/
 
 book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
-
-https://abhinavsarkar.net/posts/implementing-co-1/
 
 https://www.khanacademy.org/computing/pixar
 
@@ -607,8 +595,6 @@ https://github.com/rust-lang/rust/issues/93740
 https://webkit.org/blog/6161/locking-in-webkit/
 
 https://dragostis.github.io/posts/analytic-quad-offset/
-
-build 8-bit computer https://www.youtube.com/watch?v=kRlSFm519Bo&list=PLowKtXNTBypGqImE405J2565dvjafglHU&index=2
 
 https://zverok.space/blog/2021-12-28-grok-shan-shui.html
 
@@ -677,9 +663,16 @@ Pixel Renderer Devlog https://www.youtube.com/watch?v=R6vQ9VmMz2w
 
 Music Theory Tools https://muted.io/cheat-sheet/
 
-https://citw.dev/tutorial/create-your-own-compiler
-
+Compilers
 book https://iucompilercourse.github.io/tutorial-web-page/
+book https://meatfighter.com/tetromino-computer/
+https://citw.dev/tutorial/create-your-own-compiler
+build 8-bit computer https://www.youtube.com/watch?v=kRlSFm519Bo&list=PLowKtXNTBypGqImE405J2565dvjafglHU&index=2
+
+make a language
+https://arzg.github.io/lang/
+https://abhinavsarkar.net/posts/implementing-co-1/
+book https://pandolia.net/tinyc/
 
 https://pixelparmesan.com/fundamentals-of-isometric-pixel-art/
 
@@ -704,6 +697,8 @@ https://cjting.me/2021/08/07/fourier-transform-and-audio-visualization/
 
 https://pudding.cool/2018/02/waveforms/
 
+https://www.dacast.com/blog/streaming-protocols/
+
 https://hughfenghen.github.io/posts/2023/07/16/webav-0-overview/
 
 ## FP
@@ -716,6 +711,8 @@ book https://mostly-adequate.gitbook.io/mostly-adequate-guide/
 https://github.com/llh911001/mostly-adequate-guide-chinese
 
 https://github.com/getify/monio/blob/master/MONADS.md#where-to-learn-more-fp
+
+https://serokell.io/blog/introduction-to-free-monads
 
 ## Computer Graphics (WGSL)
 
@@ -923,6 +920,10 @@ precise clock: https://codepen.io/smashingmag/pen/BaYVLMj
 fork bomb^(`A{ A|A& };A`, it's a shell script, `A` call itself twice in parallel. so it create too many processes hangs up CPU, and crash system.
 unix can use `ulimit -u` for limit single user can use process numbers
 ) https://www.youtube.com/watch?v=nB_s79lHSVs
+
+ZipBomb^(
+  离谱压缩率的文件
+) https://www.bamsoftware.com/hacks/zipbomb/
 
 UX rules^(
 (1) the user can figure out what to do next. for example image-crop: not select image then crop it, yet crop command then select image(there only image can crop, user knew it)

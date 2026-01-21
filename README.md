@@ -10,9 +10,10 @@
 - [架构](./Architecture/README.md)
 
 - [数据处理模式](./DataFlow/README.md)
-- [Graphics 相关](./graphics/README.md)
+- [Graphics 相关](./Graphics/README.md)
 - [Network 相关](./network/README.md)
-- [音视频相关](./audio&video/README.md)
+- [文字处理相关](./Glyphs/README.md)
+- [音视频相关](./Audio&video/README.md)
 - [验证安全相关](./Authentication/README.md)
 - [各种存储方案](./storages.md)
 - [WebWorkers](./web-worker.md)

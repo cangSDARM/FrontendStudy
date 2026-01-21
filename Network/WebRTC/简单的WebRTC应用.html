@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creating a RTCPeerConnection</title>
+</head>
+<body>
+	<div id="container">
+		<!-- 本地初始化连接的用户 -->
+		<video id="yours"></video>
+
+		<!-- 通过WebRTC连接到的远程用户 -->
+		<video id="theirs"></video>
+	</div>
+	<script type="text/javascript">
+		//需要使用上一个Demo的UserMedia处理，这里仅做简化
+
+		function hasRTCPeer() {
+			window.RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+			return !!window.RTCPeerConnection;
+		}
+
+		function startPeerConnection(stream){
+			call();
+			beCall();
+		}
+
+		function call(){	//（主动）呼叫别人
+			let config = {
+				"iceServers": [{"url": "stun:127.0.0.1:9876"}]
+			};
+			yourConn = new window.RTCPeerConnection(config);
+			// Adding a local stream won't trigger the onaddstream callback
+			yourConn.addStream(stream);
+
+			//创建ICE处理
+			pc.onicecandidate = function(event) {
+				if (event.candidate) {
+				    // Send the candidate to the remote peer
+				    theirConn.addIceCandidate(new RTCIceCandidate(event.candidate));	//现在只是单人的，所以直接调用。其他需要远程发送
+				} else {
+				    // All ICE candidates have been sent
+				}
+			}
+
+			//开始Offer处理
+			yourConn.createOffer([options])
+				.then((offer)=>yourConn.setLocalDescription(
+					new RTCSessionDescription(offer)
+				))
+			  	.then(function() {
+			    	sendToServer({
+			      		name: myUsername,
+			      		target: targetUsername,
+			      		type: "video-offer",
+			      		sdp: yourConn.localDescription
+			    	});
+			  	})
+			  	.catch(e=>throw new Error());
+		}
+
+		function beCall(){	//（被动）被呼叫响应连接
+			let offer = getOfferFromServer();
+			theirConn = new window.RTCPeerConnection();
+			theirConn.setRemoteDescription(new RTCSessionDescription(offer), function(){
+				theirConn.createAnswer()
+					.then(answer=>theirConn.setLocalDescription(
+						new RTCSessionDescription(answer)
+					))
+					.then(function() {
+					  // Send the answer to the remote peer through the signaling server.
+					})
+					.catch(e=>throw new Error());
+			});
+		}
+
+		var yourVideo = document.querySelector("#yours");
+		var theirVideo = document.querySelector("theirs");
+		var yourConn, theirConn;
+
+		(function(){
+			navigator.mediaDevices.getUserMedia({video:true, audio:false})
+				.then(function(stream){
+					yourVideo.srcObject = stream;
+					if(hasRTCPeer()){
+						startPeerConnection(stream);
+					}else{
+						throw new Error("Sorry, your browser dosen't support WebRTC.");
+					}
+				})
+				.catch(e=>throw new Error(e));
+		})();
+	</script>
+</body>
+</html>

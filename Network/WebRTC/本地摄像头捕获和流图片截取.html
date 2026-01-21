@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="utf-8">
+	<title>WebRTC 实践</title>
+	<style type="text/css">
+		video, canvas{
+			border: 1px solid gray;
+			width: 480px;
+			height: 320px;
+		}
+
+		.gary-scale{
+			-webkit-filter: grayscale(1);
+			-moz-filter: grayscale(1);
+			-ms-filter: grayscale(1);
+			-o-filter: grayscale(1);
+			filter: grayscale(1);
+		}
+
+		.sepia{
+			-webkit-filter: sepia(1);
+			-moz-filter: sepia(1);
+			-ms-filter: sepia(1);
+			-o-filter: sepia(1);
+			filter: sepia(1);
+		}
+
+		.invert{
+			-webkit-filter: invert(1);
+			-moz-filter: invert(1);
+			-ms-filter: invert(1);
+			-o-filter: invert(1);
+			filter: invert(1);
+		}
+	</style>
+</head>
+<body>
+	<video></video>
+	<canvas></canvas>
+	<button id='capture'>Capture</button>
+	<button id='filter'>Filter</button>
+	<script async="true" type="text/javascript">
+		function detecteMobile(){
+			if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+				return true;
+			return false;
+		}
+		function Filter(canvas){
+			document.querySelector('#filter').addEventListener('click', function(e){
+				let filter = ['', 'grayscale', 'sepia', 'invert'];
+				let random = Math.random() * 100 & 3;
+				canvas.className = filter[random];
+				Watermark(canvas);
+			});
+		}
+		function Watermark(canvas){
+			let context = canvas.getContext('2d');
+			context.fillStyle = "white";
+			context.fillText("Watermark", 10, 10);
+		}
+		function Capture(video){
+			let canvas = document.querySelector('canvas');
+			document.querySelector("#capture").addEventListener('click', function(e){
+				canvas.width = video.clientWidth;
+				canvas.height = video.clientHeight;
+				let context = canvas.getContext('2d');
+				context.drawImage(video, 0, 0, canvas.width, canvas.height);
+				Watermark(canvas);
+			})
+			Filter(canvas);
+		}
+
+		(function(customConfiguration){
+			detecteMobile() && console.debug("Mobile ing");
+			let hasUserMediaNewVersion = () => {
+				return !!(navigator.mediaDevices.getUserMedia);
+			}
+			let hasUserMediaOldVersion = () => {
+				return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+			};
+			let scCallback = (stream) => {
+				let video = document.querySelector('video');
+				// 旧的浏览器可能没有srcObject
+			  	if ("srcObject" in video) {
+			    	video.srcObject = stream;
+			  	} else {
+			   		// 防止在新的浏览器里使用它，应为它已经不再支持了
+			    	video.src = window.URL.createObjectURL(stream);
+			  	}
+			  	video.onloadedmetadata = function(e) {
+			    	video.play();
+			  	};
+			  	Capture(video);
+			}
+			let errCallback = (err) => {	//err: DOMException
+				console.debug(err.name, err.message, err.code);
+			}
+			if(hasUserMediaNewVersion()){
+				console.debug("New Version");
+				navigator.mediaDevices.getUserMedia(customConfiguration)
+					.then(scCallback)
+					.catch(errCallback);
+			}else if(hasUserMediaOldVersion()){
+				console.debug("Old Version");
+				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+				navigator.getUserMedia(customConfiguration, scCallback, errCallback);
+			}else{
+				alert("this browser does not support the WebRTC");
+			}
+		})({
+			video: {
+				width: { min: 640, ideal: 1280, max: 1920 },
+			    height: { min: 480, ideal: 720, max: 1080 },
+			    facingMode: "user"	//移动设备使用前置摄像头
+			},
+			audio: false
+		});
+	</script>
+</body>
+</html>

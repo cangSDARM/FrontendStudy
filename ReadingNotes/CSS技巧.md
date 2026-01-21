@@ -8,13 +8,15 @@
   - [条件查询](#条件查询)
     - [父容器尺寸](#父容器尺寸)
     - [CSS 语法查询](#css-语法查询)
-  - [元素形状](#元素形状)
-    - [圆角](#圆角)
-    - [半圆、多边形](#半圆多边形)
-    - [内凹图形](#内凹图形)
   - [文字排版](#文字排版)
     - [文字环绕](#文字环绕)
-  - [主题](#主题)
+    - [单个字内置多种颜色](#单个字内置多种颜色)
+- [元素形状](#元素形状)
+  - [圆角](#圆角)
+  - [半圆、多边形](#半圆多边形)
+  - [内凹图形](#内凹图形)
+  - [水印](#水印)
+- [主题](#主题)
 - [其他注意事项](#其他注意事项)
 
 <!-- /TOC -->
@@ -149,39 +151,6 @@ parent {
 }
 ```
 
-### 元素形状
-
-#### 圆角
-
-> [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
-
-```css
-/*芒果形状*/
-div {
-  border-radius: 0px 100px / 120px;
-  /* 定义顺序(从top-left开始)：top-left的horizontal vertical -> top-right的vertical horizontal vertical以此类推
-    /* / 前面的是以顺时针角度椭圆的第一个被定义的值，后面的是第二个被定义的值, */
-}
-```
-
-#### 半圆、多边形
-
-> [使用裁剪方式创建元素的可显示区域](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)
-
-```css
-div {
-  clip-path: circle(50% at 50% 0);
-}
-div {
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-}
-```
-
-#### 内凹图形
-
-1. 使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
-2. 使用 [CSS Mask](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Masking) 技术来裁切正常图形，以实现内凹图形
-
 ### 文字排版
 
 > [更多](https://developer.mozilla.org/zh-CN/docs/Web/CSS/writing-mode)
@@ -210,7 +179,55 @@ img {
 }
 ```
 
-### 主题
+#### [单个字内置多种颜色](https://webkit.org/blog/12662/customizing-color-fonts-on-the-web/)
+
+## 元素形状
+
+### 圆角
+
+> [描述](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
+
+```css
+/*芒果形状*/
+div {
+  border-radius: 0px 100px / 120px;
+  /* 定义顺序(从top-left开始)：top-left的horizontal vertical -> top-right的vertical horizontal vertical以此类推
+    /* / 前面的是以顺时针角度椭圆的第一个被定义的值，后面的是第二个被定义的值, */
+}
+```
+
+### 半圆、多边形
+
+> [使用裁剪方式创建元素的可显示区域](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)
+
+```css
+div {
+  clip-path: circle(50% at 50% 0);
+}
+div {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+```
+
+### 内凹图形
+
+1. 使用`<map>`和`<area>`来创建可点击的内凹图形(实际上其可以[实现任意的可点击区域](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/map))
+2. 使用 [CSS Mask](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Masking) 技术来裁切正常图形，以实现内凹图形
+
+### 水印
+
+```scss
+.watermark {
+  // 1. edit: https://www.jyshare.com/more/svgeditor/
+  // 2. insert: https://www.svgbackgrounds.com/tools/svg-to-css/
+  background-image: url('data:image/svg+xml,<svg version="1.1" width="100" height="100" xmlns="http://www.w3.org/2000/svg"><text transform="rotate(-40 47.9063 49.5)" font-style="normal" text-anchor="start" font-size="24" y="60" x="0" stroke="%23f00" fill="%23ff0000">BROKEN</text></svg>');
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  background-position: center;
+}
+```
+
+## 主题
 
 ```css
 .element {

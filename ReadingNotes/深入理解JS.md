@@ -5,13 +5,11 @@
   - [常见方法](#常见方法)
   - [类型判断](#类型判断)
   - [void 运算符](#void-运算符)
-  - [泛型方法](#泛型方法)
+  - [类](#类)
+    - [Older type](#older-type)
+    - [类表达式](#类表达式)
+    - [类继承](#类继承)
   - [模块](#模块)
-  - [TypedArray](#typedarray)
-  - [SharedArrayBuffer](#sharedarraybuffer)
-    - [Atomics](#atomics)
-  - [Binary Operators](#binary-operators)
-  - [Blob](#blob)
   - [Date](#date)
   - [Regex](#regex)
     - [RegExp 的/g 死循环](#regexp-的g-死循环)
@@ -20,12 +18,17 @@
     - [断言](#断言)
     - [内联标识符](#内联标识符)
     - [捕获替换](#捕获替换)
+- [Binary](#binary)
+  - [TypedArray](#typedarray)
+  - [SharedArrayBuffer](#sharedarraybuffer)
+    - [Atomics](#atomics)
+  - [Binary Operators](#binary-operators)
+  - [Blob](#blob)
 - [Tip](#tip)
     - [FinalizationRegistry](#finalizationregistry)
     - [Object.preventExtensions](#objectpreventextensions)
     - [Object.seal](#objectseal)
     - [尾调用优化](#尾调用优化)
-    - [自定义 JSON 格式](#自定义-json-格式)
 
 <!-- /TOC -->
 
@@ -99,9 +102,28 @@ void (function () {
 void 1 + 4; //undefined
 ```
 
-### 泛型方法
+### 类
+
+> 继承: class A extends B { constructor(a,b){ super(a); }}<br/>
+> 重写父类方法不需要任何关键字<br/>
+> 静态函数: static func(){}<br/>
+> super 对象在普通方法指向父类原型 prototype, static 方法中指向父类<br/>
+> set 函数: set func(){}. 同 C#的 set；get 类似<br/>
+
+#### Older type
 
 ```js
+function Person(name, age){
+  Human.call(this, name);
+  this.age = age;
+}
+function Person.prototype = new Human();
+function Person.prototype.constructor = Person;
+Person.prototype.consoleName = function(){}
+
+var p = new Person("name", 1);
+
+// 泛型
 var Wine = Object.create(Object, {
   AddAge: function (years) {
     return (this.age += years);
@@ -112,12 +134,175 @@ Wine.prototype.AddAge.call(john, 3); //借助call, apply, bind等实现泛型
 john.age; //54
 ```
 
+#### 类表达式
+
+```js
+//可以是匿名的
+let Foo = class {
+  constructor() {}
+  bar() {
+    return "Hello World!";
+  }
+};
+new Foo().bar();
+Foo = class {}; //类表达式允许重新赋值
+
+//可以是具名的
+const Foo = class NamedFoo {
+  constructor() {}
+  whoIsThere() {
+    //主要用于类的内部引用类本身，外部是undefined的
+    return NamedFoo.name;
+  }
+};
+```
+
+#### 类继承
+
+```js
+function f(phrase) {
+  return class {
+    sayHi() { alert(phrase); }
+  };
+}
+// 在 extends 后允许任意表达式
+class User extends f("Hello") {}  //继承自 f("Hello") 的结果
+new User().sayHi();
+```
+
 ### 模块
+
+- 模块仅在第一次导入时被解析。之后不管在哪在什么位置导入第二次都不会执行
 
 ```ts
 export * from "antd";
 export { Modal } from "./Modal"; // reexport 的 具名导出 优先级比 * 高
+
+export default Code; // 默认导出. 一个模块只有一个
+export { value1, value2, ...} // 多变量导出
 ```
+
+### Date
+
+由于设计问题，方法有对应的时区问题。每个方法的时区都不尽相同
+
+- Use UTC-based operations whenever possible
+- Use Z or a time offset when parsing strings
+- Use `Temporal` to operate Date, use `Date` to parse Date
+
+```js
+//Without Z: Input is January 27 (implicitly in the Europe/Paris time zone), output is January 26 (in UTC).
+new Date("2077-01-27T00:00").toISOString();
+// With Z: Input is January 27, output is January 27.
+new Date("2077-01-27T00:00Z").toISOString();
+
+// 时间可以比较（默认转为timestamp后比较）
+assert.equal(new Date("1972-05-03") < new Date("2001-12-23"), true);
+```
+
+### Regex
+
+```js
+/abc/; // 加载时编译
+new RegExp("abc"); // 运行时编译
+str.replace(/(.*)and/, "$1but"); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
+//使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
+```
+
+#### RegExp 的/g 死循环
+
+```js
+while(/a/g.test('baabaa')) count++;     //dead loop
+while(/a/g.exec('abasbs')) count--;     //dead loop
+//解决办法:
+let reg = /a/g; //将reg提取出来
+while(reg.test() || reg.exec())
+```
+
+#### 差交并补集
+
+要启用字符类的集合操作，必须能够嵌套它们。当标志符 `/v` 时，我们可以额外嵌套字符类
+
+```js
+// 差集
+/[\w--[a-g]]$/v.test("h");
+/[\p{Number}--[0-9]]$/v.test("٣");
+/[\w--a]$/v.test("b");
+
+// 交集
+/[\p{ASCII}&&\p{Letter}]/v.test("D");
+/[\p{Script=Arabic}&&\p{Number}]$/v.test("٣");
+
+// 并集
+/[\p{Emoji_Keycap_Sequence}[a-z]]+$/v.test("a2️⃣c");
+
+// 补集
+/[\P{Letter}]/v.test("1");
+```
+
+#### [扩展 unicode 支持](./字符系统.md)
+
+#### 断言
+
+```js
+// 前向断言
+// regex(?=«pattern»)
+// 仅当 pattern 满足时，匹配 regex
+"abcX def".match(/[a-z]+(?=X)/g); // abc
+
+// 取反的前向断言
+// regex(?!«pattern»)
+// 当 pattern 满足时，则匹配 regex
+"abcX def".match(/[A-z]+(?!X)[A-z]/g); // [abc, def]
+// 注意 断言并不消耗字符，因此必须抽出[A-z]给regex判断。否则+直接贪婪匹配全部
+// 等价于
+"abcX def".match(/[A-z]+[A-z](?<!X)/g);
+
+// 后向断言
+// (?<=«pattern»)regex
+// 仅当 pattern 满足时，匹配 regex
+"Xabc def".match(/(?<=X)[a-z]+/g); // abc
+
+// 取反的后向断言
+// (?<!«pattern»)regex
+// 当 pattern 满足时，则匹配 regex
+"Xabc def".match(/(?<!X)[a-z]+/g); // bc def
+```
+
+#### 内联标识符
+
+只有 `i, m, s` 支持
+
+```js
+// (?«flags»:regex)
+// 激活标识
+
+/^x(?i:HELLO)x$/.test("xHELLOx"); // true
+/^x(?i:HELLO)x$/.test("xhellox"); // true
+
+// (?-«flags»:regex)
+// 取消标识
+
+/^x(?-i:HELLO)x$/i.test("XHELLOX"); // true
+/^x(?-i:HELLO)x$/i.test("XhelloX"); // false
+```
+
+#### 捕获替换
+
+```js
+// $$       $ 符号
+// $&       匹配后的内容
+// $`       匹配内容前面的字符(*贪婪)
+// $'       匹配内容后面的字符(*贪婪)
+// $<name>  匹配组
+
+"+0a1 a2".replace("a", "|$`$&|"); // +0|+0a|1 a2
+"+0a1 a2".replace("a", "|$&$'|"); // +0|a1 a2|1 a2
+"+0a1 a2".replace(/(a)(1)/, "|$2$1|"); // +0|1a| a2
+"+0a1 a2".replace(/(?<a>a)(?<n>1)/, "|$<n>$<a>|"); // +0|1a| a2
+```
+
+## Binary
 
 ### TypedArray
 
@@ -236,11 +421,13 @@ somenum - othernum * Math.floor(x / a);
 
 ### Blob
 
+Blob 相比于 ArrayBuffer, 添加了文件感知和 MIME 信息
+
 ```js
 const link = document.createElement("a");
 link.download = "hello.txt";
 
-// 第一个参数必须是一个数组 [...]
+// 第一个参数必须是一个数组 [...] (ArrayBuffer、类型化数组、DataView、Blob、File 或 string)
 const blob = new Blob(["Hello, world!"], { type: "text/plain" });
 
 // 从 blob 获取 arrayBuffer
@@ -272,128 +459,6 @@ reader.onload = function () {
   link.href = reader.result; // data url
   link.click();
 };
-```
-
-### Date
-
-由于设计问题，方法有对应的时区问题。每个方法的时区都不尽相同
-
-- Use UTC-based operations whenever possible
-- Use Z or a time offset when parsing strings
-
-```js
-//Without Z: Input is January 27 (implicitly in the Europe/Paris time zone), output is January 26 (in UTC).
-new Date("2077-01-27T00:00").toISOString();
-//'2077-01-26T23:00:00.000Z'
-
-// With Z: Input is January 27, output is January 27.
-new Date("2077-01-27T00:00Z").toISOString();
-//'2077-01-27T00:00:00.000Z'
-
-// 时间可以比较（默认转为timestamp后比较）
-assert.equal(new Date("1972-05-03") < new Date("2001-12-23"), true);
-```
-
-### Regex
-
-```js
-/abc/; // 加载时编译
-new RegExp("abc"); // 运行时编译
-str.replace(/(.*)and/, "$1but"); // 替换最后一个出现的字符。原理：正则表达时，贪婪模式，.*会一直匹配到最后一个
-//使用Reg时, 如果不是立即使用, 最好确定 reg.global == true 和 reg.lastIndex == 0;
-```
-
-#### RegExp 的/g 死循环
-
-```js
-while(/a/g.test('baabaa')) count++;     //dead loop
-while(/a/g.exec('abasbs')) count--;     //dead loop
-//解决办法:
-let reg = /a/g; //将reg提取出来
-while(reg.test() || reg.exec())
-```
-
-#### 差交并补集
-
-要启用字符类的集合操作，必须能够嵌套它们。当标志符 `/v` 时，我们可以额外嵌套字符类
-
-```js
-// 差集
-/[\w--[a-g]]$/v.test("h");
-/[\p{Number}--[0-9]]$/v.test("٣");
-/[\w--a]$/v.test("b");
-
-// 交集
-/[\p{ASCII}&&\p{Letter}]/v.test("D");
-/[\p{Script=Arabic}&&\p{Number}]$/v.test("٣");
-
-// 并集
-/[\p{Emoji_Keycap_Sequence}[a-z]]+$/v.test("a2️⃣c");
-
-// 补集
-/[\P{Letter}]/v.test("1");
-```
-
-#### [扩展 unicode 支持](./字符系统.md)
-
-#### 断言
-
-```js
-// 前向断言
-// regex(?=«pattern»)
-// 仅当 pattern 满足时，匹配 regex
-"abcX def".match(/[a-z]+(?=X)/g); // abc
-
-// 取反的前向断言
-// regex(?!«pattern»)
-// 当 pattern 满足时，则匹配 regex
-"abcX def".match(/[A-z]+(?!X)[A-z]/g); // [abc, def]
-// 注意 断言并不消耗字符，因此必须抽出[A-z]给regex判断。否则+直接贪婪匹配全部
-// 等价于
-"abcX def".match(/[A-z]+[A-z](?<!X)/g);
-
-// 后向断言
-// (?<=«pattern»)regex
-// 仅当 pattern 满足时，匹配 regex
-"Xabc def".match(/(?<=X)[a-z]+/g); // abc
-
-// 取反的后向断言
-// (?<!«pattern»)regex
-// 当 pattern 满足时，则匹配 regex
-"Xabc def".match(/(?<!X)[a-z]+/g); // bc def
-```
-
-#### 内联标识符
-
-只有 `i, m, s` 支持
-
-```js
-// (?«flags»:regex)
-// 激活标识
-
-/^x(?i:HELLO)x$/.test("xHELLOx"); // true
-/^x(?i:HELLO)x$/.test("xhellox"); // true
-
-// (?-«flags»:regex)
-// 取消标识
-
-/^x(?-i:HELLO)x$/i.test("XHELLOX"); // true
-/^x(?-i:HELLO)x$/i.test("XhelloX"); // false
-```
-
-#### 捕获替换
-
-```js
-// $$       $ 符号
-// $&       匹配后的内容
-// $`       匹配内容前面的字符(*贪婪)
-// $'       匹配内容后面的字符(*贪婪)
-// $<name>  匹配组
-
-"+0a1 a2".replace("a", "|$`$&|"); // +0|+0a|1 a2
-"+0a1 a2".replace("a", "|$&$'|"); // +0|a1 a2|1 a2
-"+0a1 a2".replace(/(a)(1)/, "|$2$1|"); // +0|1a| a2
-"+0a1 a2".replace(/(?<a>a)(?<n>1)/, "|$<n>$<a>|"); // +0|1a| a2
 ```
 
 ## Tip
@@ -429,7 +494,7 @@ var m = new obj(); //m的属性不能被添加和修改了(可以删除). 除非
 ```js
 var obj = Object.create({}, { foo: { value: 1, enumerable: false } });
 Object.seal(obj); //使得无法修改obj的属性(可迭代, 可写, 可配置)
-Object.isSeled(obj); //true
+Object.isSealed(obj); //true
 obj.foo = "b"; //可以修改值
 ```
 
@@ -448,28 +513,4 @@ function F() {
 function F() {
   return B(2);
 }
-```
-
-#### 自定义 JSON 格式
-
-简而言之需要实现`toJSON`方法。该方法会在`JSON.stringify`时尝试调用
-
-```js
-const json = JSON.stringify({
-  answer: { toJSON: () => 42 },
-});
-console.log(json); // {"answer":42}
-
-class HTTPErr extends Error {
-  constructor(message, status) {
-    super(message);
-    this.status = status;
-  }
-
-  toJSON() {
-    return { message: this.message, status: this.status };
-  }
-}
-const e = new HTTPError("Fail", 404);
-console.log(JSON.stringify(e)); // {"message":"Fail","status":404}
 ```

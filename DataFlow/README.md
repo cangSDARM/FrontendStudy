@@ -1,4 +1,4 @@
-- [Promise, Generator](../ECMA/Promise_Async_Generator.md)
+- [Promise, Generator](./Promise_Async_Generator.md)
 - [流](./stream.md)
 - [Rxjs](./Rxjs.md)
 - [事件溯源模式](./event-sourcing.md)
@@ -15,4 +15,4 @@
 - 模型正处于自身的 change 事件期间时，不会再触发 change 事件
 - 如果在 trigger 方法中添加了{silent:true}选项，则不会触发 change 事件
 
-[js async modals](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
+[Concurrency in JS](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)

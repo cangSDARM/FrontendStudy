@@ -10,6 +10,8 @@ Functional Programming is a fancy name for _Lambda Calculus with Haskell typecla
 - [Haskell-ish](#haskell-ish)
   - [Terminology](#terminology)
   - [Tacit Functions](#tacit-functions)
+    - [柯里化 Currying](#柯里化-currying)
+    - [偏函数](#偏函数)
 
 ## Lambda Calculus
 
@@ -133,4 +135,79 @@ const input = [1, 2, 3];
 const accelerator = (acc, b) => acc.push(b);
 const transformer = pipe(curry(add)(1), filter(isEven));
 transduce(transformer, accelerator, initial, input);  // [2,4]
+```
+
+#### 柯里化 Currying
+
+The concept itself is named after Haskell Curry, who developed it.
+
+指将一个函数从可调用的 `f(a, b, c)` 转换为可调用的 `f(a)(b)(c)`
+
+```js
+function curry(func, arity = func.length) {
+  return function curried(...args) {
+    if (args.length >= arity) {
+      return func(...args);
+    } else {
+      return (...args2) => curried(...args.concat(args2));
+    }
+  };
+}
+// no need to know the length of parameters
+const dynamicCurry = (fn) => {
+  return function curried(...args) {
+    return function next(...nextArgs) {
+      if (nextArgs.length === 0) {
+        // end state
+        return fn(...args);
+      }
+      return curried(...args, ...nextArgs);
+    };
+  };
+};
+let curriedSum = curry(sum, 3);
+curriedSum(1, 2, 3);
+curriedSum(1)(2, 3);
+curriedSum(1)(2)(3);
+dynamicCurrySum(1)(2)(3)();
+
+function uncurry(fn, arity = func.length) {
+  return (...args) => {
+    let ret = fn,
+      argsIn = [...args];
+    while (typeof ret === "function") {
+      // note: if args.length < arity, it will process undefined to original func
+      // if > arity, it will ignore rest args
+      ret = ret(argsIn.shift());
+    }
+    return ret;
+  };
+}
+```
+
+#### 偏函数
+
+严格来说叫 ”部分定参函数“ partially applied function，偏主要继承自数学传统的神秘翻译……
+
+```js
+function mul(a, b) {
+  return a * b;
+}
+let double = mul.bind(null, 2);
+console.log(double(3)); // = mul(2, 3) = 6
+
+// 更通用的(绑定时跳过this)
+function partial(func, ...argsBound) {
+  return (...args) => func(...argsBound, ...args);
+}
+let double = partial(mul, 2);
+console.log(double(3)); // = mul(2, 3) = 6
+
+function partialRight(func, ...argsRight) {
+  return (...args) => func(...args, ...argsRight);
+}
+// for object bag
+function partialProps(fn, presetArgsObj) {
+  return (laterArgsObj) => fn(Object.assign({}, presetArgsObj, laterArgsObj));
+}
 ```

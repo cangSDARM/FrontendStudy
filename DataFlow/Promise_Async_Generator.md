@@ -16,13 +16,6 @@
 - [Async 和生成器混用](#async-和生成器混用)
 - [扩展：Deferred](#扩展deferred)
 
-
-[js async modals](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
-
-# Promise Async Generator
-
-[Concurrency in JS](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
-
 ## Promise
 
 `new Promise(fun)`, 这个`fun`函数是**立即执行**的

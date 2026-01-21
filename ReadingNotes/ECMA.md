@@ -4,7 +4,6 @@
   - [数组解构](#数组解构)
   - [复杂解构](#复杂解构)
   - [for-of 中解构](#for-of-中解构)
-- [类](#类)
 - [Proxy 代理](#proxy-代理)
   - [可撤销的代理](#可撤销的代理)
 - [Reflect 反射](#reflect-反射)
@@ -15,7 +14,9 @@
   > var 可以重新声明(最小: function)<br/>
   > let 局部(最小: block)<br/>
   > const 对象属性可变, 对象不可变(最小: block)<br/>
-  > const A = Object.freeze(obj). 彻底不可变
+  > const A = Object.preventExtensions(obj). 不许添加属性 <br/>
+  > const B = Object.seal(obj). 不许修改属性 <br/>
+  > const C = Object.freeze(obj). 彻底不可变(shallow)
 - 集合 Set
   > 同 python 的 Set<br/>
   > const set = new Set();<br/>
@@ -61,15 +62,6 @@
   > const p = Symbol('p')<br/>
   > 不可遍历, 唯一不重复<br/>
   > 可以使用 const p1 = Symbol.for('p'), p2 = Symbol.for('p'); p1 === p2; 称为 Symbol 全局注册表<br/>
-- 模块
-  > 模块仅在第一次导入时被解析。之后不管在哪在什么位置导入第二次都不会执行<br/>
-  > export default Code<br/>
-  > 默认导出. 一个模块只有一个<br/>
-  > 使用 import XX from XXX 导入. XX 自定义<br/>
-  > export const(let) Value<br/>
-  > 使用 import { Value } from XXX 导入. Value 不可变<br/>
-  > 可以导出 function, 变量等<br/>
-  > 多变量导出: export { value1, value2, ...}
 
 ### 函数默认值
 
@@ -143,64 +135,6 @@ let a;
 for (var {name: n, family: {father: f}} of people)
 ```
 
-### 类
-
-> 继承: class A extends B { constructor(a,b){ super(a); }}<br/>
-> 重写父类方法不需要任何关键字<br/>
-> 静态函数: static func(){}<br/>
-> super 对象在普通方法指向父类原型 prototype, static 方法中指向父类<br/>
-> set 函数: set func(){}. 同 C#的 set；get 类似<br/>
-
-- Older type
-
-```js
-function Person(name, age){
-    Human.call(this, name);
-    this.age = age;
-}
-function Person.prototype = new Human();
-function Person.prototype.constructor = Person;
-Person.prototype.consoleName = function(){}
-
-var p = new Person("name", 1);
-```
-
--- 类表达式
-
-```js
-//可以是匿名的
-let Foo = class {
-  constructor() {}
-  bar() {
-    return "Hello World!";
-  }
-};
-new Foo().bar();
-Foo = class {}; //类表达式允许重新赋值
-
-//可以是具名的
-const Foo = class NamedFoo {
-  constructor() {}
-  whoIsThere() {
-    //主要用于类的内部引用类本身，外部是undefined的
-    return NamedFoo.name;
-  }
-};
-```
-
--- 类继承
-
-```js
-function f(phrase) {
-  return class {
-    sayHi() { alert(phrase); }
-  };
-}
-// 在 extends 后允许任意表达式
-class User extends f("Hello") {}  //继承自 f("Hello") 的结果
-new User().sayHi();
-```
-
 ### Proxy 代理
 
 > `const proxy = new Proxy(target, handler)`<br/>
@@ -209,13 +143,35 @@ new User().sayHi();
 > 严格相等性检查 `===` 无法被拦截<br/>
 
 ```js
+const target = {
+  age: 10,
+  looseGet() {
+    return this.age;
+  },
+  strictGet() {
+    if (this !== target) throw 'Error';
+    return this.age;
+  }
+}
+
 const handler = {
   set: function(target, key, value){
     const target[key] = value;
     return true; //表示成功
   },
   get: function(target, key, receiver){
-    return target[key]
+    // trap a method call
+    // ⚠️如果使用这种方法，则只会代理浅层属性的访问(属性内部访问了 this 时绕过了proxy, 此时就不会捕获), 只会捕获到 looseGet
+    // 否则，`this`会被替换(不是 target, this 依然是"proxied"), strictGet 会报错
+    if (typeof target[key] === 'function') {
+      const origMethod = target[key].bind(target);
+      return function (...args) {
+        const result = Reflect.apply(origMethod, target, args);
+        return result;
+      };
+    }
+
+    return Reflect.get(target, key, receiver);
   },
   apply(target, thisArg, args) {//允许包装后的对象被 ()/call/apply 调用
     setTimeout(() => target.apply(thisArg, args), ms);
@@ -231,7 +187,7 @@ const handler = {
 let object = {
   data: "Valuable data"
 };
-let {proxy, revoke} = Proxy.revocable(object, {});
+const {proxy, revoke} = Proxy.revocable(object, {});
 // 将 proxy 传递到其他某处，而不是对象...
 alert(proxy.data); // Valuable data
 revoke();
