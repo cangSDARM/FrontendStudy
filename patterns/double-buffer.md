@@ -1,4 +1,4 @@
-# double-buffer pattern
+# Double-buffer pattern
 
 以下情况都满足时，使用这个模式就很恰当：
 

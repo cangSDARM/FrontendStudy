@@ -123,8 +123,9 @@ https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 
 https://cblgh.org/trustnet/
 
-book https://gameprogrammingpatterns.com/introduction.html
-https://gpp.tkchu.me/update-method.html
+book Lua VM http://underpop.free.fr/l/lua/docs/a-no-frills-introduction-to-lua-5.1-vm-instructions.pdf
+
+book https://www.dataorienteddesign.com/dodbook/
 
 https://gamedevelopment.tutsplus.com/
 
@@ -276,8 +277,6 @@ Virtual Display Drivers Knowledge Base
 https://github.com/pavlobu/deskreen/discussions/86
 
 android games download https://pdalife.to/android/
-
-Go defer 原理和源码剖析 https://www.cnblogs.com/wanghao72214/p/15544365.html
 
 PWA
 https://web.dev/learn/pwa/

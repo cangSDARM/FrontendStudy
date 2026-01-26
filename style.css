@@ -132,6 +132,28 @@ span {
   color: var(--div-color);
 }
 
+/**
+Layer
+
+= 样式优先级: C > B > A
+= 可以嵌套(如有 C.D, B.E, 则 C > C.D > B > B.E > A)
+= 可以随时往已有的 layer 里加样式(@layer C {} 即可)
+
+*/
+@layer A, B, C;
+
+/**
+Container
+
+= 支持 and/or 查询
+= 支持变量查询 (style(--custom-property: xx))
+= 支持固定样式查询 (style(border: none))
+= 支持滚动查询 (scroll-state)
+= 可以嵌套
+
+*/
+@container name (300px < height < 400px) and not style(border-radius: 0), scroll-state(scrollable: top) { }
+
 /** 
 colors
 
@@ -147,4 +169,17 @@ span {
   color-function (from origin ch1 ch2 ch3 / alpha)
   */
   color: oklch(from --primary l c calc(h + 90) / 1.0); /* contrast color */
+}
+
+/**
+Scopes
+
+= 遵循"作用域就近原则"(元素会应用距离他最近的 scope)
+= upper-bound/lower-bound 都可以省略
+= lower-bound 可以用 :scope xx 来选择子元素当 lower-bound(无法脱离子树, 必须选则在 upper-bound 里的)
+
+*/
+@scope (upper-bound) to (lower-bound) {
+  /* 表示 upper-bound 本身 */
+  :scope { }
 }
