@@ -81,6 +81,7 @@ https://auto-animate.formkit.com/#usage
 
 https://github.com/baotlake/periodic-table-pro
 https://github.com/evrimagaci/periodum
+https://github.com/SeanWong17/Future-Style-Periodic-Table
 
 https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 
@@ -107,6 +108,8 @@ Count Multi-language Words
 https://github.com/thecodrr/alfaaz
 
 https://github.com/JuliaPlots/UnicodePlots.jl
+
+https://xakpc.dev/windows-widgets/history/
 
 ts moduleResolution 总结
 https://juejin.cn/post/7221551421833314360
@@ -138,9 +141,6 @@ https://theodoruszq.wordpress.com/2025/09/06/%e7%8b%ac%e7%ab%8b%e6%95%b0%e5%ad%9
 https://kube.io/blog/liquid-glass-css-svg/
 
 https://github.com/AmyangXYZ/PoPo
-
-编译uniapp
-https://juejin.cn/post/7294907512444239935
 
 https://www.gatesnotes.com/meet-bill/source-code/reader/microsoft-original-source-code
 
