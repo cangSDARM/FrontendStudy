@@ -49,8 +49,6 @@ https://blogs.csdn.net/weixin_44280696/article/details/133255295
 
 https://developer.chrome.com/capabilities/
 
-https://developer.chrome.com/articles/file-system-access/
-
 random distribute https://github.com/ChrisCavs/aimless.js
 
 https://thepalindrome.org/p/matrices-and-graphs
@@ -140,6 +138,10 @@ https://theodoruszq.wordpress.com/2025/09/06/%e7%8b%ac%e7%ab%8b%e6%95%b0%e5%ad%9
 
 https://kube.io/blog/liquid-glass-css-svg/
 
+https://github.com/koala73/worldmonitor
+
+https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring
+
 https://github.com/AmyangXYZ/PoPo
 
 https://www.gatesnotes.com/meet-bill/source-code/reader/microsoft-original-source-code
@@ -168,15 +170,43 @@ https://llimllib.github.io/bloomfilter-tutorial/zh_CN/
 
 https://zoom.earth/
 
-hyperloglog
-https://hzhu212.github.io/posts/365f8e92
-http://content.research.neustar.biz/blog/hll.html
-https://www.cnblogs.com/linguanh/p/10460421.html
-https://zhuanlan.zhihu.com/p/58519480
-https://github.com/clarkduvall/hyperloglog
+AI 敏捷开发框架
+https://blog.mapin.net/posts/BMAD%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20AI%20%E9%A9%B1%E5%8A%A8%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6
+https://cloud.tencent.com/developer/article/2633141
 
-基数估计算法
-https://zhuanlan.zhihu.com/p/271186546
+RoaringBitmap
+https://cloud.tencent.com/developer/article/1136054
+https://zhuanlan.zhihu.com/p/704410461
+https://github.com/RoaringBitmap/RoaringBitmap
+https://vikramoberoi.com/posts/a-primer-on-roaring-bitmaps-what-they-are-and-how-they-work/
+https://zhuanlan.zhihu.com/p/445396980
+https://richardstartin.github.io/posts/how-a-bitmap-index-works
+https://roaringbitmap.org/about/
+
+BloomFilters
+https://blog.csdn.net/qq_29202357/article/details/105483606
+https://www.cnblogs.com/xuwc/p/14017796.html
+https://llimllib.github.io/bloomfilter-tutorial/
+
+https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_People/Profs/rgemulla/publications/beyer07distinct.pdf
+
+Counting-min Sketch
+https://zhuanlan.zhihu.com/p/369981005
+https://juejin.cn/post/7472717871035646004
+https://blog.luckyoung.org/2021/21-04-06_count-min-sketch/
+https://crahen.github.io/algorithm/stream/count-min-sketch-point-query.html
+https://florian.github.io/count-min-sketch/
+
+CVM
+https://www-cs-faculty.stanford.edu/~knuth/papers/cvm-note.pdf
+https://buttondown.com/jaffray/archive/the-cvm-algorithm/
+https://skal65535.github.io/CVM/
+
+Flajolet-Martin
+https://blog.csdn.net/lightty/article/details/38977771
+https://shlsky.github.io/
+https://rms-sof.github.io/Flajolet-Martin/
+https://pdsa.readthedocs.io/en/latest/cardinality/probabilistic_counter.html
 
 Steganography
 https://rgxy.github.io/ctf/2016/11/29/introduction_to_stereo.html
@@ -557,8 +587,6 @@ book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-he
 https://www.khanacademy.org/computing/pixar
 
 https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
-
-https://github.com/hughfenghen/opfs-tools
 
 Vector Search 101
 https://zilliz.com/blog?tag=39&page=2
