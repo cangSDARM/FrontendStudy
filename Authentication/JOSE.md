@@ -1,5 +1,3 @@
-- [JWK](#jwk)
-  - [钥匙串](#钥匙串)
 - [JWT](#jwt)
   - [通用结构](#通用结构)
     - [Header](#header)
@@ -9,58 +7,26 @@
   - [验证方式](#验证方式)
 - [JWS](#jws)
   - [钥匙链(多次签名)](#钥匙链多次签名)
+- [JWE](#jwe)
+- [JWK](#jwk)
+  - [钥匙串](#钥匙串)
 
-## JWK
+# JOSE
 
-JSON Web Key, 用于[以 JSON 形式表示加密密钥](https://datatracker.ietf.org/doc/html/rfc7517)
+JSON Object Signing and Encryption(JSON 对象签名与加密)
 
-```json
-{
-  "kty": "RSA",
-  "use": "sig",
-  "alg": "RS256",
-  "n": "0vx7agoebGcQSuuPiLJXZpt...-TmV4HCA1T8jXg3fE2VbA",
-  "e": "AQAB",
-  "kid": "2011-04-29-1234"
-}
-```
+一套 RFC 标准族, 让 JSON 数据在不安全网络中安全传输
+支持签名防篡改、加密防窃听、密钥标准化
 
-一些常见属性:
-
-- kty (Key Type): 使用密钥的加密算法家族。常见值包括 RSA、EC 和 oct。在 RFC 7518 中，EC 被标记为“推荐+”。
-- use (Public Key Use): 公钥的预期用途。常见值包括 sig (签名) 和 enc (加密)。
-- key_ops (Key Operations): 密钥支持的操作。常见值包括 sign、verify、encrypt 和 decrypt。
-- alg (Algorithm): 预期使用该密钥的算法。根据密钥类型，算法可能会有所不同。例如，RS256 可能用于 RSA 密钥，而 ES256 可能用于 EC 密钥。
-- kid (Key ID): 密钥的唯一标识符。它可以用于在一组密钥中匹配一个特定的密钥
-
-### 钥匙串
-
-当需要将多个 JWK 组合在一起时，它们会被组织成一个 JSON Web Key Set (JWKS)
-
-```json
-{
-  "keys": [
-    {
-      "kty": "RSA",
-      "use": "sig",
-      "alg": "RS256",
-      "n": "0vx7agoebGcQSuuPiLJXZpt...-TmV4HCA1T8jXg3fE2VbA",
-      "e": "AQAB",
-      "kid": "2011-04-29-1234"
-    },
-    {
-      "kty": "EC",
-      "crv": "P-384",
-      "x": "F_xQdbOho2Jw0hgmNPD0VAEPAgkQrfD4f1Qx3y49cUm646fMBX9DYx-43HzXm6Vd",
-      "y": "X77uFymz90aO4dBunpTdUzLFRAiT7-IngzZGDrIE-FG6CcqQuRP65r65SUzDOmP5"
-    }
-  ]
-}
-```
+- JWT 是"容器", 承载数据(如 sub: user123, exp: 1742256000)
+- JWS 是"签名", 防止篡改、验证身份
+- JWE 是"加密", 防窃听
+- JWA 是"工具", 规定算法签名 / 加密
+- JWK 是"格式", 规定密钥 JSON 表示格式
 
 ## JWT
 
-JSON Web Token, 用于提供一个标准化的方法来表示 JSON 对象及其签名
+JSON Web Token, 用于提供一个标准化的方法来[表示 JSON 对象及其签名](https://datatracker.ietf.org/doc/html/rfc7519)
 
 JWT 仅提供校验，不提供**加密**. 因此内容可以自行解析
 
@@ -175,3 +141,55 @@ JWS 额外 header 中有 9 个可选的预定义好的字段:
 - x5t#S256: X509 证书的 SHA-256 指纹
 - typ: 在原本未加密的 JWT 的基础上增加了 JOSE 和 JOSE + JSON. 适用于 JOSE 标头的对象与此 JWT 混合的情况
 - crit: 字符串数组，包含声明的名称，用作实现定义的扩展，必须由 this->JWT 的解析器处理. 不常见
+
+## JWE
+
+JSON Web Encryption, 用于[以 JSON 形式进行加密](https://datatracker.ietf.org/doc/html/rfc7516)
+
+## JWK
+
+JSON Web Key, 用于[以 JSON 形式表示加密密钥](https://datatracker.ietf.org/doc/html/rfc7517)
+
+```json
+{
+  "kty": "RSA",
+  "use": "sig",
+  "alg": "RS256",
+  "n": "0vx7agoebGcQSuuPiLJXZpt...-TmV4HCA1T8jXg3fE2VbA",
+  "e": "AQAB",
+  "kid": "2011-04-29-1234"
+}
+```
+
+一些常见属性:
+
+- kty (Key Type): 使用密钥的加密算法家族。常见值包括 RSA、EC 和 oct。在 RFC 7518 中，EC 被标记为“推荐+”。
+- use (Public Key Use): 公钥的预期用途。常见值包括 sig (签名) 和 enc (加密)。
+- key_ops (Key Operations): 密钥支持的操作。常见值包括 sign、verify、encrypt 和 decrypt。
+- alg (Algorithm): 预期使用该密钥的算法。根据密钥类型，算法可能会有所不同。例如，RS256 可能用于 RSA 密钥，而 ES256 可能用于 EC 密钥。
+- kid (Key ID): 密钥的唯一标识符。它可以用于在一组密钥中匹配一个特定的密钥
+
+### 钥匙串
+
+当需要将多个 JWK 组合在一起时，它们会被组织成一个 JSON Web Key Set (JWKS)
+
+```json
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "alg": "RS256",
+      "n": "0vx7agoebGcQSuuPiLJXZpt...-TmV4HCA1T8jXg3fE2VbA",
+      "e": "AQAB",
+      "kid": "2011-04-29-1234"
+    },
+    {
+      "kty": "EC",
+      "crv": "P-384",
+      "x": "F_xQdbOho2Jw0hgmNPD0VAEPAgkQrfD4f1Qx3y49cUm646fMBX9DYx-43HzXm6Vd",
+      "y": "X77uFymz90aO4dBunpTdUzLFRAiT7-IngzZGDrIE-FG6CcqQuRP65r65SUzDOmP5"
+    }
+  ]
+}
+```

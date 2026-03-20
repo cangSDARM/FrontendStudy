@@ -20,8 +20,9 @@ https://ogp.me/
 
 https://tc39.es/proposal-temporal/docs
 
-frosted glass
+liquid glass
 https://www.joshwcomeau.com/css/backdrop-filter/
+https://kube.io/blog/liquid-glass-css-svg/
 
 https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb484495b442599e35e9a404
 
@@ -107,8 +108,6 @@ https://github.com/thecodrr/alfaaz
 
 https://github.com/JuliaPlots/UnicodePlots.jl
 
-https://xakpc.dev/windows-widgets/history/
-
 ts moduleResolution 总结
 https://juejin.cn/post/7221551421833314360
 
@@ -135,8 +134,6 @@ https://github.com/brucefan1983/CUDA-Programming
 https://www.chipstrat.com/p/gpu-networking-basics-part-1
 
 https://theodoruszq.wordpress.com/2025/09/06/%e7%8b%ac%e7%ab%8b%e6%95%b0%e5%ad%97%e9%9f%b3%e4%b9%90%e4%bd%9c%e8%80%85-independent-digital-musician/
-
-https://kube.io/blog/liquid-glass-css-svg/
 
 https://github.com/koala73/worldmonitor
 
@@ -165,8 +162,6 @@ https://www.cnblogs.com/bonelee/p/11497565.html
 
 Hash function quality and speed tests
 https://github.com/rurban/smhasher
-
-https://llimllib.github.io/bloomfilter-tutorial/zh_CN/
 
 https://zoom.earth/
 
@@ -216,8 +211,6 @@ https://news.ycombinator.com/item?id=36756504
 https://processing.org/examples/
 
 https://github.com/sindresorhus/promise-fun
-
-https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API
 
 https://github.com/sdl60660/river-runner/tree/main
 
@@ -343,8 +336,6 @@ https://scrollbars.matoseb.com/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
-https://kinsta.com/blog/brotli-compression/
-
 https://web.dev/new-responsive/
 
 期权 https://blog.forecho.com/tags/%E6%9C%9F%E6%9D%83.html
@@ -406,8 +397,6 @@ book https://rauterberg.employee.id.tue.nl/lecturenotes/APPLE-Guidelines-2005.pd
 https://interfaces.rauno.me/
 
 https://aws.amazon.com/cn/what-is/mqtt/
-
-https://jihulab.com/linksaas/desktop
 
 slab allocator https://www.dingmos.com/index.php/archives/23/
 
@@ -559,6 +548,7 @@ leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e
 
 驱动开发 https://blog.csdn.net/qq_44814825/article/details/129107911
 
+self-hosted trail database
 https://github.com/Flomp/wanderer
 
 handle pdf https://github.com/Stirling-Tools/Stirling-PDF
@@ -580,6 +570,8 @@ https://github.com/ForrestKnight/open-source-cs
 
 https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
+book https://amoilanen.github.io/Algorithms-with-Typescript/preface.html
+
 https://blog.hirnschall.net/flow-simulation-js/
 
 book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
@@ -587,6 +579,9 @@ book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-he
 https://www.khanacademy.org/computing/pixar
 
 https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
+
+益智教学
+https://cn.mathigon.org/
 
 Vector Search 101
 https://zilliz.com/blog?tag=39&page=2
@@ -596,8 +591,6 @@ https://blog.shalvah.me/posts/an-exploration-of-vector-search
 https://www.elastic.co/cn/what-is/vector-embedding
 
 https://blog.partykit.io/posts/using-vectorize-to-build-search/
-
-https://www.andreinc.net/2024/04/24/from-the-circle-to-epicycles
 
 https://github.com/k2-fsa/sherpa-onnx
 

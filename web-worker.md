@@ -18,7 +18,8 @@
 
 > 可以新建并将部分任务分配到`worker线程`并行运行, 两个线程可**独立运行, 互不干扰**. **通过自带的消息机制相互通信**<br>
 > 数据的交互方式为**传递副本**，而不是直接共享数据<br>
-> workers 运行在另一个全局上下文(self)中, 如 tab、window、iframe、worker 等<br> > [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
+> workers 运行在另一个全局上下文(self)中, 如 tab、window、iframe、worker 等<br>
+> [in react](https://github.com/async-library/react-webworker/blob/master/src/index.js)
 
 ### 限制
 

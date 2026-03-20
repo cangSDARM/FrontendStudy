@@ -1,6 +1,6 @@
 - [UUID](./identifier.md)
 - [crypto](./crypto.md)
 - [OTP/HOTP/TOTP/2FA](./2FA.md)
-- [JWK/JWT/JWS](./JWT.md)
+- [JOSE: JWT/JWS/JWE/JWK](./JOSE.md)
 - [SSO](./sso.md)
 - [Web Authentication](./WebAuthn.md)
