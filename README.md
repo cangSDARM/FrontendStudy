@@ -8,13 +8,13 @@
 <!-- /TOC -->
 
 - [架构](./Architecture/README.md)
+- [计算机安全相关](./Security/README.md)
 
 - [数据处理模式](./DataFlow/README.md)
 - [Graphics 相关](./Graphics/README.md)
 - [Network 相关](./network/README.md)
 - [文字处理相关](./Glyphs/README.md)
 - [音视频相关](./Audio&video/README.md)
-- [验证安全相关](./Authentication/README.md)
 - [各种存储方案](./storages.md)
 - [WebWorkers](./web-worker.md)
 - [xPath](./xpath.md)
@@ -48,6 +48,7 @@
 
 ## 未分类
 
+[Handle PDF(Online)](https://www.ilovepdf.com/)
 [What is? Backend 101](https://aws.amazon.com/cn/what-is)
 [中文开源字体](https://font.gentleflow.tech/)(https://wangchujiang.com/free-font/)
 [网页性能相关的博客](https://calendar.perfplanet.com/)
@@ -60,6 +61,7 @@
 [检查 API 是否 CORS](https://httptoolkit.com/will-it-cors/)
 [在线玩桌游](https://zh-cn.boardgamearena.com/)
 [在线词源学](https://www.etymonline.com/cn)
+[经纬度查询](https://www.mapchaxun.cn/jingweiduchaxun)
 [健身](https://github.com/workout-lol/workout-lol)
 [生成ASCII字符画](https://meatfighter.com/ascii-silhouettify/)
 [乐高生成可转动的日心模型](https://marian42.de/article/orrery/)

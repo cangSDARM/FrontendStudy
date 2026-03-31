@@ -6,7 +6,7 @@
 [Gamepad](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
 [Wasm](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm)
 
-https://developer.chrome.google.cn/docs/web-platform/view-transitions?hl=zh-cn
+https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
 Grid Lanes
 https://webkit.org/blog/17660/introducing-css-grid-lanes/
@@ -23,6 +23,9 @@ https://tc39.es/proposal-temporal/docs
 liquid glass
 https://www.joshwcomeau.com/css/backdrop-filter/
 https://kube.io/blog/liquid-glass-css-svg/
+
+acl
+https://casl.js.org/
 
 https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb484495b442599e35e9a404
 
@@ -165,18 +168,11 @@ https://github.com/rurban/smhasher
 
 https://zoom.earth/
 
+https://richardstartin.github.io/posts/how-a-bitmap-index-works
+
 AI 敏捷开发框架
 https://blog.mapin.net/posts/BMAD%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20AI%20%E9%A9%B1%E5%8A%A8%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6
 https://cloud.tencent.com/developer/article/2633141
-
-RoaringBitmap
-https://cloud.tencent.com/developer/article/1136054
-https://zhuanlan.zhihu.com/p/704410461
-https://github.com/RoaringBitmap/RoaringBitmap
-https://vikramoberoi.com/posts/a-primer-on-roaring-bitmaps-what-they-are-and-how-they-work/
-https://zhuanlan.zhihu.com/p/445396980
-https://richardstartin.github.io/posts/how-a-bitmap-index-works
-https://roaringbitmap.org/about/
 
 BloomFilters
 https://blog.csdn.net/qq_29202357/article/details/105483606
@@ -207,10 +203,6 @@ Steganography
 https://rgxy.github.io/ctf/2016/11/29/introduction_to_stereo.html
 
 https://news.ycombinator.com/item?id=36756504
-
-https://processing.org/examples/
-
-https://github.com/sindresorhus/promise-fun
 
 https://github.com/sdl60660/river-runner/tree/main
 
@@ -333,8 +325,6 @@ https://vitalik.ca/general/2023/08/16/communitynotes.html
 https://tonedear.com/
 
 https://scrollbars.matoseb.com/
-
-https://developer.mozilla.org/en-US/docs/Web/CSS/offset
 
 https://web.dev/new-responsive/
 
@@ -550,8 +540,6 @@ leetcode算法题解 https://doocs.github.io/leetcode/#/?id=%e7%ae%97%e6%b3%95%e
 
 self-hosted trail database
 https://github.com/Flomp/wanderer
-
-handle pdf https://github.com/Stirling-Tools/Stirling-PDF
 
 https://www.programiz.com/dsa/radix-sort
 
