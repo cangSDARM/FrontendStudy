@@ -27,6 +27,17 @@ https://kube.io/blog/liquid-glass-css-svg/
 acl
 https://casl.js.org/
 
+CPU 保护环
+https://jacksonwuu.github.io/blog/translation/CPU%E7%8E%AF%E3%80%81%E7%89%B9%E6%9D%83%E5%92%8C%E4%BF%9D%E6%8A%A4/
+https://blog.hotdry.top/posts/2026/01/14/cpu-user-mode-privilege-hardware-implementation-ring-protection-memory-isolation/
+https://www.cnblogs.com/liqiuhao/p/9326738.html
+
+security guidance
+https://cheatsheetseries.owasp.org/index.html
+
+格式保留加密
+https://zhuanlan.zhihu.com/p/499636908
+
 https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb484495b442599e35e9a404
 
 https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-animations/

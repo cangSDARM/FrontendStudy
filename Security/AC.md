@@ -2,11 +2,12 @@
   - [DAC](#dac)
   - [MAC](#mac)
   - [RBAC](#rbac)
-    - [ABAC](#abac)
+  - [ABAC](#abac)
 - [实现机制](#实现机制)
   - [引用监控器](#引用监控器)
   - [安全内核](#安全内核)
-  - [隔离机制](#隔离机制)
+  - [保护域](#保护域)
+  - [保护环](#保护环)
 - [经典实例](#经典实例)
   - [UNIX 文件访问控制模型](#unix-文件访问控制模型)
 
@@ -29,18 +30,18 @@ Discretionary Access Control, 自主访问控制
 使用的通常方式是访问矩阵(access matrix)：
 
 - 横行为客体，竖列为主体；矩阵内是访问权
-- 按列分解，为每个客体分出访问控制表(Acess Control List, ACL)，表明用户及其访问权。ACL 可以有默认项
+- 按列分解，为每个客体分出访问控制表(Access Control List, ACL)，表明用户及其访问权。ACL 可以有默认项
 - 按行分解，为每个主体产生能力权证(capability ticket)，用来指定用户授权的客体和操作。
 
 ### MAC
 
-Mandatory Acess Control, 强制访问控制
+Mandatory Access Control, 强制访问控制
 
 通过(系统)许可和标记控制访问。“强制”是因为只有系统允许修改或授于他人权限
 
 ### RBAC
 
-Role-Based Acess Control, 基于角色的访问控制
+Role-Based Access Control, 基于角色的访问控制
 
 基于用户的角色和访问规则控制访问
 
@@ -48,12 +49,12 @@ Role-Based Acess Control, 基于角色的访问控制
 
 - RBAC0：用户(user)<-多对多->角色(role)；角色<-多对多->许可(permission, 也可用特权/授权/访问权)；用户激活某个角色称为会话(session)
 - RBAC1：RBAC0+角色层次，使得权限可以在角色间继承
-- RBAC2：RBAC0+安全约束。互斥角色、基数约束(最大角色用户数)、先决条件约束(高级角色需转职)、运行时约束(同一时间运行会话角色数)
-- RBAC3：RBAC0+RBAC1+RBAC2
+- RBAC2：RBAC0+静态安全约束。互斥角色、基数约束(最大角色用户数)、先决条件约束(高级角色需转职)、运行时约束(同一时间运行会话角色数)
+- RBAC3：RBAC0+RBAC1+RBAC2+动态安全约束。会话限制(用户可拥有互斥角色，但在单次会话中不能同时激活)
 
-#### ABAC
+### ABAC
 
-Atrribute-Based Access Control, 基于属性的访问控制
+Attribute-Based Access Control, 基于属性的访问控制
 
 基于用户属性、资源属性和当前环境属性来控制访问。
 实现较为消耗性能，通常用于 web，而非 os
@@ -64,7 +65,13 @@ Atrribute-Based Access Control, 基于属性的访问控制
 
 ### 安全内核
 
-### 隔离机制
+### 保护域
+
+为进程/用户划定一个受约束的执行环境，实现隔离与最小权限
+
+如 OS 中的内核态及用户态
+
+### 保护环
 
 ## 经典实例
 
