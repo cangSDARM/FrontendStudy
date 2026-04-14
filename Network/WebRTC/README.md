@@ -11,6 +11,7 @@
   - [通过 offer 和 answer 交换 SDP 描述符](#通过-offer-和-answer-交换-sdp-描述符)
   - [通过 ICE 建立 NAT/防火墙穿越的连接](#通过-ice-建立-nat防火墙穿越的连接)
 - [通过 RTCDataChannel 来传输任意数据](#通过-rtcdatachannel-来传输任意数据)
+- [RTC 自定义编解码](#rtc-自定义编解码)
 
 <!-- /TOC -->
 
@@ -19,14 +20,16 @@ Web 实时通信技术(Web Real-Time Communication)<br>
 > 允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输
 
 1. WebRTC 使用 UDP 协议传输信息, 因此需要 STUN / TURN / ICE 等技术绕过 NAT 的限制, TURN 服务器也可以使用 TCP 来传输 WebRTC 信息
-2. 使用[Adapter.js](https://github.com/webrtcHacks/adapter)，确保 Web 应用程序的兼容性
+2. 使用[webrtc-adapter](https://github.com/webrtcHacks/adapter)，确保 Web 应用程序的兼容性
 3. WebRTC 创建连接时，顺序十分重要。如果没按照正确步骤会导致连接失败
 4. WebRTC 运行时，对于所有协议的实现都会强制执行加密功能，因此 WebRTC 处于 DTLS 上。WebRTC 客户端自动为每一端生成自已签名的证书。因此，也就没有证书链需要验证
-5. WebRTC 仅提供了端到端的全套方案。网络拓扑需要应用解决
+5. WebRTC 仅提供了端到端(1v1)的全套方案。网络拓扑(1vN, NvN)[需要应用解决](./MultiCommunication.md)
 
-参考资料<br>
+参考资料
 
-> [博客|WebRTC 介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)<br> > [PeerJs|简化 RTCConnection 的管理(offer/answer)](https://peerjs.com/)
+> [博客|WebRTC 介绍及简单应用](https://www.cnblogs.com/vipzhou/p/7994927.html)
+> <br>
+> [PeerJs|简化 RTCConnection 的管理(offer/answer)](https://peerjs.com/)
 
 ## 重要名词
 
@@ -171,6 +174,8 @@ WebRTC 会处理所有连接问题. 一旦信令完成连接建立, 则自动处
 
 `RTCDataChannel`基于 SCTP/DLTS/UDP，提供不可靠或部分可靠的加密通信
 
+> RTCDataChannel 拥塞控制是为数据设计，不是为实时视频。音视频需要走 MediaStreamTrack
+> <br/>
 > 为方便处理, dataChannel 很多 API 和 WebSocket 近似, 但发送协议和路径完全不同
 
 ```js
@@ -186,4 +191,26 @@ dataChannel.onmessage = (e) => {
 };
 dataChannel.onerror = (e) => {};
 dataChannel.onclose = (e) => {};
+```
+
+## RTC 自定义编解码
+
+```js
+const worker = new Worker("worker.js");
+
+const pc = new RTCPeerConnection();
+const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+const [videoTrack] = stream.getTracks();
+const sender = pc.addTrack(videoTrack, stream);
+sender.transform = new RTCRtpScriptTransform(worker, {
+  name: "senderTransform",
+});
+
+// 接收端
+pc.ontrack = (event) => {
+  event.receiver.transform = new RTCRtpScriptTransform(worker, {
+    name: "receiverTransform",
+  });
+  received_video.srcObject = event.streams[0];
+};
 ```

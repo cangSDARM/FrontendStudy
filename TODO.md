@@ -35,6 +35,13 @@ https://www.cnblogs.com/liqiuhao/p/9326738.html
 security guidance
 https://cheatsheetseries.owasp.org/index.html
 
+WebRTC 多人通讯 (Mesh, SFU, MCU)
+https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Intro_to_RTP
+https://cloud.tencent.com/developer/news/393757
+https://www.cnblogs.com/yiyi17/p/12076657.html
+https://weread.qq.com/web/reader/ddb32ad0723bdc35ddbf6abkc9f326d018c9f0f895fb5e4
+https://zhuanlan.zhihu.com/p/1993760145629528511
+
 格式保留加密
 https://zhuanlan.zhihu.com/p/499636908
 
