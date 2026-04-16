@@ -200,13 +200,15 @@ export const postSSEFactory =
       ) {
         addEventListener(SSEEvents.miss, callback, options);
       },
-      /** Since a message is a flow, it is uncertain how much segmented content there is (but the message sent by the back end must be complete each time)
+      /**
+       * Since a message is a stream, the amount of segmented content is uncertain.
+       * However, each backend-sent message must be complete each time
        *
-       * the "chunk" meas the number of times received
+       * the "chunk" refers to the receive count
        *
-       * this event dispatched *after* the chunk been parsed and all valid infos been dispatched
+       * this event dispatched only *after* the chunk has been parsed and all valid infos has been dispatched
        *
-       * the `event.detail` the received raw value and the index of chunks
+       * the `event.detail` is the received raw value along with the index of chunks
        */
       onChunk(
         callback: SSECallback<{ value: string; index: number }>,

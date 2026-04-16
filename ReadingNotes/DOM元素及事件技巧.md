@@ -14,6 +14,7 @@
 - [指针事件](#指针事件)
   - [鼠标拖放](#鼠标拖放)
   - [setPointerCapture](#setpointercapture)
+  - [触摸点击](#触摸点击)
 - [文本/节点选择](#文本节点选择)
   - [Selection 对象](#selection-对象)
   - [input/textarea](#inputtextarea)
@@ -197,6 +198,88 @@ Simple Guide
 - 可以在 `pointerdown` 事件的处理程序中调用 `thumb.setPointerCapture(event.pointerId)`
 - **接下来发生的所有指针事件都会被重定向到 `thumb` 上**
 - 当 `pointerup/pointercancel` 事件发生、`elem` 被移除、`elem.releasePointerCapture` 调用时，绑定会被自动移除
+
+### 触摸点击
+
+- 触摸不是"点"，而是"面"
+- 触摸会默认*捕获*，因此需要特殊处理
+- 触摸后还会触发 `pointer` / `mouse` 相关事件，因此需要 `preventDefault`
+
+```ts
+const Attr = Symbol("_tap");
+const pointerId = new Set();
+const hasEvents = (el: HTMLElement | EventTarget | null): el is HTMLElement => {
+  return !!el?.[Attr];
+};
+const bindEvents = (el: HTMLElement, callback: (...args: any) => void) => {
+  if (typeof callback !== "function") return;
+
+  el.style.touchAction = "manipulation";
+
+  el[Attr] ??= {
+    mouseHandled: false,
+    touchHandled: false,
+  };
+
+  const handlers = {
+    mousedown: ({ currentTarget }: MouseEvent) => {
+      if (hasEvents(currentTarget)) {
+        currentTarget[Attr].mouseHandled = false;
+      }
+    },
+    click: (e: MouseEvent, ...args: any[]) => {
+      const target = e.currentTarget;
+      if (!hasEvents(target)) return;
+      if (target[Attr].touchHandled) return;
+
+      target[Attr].mouseHandled = true;
+      callback.call(target, e, ...args);
+    },
+    touchend: (e: TouchEvent, ...args: any) => {
+      const touch = e.changedTouches[0];
+      const target = e.currentTarget;
+
+      if (!hasEvents(target)) return;
+      if (!pointerId.has(touch.identifier)) return;
+      pointerId.delete(touch.identifier);
+
+      if (target[Attr].mouseHandled) return;
+      /// touch automatically captures the pointer
+      /// so we need to verify that we are still within the element
+      const rect = target.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      /// touch area is an ellipse, so we need some tolerance for edge contact
+      const toleranceX = touch.radiusX;
+      const toleranceY = touch.radiusY;
+      const inside =
+        inRange(x, -toleranceX, rect.width + toleranceX) &&
+        inRange(y, -toleranceY, rect.height + toleranceY);
+      if (!inside) return;
+
+      /// stop triggering those pointer/mouse related events
+      e.preventDefault();
+
+      callback.call(e.currentTarget, e, ...args);
+      target[Attr].touchHandled = true;
+    },
+    touchcancel: ({ changedTouches }: TouchEvent) => {
+      pointerId.delete(changedTouches[0].identifier);
+    },
+    touchstart: ({ changedTouches, currentTarget }: TouchEvent) => {
+      if (!hasEvents(currentTarget)) return;
+      currentTarget[Attr].touchHandled = false;
+      pointerId.add(changedTouches[0].identifier);
+    },
+  };
+
+  el[Attr].events = handlers;
+
+  Object.keys(el[Attr].events).forEach((evt) => {
+    el.addEventListener(evt, el[Attr].events[evt], { passive: false });
+  });
+};
+```
 
 ## 文本/节点选择
 
