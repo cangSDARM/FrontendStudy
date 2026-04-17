@@ -61,7 +61,7 @@ Real Time Messaging Protocol
 2. 双方通过握手确认 RTMP 协议版本及交换随机数等信息
 3. 客户端发送连接命令(connect)到服务器，服务器响应
 4. 客户端与服务器建立流(stream)进行音视频数据传输
-   - 一个连接内可以有多个流
+   - 一个连接内可以有多个流，通过 streamID 区分
    - 数据(Message)会划分成带有 Id 的 Chunk，便于传输和多路复用
 5. 传输过程中，双方可以发送控制命令，如播放(play)、暂停(pause)等
 6. 断开连接
@@ -86,7 +86,8 @@ TS 主要应用于广播电视领域，MP3 主要应用于音频领域
 ## HLS
 
 就是通过 HTTP 协议下载静态文件。
-视频流直接写入磁盘，然后通过本地播放器控制
+服务端实时切分成小 TS 切片，并更新 m3u8 索引
+客户端逐片拉取，视频流直接写入磁盘，然后通过本地播放器控制
 
 文件由两部分组成:
 
@@ -105,8 +106,20 @@ DASH 多用于 MPEG 格式，称为 MPEG-DASH
 
 直接将流传递给 Web 的播放器，浏览器调度
 
+原生强制支持的音频编码是 Opus 和 PCM
+
 缺点: 不支持 B 帧和 AAC 音频(用 ffmpeg.js 解决)
 
 ## MSS
 
+(Microsoft Smooth Streaming)，微软的 HTTP-based 自适应流媒体协议，和苹果的 HLS 竞争
+
+对应文件格式为 .ismv，通过 .ismc 清单文件索引。
+
+主要用于 IIS Media Services，现在已不常用
+
 ## SRT
+
+(Secure Reliable Transport)，专为低延迟、高可靠传输设计
+
+它集成了丢包重传(ARQ)、加密(AES)和端到端延迟控制。在推流(上行)场景中，SRT 正逐渐替代 RTMP

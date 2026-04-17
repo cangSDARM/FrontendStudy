@@ -24,8 +24,8 @@ Conflict-free Replicated Data Types
 
 小目标:
 
-- _可交换性 Commutative_: Order of Replication dose not matter
-- _幂等性 Idempotent_: How many times of Replication dose not matter
+- _可交换性 Commutative_: Order of Replication does not matter
+- _幂等性 Idempotent_: How many times of Replication does not matter
 
 不考虑:
 
