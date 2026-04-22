@@ -53,6 +53,17 @@ https://github.com/partykit/partykit/tree/main/packages/partysocket
 
 https://blog.l3zc.com/2025/04/tailscale-setup-recap/
 
+行为树
+https://zhuanlan.zhihu.com/p/611393851
+https://developer.unity.cn/projects/6569d98aedbc2a0a165f740e
+https://iszeroer.github.io/Blog/2025/03/30/%E8%A1%8C%E4%B8%BA%E6%A0%91%E6%A1%86%E6%9E%B6/
+
+蒙特卡罗树搜索
+https://blog.csdn.net/caozixuan98724/article/details/103213795
+https://www.cnblogs.com/xulongkai/articles/18000977
+https://www.cnblogs.com/xumaomao/p/18744181
+https://zhuanlan.zhihu.com/p/1913773240385528090
+
 Authentications
 https://www.sheshbabu.com/posts/visual-explanation-of-saml-authentication/
 https://auth.wiki/zh
