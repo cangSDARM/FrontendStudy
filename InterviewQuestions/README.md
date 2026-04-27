@@ -8,7 +8,7 @@
 
 [有条件随机](./shuffe.ts)
 
-[AntdDateRangePicker 修复(禁止自动切换前后段)](./antdDatePicker.tsx)
+[AntdDateRangePicker 修复(禁止自动切换前后段)](./AntdDatePicker.tsx)
 
 [仿照 chrome 的 ctrl-f 搜索内容](./ChromeCtrlF.tsx)
 
