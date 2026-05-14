@@ -5,6 +5,7 @@
   - [Stream](./stream.md)
   - [Rxjs (Reactive Stream)](./Rxjs.md)
 - Layer3: 可靠
+  - [CRDT](./CRDTs.md)
   - [事件溯源模式](./event-sourcing.md)
 
 C10K Problem: 线程是昂贵的，线程的限制导致了单台机器的线程上限。程序员/系统将时间花在管理线程上，而这些线程本可以用于做更有用的工作。

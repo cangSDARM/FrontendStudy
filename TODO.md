@@ -24,6 +24,11 @@ liquid glass
 https://www.joshwcomeau.com/css/backdrop-filter/
 https://kube.io/blog/liquid-glass-css-svg/
 
+Amination Timeline API
+https://www.joshwcomeau.com/animation/scroll-driven-animations/
+
+https://ynarwal.github.io/how-llms-work/
+
 acl
 https://casl.js.org/
 
