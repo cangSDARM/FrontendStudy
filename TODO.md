@@ -142,8 +142,18 @@ https://news.ycombinator.com/item?id=1134342
 
 https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
 
+浏览器 DRM EME
+https://zhuanlan.zhihu.com/p/29845101
+https://www.cnblogs.com/Answer1215/p/18943596
+https://www.cnblogs.com/aeolian/p/18440309
+
+Long Range Text Communication
+https://meshtastic.org/
+
 Count Multi-language Words
 https://github.com/thecodrr/alfaaz
+
+https://lawsofux.com/
 
 https://github.com/JuliaPlots/UnicodePlots.jl
 
