@@ -6,7 +6,6 @@
 - [Comet](./Comet.md)
 - [Fetch/XHR and Related Streams](./fetch&XHR.md)
 - [Browser Security](./browser-security.md)
-- [WebWorker](./web-worker.md)
 - [WebHook](./webhook.md)
 - [SSO](./sso.md)
 - [RPC](./rpc协议.md)
