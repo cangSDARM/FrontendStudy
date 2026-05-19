@@ -155,6 +155,12 @@ https://github.com/thecodrr/alfaaz
 
 https://lawsofux.com/
 
+逆向、图片分析、隐写等
+https://ctf-wiki.org/misc/introduction/
+
+Crypto Practices
+https://cryptopals.com/
+
 https://github.com/JuliaPlots/UnicodePlots.jl
 
 ts moduleResolution 总结
