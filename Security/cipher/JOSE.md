@@ -146,6 +146,16 @@ JWS 额外 header 中有 9 个可选的预定义好的字段:
 
 JSON Web Encryption, 用于[以 JSON 形式进行加密](https://datatracker.ietf.org/doc/html/rfc7516)
 
+```json5
+{
+  "alg": "", 
+  "enc": "",
+  "fields": "",
+  // 虽然 JWE 还有压缩功能，推荐禁用以规避压缩炸弹
+  "zip": "DEF",
+}
+```
+
 ## JWK
 
 JSON Web Key, 用于[以 JSON 形式表示加密密钥](https://datatracker.ietf.org/doc/html/rfc7517)

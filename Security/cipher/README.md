@@ -1,4 +1,5 @@
 - [随机数](#随机数)
+  - [CSPRNG](#csprng)
   - [UUID/Snowflake](#uuidsnowflake)
 - [密码分析](#密码分析)
 - [对称加密](#对称加密)
@@ -43,6 +44,34 @@
 - 不可预测性
   - 已知序列中前面的所有随机数，也无法预测出下一个
   - 独立不一定可预测(钳位/随机种子等情况)，但不可预测一定独立
+
+计算机无法真的产生真随机，因此需要设计伪随机(PRNG/DRBG)
+
+目前通用的 PRNG 主要有
+
+- 线性同余生成器，LCG
+- 线性回归发生器
+- Mersenne Twister
+- XORShift generators
+- WELL family of generators
+- 线性反馈移位寄存器，Linear feedback shift register，LFSR
+
+### CSPRNG
+
+密码学安全伪随机数生成器。
+
+CSPRNG 必须通过 next-bit test，即知道一个序列的前 k 个比特，攻击者也不可能在多项式时间内以大于 50% 的概率预测出来下一个比特位
+
+生成有两个流派
+  - 基于密码学的混淆: CTR_DRBG, HMAC_DRBG, Hash_DRBG
+  - 基于数学难题构造(性能极低且有后门风险): BBS(Blum Blum Shub), Dual_EC_DRBG(有后门)
+
+代表
+
+- RFC 6979
+  - 不可预测的伪随机
+  - 不依赖外部随机源，私钥和要签名的消息作为种子，用 HMAC_DRBG
+  - 只要私钥签名和消息不变，输出是唯一的
 
 ### [UUID/Snowflake](./identifier.md)
 
@@ -358,7 +387,7 @@ X.509 是用来格式化证书的公共标准
 
 代表
 
-- DSA
+- DSA/DSS
   - 虽然也是基于离散对数难题的非对称，但只能用于签名
   - 签名: 私钥通过随机数$x$算出签名$(R_s,s)$，单向不可逆
   - 验证: 公钥+签名算出$R_v$，检验$R_v, R_s$相等性

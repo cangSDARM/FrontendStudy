@@ -29,4 +29,10 @@ C10K Problem: 线程是昂贵的，线程的限制导致了单台机器的线程
 - 模型正处于自身的 change 事件期间时，不会再触发 change 事件
 - 如果在 trigger 方法中添加了{silent:true}选项，则不会触发 change 事件
 
+心跳检测设计
+
+- 心跳请求应该包含 length、counter 和随机 payload
+- 心跳返回应该包含发送 payload、counter 的准确拷贝
+- 如果心跳未成功返回，应该对 counter + 1，处理超时
+
 [Concurrency in JS](https://advancedweb.hu/how-to-use-async-functions-with-array-map-in-javascript/)
