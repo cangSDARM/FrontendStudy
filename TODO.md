@@ -226,10 +226,10 @@ AI 敏捷开发框架
 https://blog.mapin.net/posts/BMAD%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20AI%20%E9%A9%B1%E5%8A%A8%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6
 https://cloud.tencent.com/developer/article/2633141
 
-BloomFilters
-https://blog.csdn.net/qq_29202357/article/details/105483606
-https://www.cnblogs.com/xuwc/p/14017796.html
-https://llimllib.github.io/bloomfilter-tutorial/
+Hashing
+https://dipsingh.github.io/Hashing-HighSpeed-Packet-Processing/
+
+https://totoro-jam.github.io/battle-tested-patterns/zh/patterns/
 
 https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_People/Profs/rgemulla/publications/beyer07distinct.pdf
 
@@ -942,6 +942,15 @@ https://0xinfection.github.io/reversing/
 ## Refs
 
 Use `Url` constructor and `URLSearchParams` for manipulate a url
+
+Parkinson 定律^(
+1. 工作会膨胀，直到填满给定的时间；
+2. 组织会自我膨胀，与实际工作量无关
+)
+Pournelle 官僚铁律^(
+在任何官僚体系里，致力于维护组织本身的人会逐渐掌权；而真正为组织初衷 / 使命干活的人，影响力越来越小，甚至被排挤掉
+组织活着是为了自己，不是为了初心
+)
 
 idempotency Api^(
 (1) should have a idempotency-key, it makes api run "exactly once", regardless what error may occurred
