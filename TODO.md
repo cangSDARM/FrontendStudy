@@ -233,23 +233,12 @@ https://totoro-jam.github.io/battle-tested-patterns/zh/patterns/
 
 https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_People/Profs/rgemulla/publications/beyer07distinct.pdf
 
-Counting-min Sketch
-https://zhuanlan.zhihu.com/p/369981005
-https://juejin.cn/post/7472717871035646004
-https://blog.luckyoung.org/2021/21-04-06_count-min-sketch/
-https://crahen.github.io/algorithm/stream/count-min-sketch-point-query.html
-https://florian.github.io/count-min-sketch/
-
-CVM
-https://www-cs-faculty.stanford.edu/~knuth/papers/cvm-note.pdf
-https://buttondown.com/jaffray/archive/the-cvm-algorithm/
-https://skal65535.github.io/CVM/
-
-Flajolet-Martin
-https://blog.csdn.net/lightty/article/details/38977771
-https://shlsky.github.io/
-https://rms-sof.github.io/Flajolet-Martin/
-https://pdsa.readthedocs.io/en/latest/cardinality/probabilistic_counter.html
+Streaming Systems
+http://mmds.org/
+http://infolab.stanford.edu/%7eullman/mmds/book.pdf
+https://zhuanlan.zhihu.com/p/59798824
+https://quant67.com/post/algorithms/36-streaming-algorithms/streaming-algorithms.html
+https://zhuanlan.zhihu.com/p/552724970
 
 Steganography
 https://rgxy.github.io/ctf/2016/11/29/introduction_to_stereo.html
@@ -257,6 +246,18 @@ https://rgxy.github.io/ctf/2016/11/29/introduction_to_stereo.html
 https://news.ycombinator.com/item?id=36756504
 
 https://github.com/sdl60660/river-runner/tree/main
+
+https://github.com/Lularible/ptp-book/tree/main/chapters
+
+https://github.com/hyqzz/Solar-Wanderer
+
+t-Digest
+https://github.com/tdunning/t-digest
+https://www.cnblogs.com/IoTSharp/p/20023414
+https://blog.bcmeng.com/post/tdigest
+https://blog.csdn.net/qq_41581588/article/details/157932063
+https://datasketches.apache.org/docs/tdigest/tdigest.html
+https://www.gresearch.com/news/approximate-percentiles-with-t-digests/
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
 
