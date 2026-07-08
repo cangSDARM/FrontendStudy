@@ -140,8 +140,6 @@ https://blog.othree.net/log/2023/01/13/wbr-and-nobr/
 https://en.wikipedia.org/wiki/Knuth%E2%80%93Plass_line-breaking_algorithm
 https://news.ycombinator.com/item?id=1134342
 
-https://www.jonathan-petitcolas.com/2017/12/28/converting-image-to-ascii-art.html
-
 浏览器 DRM EME
 https://zhuanlan.zhihu.com/p/29845101
 https://www.cnblogs.com/Answer1215/p/18943596
@@ -167,6 +165,8 @@ ts moduleResolution 总结
 https://juejin.cn/post/7221551421833314360
 
 https://github.com/microsoft/FASTER
+
+https://www.davepagurek.com/blog/easing-functions/
 
 https://www.archdaily.cn/
 
@@ -220,8 +220,6 @@ https://github.com/rurban/smhasher
 
 https://zoom.earth/
 
-https://richardstartin.github.io/posts/how-a-bitmap-index-works
-
 AI 敏捷开发框架
 https://blog.mapin.net/posts/BMAD%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20AI%20%E9%A9%B1%E5%8A%A8%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6
 https://cloud.tencent.com/developer/article/2633141
@@ -270,8 +268,6 @@ https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 https://refactoring.guru/design-patterns
 
 https://swtch.com/~rsc/regexp/regexp4.html
-
-https://red3d.com/cwr/boids/
 
 https://mjpclab.net/web-binary-media-programming/media-stream-and-track-intro.html
 
@@ -349,8 +345,6 @@ android games download https://pdalife.to/android/
 PWA
 https://web.dev/learn/pwa/
 https://felixgerschau.com/how-to-make-your-react-app-a-progressive-web-app-pwa/
-
-https://nytimes.github.io/oak-byo-react-prosemirror-redux/
 
 https://znano.eu.org/blog/posts/a-very-technical-look-at-zeronet
 
@@ -455,8 +449,6 @@ Anomaly Analysis https://zhuanlan.zhihu.com/p/418371189
 桌游太空竞速的设计 https://www.youtube.com/watch?v=JcyyeAww2wc
 
 Causal Analysis https://zhuanlan.zhihu.com/p/409609129
-
-代码的坏味道和重构 https://dunwu.github.io/blog/pages/b14a7acd/
 
 https://spacelift.io/blog/container-security
 
@@ -613,8 +605,6 @@ https://github.com/nanobus/iota/blob/main/docs/wasmrs.md
 
 book https://amoilanen.github.io/Algorithms-with-Typescript/preface.html
 
-https://blog.hirnschall.net/flow-simulation-js/
-
 book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
 
 https://www.khanacademy.org/computing/pixar
@@ -717,8 +707,6 @@ design utilities https://github.com/sw-yx/spark-joy/blob/master/README.md
 https://en.wikipedia.org/wiki/K-way_merge_algorithm
 
 https://github.com/motion-canvas/motion-canvas
-
-Decree Design Pattern https://calebhearth.com/decree
 
 Pixel Renderer Devlog https://www.youtube.com/watch?v=R6vQ9VmMz2w
 
