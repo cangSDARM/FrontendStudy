@@ -1,15 +1,26 @@
-- [RTP](#rtp)
-  - [RTCP](#rtcp)
-  - [RTSP](#rtsp)
-- [RTMP](#rtmp)
-- [HTTP-FLV](#http-flv)
-- [HLS](#hls)
-- [DASH](#dash)
-- [WebRTC](#webrtc)
-- [MSS](#mss)
-- [SRT](#srt)
+- [封装](#封装)
+  - [FLV](#flv)
+- [传输](#传输)
+  - [RTP](#rtp)
+    - [RTCP](#rtcp)
+    - [RTSP](#rtsp)
+  - [RTMP](#rtmp)
+  - [HTTP-FLV](#http-flv)
+  - [HLS](#hls)
+  - [DASH](#dash)
+  - [WebRTC](#webrtc)
+  - [MSS](#mss)
+  - [SRT](#srt)
 
-## RTP
+## 封装
+
+### FLV
+
+![flv-format](/assets/flv-format.png)
+
+## 传输
+
+### RTP
 
 Real-time Transport Protocol
 
@@ -17,14 +28,14 @@ Real-time Transport Protocol
 
 通常 RTP 传输视频，RTCP 控制视频 QoS，RTSP 处理多端控制
 
-### RTCP
+#### RTCP
 
 Real-time Transport Control Protocol
 
 传输层协议，控制 RTP 的。
 和 IP/ICMP 协议关系差不多
 
-### RTSP
+#### RTSP
 
 Real-Time Stream Protocol
 
@@ -34,7 +45,7 @@ Real-Time Stream Protocol
 
 浏览器不支持，一般用作摄像头、监控等硬件设备的实时视频流观看与推送
 
-## RTMP
+### RTMP
 
 Real Time Messaging Protocol
 
@@ -68,7 +79,7 @@ Real Time Messaging Protocol
 
 ![数据格式](/assets/rtmp-format.png)
 
-## HTTP-FLV
+### HTTP-FLV
 
 即将音视频数据封装成 FLV，然后通过 HTTP 协议传输给客户端。
 客户端像解析 FLV 格式一样去解析流，从而达到播放的目的
@@ -83,7 +94,7 @@ TS 主要应用于广播电视领域，MP3 主要应用于音频领域
 - 可以自行定义扩展协议内容
 - 基于 HTTP，支持转播、鉴权、CDN
 
-## HLS
+### HLS
 
 就是通过 HTTP 协议下载静态文件。
 服务端实时切分成小 TS 切片，并更新 m3u8 索引
@@ -96,13 +107,13 @@ TS 主要应用于广播电视领域，MP3 主要应用于音频领域
    - 播放端完全依赖该文件进行播放(懒，但同时控制灵活)
 2. 多个只有几秒长度的`.ts`视频文件
 
-## DASH
+### DASH
 
 是 HLS 标准化后的协议，因此工作原理类似
 
 DASH 多用于 MPEG 格式，称为 MPEG-DASH
 
-## [WebRTC](/network/WebRTC/README.md)
+### [WebRTC](/network/WebRTC/README.md)
 
 直接将流传递给 Web 的播放器，浏览器调度
 
@@ -110,7 +121,7 @@ DASH 多用于 MPEG 格式，称为 MPEG-DASH
 
 缺点: 不支持 B 帧和 AAC 音频(用 ffmpeg.js 解决)
 
-## MSS
+### MSS
 
 (Microsoft Smooth Streaming)，微软的 HTTP-based 自适应流媒体协议，和苹果的 HLS 竞争
 
@@ -118,7 +129,7 @@ DASH 多用于 MPEG 格式，称为 MPEG-DASH
 
 主要用于 IIS Media Services，现在已不常用
 
-## SRT
+### SRT
 
 (Secure Reliable Transport)，专为低延迟、高可靠传输设计
 

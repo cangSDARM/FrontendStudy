@@ -47,9 +47,6 @@ https://www.cnblogs.com/yiyi17/p/12076657.html
 https://weread.qq.com/web/reader/ddb32ad0723bdc35ddbf6abkc9f326d018c9f0f895fb5e4
 https://zhuanlan.zhihu.com/p/1993760145629528511
 
-格式保留加密
-https://zhuanlan.zhihu.com/p/499636908
-
 https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb484495b442599e35e9a404
 
 https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-animations/
@@ -121,9 +118,8 @@ https://github.com/baotlake/periodic-table-pro
 https://github.com/evrimagaci/periodum
 https://github.com/SeanWong17/Future-Style-Periodic-Table
 
-https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
-
 文字排版
+https://blog.ppresume.com/posts/zh-cn/on-typesetting-engines
 https://juejin.cn/post/6971673576017494053
 https://paddywang.github.io/demo/list/css/baseline_line-height.html
 https://drafts.csswg.org/css-fonts-5/#font-metrics-override-desc
@@ -278,6 +274,14 @@ https://blog.kaciras.com/article/24/analyze-WebP-encode-options
 https://github.com/deepkolos/awebp
 
 https://blog.acolyer.org/
+
+book https://github.com/Lularible/storage-book/tree/master/chapters
+
+https://github.com/electroluxcode/onlyoffice-web-comp
+
+https://github.com/eatmoreduck/boss-zhipin-scraper
+
+https://www.joshwcomeau.com/css/anchor-positioning/
 
 https://www.patterns.dev/
 

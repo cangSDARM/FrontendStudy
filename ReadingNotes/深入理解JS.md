@@ -308,14 +308,16 @@ while(reg.test() || reg.exec())
 
 ![Typed](../assets/TypedArray.png)
 
-- `ArrayBuffer`是核心对象，是对固定长度的连续内存区域的引用
-- 几乎任何对`ArrayBuffer`的操作，都需要一个视图(TypedArray/DataView)
+- ArrayBufferLike(`ArrayBuffer`/`ShardArrayBuffer`)是核心对象，是对固定长度的连续内存区域的引用
+- 几乎任何对 ArrayBufferLike 的操作，都需要一个视图(TypedArray/DataView)
 - TypedArray 中我们无法`splice`/`concat`，因为是视图，并且 buffer 是固定的、连续的内存区域。我们所能做的就是分配一个零值
+- TypedArray 方便本机内存高速运算，贴合硬件，跟随本机字节序(不能切换)；DataView 解析网络包、二进制文件，默认大端(可以切换)
 
 ### SharedArrayBuffer
 
 - 普通的 js primitive 数据(如`string`, `ArrayBuffer`)是 transferable 的, 但 clone 了
-- 只有`SharedArrayBuffer`是共享同一片内存。也因此在多进程环境下, js 也有竞态条件需要处理
+- 只有`SharedArrayBuffer`是共享同一片内存(但不是 transferable 的)。也因此在多进程环境下, js 也有竞态条件需要处理
+- 只能扩容，不能收缩(避免多线程 UAF)
 
 ```js
 const sharedBuffer = new SharedArrayBuffer(10);

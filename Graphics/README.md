@@ -1,7 +1,6 @@
 - [SVG](./SVG.md)
 - [Canvas](./Canvas/README.md)
 - [WebGL](./WebGL/README.md)
-  - [GIS](./GIS/README.md)
   - [Threejs](./Threejs/README.md)
 - [WebGPU](./WebGPU/README.md)
 - [光照](./lights.md)
