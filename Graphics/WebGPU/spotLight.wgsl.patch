@@ -1,0 +1,31 @@
+diff --git a/Graphics/WebGPU/pointLight.wgsl b/Graphics/WebGPU/spotLight.wgsl
+--- a/Graphics/WebGPU/pointLight.wgsl
++++ b/Graphics/WebGPU/spotLight.wgsl
+@@ -6,6 +6,9 @@
+   lightWorldPosition: vec3f,
+   cameraWorldPosition: vec3f,
+   intensity: f32,
++  lightDirection: vec3f,
++  innerLimit: f32,
++  outerLimit: f32,
+ };
+ 
+ struct Vertex {
+@@ -54,12 +57,15 @@
+   let halfVector = normalize(
+     surfaceToLightDirection + surfaceToViewDirection);
+ 
++  let dotFromDirection = dot(surfaceToLightDirection, -uni.lightDirection);
++  let inLight = smoothstep(uni.outerLimit, uni.innerLimit, dotFromDirection);
++
+   // Compute the light by taking the dot product
+   // of the normal with the direction to the light
+-  let light = dot(normal, surfaceToLightDirection);
++  let light = inLight * dot(normal, surfaceToLightDirection);
+ 
+   var specular = dot(normal, halfVector);
+-  specular = select(
++  specular = inLight * select(
+       0.0,                           // value if condition is false
+       pow(specular, uni.intensity),  // value if condition is true
+       specular > 0.0);               // condition

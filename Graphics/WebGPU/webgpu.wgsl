@@ -1,8 +1,9 @@
 // WGSL 没有像 lowp 这样的精度说明符, 而是显式指定具体类型，例如 f32
-// 基本数字类型：f32 / f, u32 / u, i32 / i, f16 / h
-// 基本向量类型：vec2<num> / vec2f, vec3, vec4
-// 基本矩阵类型：mat2x2<num> / mat2x2u, mat2x3, mat2x4, mat3x2, mat3x3, mat3x4, mat4x2, mat4x3, mat4x4
+// 基本数字类型: f32 / f, u32 / u, i32 / i, f16 / h
+// 基本向量类型: vec2<num> / vec2f, vec3, vec4
+// 基本矩阵类型(列主序): mat2x2<num> / mat2x2u, mat2x3, mat2x4, mat3x2, mat3x3, mat3x4, mat4x2, mat4x3, mat4x4
 // 内置函数 https://webgpufundamentals.org/webgpu/lessons/webgpu-wgsl-function-reference.html
+// 字节对齐参考 https://webgpufundamentals.org/webgpu/lessons/resources/wgsl-offset-computer.html
 
 struct VertexOutPut {
     // position 强制被插值为 @interpolate(perspective, center)
@@ -22,6 +23,7 @@ struct VertexOutPut {
             sample: Interpolation is performed per sample. The fragment shader is invoked once per sample when this attribute is applied.
     如果是 integer 类型，则插值方法必须是 flat.
     If you set the interpolation type to flat, the value passed to the fragment shader is the value of the inter-stage variable for the first vertex in that triangle.
+    如果是单位向量，插值后不再是单位向量了，需要再次 normalize
     */
     @location(1) texcoord: vec2f,
 }
@@ -37,7 +39,7 @@ override red: f32 = 0.0;
 @group(0) @binding(0) var<storage, read_write> data: array<f32>;
 
 // usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
-// uniform ≈ var<storage, read>，但uniform更快，而大小限制更严格
+// uniform ≈ var<storage, read>，但 uniform 更快，且有大小限制(算是wgsl的预定义常量)
 @group(0) @binding(0) var<uniform> uniformStruct: SomeStruct;
 
 // texture
@@ -56,7 +58,7 @@ struct VertexInput {
     // draw 的第二个参数。vertex 会 per instanceIndex per vertexIndex drawn
     @builtin(instance_index) instanceIndex: u32,
     // GPUBufferUsage.VERTEX
-    // VertexBuffer 仅能用于 Vertex，现代GPU通过硬编码模拟实现。需要时能以uniform替代则使用uniform
+    // VertexBuffer 是顶点的属性(attributes)，比如说位置颜色等，仅能用于 Vertex
     // 通过外部的 attributes 的 shaderLocation 区分 @location
     @location(0) vertBuffer: VertexBuffer,
 }

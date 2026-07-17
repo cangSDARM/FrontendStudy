@@ -20,9 +20,12 @@
     "*.wxss": "css",
     "*.wxs": "javascript",
     "*.wpy": "vue",
-    "*.ejs": "html",
-    "*.html": "html"
+    "*.ejs": "html"
   },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+  },
+  "markdown.extension.math.enabled": false,
   "emmet.includeLanguages": {
     "wxml": "html"
   },

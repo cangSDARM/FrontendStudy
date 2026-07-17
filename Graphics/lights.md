@@ -1,3 +1,4 @@
+- [光照模式](#光照模式)
 - [局部光照模型](#局部光照模型)
   - [传统光照模型](#传统光照模型)
     - [Ambient](#ambient)
@@ -9,6 +10,8 @@
     - [IDL](#idl)
     - [Ray-Tracing](#ray-tracing)
 - [全局光照模型](#全局光照模型)
+
+## [光照模式](http://cangsdarm.github.io/blog/graphics/illumination)
 
 ## 局部光照模型
 

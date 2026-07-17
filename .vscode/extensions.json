@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "usernamehw.errorlens",
     "eamodio.gitlens",
     "wix.vscode-import-cost",
     "SirTori.indenticator",
@@ -9,6 +8,8 @@
     "esbenp.prettier-vscode",
     "hbenl.vscode-test-explorer",
     "Gruntfuggly.todo-tree",
-    "redhat.vscode-xml"
+    "PolyMeilex.wgsl",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml"
   ]
 }

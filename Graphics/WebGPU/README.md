@@ -4,18 +4,19 @@
   - [映射数据](#映射数据)
   - [映射 Texture/Sampler](#映射-texturesampler)
   - [渲染 + 读取数据](#渲染--读取数据)
+    - [深度测试](#深度测试)
 - [Trivia](#trivia)
-  - [计算字节偏移数](#计算字节偏移数)
   - [Format](#format)
   - [Coordinates](#coordinates)
   - [Stride](#stride)
   - [Why Index Buffer](#why-index-buffer)
+- [例子](#例子)
 
 https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
 
 ## 调用过程
 
-![contexts](../../assets/wgpu-procedures.png)
+![contexts](/assets/wgpu-procedures.png)
 
 ### 准备硬件环境
 
@@ -43,27 +44,34 @@ const presentationFormat = navigator.gpu.getPreferredCanvasFormat();
 context.configure({
   device,
   format: presentationFormat,
-  // premultiplied: 实现 alpha。通过：所有颜色乘以 renderPassDescriptor 的 alpha 值(必须小于该值, js/wgsl 中处理都可)
+  // premultiplied: 实现 alpha。(发光粒子等加法混合)
+  // 通过：所有 RGB 乘以 renderPassDescriptor 的 alpha 值(必须小于该值, js/wgsl 中处理都可)
   alphaMode: "opaque" | "premultiplied",
+});
+// runtime 查询一些 GPU 的信息(比如说时间戳)，可查询的参考 type 定义
+// 需要 encoder.resolveQuerySet 读取
+const querySet = device.createQuerySet({
+  type: 'timestamp',
+  count: 2,
 });
 ```
 
 ### 准备软件环境
 
-Shader 函数：类似于 js 中的 forEach 函数。<br/>
-Vertex 是对每次渲染过程调用生成顶点(光栅化后 GPU 丢弃不需要的渲染的 pixel)；<br/>
+由 Scheduler 串行读取顶点数据，组织三角。<br/>
+Vertex 对每次渲染过程调用生成顶点(光栅化后 GPU 丢弃不需要的渲染的 pixel)；<br/>
 当完成一次最小的图元装配要求后，进行光栅化<br/>
 Fragment 对光栅化后的每个像素做迭代生成(通常是颜色/或者是深度图)
 
 ```
 次数并不完全准确。但大致比例是一致的
-|          |   |v_main|               |               |            |f_main|f_main|
-|          |   |v_main| -(primitive)> | Rasterization | -(z-test)> |f_main|f_main|
-|          |   |v_main|     check     |               |            |f_main|f_main|...
-| instance | ->
-|          |   |v_main|               |               |            |f_main|f_main|
-|          |   |v_main| -(primitive)> | Rasterization | -(z-test)> |f_main|f_main|
-|          |   |v_main|     check     |               |            |f_main|f_main|...
+|          |                 |   |v_main|               |               |            |f_main|f_main|
+|          |                 |   |v_main| -(primitive)> | Rasterization | -(z-test)> |f_main|f_main|
+|          |                 |   |v_main|     check     |               |            |f_main|f_main|...
+| instance |    Scheduler    |->
+|          |     serial      |   |v_main|               |               |            |f_main|f_main|
+|          |                 |   |v_main| -(primitive)> | Rasterization | -(z-test)> |f_main|f_main|
+|          |                 |   |v_main|     check     |               |            |f_main|f_main|...
 ```
 
 渲染画布尺寸：WebGPU 的空间是裁剪的标准化空间(长宽都是[-1,1])
@@ -123,6 +131,10 @@ const pipeline = device.createRenderPipeline({
   primitive: {
     // GPU 绘制格式。默认光栅化为 三角形(还有 line/line-strip/point/point-list/triangle-strip)
     topology: "triangle-list",
+    // 那面是正面。默认 ccw: counter-clock-wise 逆时针的三角形顶点为正面
+    frontFace: 'ccw',
+    // 剔除模式。
+    cullMode: 'back',
   },
   /* GPGPU的设置
   compute: {
@@ -163,7 +175,7 @@ Buffer 和 Texture 有一堆接口来互相映射，可以简单假设这俩是�
 ```js
 // GPU 程序的副作用
 const input = new Float32Array([1, 3, 5]);
-// GPU buffer 缓冲区(缓冲区不能立即从GPU线程可读，需要另行申请)
+// GPU buffer 缓冲区(缓冲区不能立即从GPU可读，需要另行申请)
 const workBuffer = device.createBuffer({
   label: "work buffer",
   size: input.byteLength,
@@ -176,6 +188,7 @@ device.queue.writeBuffer(workBuffer, 0, input);
 
 // 连接此次render pass和缓冲区
 // VertexBuffer/IndexBuffer 不需要bind，在 createRenderPipeline 里配置
+// layout: 'auto' 的绑定组只能用于一条管线(自定义 layout 可以。用 createBindGroupLayout)
 const bindGroup = device.createBindGroup({
   label: "bindGroup for work buffer",
   layout: pipeline.getBindGroupLayout(0),
@@ -220,7 +233,7 @@ const textureData = new Uint8Array([
   // 2. vertex shader: texcoord = vec2f(xy.x, 1.0 - xy.y);
   // 3. fragment shader: texcoord = vec2f(fsInput.texcoord.x, 1.0 - fsInput.texcoord.y);
 ].flat()); // notice the flat function
-const mips = generateMips(textureData, kTextureWidth); //生成 mipmap(自己写)
+const mips = generateMips(textureData, kTextureWidth); //生成 mipmap(自己写/通常美术会给)
 // 注意仅仅定义了texture，但没有写数据
 const texture = device.createTexture({
   size: [mips[0].width, mips[0].height],
@@ -244,7 +257,7 @@ mips.forEach(({ data, width, height }, mipLevel) => {
 const sampler = device.createSampler();
 
 const bitmap = window.createImageBitmap(await fetch().blob(), { colorSpaceConversion: "none", });
-// 注意 texture 需要 GPUTextureUsage.RENDER_ATTACHMENT
+// 注意 texture 需要 GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.COPY_DST
 // 这是针对 writeTexture 的高级封装，会帮你处理各种情况：multiplyAlpha、flipY 等
 device.queue.copyExternalImageToTexture(
   { source: bitmap || orVideoOrCanvas, flipY: true },
@@ -283,7 +296,7 @@ pass.setIndexBuffer(indexBuffer, "uint32"); //设置 indexBuffer
 pass.drawIndexed(3, 2); //和 indexed buffer 配合使用。每次提取一个索引，每 3 次完成一个三角形
 // pass.dispatchWorkgroups(input.length); // call compute shader 3 times
 pass.draw(3, 2); // call our vertex shader 3vertex * 2instance times
-pass.draw(6); // end 前 draw 的都会保留
+pass.draw(6); // end 前可以调用多次，内容都会保留(意味着"多层"混合)
 // render pass 完成，准备提交
 pass.end();
 
@@ -305,24 +318,68 @@ console.log("input", input);
 console.log("result", result);
 ```
 
+#### 深度测试
+
+```ts
+// 1. pipeline 中指定深度测试逻辑
+const pipeline = device.createRenderPipeline({
+  depthStencil: {
+    depthWriteEnabled: true,
+    depthCompare: 'less',
+    format: 'depth24plus',
+  },
+});
+// 2. 指定 pass 之间的深度处理逻辑
+ const renderPassDescriptor = {
+  depthStencilAttachment: {
+    // view: <- to be filled out when we render
+    depthClearValue: 1.0, // [0-1]
+    depthLoadOp: 'clear',
+    depthStoreOp: 'store',
+  },
+};
+// 3. 创建深度纹理(显式分配、绑定，最大化自定义)
+let depthTexture;
+function render() {
+  const canvasTexture = context.getCurrentTexture();
+  renderPassDescriptor.colorAttachments[0].view = canvasTexture.createView();
+
+  // If we don't have a depth texture OR if its size is different
+  // from the canvasTexture when make a new depth texture
+  if (!depthTexture ||
+      depthTexture.width !== canvasTexture.width ||
+      depthTexture.height !== canvasTexture.height) {
+    if (depthTexture) {
+      depthTexture.destroy();
+    }
+    depthTexture = device.createTexture({
+      size: [canvasTexture.width, canvasTexture.height],
+      format: 'depth24plus',
+      usage: GPUTextureUsage.RENDER_ATTACHMENT,
+    });
+  }
+  renderPassDescriptor.depthStencilAttachment.view = depthTexture.createView();
+}
+```
+
 ## Trivia
-
-### 计算字节偏移数
-
-https://webgpufundamentals.org/webgpu/lessons/resources/wgsl-offset-computer.html
 
 ### Format
 
-![webgpu-formats](../../assets/wgpu-formats.png)
+![webgpu-formats](/assets/wgpu-formats.png)
 
 ### Coordinates
 
-![webgpu-coordinates](../../assets/wgpu-coordinates.png)
+![webgpu-coordinates](/assets/wgpu-coordinates.png)
 
 ### Stride
 
-![webgpu-stride](../../assets/wgpu-stride.png)
+![webgpu-stride](/assets/wgpu-stride.png)
 
 ### Why Index Buffer
 
-![wgpu-why-indexbuffer](../../assets/wgpu-why-indexbuffer.png)
+![wgpu-why-indexbuffer](/assets/wgpu-why-indexbuffer.png)
+
+## 例子
+
+![scene-tree](./scenetree.js)

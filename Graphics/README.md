@@ -24,4 +24,10 @@ const up = [0, 1, 0];
 const target = [0, 0, 0];
 const viewMatrix = mat4.lookAt(cameraPosition, target, up);
 const viewProjectionMatrix = mat4.multiply(projectionMatrix, viewMatrix);
+
+const worldViewProjectionMatrix = mat4.multiply(
+  viewProjectionMatrix,
+  worldMatrix,
+);
+const worldNormalMatrix = mat3.fromMat4(mat4.transpose(mat4.inverse(world)));
 ```

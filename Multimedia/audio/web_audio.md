@@ -5,6 +5,9 @@
   - [Modification Node](#modification-node)
     - [音量(音高增益模块)](#音量音高增益模块)
 
+默认解码多声道后，浏览器自动做立体声降混(DownMix)，后置、中置、低音全部合并到左右声道，声卡只输出 2 路信号。
+需要使用 Web Audio API (最高支持 32 声道 PCM 无损)，但编码封装后的音频需要自己解码
+
 ## Basic
 
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement

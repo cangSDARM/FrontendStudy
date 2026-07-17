@@ -360,6 +360,10 @@ https://betterprogramming.pub/painless-webgpu-programming-with-taichi-js-afa43c7
 
 https://roberthodgin.com/
 
+Generative art https://uegeek.com/181009-generative-art-creativity-01.html
+
+Generative Maze Algorithms https://www.jamisbuck.org/mazes/#
+
 https://marending.dev/notes/visual-testing/
 
 HMR
@@ -456,8 +460,6 @@ Causal Analysis https://zhuanlan.zhihu.com/p/409609129
 
 https://spacelift.io/blog/container-security
 
-https://github.com/juspay/hyperswitch/wiki/Payments-101-for-a-Developer
-
 Eulerian fluid js https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md
@@ -488,6 +490,7 @@ https://github.com/one-piece-official/ImageFlow/blob/master/src/transtions.js
 
 https://webcontainers.io/
 
+book Linux Device Drivers
 https://lwn.net/Kernel/LDD3/
 
 opendrive format https://blog.csdn.net/weixin_44108388/article/details/111303985
@@ -505,8 +508,6 @@ https://learn.yjs.dev/
 https://www.writesoftwarewell.com/content-security-policy/
 
 controls the APIs provided by the browser https://pagure.io/JShelter/webextension/tree/main
-
-Generative art https://uegeek.com/181009-generative-art-creativity-01.html
 
 https://defensivecss.dev/tip/image-compressed/
 
@@ -547,10 +548,10 @@ https://hughfenghen.github.io/posts/2020/10/07/sw-ssr/
 
 https://hughfenghen.github.io/posts/2023/10/06/webcodecs-new-era-for-media-on-the-web/
 
-密码学
-https://catbro666.github.io/posts/e92ef4b4/
+NXP 公司的 NFC 卡加密认证破解过程
 https://zhuanlan.zhihu.com/p/465900396
-https://zhuanlan.zhihu.com/p/465894109
+
+密码分析学总纲
 https://zhuanlan.zhihu.com/p/468424693
 
 2D Graphics Algorithms https://youtu.be/bfvmPa9eWew?t=146
@@ -672,6 +673,12 @@ book 消息传递接口 https://mpitutorial.com/tutorials/
 
 包含了最常用的10种Web安全漏洞，供练习者破解 https://github.com/juice-shop/juice-shop
 
+BVH Tree
+https://zhuanlan.zhihu.com/p/374748734
+https://zhuanlan.zhihu.com/p/430469154
+https://www.cnblogs.com/silence394/p/17285231.html
+https://njucg.github.io/Moer/images/lab1-2025.pdf
+
 How to Create Cool Bounce Effects Using a Loop  https://www.youtube.com/watch?v=BRR7x-uLoWE
 
 Docker and Kubernetes https://www.bilibili.com/video/BV1hS4y1m7Ma/
@@ -771,11 +778,18 @@ https://serokell.io/blog/introduction-to-free-monads
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-importing-textures.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-large-triangle-to-cover-clip-space.html
+
+https://www.realtimerendering.com/blog/gpus-prefer-premultiplication/
 
 https://carmencincotti.com/2022-05-16/rasterization/
 
 https://www.xyzw.io/posts/backend-gpu-p1/
+
+软件渲染原理
+https://github.com/jeffcwj/krkr2_angle/tree/main/docs/P05-%E8%BD%AF%E4%BB%B6%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86
+
+Translucent https://juejin.cn/post/7593241698370453540
 
 https://toji.dev/webgpu-gltf-case-study/
 
