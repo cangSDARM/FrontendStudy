@@ -71,7 +71,6 @@ struct VertexInput {
     vert: VertexInput
 ) -> VertexOutPut {
     // Vertex 的座标空间是归一化后的[-1, 1] (和笛卡尔座标一样)
-    // var == variable; let == const
     var pos = array<vec2f, 3>(
         vec2f(0.0, 0.5), // top center
         vec2f(- 0.5, - 0.5), // bottom left
@@ -89,13 +88,19 @@ struct VertexInput {
     return vsOutput;
 }
 
+struct FsOut {
+    // 颜色附件。最多 8 个
+    // 用于 片元多颜色输出(Multiple Render Targets)
+    @location(0) color: vec4f,
+    // z 值
+    @builtin(frag_depth) depth: f32,
+}
+
 // Fragment 对每个"可能的 pixel"(对被遮盖不可见的也会处理，除非开启深度测试)调用
 // "pixel" 的位置就由 @builtin(position) 定义
 @fragment fn f_main(
     fsInput: VertexOutPut
-) -> 
-// @location(0) 表识会返回给第0个渲染对象
-@location(0) vec4f {
+) -> FsOut {
     // Fragment 中定义的不会被插值
     let red = vec4f(1, 0, 0, 1);
     let cyan = vec4f(0, 1, 1, 1);
@@ -110,25 +115,39 @@ struct VertexInput {
         discard;
     }
 
-    // 没有三元运算，select = (a, b, cond) => cond ? a : b;
+    // 没有三元运算，select 可以逐通道选择
     return select(red, cyan, checker) * sampling;
 }
 
-fn function(a: f32) -> bool {
-    let a = array<f32, 5>;
-    // let == js' const
+fn func(a: f32) -> bool {
+    let a = array<f32, 5>();
+    // let 运行时算出，但不能修改
     var count = arrayLength(&a);
-    // var == js' let
+    // var 标注显存位置，代表开辟内存，可以修改
+    const Pi = 3.14;
+    // const 编译期常量替换
+
+    // swizzles 向量重排
+    let a = vec4<f32>(1, 2, 3, 4);
+    let b = a.zzy;
+
+    var j = 0;
+    while (j < 5) {
+        j++;
+    }
 
     // wgsl uniq control flows
     var k = 0;
     loop {
         // loop
         k++;
-        if (k % 2 == 1) continue;
+        if (k % 2 == 1) {
+            continue;
+        }
 
-        break if (k >= 5);
         // break if
+        // 存在，但根本没有人实现
+        // break if (k >= 5);
 
         continuing {
             // continue goes here

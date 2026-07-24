@@ -571,6 +571,10 @@ https://garden.bradwoods.io/notes/css/3d
 
 https://github.com/google/cdc-file-transfer
 
+https://shipthatcode.com/courses/build-redis
+
+https://piccalil.li/blog/printing-the-web-making-webpages-look-good-on-paper/
+
 https://github.com/simeydotme/pokemon-cards-css
 
 https://www.mcmaster.com/
@@ -649,6 +653,12 @@ book https://microsoft.github.io/code-with-engineering-playbook/agile-developmen
 https://github.com/rust-lang/rust/issues/93740
 
 https://webkit.org/blog/6161/locking-in-webkit/
+
+JSON Lines
+https://cloud.tencent.com/developer/article/2406818
+https://jsonl.co/zh/guide
+https://zhuanlan.zhihu.com/p/1965438531926225357
+https://blog.csdn.net/lonelymanontheway/article/details/153208447
 
 https://dragostis.github.io/posts/analytic-quad-offset/
 
@@ -778,7 +788,7 @@ https://serokell.io/blog/introduction-to-free-monads
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-large-triangle-to-cover-clip-space.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-cube-maps.html
 
 https://www.realtimerendering.com/blog/gpus-prefer-premultiplication/
 
@@ -786,10 +796,17 @@ https://carmencincotti.com/2022-05-16/rasterization/
 
 https://www.xyzw.io/posts/backend-gpu-p1/
 
+https://learnopengl.com/Advanced-Lighting/Deferred-Shading
+
 软件渲染原理
 https://github.com/jeffcwj/krkr2_angle/tree/main/docs/P05-%E8%BD%AF%E4%BB%B6%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86
 
 Translucent https://juejin.cn/post/7593241698370453540
+
+MRT
+https://juejin.cn/post/7390335741586489370
+https://juejin.cn/post/6869202501216763912
+https://blog.csdn.net/ylbs110/article/details/53457576
 
 https://toji.dev/webgpu-gltf-case-study/
 
