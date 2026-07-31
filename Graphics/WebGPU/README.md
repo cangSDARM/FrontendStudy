@@ -2,9 +2,12 @@
   - [准备硬件环境](#准备硬件环境)
   - [准备软件环境](#准备软件环境)
   - [映射数据](#映射数据)
-  - [映射 Texture/Sampler](#映射-texturesampler)
+    - [修改 SwapChain](#修改-swapchain)
+    - [映射 Texture/Sampler](#映射-texturesampler)
+    - [映射 Immediates](#映射-immediates)
   - [渲染 + 读取数据](#渲染--读取数据)
     - [深度测试](#深度测试)
+    - [MSAA](#msaa)
 - [Trivia](#trivia)
   - [Format](#format)
   - [Coordinates](#coordinates)
@@ -188,7 +191,7 @@ device.queue.writeBuffer(workBuffer, 0, input);
 
 // 连接此次render pass和缓冲区
 // VertexBuffer/IndexBuffer 不需要bind，在 createRenderPipeline 里配置
-// layout: 'auto' 的绑定组只能用于一条管线(自定义 layout 可以。用 createBindGroupLayout)
+// layout: 'auto' 的绑定组只能用于一条管线(用 createBindGroupLayout 的自定义 layout 可以多条)
 const bindGroup = device.createBindGroup({
   label: "bindGroup for work buffer",
   layout: pipeline.getBindGroupLayout(0),
@@ -212,7 +215,26 @@ const writerBuffer = device.createBuffer({
 });
 ```
 
-### 映射 Texture/Sampler
+#### 修改 SwapChain
+
+不能同时采样并绘制同一个屏幕，需要多 Pass
+
+```js
+// context.configure 需要设置才可操作
+// usage: GPUTextureUsage.TEXTURE_BINDING
+
+// 获取当前画布 SwapChain 可用的空白 texture
+// 在 context.configure 时已预分配
+const texture = context.getCurrentTexture();
+const bindGroup = device.createBindGroup({
+  layout: pipeline.getBindGroupLayout(0),
+  entries: [
+    { binding: 0, resource: texture },
+  ],
+});
+```
+
+#### 映射 Texture/Sampler
 
 Texture 就是特殊的 Uint8Array 的 storage buffer，步骤类似，但是接口不同
 
@@ -236,7 +258,7 @@ const textureData = new Uint8Array([
 const mips = generateMips(textureData, kTextureWidth); //生成 mipmap(自己写/通常美术会给)
 // 注意仅仅定义了texture，但没有写数据
 const texture = device.createTexture({
-  size: [mips[0].width, mips[0].height],
+  size: [mips[0].width, mips[0].height], // [width, height, depthOrArrayLayers]
   mipLevelCount: mips.length,
   format: "rgba8unorm",
   usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST,
@@ -272,9 +294,22 @@ const bindGroup = device.createBindGroup({
   layout: pipeline.getBindGroupLayout(0),
   entries: [
     { binding: 0, resource: sampler },
+    // cubemap 需要 createView({ dimension:"cube" })。GPU 实现和 2d-array 不一样
     { binding: 1, resource: texture.createView() },
   ],
 });
+```
+
+#### 映射 Immediates
+
+省去 BindGroup，随 GPU 指令流发给 GPU
+
+- 必须完整覆盖结构体有效字节(不含尾部对齐 Padding)，不能只写一部分
+- 不能跨 Draw 复用；一次`setImmediates`只对后面一次`draw`生效
+- 不能用 Render Bundle
+
+```ts
+passEncoder.setImmediates(0, new Float32Array([1,0,0,1,5]));
 ```
 
 ### 渲染 + 读取数据
@@ -294,7 +329,7 @@ pass.setBindGroup(0, bindGroup); // map buffer group
 pass.setVertexBuffer(0, vertexBuffer); //设置 vertexBuffer (@location, buffer)
 pass.setIndexBuffer(indexBuffer, "uint32"); //设置 indexBuffer
 pass.drawIndexed(3, 2); //和 indexed buffer 配合使用。每次提取一个索引，每 3 次完成一个三角形
-// pass.dispatchWorkgroups(input.length); // call compute shader 3 times
+// pass.dispatchWorkgroups(3, 2, 1); // 总工作组 = 3×2×1 = 6 个工作组
 pass.draw(3, 2); // call our vertex shader 3vertex * 2instance times
 pass.draw(6); // end 前可以调用多次，内容都会保留(意味着"多层"混合)
 // render pass 完成，准备提交
@@ -338,12 +373,9 @@ const pipeline = device.createRenderPipeline({
     depthStoreOp: 'store',
   },
 };
-// 3. 创建深度纹理(显式分配、绑定，最大化自定义)
+// 3. 创建深度纹理(最大化自定义)
 let depthTexture;
-function render() {
-  const canvasTexture = context.getCurrentTexture();
-  renderPassDescriptor.colorAttachments[0].view = canvasTexture.createView();
-
+function dt(canvasTexture) {
   // If we don't have a depth texture OR if its size is different
   // from the canvasTexture when make a new depth texture
   if (!depthTexture ||
@@ -358,8 +390,49 @@ function render() {
       usage: GPUTextureUsage.RENDER_ATTACHMENT,
     });
   }
-  renderPassDescriptor.depthStencilAttachment.view = depthTexture.createView();
+  return depthTexture;
 }
+// 4. 绑定纹理
+const canvasTexture = context.getCurrentTexture();
+renderPassDescriptor.colorAttachments[0].view = canvasTexture.createView();
+renderPassDescriptor.depthStencilAttachment.view = dt(canvasTexture).createView();
+```
+
+#### MSAA
+
+```ts
+// 1. pipeline 中设置多重采样 (WebGPU 默认只有 1/4 可用)
+const pipeline = device.createRenderPipeline({
+  multisample: {
+    count: 4,
+  },
+});
+// 2. 创建 MSAA 纹理
+let multisampleTexture;
+function msaa(canvasTexture, sampleCount = 4) {
+  // If the multisample texture doesn't exist or is the wrong size then make a new one.
+  if (!multisampleTexture ||
+      multisampleTexture.width !== canvasTexture.width ||
+      multisampleTexture.height !== canvasTexture.height) {
+    if (multisampleTexture) {
+      multisampleTexture.destroy();
+    }
+
+    multisampleTexture = device.createTexture({
+      format: canvasTexture.format,
+      usage: GPUTextureUsage.RENDER_ATTACHMENT,
+      size: [canvasTexture.width, canvasTexture.height],
+      sampleCount,
+    });
+  }
+  return multisampleTexture;
+}
+// 3. MSAA 结束后交还(resolve) texture
+// Set the multisample texture as the texture to render to
+renderPassDescriptor.colorAttachments[0].view = msaa(canvasTexture, 4).createView();
+// Set the canvas texture as the texture to "resolve" the multisample texture to.
+// do not have to set a resolve target on every render pass
+renderPassDescriptor.colorAttachments[0].resolveTarget = canvasTexture.createView();
 ```
 
 ## Trivia

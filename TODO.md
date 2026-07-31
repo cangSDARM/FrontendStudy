@@ -669,6 +669,8 @@ https://onevariable.com/blog/phase-locked-state-machines/
 Programming Languages: Application and Interpretation
 http://lotuc.org/PLAI-cn/chap01/
 
+https://online-go.com/learn-to-play-go
+
 https://hackaday.com/2022/12/06/usb-c-introduction-for-hackers/
 
 https://thesephist.com/posts/lua/
@@ -788,7 +790,7 @@ https://serokell.io/blog/introduction-to-free-monads
 
 https://acko.net/blog/subpixel-distance-transform/
 
-main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-cube-maps.html
+main ref book https://webgpufundamentals.org/webgpu/lessons/webgpu-constants.html
 
 https://www.realtimerendering.com/blog/gpus-prefer-premultiplication/
 

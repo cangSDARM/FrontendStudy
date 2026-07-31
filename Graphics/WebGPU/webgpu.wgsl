@@ -10,6 +10,7 @@ struct VertexOutPut {
     @builtin(position) position: vec4f,
     // 除了 position 外的信息，在 vertex 后都会被插值生成额外信息给 fragment。称为 Inter-Stage Variables。
     // Inter-Stage 的都需要用@location修饰(依次+1)
+    // 如果是单位向量，插值后不再是单位向量了，需要再次 normalize
     @location(0) color: vec4f,
     /*
     插值配置：@interpolate(type, sample)
@@ -23,7 +24,6 @@ struct VertexOutPut {
             sample: Interpolation is performed per sample. The fragment shader is invoked once per sample when this attribute is applied.
     如果是 integer 类型，则插值方法必须是 flat.
     If you set the interpolation type to flat, the value passed to the fragment shader is the value of the inter-stage variable for the first vertex in that triangle.
-    如果是单位向量，插值后不再是单位向量了，需要再次 normalize
     */
     @location(1) texcoord: vec2f,
 }
@@ -34,13 +34,23 @@ override red: f32 = 0.0;
 
 // 绑定到第0个location，的第0个bindGroup
 // 类型是storage(GPUBufferUsage.STORAGE)，功能是read_write(GPUBufferUsage.COPY_SRC | GPUBufferUsage.COPY_DST)
-// storage可修改，但只能GPGPU中修改
+// storage 可随意读，但写只能在 GPGPU 中写
 // array 在js中依然是一个TypedArray,只是offset按照array内容去取(只有最后一个group才能是不定长的)
 @group(0) @binding(0) var<storage, read_write> data: array<f32>;
+
+// storage texture
+// 不能用 sampler
+// 只有 r32float, r32sint, r32uint 可 read_write，其他的只能 read/write (r32: 单色(red)32 bit)
+// 只能在GPGPU里用(context.configure.usage |= GPUTextureUsage.STORAGE_BINDING)
+@group(0) @binding(0) var storage_tex: texture_storage_2d<rgba8unorm, write>;
 
 // usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
 // uniform ≈ var<storage, read>，但 uniform 更快，且有大小限制(算是wgsl的预定义常量)
 @group(0) @binding(0) var<uniform> uniformStruct: SomeStruct;
+
+// immediate buffer
+// 上限 64bytes，每个 shader 只能有一个
+var<immediate> immediates: vec4<u32>;
 
 // texture
 // wgl中的texture座标(通常称为UV)是归一化后的[0,1]，左上角为(0,0)
@@ -117,6 +127,22 @@ struct FsOut {
 
     // 没有三元运算，select 可以逐通道选择
     return select(red, cyan, checker) * sampling;
+}
+
+@compute
+// 单组总线程数 = 10 × 2 × 3 = 60 线程
+@workgroup_size(10, 2, 3)
+fn cs(
+    // 当前线程在当前工作组的坐标 x(0-9), y(0-1), z(0-2)
+    @builtin(local_invocation_id) lid: vec3u,
+    // 当前线程在整个全局所有线程里的坐标
+    // global_invocation_id = workgroup_id * workgroup_size + local_invocation_id
+    @builtin(global_invocation_id) id : vec3u
+) {
+    let size = textureDimensions(storage_tex);
+    let pos = id.xy;
+    // 写入 storage_texture
+    textureStore(storage_tex, pos, color);
 }
 
 fn func(a: f32) -> bool {

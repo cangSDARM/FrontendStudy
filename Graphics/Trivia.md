@@ -1,19 +1,29 @@
 - [Mipmap](#mipmap)
+  - [LOD](#lod)
 - [深度](#深度)
   - [深度图](#深度图)
   - [深度测试](#深度测试)
 - [纹理图集](#纹理图集)
+  - [CubeMap](#cubemap)
 - [绘制顺序](#绘制顺序)
+- [采样](#采样)
 
 ## Mipmap
 
 因为 Texture UV 是浮点数，而 pixel 是整数，因此在采样 UV 颜色生成 pixel 时，会[产生闪烁](https://webgpufundamentals.org/webgpu/lessons/webgpu-textures.html#:~:text=minFilter)。解决方法就是使用较小的 Texture 去处理(颜色已经人为混合，更为集中单一，因此采样后混合的颜色*看上去*不会闪烁)
 
-Mipmap 生成过程：用纹理创建一个更小的纹理，每个维度都是一半大小，四舍五入。然后用第一个原始纹理的混合颜色填充较小的纹理。重复这个过程，直到得到 1x1 的纹理。如：假设有一个 5x7 的纹理。首先在每个维度上除以 2，然后四舍五入得到一个 2x3 的纹理。重复，直到得到 1x1 的纹理。
+生成过程: 用纹理创建一个更小的纹理，每个维度都是一半大小，四舍五入。然后用第一个原始纹理的混合颜色填充较小的纹理。重复直到得到 1x1 的纹理。
+如: 假设有一个 5x7 的纹理。首先在每个维度上除以 2，然后四舍五入得到一个 2x3 的纹理。重复，直到得到 1x1 的纹理。
 
-而 Mipmap 也有新问题。当处于特定的显示规格尺寸不上不下，Mipmap 不能取大的也不能取小的时，GPU 就需要混合两个 Mipmap。因此有 linear/nearest 的采样区分。Nearest 的在混合时点的变化突然，有锯齿，但是仅用采样 1 UV 性能高；Linear 的在混合时变化有模糊感，看着更为自然，但是需要采样 8 UV 性能更差(3d 时需要 16 UV)
+新问题: 当处于特定的显示规格尺寸不上不下，Mipmap 不能取大的也不能取小的时，GPU 就需要混合两个 Mipmap。因此有 linear/nearest 的采样区分。Nearest 的在混合时点的变化突然，有锯齿，但是仅用采样 1 UV 性能高；Linear 的在混合时变化有模糊感，看着更为自然，但是需要采样 8 UV 性能更差(3d 时需要 16 UV)
 
 ![webgpu-mipmapfilter](../assets/wgpu-mipmapfilter.png)
+
+### LOD
+
+level of details 指要取哪一个 Mipmap，LOD 越大越糊、越小越清晰
+
+有自动和手动。自动的梯度计算公式、导数硬件固化，靠 sampler 做简单限幅、偏移
 
 ## 深度
 
@@ -60,6 +70,18 @@ A --> Is --less--> Write["Write to depth buffer"]
 
 手写时需要处理*纹理映射*；而编辑器打包图集时，会把每张小图的信息提前序列化，运行时引擎再自动读取、自动换算 UV 赋值给顶点
 
+### CubeMap
+
+来源: 十字图集、全景长条图、金属球图都是间接素材，需要转成 CubeMap 才能给 GPU 使用
+
+立方体 6 个正方形面对应三维坐标轴正负方向，GPU 规定 6 个层顺序: +X/-X/+Y/-Y/+Z/-Z
+
+`textureSample(cubeTex, samp, worldNormal)` 选面逻辑:
+
+- 找出 worldNormal 里绝对值最大的分量，决定落到哪个轴
+- 根据该分量正负，确定 6 个面中具体哪一层
+- 用另外两个轴换算成该面内部的 UV，完成采样
+
 ## 绘制顺序
 
 1. 不透明和半透明物体同时存在时，先绘制*不透明*物体，再绘制*半透明*物体
@@ -72,3 +94,5 @@ A --> Is --less--> Write["Write to depth buffer"]
 常见颜色混合公式
 
 $finalRGB = srcRGB \cdot srcAlpha + dstRGB \cdot (1-srcAlpha)$
+
+## [采样](./sampling.md)
