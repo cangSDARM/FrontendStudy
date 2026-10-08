@@ -245,12 +245,22 @@ https://github.com/Lularible/ptp-book/tree/main/chapters
 
 https://github.com/hyqzz/Solar-Wanderer
 
+https://midipiano.app/zh/
+
+https://declaude.org/watermarking/
+
+https://www.codedump.info/dist-system-cn/
+
+https://howtowhistle.org/zh
+
+https://css-tricks.com/that-time-i-tried-browsing-the-web-without-css/
+
+https://qunabu.github.io/Gravity/#what-is-gravity
+
 t-Digest
 https://github.com/tdunning/t-digest
-https://www.cnblogs.com/IoTSharp/p/20023414
 https://blog.bcmeng.com/post/tdigest
-https://blog.csdn.net/qq_41581588/article/details/157932063
-https://datasketches.apache.org/docs/tdigest/tdigest.html
+https://quant67.com/post/algorithms/32-t-digest/t-digest.html
 https://www.gresearch.com/news/approximate-percentiles-with-t-digests/
 
 https://blog.danieljanus.pl/2023/07/20/iterating-trees/
@@ -264,8 +274,6 @@ https://www.maizure.org/projects/decoded-gnu-coreutils/index.html
 https://refactoring.guru/design-patterns
 
 https://swtch.com/~rsc/regexp/regexp4.html
-
-https://mjpclab.net/web-binary-media-programming/media-stream-and-track-intro.html
 
 webp
 https://www.cnblogs.com/cr330326/p/12809418.html
@@ -617,6 +625,12 @@ book https://amoilanen.github.io/Algorithms-with-Typescript/preface.html
 book golang https://chai2010.cn/advanced-go-programming-book/ch1-basic/ch1-02-hello-revolution.html
 
 https://www.khanacademy.org/computing/pixar
+
+https://ykvm.com/2026/07/swiftui-a-story-of-mediocrity/
+
+https://decrypt.co/374916/coldcard-bitcoin-exploit-explained-entropy-keys-bits
+
+https://sf.isopolis.city/#@37.78611,-122.40443,0.45z
 
 https://blog.allegro.tech/2023/11/how-does-btree-make-your-queries-fast.html
 

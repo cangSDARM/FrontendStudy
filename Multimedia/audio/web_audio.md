@@ -107,7 +107,7 @@ const Audio = ({
 ### Intro: Modular
 
 WebAudio API 以模块形式组合(如调整音高以音高模块实现)，类似于现实的调音
-![audio-modular-synth](../assets/audio-modular-synth.png)
+![audio-modular-synth](/assets/audio-modular-synth.png)
 
 模块大致上分为以下几种：
 
@@ -119,6 +119,8 @@ WebAudio API 以模块形式组合(如调整音高以音高模块实现)，类�
   Analyzers and JS processors
 - Destination nodes<br/>
   Audio outputs and offline processing buffers
+- AudioWorklet<br/>
+  Advanced, for implement a custom audio processing node
 
 各种模块以`AudioContext`连接和交互
 
@@ -140,14 +142,21 @@ function connectNode(curNode, preNode, nextNode) {
 ```js
 // 和Graphics的设计类似，需要一个context去操作Audio
 const context = new AudioContext();
+
 const sound = new ArrayBuffer(); // 音源以ArrayBuffer形式存在
-
-// 加载音源数据
-context.decodeAudioData(sound, (buf) => {});
-
-function playSound(soundBuffer, time = 0) {
+// 加载音源数据(bufferSource)
+const sound = await fetch("test.mp3").then((res) => res.arrayBuffer());
+context.decodeAudioData(sound, (buf) => {
   var source = context.createBufferSource(); // creates a sound source
-  source.buffer = soundBuffer; // tell the source which sound to play
+  source.buffer = sound; // tell the source which sound to play
+  playSound(source);
+});
+// 加载音源数据(未暴露)
+const source = audioCtx.createMediaElementSource(audioEl);
+// 纯正弦波/方波
+const source = audioCtx.createOscillator();
+
+function playSound(source, time = 0) {
   source.connect(context.destination); // connect the source to the context's destination (the speakers)
   source.noteOn(time); // play the source at the precise time
 }

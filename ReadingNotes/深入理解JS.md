@@ -428,6 +428,7 @@ Blob 相比于 ArrayBuffer, 添加了文件感知和 MIME 信息
 ```js
 const link = document.createElement("a");
 link.download = "hello.txt";
+link.target = "_blank";
 
 // 第一个参数必须是一个数组 [...] (ArrayBuffer、类型化数组、DataView、Blob、File 或 string)
 const blob = new Blob(["Hello, world!"], { type: "text/plain" });

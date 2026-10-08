@@ -11,6 +11,8 @@
   - [WebRTC](#webrtc)
   - [MSS](#mss)
   - [SRT](#srt)
+- [播放](#播放)
+  - [Web](#web)
 
 ## 封装
 
@@ -134,3 +136,7 @@ DASH 多用于 MPEG 格式，称为 MPEG-DASH
 (Secure Reliable Transport)，专为低延迟、高可靠传输设计
 
 它集成了丢包重传(ARQ)、加密(AES)和端到端延迟控制。在推流(上行)场景中，SRT 正逐渐替代 RTMP
+
+## 播放
+
+### [Web](./web_multimedia.md)
