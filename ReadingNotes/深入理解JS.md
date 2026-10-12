@@ -21,10 +21,10 @@
 - [Binary](#binary)
   - [TypedArray](#typedarray)
   - [SharedArrayBuffer](#sharedarraybuffer)
-    - [Atomics](#atomics)
   - [Binary Operators](#binary-operators)
   - [Blob](#blob)
 - [Tip](#tip)
+    - [Lazy Evaluation](#lazy-evaluation)
     - [FinalizationRegistry](#finalizationregistry)
     - [Object.preventExtensions](#objectpreventextensions)
     - [Object.seal](#objectseal)
@@ -166,7 +166,7 @@ function f(phrase) {
   };
 }
 // 在 extends 后允许任意表达式
-class User extends f("Hello") {}  //继承自 f("Hello") 的结果
+class User extends f("Hello") {} //继承自 f("Hello") 的结果
 new User().sayHi();
 ```
 
@@ -316,14 +316,14 @@ while(reg.test() || reg.exec())
 ### SharedArrayBuffer
 
 - 普通的 js primitive 数据(如`string`, `ArrayBuffer`)是 transferable 的, 但 clone 了
-- 只有`SharedArrayBuffer`是共享同一片内存(但不是 transferable 的)。也因此在多进程环境下, js 也有竞态条件需要处理
+- 只有`SharedArrayBuffer`是共享同一片内存(但不是 transferable 的)。是进程内线程共享内存，跨进程 send 是拷贝
 - 只能扩容，不能收缩(避免多线程 UAF)
 
 ```js
 const sharedBuffer = new SharedArrayBuffer(10);
 
 const workers = Array.from({ length: 2 }).map(() => new Worker('worker.js'));
-workers.forEach((worker, workerId) => 
+workers.forEach((worker, workerId) =>
   worker.postMessage({ workerData: sharedBuffer, workerId });
 );
 
@@ -333,20 +333,6 @@ self.onmessage = ({ data: { workerData, workerId } }) => {
   typedArray[0] = workerId;
   console.dir({ workerId, value: typedArray[0] });
 }
-```
-
-#### [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
-
-注意，现在 js 库的 Mutex/Semaphore 实现都是通过自己维护队列实现，不是真的多线程信号量
-
-```diff
-const typedArray = new Int8Array(workerData);
-- typedArray[0] = workerId;
-- console.dir({ workerId, value: typedArray[0] });
-+ // Two Atomic Operation (store, load)
-+ Atomics.store(typedArray, 0, workerId);
-+ const value = Atomics.load(typedArray, 0);
-+ console.dir({ workerId, value });
 ```
 
 ### Binary Operators
@@ -465,6 +451,25 @@ reader.onload = function () {
 ```
 
 ## Tip
+
+#### Lazy Evaluation
+
+```js
+Iterator.from(arrayLike)
+  .map(x => x * 2)
+  .filter(x => x > 10)
+  .take(3)
+  .toArray(); // only one `new Array`
+
+for (
+  const item
+of
+  // lazily evaluate each thing
+  Iterator.concat(page1, page2, page3)
+) { 
+  process(item);
+}
+```
 
 #### FinalizationRegistry
 

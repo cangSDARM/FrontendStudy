@@ -1,27 +1,19 @@
+- [变量修饰符](#变量修饰符)
+  - [using](#using)
+    - [DisposableStack](#disposablestack)
 - [函数默认值](#函数默认值)
 - [解构](#解构)
   - [对象解构](#对象解构)
   - [数组解构](#数组解构)
   - [复杂解构](#复杂解构)
   - [for-of 中解构](#for-of-中解构)
+- [Set 集合](#set-集合)
 - [Proxy 代理](#proxy-代理)
   - [可撤销的代理](#可撤销的代理)
 - [Reflect 反射](#reflect-反射)
 
 # ECMA
 
-- 变量修饰符
-  > var 可以重新声明(最小: function)<br/>
-  > let 局部(最小: block)<br/>
-  > const 对象属性可变, 对象不可变(最小: block)<br/>
-  > const A = Object.preventExtensions(obj). 不许添加属性 <br/>
-  > const B = Object.seal(obj). 不许修改属性 <br/>
-  > const C = Object.freeze(obj). 彻底不可变(shallow)
-- 集合 Set
-  > 同 python 的 Set<br/>
-  > const set = new Set();<br/>
-  > set.add(); set.has(); set.delate(); set.clear()<br/>
-  > 转为数组: var arr = Array.from(set)
 - 弱引用 WeakSet
   > 类似集合, 但有其它要求<br/>
   > 集合内容只能是对象<br/>
@@ -63,7 +55,85 @@
   > 不可遍历, 唯一不重复<br/>
   > 可以使用 const p1 = Symbol.for('p'), p2 = Symbol.for('p'); p1 === p2; 称为 Symbol 全局注册表<br/>
 
-### 函数默认值
+## 变量修饰符
+
+> var 可以重新声明(最小: function)<br/>
+> let 局部(最小: block)<br/>
+> const 对象属性可变, 对象不可变(最小: block)<br/>
+> const A = Object.preventExtensions(obj). 不许添加属性 <br/>
+> const B = Object.seal(obj). 不许修改属性 <br/>
+> const C = Object.freeze(obj). 彻底不可变(shallow)
+
+### using
+
+块级作用域，类似于 Rust 的所有权
+
+> 可以在模块的顶层作用域中使用 using
+
+典型场景
+
+```diff
+// 初始化或使用资源时都可能报错
+-try {
+-  const resource = new Resource();
+-  try {
+-    handleResource(resource);
+-  } catch (e) {
+-    console.error(e);
+-  } finally {
+-    resource.dispose();
+-  }
+-} catch {
+-  console.error(e);
+-}
++try {
++  using resource = new Resource();
++  handleResource(resource);
++} catch (e) {
++  console.error(e);
++}
+```
+
+要求、闭包问题
+
+```js
+class Resource {
+  // 必须声明才能使用 using
+  [Symbol.dispose]() { }
+  // 必须声明才能使用 async using
+  [Symbol.asyncDispose]() { }
+}
+
+// 闭包问题解决
+function example() {
+  const resource = new Resource();
+  
+  return () => {
+    using resource2 = resource;
+    return resource2.getValue();
+  };
+}
+```
+
+#### DisposableStack
+
+```js
+{
+  using disposer = new DisposableStack();
+  const reader = disposer.use(stream.getReader());  // 需要本身可以 using
+  const writer = disposer.adopt(stream.getWriter(), function onDispose(writer) {
+    writer.releaseLock();
+  });  // adopt 一个没实现 using 的
+  disposer.defer(() => { console.log("golang defer") });  // 和 golang 的 defer 一样
+
+  {
+    disposer.move();  // move stack to this block
+  }
+  console.assert(disposer.disposed === true);
+}
+```
+
+## 函数默认值
 
 ```js
 //ECS6:
@@ -76,7 +146,7 @@
 ECS5: function(a){ a = a|1 }
 ```
 
-### 解构
+## 解构
 
 **常用于:**
 
@@ -84,7 +154,7 @@ ECS5: function(a){ a = a|1 }
 2. 从函数返回多个值 `function(){ return [r1, r2, ..] }`
 3. 参数默认值 `function({sync=ture, cache=true}){ }`
 
-#### 对象解构
+### 对象解构
 
 - 需要变量和属性名字相同
 
@@ -106,7 +176,7 @@ ECS5: function(a){ a = a|1 }
     let { ['z']: foo } = { z: "bar" }   //foo "bar"
 ```
 
-#### 数组解构
+### 数组解构
 
 ```js
 //快速拆解数组
@@ -120,7 +190,7 @@ var [foo, [[bar], baz]] = ([1, [[2], 3]][
 ] = []); //0号下标元素未定义
 ```
 
-#### 复杂解构
+### 复杂解构
 
 ```js
 let [{ age }] = [{ age: 8, name: "xx" }, "深圳", [1, 2, 3]];
@@ -129,13 +199,38 @@ let a;
 ({ a = '1' } = { a: 1 }); //outer brackets are required
 ```
 
-#### for-of 中解构
+### for-of 中解构
 
 ```js
 for (var {name: n, family: {father: f}} of people)
 ```
 
-### Proxy 代理
+## Set 集合
+
+```js
+const youKnow  = new Set(["JS", "Python", "CSS", "SQL"]);
+const jobNeeds = new Set(["JS", "Python", "TypeScript"]);
+
+set.add(); set.has(); set.delate(); set.clear();
+
+// 交叉并补操作:
+// 交集
+youKnow.intersection(jobNeeds);   // → Set {"JS", "Python"}
+// 并集
+youKnow.union(jobNeeds);           // → Set {"JS", "Python", "CSS", "SQL", "TypeScript"}
+// 差集
+youKnow.difference(jobNeeds);     // → Set {"CSS", "SQL"}
+// appear in only one set, not both
+youKnow.symmetricDifference(jobNeeds); // → Set {"CSS", "SQL", "TypeScript"}
+// 子集
+youKnow.isSubsetOf(jobNeeds);     // → false
+// 超集
+youKnow.isSupersetOf(jobNeeds);   // → false
+// 互不相交
+youKnow.isDisjointFrom(jobNeeds); // → false
+```
+
+## Proxy 代理
 
 > `const proxy = new Proxy(target, handler)`<br/>
 > 使用 handler 对象限定 target 的访问和重写其元方法.<br/>
@@ -179,7 +274,7 @@ const handler = {
 }
 ```
 
-#### 可撤销的代理
+### 可撤销的代理
 
 > 代理会将操作转发给对象，并且我们可以随时将其禁用
 
@@ -195,7 +290,7 @@ revoke();
 alert(proxy.data); // Error
 ```
 
-### Reflect 反射
+## Reflect 反射
 
 > 提供拦截元操作(.[], (), new, delete)的方法
 >

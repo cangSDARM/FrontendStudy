@@ -1,6 +1,8 @@
 //设置的所有字段，都会被设置为 npm_package_ 开头的环境变量
 //npm 相关的所有配置也会有 npm_config_ 开头的环境变量
 {
+  // 明确开启 esm，tsc 会检查。否则 TypeScript 固定不会走 ESM 模式
+  type: "module",
   /**
   const midash = require('midash')
   
@@ -33,8 +35,10 @@
     /**
     import/require 重定向:
      - 没有: import 和 export 导入内容一样，并由于 ESM/CommonJS 的逻辑不同，有可能出 BUG
+     - 优先级取决于它声明的顺序，越前面的越高
     */
     "./impreq/*": {
+      "node-addons": "./dist/c-plus-native.node",
       // import in ESM
       "import": "./dist/src/main.module.js",
       // require in CJS
@@ -43,10 +47,15 @@
       "types": "./types/index.d.ts",
       // NODE_ENV=dev or prod
       "development": "./dist/src/main.dev.js",
-      "production": "./dist/src/main.prod.js"
+      "production": "./dist/src/main.prod.js",
+      // 可以嵌套
+      "deno": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
     },
   },
-  // "typeVersions": exports fallback, 但是用于 ts 的类型导入
+  // "typeVersions": exports fallback, 但是用于 ts 的类型导入(moduleResolution: node 时强制需要)
   typeVersions: {
     "*": {
       "main.d.ts": ["dist/src/main.d.ts"],
@@ -54,6 +63,15 @@
   },
   // 实际 publish 的内容
   files: ["dist"],
+  publishConfig: {
+    // 发布出去的包都要写扩展名，因为这个库的使用环境可能要求写扩展名，例如 nodejs
+    "exports": {
+      "./*": {
+        "types": "./dist/types/*.d.ts",
+        "import": "./dist/es/*.mjs"
+      }
+    }
+  },
   // https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces: npm 的 monorepo 支持
   workspaces: ["xyz", "abc"],
   // 命令行支持

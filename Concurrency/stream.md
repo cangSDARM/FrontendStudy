@@ -28,6 +28,8 @@
 
 `getReader`和`getWriter`返回的是一个新实例。因此如果其他地方要消费时，旧的必须调用`releaseLock()`释放才能用新的
 
+> 浏览器的流只能用回调写法新建(底层由 c++ 管理)，无法继承
+
 ### 常用 API
 
 ```js
@@ -63,8 +65,10 @@ writableStream.abort('reason'); //abort将流置于错误模式，并立即关�
 // 转换流
 const transformStream = new TransformStream({
   start,
-  transform: function(chunk, controller) {},
-  flush, // flush = 队尾一次write + close
+  transform(chunk, controller) {},
+  flush(chunk) { // flush = 队尾一次write + close
+    super.flush();
+  },
 });
 
 // 控制器

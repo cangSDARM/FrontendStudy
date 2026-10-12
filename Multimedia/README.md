@@ -1,4 +1,4 @@
-- [image](./image.md)
+- [image](./image/README.md)
 - [audio](./audio/README.md)
   - [WebAudio](./audio/web_audio.md)
   - [TTS](./audio/tts.md)

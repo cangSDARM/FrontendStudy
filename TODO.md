@@ -157,9 +157,6 @@ https://cryptopals.com/
 
 https://github.com/JuliaPlots/UnicodePlots.jl
 
-ts moduleResolution 总结
-https://juejin.cn/post/7221551421833314360
-
 https://github.com/microsoft/FASTER
 
 https://www.davepagurek.com/blog/easing-functions/
@@ -167,8 +164,6 @@ https://www.davepagurek.com/blog/easing-functions/
 https://www.archdaily.cn/
 
 https://karboosx.net/post/4eZxhBon/building-a-simple-search-engine-that-actually-works
-
-https://pavel-romanov.com/building-semaphore-and-mutex-in-nodejs
 
 https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels
 

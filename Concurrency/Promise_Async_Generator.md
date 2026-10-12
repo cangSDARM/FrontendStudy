@@ -14,7 +14,9 @@
   - [`return` 终止生成器](#return-终止生成器)
   - [yield\* 用来展开生成器](#yield-用来展开生成器)
 - [Async 和生成器混用](#async-和生成器混用)
-- [扩展：Deferred](#扩展deferred)
+- [扩展](#扩展)
+  - [Deferred](#deferred)
+  - [Mutex](#mutex)
 
 ## Promise
 
@@ -325,7 +327,9 @@ async function bar() {
 }
 ```
 
-## 扩展：Deferred
+## 扩展
+
+### Deferred
 
 Deferred 对象是 Promise 的超集，可以手动触发
 // 参考: https://github.com/shalldie/mini-dfd/blob/master/index.js
@@ -348,4 +352,39 @@ function AsyncPromiseQueue() {
     return result;
   }
 }
+```
+
+### Mutex
+
+- 传统 OS Mutex: 执行流 = 线程；阻塞是指: 线程休眠
+- 异步运行时 Mutex: 执行流 = 协程；阻塞是指: Promise 挂起
+
+在异步协程领域，全部都是 **Promise + 任务等待队列的"假锁"，名字依然叫 Mutex**
+
+场景(异步操作 + 并发调用)
+
+```js
+async function writeFile() {
+  // 读文件，修改，写回
+  const buf = await fs.readFile('./a.txt');
+  await fs.writeFile('./a.txt', ...);   // await 会让出事件循环
+}
+// 并发调用
+writeFile();
+writeFile();
+// 任务 A：`readFile` 发起 IO → 挂起，事件循环空闲
+// 任务 B：开始执行，`readFile` 读取同一个文件
+// A、B 读到相同旧内容，先后写入，**覆盖丢失更新**
+
+const mutex = new Mutex();
+async function exclusiveTask() {
+  const release = await mutex.acquire();
+  try {
+    await writeFile();
+  } finally {
+    release();
+  }
+}
+exclusiveTask();
+exclusiveTask();
 ```

@@ -1,10 +1,11 @@
-- Layer1: 效率
+- Layer1: (共享内存)效率
   - [内核 IO](./io.md)
-- Layer2: 组织
+  - [竟态](./race-condition.md)
+- Layer2: (单线程 IO)组织
   - [Promise, Generator, Async](./Promise_Async_Generator.md)
   - [Stream](./stream.md)
-  - [Rxjs (Reactive Stream)](./Rxjs.md)
-- Layer3: 可靠
+  - [Rxjs (Reactive Stream)](./rxjs.md)
+- Layer3: (分布式)可靠
   - [CRDT](./CRDTs.md)
   - [事件溯源模式](./event-sourcing.md)
 
