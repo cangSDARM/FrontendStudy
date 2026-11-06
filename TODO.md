@@ -51,8 +51,6 @@ https://retouve2000.notion.site/334a5ada30d143249889c09b732e4e3b#69f52012fb48449
 
 https://www.bram.us/2023/06/21/synchronize-videos-3d-models-to-scroll-driven-animations/
 
-https://github.com/partykit/partykit/tree/main/packages/partysocket
-
 https://blog.l3zc.com/2025/04/tailscale-setup-recap/
 
 行为树
@@ -213,7 +211,6 @@ https://zoom.earth/
 
 AI 敏捷开发框架
 https://blog.mapin.net/posts/BMAD%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20AI%20%E9%A9%B1%E5%8A%A8%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6
-https://cloud.tencent.com/developer/article/2633141
 
 Hashing
 https://dipsingh.github.io/Hashing-HighSpeed-Packet-Processing/
@@ -242,13 +239,9 @@ https://github.com/hyqzz/Solar-Wanderer
 
 https://midipiano.app/zh/
 
-https://declaude.org/watermarking/
-
 https://www.codedump.info/dist-system-cn/
 
 https://howtowhistle.org/zh
-
-https://css-tricks.com/that-time-i-tried-browsing-the-web-without-css/
 
 https://qunabu.github.io/Gravity/#what-is-gravity
 
@@ -369,6 +362,8 @@ Generative Maze Algorithms https://www.jamisbuck.org/mazes/#
 
 https://marending.dev/notes/visual-testing/
 
+Graphic Theory book: https://vertex.degree/
+
 HMR
 https://youtu.be/e5M_5jKPaL4
 
@@ -378,9 +373,15 @@ https://www.redblobgames.com/making-of/draggable/
 
 https://agraphicsguynotes.com/posts/fiber_in_cpp_understanding_the_basics/
 
-https://vitalik.ca/general/2023/08/16/communitynotes.html
-
 https://tonedear.com/
+
+https://github.com/wangshusen/RecommenderSystem
+
+https://github.com/SethPDA/MDPro3
+
+https://socket.dev/blog/obfuscation-101-the-tricks-behind-malicious-code
+
+https://segmentfault.com/a/1190000043585191
 
 https://scrollbars.matoseb.com/
 
@@ -530,8 +531,6 @@ book https://tandasat.github.io/Hypervisor-101-in-Rust/#welcome-to-hypervisor-10
 https://gruebelinchen.wordpress.com/2023/06/06/demystifying-trait-generics-in-rust/
 
 https://cohenarthur.github.io/2023/06/05/rust-derives.html
-
-https://maciej.codes/2022-06-09-local-async.html
 
 https://github.com/weaviate/healthsearch-demo
 
